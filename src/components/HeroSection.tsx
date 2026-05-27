@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import { useState, useEffect } from "react";
 import {
   ArrowRight,
   Globe,
@@ -15,7 +16,29 @@ import {
 import { motion } from "framer-motion";
 import { siteData } from "@/lib/data";
 
+interface Particle {
+  id: number;
+  top: string;
+  left: string;
+  duration: number;
+  delay: number;
+}
+
 export default function HeroSection() {
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  // Generate particles only on the client to avoid hydration mismatch
+  useEffect(() => {
+    const generated = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      duration: 3 + Math.random() * 4,
+      delay: Math.random() * 5,
+    }));
+    setParticles(generated);
+  }, []);
+
   const handleScroll = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -75,26 +98,28 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Floating Particles */}
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 rounded-full bg-white/20"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: 3 + Math.random() * 4,
-            repeat: Infinity,
-            delay: Math.random() * 5,
-          }}
-        />
-      ))}
+      {/* Floating Particles - Client Only (avoids hydration mismatch) */}
+      <div className="absolute inset-0 pointer-events-none">
+        {particles.map((particle) => (
+          <motion.div
+            key={particle.id}
+            className="absolute w-1 h-1 rounded-full bg-white/20"
+            style={{
+              top: particle.top,
+              left: particle.left,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              delay: particle.delay,
+            }}
+          />
+        ))}
+      </div>
 
       {/* === MAIN CONTENT === */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -219,7 +244,9 @@ export default function HeroSection() {
               <div className="w-px h-4 bg-white/10" />
               <div className="flex items-center gap-2">
                 <CheckCircle size={14} className="text-[#06b6d4]" />
-                <span className="text-xs text-gray-400">3+ Projects Delivered</span>
+                <span className="text-xs text-gray-400">
+                  3+ Projects Delivered
+                </span>
               </div>
               <div className="w-px h-4 bg-white/10" />
               <div className="flex items-center gap-2">
@@ -248,9 +275,7 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <div className="text-xs text-gray-500">Avg. Load Time</div>
-                  <div className="text-lg font-bold text-white">
-                    {"<"}1.5s
-                  </div>
+                  <div className="text-lg font-bold text-white">{"<"}1.5s</div>
                 </div>
               </div>
             </motion.div>
@@ -327,7 +352,9 @@ export default function HeroSection() {
                     className="pl-4 flex flex-wrap gap-x-2"
                   >
                     <span className="text-[#6366f1]">design:</span>
-                    <span className="text-green-400">{"'Custom & Modern'"}</span>
+                    <span className="text-green-400">
+                      {"'Custom & Modern'"}
+                    </span>
                     <span className="text-gray-500">,</span>
                   </motion.div>
 
@@ -442,10 +469,26 @@ export default function HeroSection() {
         >
           {/* Feature Pills */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            <FeaturePill icon={<Globe size={14} />} text="Custom Code" color="#6366f1" />
-            <FeaturePill icon={<Search size={14} />} text="SEO Optimized" color="#8b5cf6" />
-            <FeaturePill icon={<Share2 size={14} />} text="Social Media" color="#06b6d4" />
-            <FeaturePill icon={<Zap size={14} />} text="Fast Delivery" color="#a78bfa" />
+            <FeaturePill
+              icon={<Globe size={14} />}
+              text="Custom Code"
+              color="#6366f1"
+            />
+            <FeaturePill
+              icon={<Search size={14} />}
+              text="SEO Optimized"
+              color="#8b5cf6"
+            />
+            <FeaturePill
+              icon={<Share2 size={14} />}
+              text="Social Media"
+              color="#06b6d4"
+            />
+            <FeaturePill
+              icon={<Zap size={14} />}
+              text="Fast Delivery"
+              color="#a78bfa"
+            />
           </div>
 
           {/* Price Badge */}

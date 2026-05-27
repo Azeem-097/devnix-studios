@@ -60,7 +60,7 @@ export default function Navbar() {
               alt="Devnix Studios Logo"
               width={40}
               height={40}
-              className="rounded-lg group-hover:shadow-lg group-hover:shadow-[#6366f1]/30 transition-shadow duration-300"
+              style={{ width: "auto", height: "auto" }} className="rounded-lg group-hover:shadow-lg group-hover:shadow-[#6366f1]/30 transition-shadow duration-300"
             />
             <div className="flex flex-col leading-tight">
               <span className="text-sm sm:text-base font-bold tracking-wider text-white uppercase">

@@ -1,6 +1,7 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Send,
@@ -18,11 +19,12 @@ import { siteData } from "@/lib/data";
 type FormStatus = "idle" | "sending" | "success" | "error";
 
 export default function ContactForm() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    from_email: "",
     phone: "",
     service: "",
     message: "",
@@ -41,63 +43,72 @@ export default function ContactForm() {
     setStatus("sending");
     setErrorMessage("");
 
-    const formPayload = new FormData(e.currentTarget);
-    formPayload.append("access_key", "9d832bff-2131-4059-806a-65de3ae1a0c1");
-    formPayload.append("from_name", "Devnix Studios Website");
-    formPayload.append("subject", `New Inquiry from ${formData.name}`);
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formPayload,
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        setStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-        // Reset success state after 5 seconds
-        setTimeout(() => setStatus("idle"), 5000);
-      } else {
-        setStatus("error");
-        setErrorMessage(result.message || "Something went wrong. Please try again.");
-      }
-    } catch {
+    // Validation
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("❌ EmailJS environment variables not set!");
+      console.log("Service ID:", serviceId);
+      console.log("Template ID:", templateId);
+      console.log("Public Key:", publicKey);
       setStatus("error");
       setErrorMessage(
-        "Failed to send message. Please try again or contact us on WhatsApp."
+        "Form not configured. Please contact us directly via WhatsApp."
+      );
+      return;
+    }
+
+    console.log("📤 Sending email via EmailJS...");
+
+    try {
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.from_name,
+          from_email: formData.from_email,
+          phone: formData.phone || "Not provided",
+          service:
+            siteData.serviceOptions.find((s) => s.value === formData.service)
+              ?.label || formData.service,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      console.log("✅ Email sent successfully!", result);
+      setStatus("success");
+      setFormData({
+        from_name: "",
+        from_email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+      setTimeout(() => setStatus("idle"), 6000);
+    } catch (error) {
+      const err = error as { text?: string; message?: string };
+      console.error("❌ EmailJS error:", err);
+      setStatus("error");
+      setErrorMessage(
+        err.text ||
+          err.message ||
+          "Failed to send message. Please try WhatsApp instead."
       );
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      {/* Honeypot Field for Spam Protection */}
-      <input
-        type="checkbox"
-        name="botcheck"
-        className="hidden"
-        style={{ display: "none" }}
-      />
-
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
       {/* Name & Email Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <FormField
-          icon={<User size={16} />}
-          label="Your Name"
-          required
-        >
+        <FormField icon={<User size={16} />} label="Your Name" required>
           <input
             type="text"
-            name="name"
-            value={formData.name}
+            name="from_name"
+            value={formData.from_name}
             onChange={handleChange}
             required
             placeholder="John Doe"
@@ -108,8 +119,8 @@ export default function ContactForm() {
         <FormField icon={<Mail size={16} />} label="Email" required>
           <input
             type="email"
-            name="email"
-            value={formData.email}
+            name="from_email"
+            value={formData.from_email}
             onChange={handleChange}
             required
             placeholder="you@example.com"
@@ -168,7 +179,11 @@ export default function ContactForm() {
       </div>
 
       {/* Message */}
-      <FormField icon={<MessageSquare size={16} />} label="Your Message" required>
+      <FormField
+        icon={<MessageSquare size={16} />}
+        label="Your Message"
+        required
+      >
         <textarea
           name="message"
           value={formData.message}
@@ -192,7 +207,7 @@ export default function ContactForm() {
             <CheckCircle size={20} className="text-green-400 shrink-0" />
             <div>
               <div className="text-sm font-semibold text-green-400">
-                Message sent successfully!
+                Message sent successfully! 🎉
               </div>
               <div className="text-xs text-green-400/70 mt-0.5">
                 We will get back to you within 24 hours.
@@ -236,13 +251,13 @@ export default function ContactForm() {
           </>
         ) : (
           <>
-            <Send size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <Send
+              size={16}
+              className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+            />
             Send Message
           </>
         )}
-
-        {/* Hover gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
       </motion.button>
 
       {/* Privacy Note */}
