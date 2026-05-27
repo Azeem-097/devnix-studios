@@ -73,6 +73,11 @@ export interface Project {
   screenshot?: string;
 }
 
+export interface ServiceOption {
+  value: string;
+  label: string;
+}
+
 export interface SiteData {
   siteName: string;
   tagline: string;
@@ -89,4 +94,5 @@ export interface SiteData {
   socialLinks: SocialLink[];
   contactInfo: ContactInfo;
   projects: Project[];
+  serviceOptions: ServiceOption[];
 }

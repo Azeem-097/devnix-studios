@@ -86,6 +86,15 @@ export const siteData: SiteData = {
     },
   ],
 
+  serviceOptions: [
+    { value: "custom-website", label: "Custom Website Development" },
+    { value: "seo", label: "SEO Optimization" },
+    { value: "social-media", label: "Social Media Management" },
+    { value: "full-package", label: "Complete Package (Website + Support)" },
+    { value: "maintenance", label: "Website Maintenance Only" },
+    { value: "other", label: "Other / Custom Request" },
+  ],
+
   packageFeatures: [
     { text: "Fully Custom-Built Website", included: true },
     {
