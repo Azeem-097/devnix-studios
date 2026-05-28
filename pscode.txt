@@ -74,3 +74,6 @@ I am working on a next js and react project
 here is the files created yet
 
 ------ for codes... write me a powershell code that will automatically create files and folders and write, edit or replace their content when i run that code in vs code terminal - Do this for our project next
+
+
+D41vySR5TrEEtAFB-wkTSCFvo4mRWPTgLnIA8

@@ -40,3 +40,5 @@ next-env.d.ts
 
 # Project snapshot (for AI context only - not for git)
 /_project_snapshot
+
+pscode.txt

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SchemaOrg from "@/components/SchemaOrg";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google: "a8DKm6D41vySR5TrEEtAFB-wkTSCFvo4mRWPTgLnIA8",
+    google: "D41vySR5TrEEtAFB-wkTSCFvo4mRWPTgLnIA8",
   },
 
   icons: {
@@ -102,6 +103,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased bg-[#0a0a0f] text-white overflow-x-hidden`}
       >
+        <GoogleAnalytics />
         <SchemaOrg />
         {children}
       </body>
