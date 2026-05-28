@@ -1,8 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { siteData } from "@/lib/data";
 
@@ -21,7 +22,7 @@ export default function Footer() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = (href: string) => {
+  const handleScrollLink = (href: string) => {
     if (isHomePage) {
       const element = document.querySelector(href);
       if (element) {
@@ -36,13 +37,16 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Compact nav for footer
-  const compactLinks = [
+  const scrollLinks = [
     { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
     { label: "Projects", href: "#projects" },
     { label: "Package", href: "#package" },
     { label: "Contact", href: "#contact" },
+  ];
+
+  const pageLinks = [
+    { label: "Services", href: "/services" },
+    { label: "Blog", href: "/blog" },
   ];
 
   return (
@@ -50,7 +54,7 @@ export default function Footer() {
       <div className="absolute inset-0 bg-[#070710]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* TOP ROW: Logo (left) | Nav (center) | Scroll Top (right) */}
+        {/* TOP ROW */}
         <div className="py-8 flex flex-col lg:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <a
@@ -58,7 +62,7 @@ export default function Footer() {
             onClick={(e) => {
               if (isHomePage) {
                 e.preventDefault();
-                handleLinkClick("#home");
+                handleScrollLink("#home");
               }
             }}
             className="flex items-center gap-3 group"
@@ -82,14 +86,14 @@ export default function Footer() {
 
           {/* Nav Links */}
           <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2">
-            {compactLinks.map((link) => (
+            {scrollLinks.map((link) => (
               <a
                 key={link.label}
                 href={isHomePage ? link.href : `/${link.href}`}
                 onClick={(e) => {
                   if (isHomePage) {
                     e.preventDefault();
-                    handleLinkClick(link.href);
+                    handleScrollLink(link.href);
                   }
                 }}
                 className="px-3 py-1.5 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
@@ -97,15 +101,22 @@ export default function Footer() {
                 {link.label}
               </a>
             ))}
+            {pageLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="px-3 py-1.5 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           {/* Scroll to Top Button */}
           <button
             onClick={scrollToTop}
             className={`w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all duration-300 ${
-              showScrollTop
-                ? "opacity-100"
-                : "opacity-50 hover:opacity-100"
+              showScrollTop ? "opacity-100" : "opacity-50 hover:opacity-100"
             }`}
             title="Back to top"
           >
@@ -116,7 +127,7 @@ export default function Footer() {
         {/* DIVIDER */}
         <div className="h-px bg-linear-to-r from-transparent via-white/[0.08] to-transparent" />
 
-        {/* SOCIAL ICONS - Centered */}
+        {/* SOCIAL ICONS */}
         <div className="py-8 flex justify-center">
           <div className="flex items-center gap-3">
             {/* Email */}
@@ -164,7 +175,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* COPYRIGHT - Centered */}
+        {/* COPYRIGHT */}
         <div className="pb-8 text-center space-y-1">
           <p className="text-sm text-gray-500">
             &copy; {currentYear} {siteData.siteName}. All rights reserved.
@@ -174,7 +185,7 @@ export default function Footer() {
             onClick={(e) => {
               if (isHomePage) {
                 e.preventDefault();
-                handleLinkClick("#home");
+                handleScrollLink("#home");
               }
             }}
             className="text-sm bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent font-medium hover:opacity-80 transition-opacity"
@@ -183,7 +194,7 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* HIDDEN LEGAL LINKS (kept accessible but visually minimal) */}
+        {/* LEGAL LINKS */}
         <div className="pb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs">
           <a
             href="/privacy-policy"
@@ -191,14 +202,14 @@ export default function Footer() {
           >
             Privacy Policy
           </a>
-          <span className="text-gray-700">•</span>
+          <span className="text-gray-700">&bull;</span>
           <a
             href="/terms-of-service"
             className="text-gray-600 hover:text-gray-400 transition-colors"
           >
             Terms of Service
           </a>
-          <span className="text-gray-700">•</span>
+          <span className="text-gray-700">&bull;</span>
           <a
             href="/refund-policy"
             className="text-gray-600 hover:text-gray-400 transition-colors"

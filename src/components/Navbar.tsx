@@ -1,10 +1,19 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { siteData } from "@/lib/data";
+
+const navLinks = [
+  { label: "Home", href: "#home", type: "scroll" },
+  { label: "Services", href: "/services", type: "page" },
+  { label: "Projects", href: "#projects", type: "scroll" },
+  { label: "Package", href: "#package", type: "scroll" },
+  { label: "Blog", href: "/blog", type: "page" },
+  { label: "Contact", href: "#contact", type: "scroll" },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,16 +30,21 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = (href: string) => {
+  const handleLinkClick = (link: (typeof navLinks)[0]) => {
     setIsOpen(false);
 
+    if (link.type === "page") {
+      router.push(link.href);
+      return;
+    }
+
     if (isHomePage) {
-      const element = document.querySelector(href);
+      const element = document.querySelector(link.href);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      router.push(`/${href}`);
+      router.push(`/${link.href}`);
     }
   };
 
@@ -50,7 +64,7 @@ export default function Navbar() {
             onClick={(e) => {
               if (isHomePage) {
                 e.preventDefault();
-                handleLinkClick("#home");
+                handleLinkClick({ label: "Home", href: "#home", type: "scroll" });
               }
             }}
             className="flex items-center gap-2 sm:gap-2.5 group shrink-0"
@@ -76,14 +90,17 @@ export default function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden lg:flex items-center gap-1">
-            {siteData.navLinks.map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link.label}
-                href={isHomePage ? link.href : `/${link.href}`}
+                href={link.type === "page" ? link.href : isHomePage ? link.href : `/${link.href}`}
                 onClick={(e) => {
-                  if (isHomePage) {
+                  if (link.type === "page") {
                     e.preventDefault();
-                    handleLinkClick(link.href);
+                    handleLinkClick(link);
+                  } else if (isHomePage) {
+                    e.preventDefault();
+                    handleLinkClick(link);
                   }
                 }}
                 className="px-3 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
@@ -123,14 +140,17 @@ export default function Navbar() {
         }`}
       >
         <div className="bg-[#0a0a0f]/98 backdrop-blur-xl border-t border-white/5 px-4 py-4 space-y-1">
-          {siteData.navLinks.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.label}
-              href={isHomePage ? link.href : `/${link.href}`}
+              href={link.type === "page" ? link.href : isHomePage ? link.href : `/${link.href}`}
               onClick={(e) => {
-                if (isHomePage) {
+                if (link.type === "page") {
                   e.preventDefault();
-                  handleLinkClick(link.href);
+                  handleLinkClick(link);
+                } else if (isHomePage) {
+                  e.preventDefault();
+                  handleLinkClick(link);
                 }
               }}
               className="block px-4 py-3 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
