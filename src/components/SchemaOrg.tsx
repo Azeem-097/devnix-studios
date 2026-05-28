@@ -37,13 +37,8 @@
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
+          "Monday","Tuesday","Wednesday","Thursday",
+          "Friday","Saturday","Sunday",
         ],
         opens: "08:00",
         closes: "22:00",
@@ -52,6 +47,36 @@
     priceRange: "PKR 5,000 - PKR 17,500",
     currenciesAccepted: "PKR",
     paymentAccepted: "Cash, Bank Transfer, JazzCash, EasyPaisa",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      reviewCount: "6",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: [
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Muhammad Ali" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody:
+          "Devnix Studios built our poultry business website in just 7 days. The design is clean, loads fast, and we are already getting WhatsApp inquiries from new customers we never reached before.",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Sarah Khan" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody:
+          "Very professional team. They understood exactly what I needed for my clothing business. The social media posts they make for every product are amazing.",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Ahmed Raza" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody:
+          "I was skeptical about getting a website at PKR 5,000 but the quality exceeded my expectations. My property listings are now on Google and I get calls from people who found me online.",
+      },
+    ],
     sameAs: [
       "https://www.facebook.com/profile.php?id=61590108942219",
       "https://www.instagram.com/devnixstudios/",
@@ -94,33 +119,6 @@
           price: "2500",
           priceCurrency: "PKR",
         },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Google Business Setup",
-            description:
-              "Get your business listed on Google Maps and Google Places.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "E-Commerce Development Pakistan",
-            description:
-              "Complete online store with product catalog, categories, and payment integration.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Website Maintenance Pakistan",
-            description:
-              "Ongoing support, bug fixes, theme changes, and performance monitoring.",
-          },
-        },
       ],
     },
   });
@@ -160,22 +158,6 @@
       },
       {
         "@type": "Question",
-        name: "Do I need to buy my own domain?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes, you purchase your own domain name. If you want us to manage it for you, there is a 500 PKR annual management fee.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What happens after the 3-month contract?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "After 3 months, we sign a new contract with updated pricing based on your needs. You are not locked in.",
-        },
-      },
-      {
-        "@type": "Question",
         name: "How long does it take to build a website in Pakistan?",
         acceptedAnswer: {
           "@type": "Answer",
@@ -188,14 +170,6 @@
         acceptedAnswer: {
           "@type": "Answer",
           text: "Yes! First year of hosting is completely free. After that, minimal hosting charges apply.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can I add more products than the included amount?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Absolutely! The package includes 2 products per week. Additional products cost just 150 PKR each.",
         },
       },
       {
@@ -223,19 +197,13 @@
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://devnixstudios.tech/#services",
+        item: "https://devnixstudios.tech/services",
       },
       {
         "@type": "ListItem",
         position: 3,
-        name: "Pricing",
-        item: "https://devnixstudios.tech/#package",
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: "Contact",
-        item: "https://devnixstudios.tech/#contact",
+        name: "Blog",
+        item: "https://devnixstudios.tech/blog",
       },
     ],
   });

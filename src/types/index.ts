@@ -84,6 +84,17 @@ export interface WebsiteBreakdownItem {
   items: string[];
 }
 
+export interface Testimonial {
+  name: string;
+  business: string;
+  location: string;
+  rating: number;
+  review: string;
+  service: string;
+  initials: string;
+  color: string;
+}
+
 export interface SiteData {
   siteName: string;
   tagline: string;
@@ -102,4 +113,5 @@ export interface SiteData {
   projects: Project[];
   serviceOptions: ServiceOption[];
   websiteBreakdown: WebsiteBreakdownItem[];
+  testimonials: Testimonial[];
 }

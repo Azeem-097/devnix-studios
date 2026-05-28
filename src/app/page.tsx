@@ -5,6 +5,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import PackageSection from "@/components/PackageSection";
 import ProcessSection from "@/components/ProcessSection";
 import WhyUsSection from "@/components/WhyUsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Navbar from "@/components/Navbar";
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   title:
     "Devnix Studios | Affordable Website Design Pakistan | Starting PKR 5,000",
   description:
-    "Professional custom website design in Pakistan starting at PKR 5,000. Includes SEO optimization, social media management, and 3 months support. Serving Karachi, Lahore, Islamabad & all Pakistan.",
+    "Professional custom website design in Pakistan starting at PKR 5,000. Includes SEO optimization, social media management, and 3 months support. Serving Karachi, Lahore, Islamabad and all Pakistan.",
   alternates: {
     canonical: "https://devnixstudios.tech",
   },
@@ -31,6 +32,7 @@ export default function HomePage() {
       <PackageSection />
       <ProcessSection />
       <WhyUsSection />
+      <TestimonialsSection />
       <FAQSection />
       <CTASection />
       <Footer />

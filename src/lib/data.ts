@@ -86,6 +86,75 @@ export const siteData: SiteData = {
     },
   ],
 
+  testimonials: [
+    {
+      name: "Muhammad Ali",
+      business: "Ali Poultry Enterprises",
+      location: "Lahore, Pakistan",
+      rating: 5,
+      review:
+        "Devnix Studios built our poultry business website in just 7 days. The design is clean, loads fast, and we are already getting WhatsApp inquiries from new customers we never reached before. Highly recommended!",
+      service: "Business Website",
+      initials: "MA",
+      color: "#6366f1",
+    },
+    {
+      name: "Sarah Khan",
+      business: "Karachi Boutique",
+      location: "Karachi, Pakistan",
+      rating: 5,
+      review:
+        "Very professional team. They understood exactly what I needed for my clothing business. The social media posts they make for every product are amazing. My Instagram followers have grown since we started.",
+      service: "Website + Social Media",
+      initials: "SK",
+      color: "#8b5cf6",
+    },
+    {
+      name: "Ahmed Raza",
+      business: "Raza Real Estate",
+      location: "Islamabad, Pakistan",
+      rating: 5,
+      review:
+        "I was skeptical about getting a website at PKR 5,000 but the quality exceeded my expectations. My property listings are now on Google and I get calls from people who found me online. Worth every rupee.",
+      service: "Real Estate Website",
+      initials: "AR",
+      color: "#06b6d4",
+    },
+    {
+      name: "Dr. Fatima",
+      business: "Fatima Medical Clinic",
+      location: "Faisalabad, Pakistan",
+      rating: 5,
+      review:
+        "Our clinic needed a professional online presence. Devnix Studios delivered exactly that. Patients now find us on Google Maps and book appointments via WhatsApp directly from the website.",
+      service: "Clinic Website",
+      initials: "DF",
+      color: "#10b981",
+    },
+    {
+      name: "Usman Tariq",
+      business: "Tariq Textile Mills",
+      location: "Faisalabad, Pakistan",
+      rating: 5,
+      review:
+        "Excellent work! Our fabric catalog is now online and we are getting wholesale inquiries from Karachi and Lahore. The team is responsive and updates our products quickly whenever we send new designs.",
+      service: "Textile Website",
+      initials: "UT",
+      color: "#f59e0b",
+    },
+    {
+      name: "Zara Malik",
+      business: "Glamour Salon",
+      location: "Rawalpindi, Pakistan",
+      rating: 5,
+      review:
+        "My salon now looks so professional online. The before and after gallery was exactly what I needed to show my work. New clients are finding me on Google every week. Amazing service at a great price.",
+      service: "Salon Website",
+      initials: "ZM",
+      color: "#ec4899",
+    },
+  ],
+
   serviceOptions: [
     { value: "custom-website", label: "Custom Website Development" },
     { value: "seo", label: "SEO Optimization" },
@@ -302,6 +371,7 @@ export const siteData: SiteData = {
         "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z",
     },
   ],
+
   websiteBreakdown: [
     {
       icon: "Layout",
@@ -338,7 +408,6 @@ export const siteData: SiteData = {
       ],
     },
   ],
-
 
   contactInfo: {
     phone: "+92 318 4632828",
