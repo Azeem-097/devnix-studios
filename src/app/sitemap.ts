@@ -1,165 +1,54 @@
-﻿import type { MetadataRoute } from "next";
+﻿import { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blogData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://devnixstudios.tech";
+  const now = new Date();
 
-  const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
+  const staticPages = [
+    { url: baseUrl, lastModified: now, changeFrequency: "weekly" as const, priority: 1.0 },
+    { url: `${baseUrl}/services`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
 
-    // ── Service Pages ──────────────────────────────
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/seo-services-pakistan`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/social-media-management-pakistan`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/ecommerce-development-pakistan`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
+    // Service pages
+    { url: `${baseUrl}/web-development-services`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/ecommerce-development-pakistan`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/seo-services-pakistan`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/social-media-management-pakistan`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/landing-page-design`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/facebook-ads-setup`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/google-business-setup`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/website-maintenance`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
 
-    // ── Blog ───────────────────────────────────────
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
+    // City pages
+    { url: `${baseUrl}/website-design-karachi`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/website-design-lahore`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/website-design-islamabad`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/website-design-faisalabad`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/website-design-rawalpindi`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/website-design-multan`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/website-design-peshawar`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
 
-    // ── City Pages ─────────────────────────────────
-    {
-      url: `${baseUrl}/website-design-karachi`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/website-design-lahore`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/website-design-islamabad`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/website-design-faisalabad`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/website-design-rawalpindi`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/website-design-multan`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/website-design-peshawar`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    // Industry pages
+    { url: `${baseUrl}/restaurant-website-pakistan`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/clinic-website-pakistan`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/school-website-pakistan`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/salon-website-pakistan`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/real-estate-website-pakistan`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/poultry-business-website`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/textile-business-website`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
 
-    // ── Industry Pages ─────────────────────────────
-    {
-      url: `${baseUrl}/restaurant-website-pakistan`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/clinic-website-pakistan`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/school-website-pakistan`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/salon-website-pakistan`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/real-estate-website-pakistan`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/poultry-business-website`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/textile-business-website`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-
-    // ── Legal Pages ────────────────────────────────
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms-of-service`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/refund-policy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    // Legal pages
+    { url: `${baseUrl}/privacy-policy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
+    { url: `${baseUrl}/terms-of-service`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
+    { url: `${baseUrl}/refund-policy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
   ];
 
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+  const blogPages = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
-    changeFrequency: "monthly",
-    priority: 0.8,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
   }));
 
   return [...staticPages, ...blogPages];

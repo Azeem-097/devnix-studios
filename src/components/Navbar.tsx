@@ -1,9 +1,10 @@
 ﻿"use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 import { siteData } from "@/lib/data";
 
 const navLinks = [
@@ -15,34 +16,41 @@ const navLinks = [
   { label: "Contact", href: "#contact", type: "scroll" },
 ];
 
+const serviceDropdown = [
+  { label: "Web Development", href: "/web-development-services" },
+  { label: "SEO Services", href: "/seo-services-pakistan" },
+  { label: "Social Media", href: "/social-media-management-pakistan" },
+  { label: "E-commerce", href: "/ecommerce-development-pakistan" },
+  { label: "Landing Pages", href: "/landing-page-design" },
+  { label: "Facebook Ads", href: "/facebook-ads-setup" },
+  { label: "Google Business", href: "/google-business-setup" },
+  { label: "Maintenance", href: "/website-maintenance" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const isHomePage = pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleLinkClick = (link: (typeof navLinks)[0]) => {
     setIsOpen(false);
-
+    setServicesOpen(false);
     if (link.type === "page") {
       router.push(link.href);
       return;
     }
-
     if (isHomePage) {
       const element = document.querySelector(link.href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      if (element) element.scrollIntoView({ behavior: "smooth" });
     } else {
       router.push(`/${link.href}`);
     }
@@ -90,24 +98,61 @@ export default function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.type === "page" ? link.href : isHomePage ? link.href : `/${link.href}`}
-                onClick={(e) => {
-                  if (link.type === "page") {
-                    e.preventDefault();
-                    handleLinkClick(link);
-                  } else if (isHomePage) {
-                    e.preventDefault();
-                    handleLinkClick(link);
-                  }
-                }}
-                className="px-3 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              if (link.label === "Services") {
+                return (
+                  <div
+                    key={link.label}
+                    className="relative"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    <button className="flex items-center gap-1 px-3 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200">
+                      Services
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {servicesOpen && (
+                      <div className="absolute top-full left-0 w-52 pt-2">
+                        <div className="bg-[#0c0c14] border border-white/10 rounded-xl shadow-2xl shadow-black/50 overflow-hidden">
+                          {serviceDropdown.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              onClick={() => setServicesOpen(false)}
+                              className="block px-4 py-2.5 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                          <div className="border-t border-white/6 px-4 py-2.5">
+                            <Link
+                              href="/services"
+                              onClick={() => setServicesOpen(false)}
+                              className="text-xs text-[#6366f1] hover:text-[#8b5cf6] transition-colors font-medium"
+                            >
+                              View All Services →
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              return (
+                <a
+                  key={link.label}
+                  href={link.type === "page" ? link.href : isHomePage ? link.href : `/${link.href}`}
+                  onClick={(e) => {
+                    if (link.type === "page") { e.preventDefault(); handleLinkClick(link); }
+                    else if (isHomePage) { e.preventDefault(); handleLinkClick(link); }
+                  }}
+                  className="px-3 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           {/* Desktop CTA */}
@@ -136,7 +181,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="bg-[#0a0a0f]/98 backdrop-blur-xl border-t border-white/5 px-4 py-4 space-y-1">
@@ -145,19 +190,27 @@ export default function Navbar() {
               key={link.label}
               href={link.type === "page" ? link.href : isHomePage ? link.href : `/${link.href}`}
               onClick={(e) => {
-                if (link.type === "page") {
-                  e.preventDefault();
-                  handleLinkClick(link);
-                } else if (isHomePage) {
-                  e.preventDefault();
-                  handleLinkClick(link);
-                }
+                if (link.type === "page") { e.preventDefault(); handleLinkClick(link); }
+                else if (isHomePage) { e.preventDefault(); handleLinkClick(link); }
               }}
               className="block px-4 py-3 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
             >
               {link.label}
             </a>
           ))}
+          {/* Mobile Service Sub-links */}
+          <div className="pl-4 space-y-1 border-l border-white/6 ml-4">
+            {serviceDropdown.slice(0, 4).map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-2 text-xs text-gray-500 hover:text-gray-300 rounded-lg hover:bg-white/5 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
           <div className="pt-3 px-4">
             <a
               href={siteData.contactInfo.whatsapp}
