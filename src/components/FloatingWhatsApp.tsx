@@ -30,7 +30,7 @@ export default function FloatingWhatsApp() {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 20 }}
-          className="fixed bottom-6 right-6 z-50"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
         >
           {/* Chat Popup */}
           <AnimatePresence>
@@ -40,7 +40,7 @@ export default function FloatingWhatsApp() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 20, scale: 0.9 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                className="absolute bottom-20 right-0 w-[320px] sm:w-[340px] rounded-2xl overflow-hidden shadow-2xl shadow-black/60"
+                className="absolute bottom-16 sm:bottom-20 right-0 w-[calc(100vw-2rem)] max-w-[340px] sm:w-[340px] rounded-2xl overflow-hidden shadow-2xl shadow-black/60"
               >
                 {/* Outer gradient border wrapper */}
                 <div className="p-[1px] rounded-2xl bg-gradient-to-br from-[#6366f1]/30 via-white/[0.04] to-[#06b6d4]/30">

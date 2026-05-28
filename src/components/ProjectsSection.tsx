@@ -12,7 +12,7 @@ import AnimatedSection from "./AnimatedSection";
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="relative py-24 lg:py-32">
+    <section id="projects" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 bg-[#0a0a0f]" />
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#8b5cf6]/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#06b6d4]/4 rounded-full blur-[120px]" />
@@ -20,20 +20,20 @@ export default function ProjectsSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <AnimatedSection>
-          <div className="text-center mb-16 lg:mb-20">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/5 mb-6">
               <Sparkles size={12} className="text-[#8b5cf6]" />
               <span className="text-xs font-medium text-[#8b5cf6] tracking-wide uppercase">
                 Our Work
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
               Projects We Have{" "}
               <span className="bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                 Delivered
               </span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto">
               Real projects built for real businesses. Take a look at what we
               have crafted.
             </p>

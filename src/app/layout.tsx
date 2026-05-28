@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -6,6 +6,13 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0a0a0f",
+};
 
 export const metadata: Metadata = {
   title: "Devnix Studios — We Build. We Manage. We Grow.",
@@ -42,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} font-sans antialiased bg-[#0a0a0f] text-white`}
+        className={`${inter.variable} font-sans antialiased bg-[#0a0a0f] text-white overflow-x-hidden`}
       >
         {children}
       </body>

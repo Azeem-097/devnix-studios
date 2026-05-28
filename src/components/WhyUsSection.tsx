@@ -21,26 +21,26 @@ const gradients = [
 
 export default function WhyUsSection() {
   return (
-    <section id="whyus" className="relative py-24 lg:py-32">
+    <section id="whyus" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 bg-[#0a0a0f]" />
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#8b5cf6]/4 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/3 right-0 w-[400px] h-[400px] bg-[#6366f1]/5 rounded-full blur-[120px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
-          <div className="text-center mb-16 lg:mb-20">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#6366f1]/20 bg-[#6366f1]/5 mb-6">
               <span className="text-xs font-medium text-[#6366f1] tracking-wide uppercase">
                 Why Devnix
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
               Why Businesses{" "}
               <span className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
                 Choose Us
               </span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto">
               We are not just another web agency. Here is what makes Devnix
               Studios different.
             </p>

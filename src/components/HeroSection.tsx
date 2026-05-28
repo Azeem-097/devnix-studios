@@ -27,9 +27,8 @@ interface Particle {
 export default function HeroSection() {
   const [particles, setParticles] = useState<Particle[]>([]);
 
-  // Generate particles only on the client to avoid hydration mismatch
   useEffect(() => {
-    const generated = Array.from({ length: 20 }, (_, i) => ({
+    const generated = Array.from({ length: 15 }, (_, i) => ({
       id: i,
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
@@ -49,47 +48,31 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16"
     >
-      {/* === BACKGROUND LAYERS === */}
+      {/* Background Layers */}
       <div className="absolute inset-0 bg-[#0a0a0f]" />
 
-      {/* Animated Gradient Orbs */}
       <motion.div
-        animate={{
-          x: [0, 50, 0],
-          y: [0, -30, 0],
-        }}
+        animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-[#6366f1]/20 rounded-full blur-[120px]"
+        className="absolute top-20 left-0 sm:left-1/4 w-[250px] sm:w-[400px] lg:w-[500px] h-[250px] sm:h-[400px] lg:h-[500px] bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]"
       />
       <motion.div
-        animate={{
-          x: [0, -40, 0],
-          y: [0, 40, 0],
-        }}
+        animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-[#06b6d4]/15 rounded-full blur-[120px]"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.1, 1],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#8b5cf6]/10 rounded-full blur-[150px]"
+        className="absolute bottom-20 right-0 sm:right-1/4 w-[250px] sm:w-[400px] lg:w-[500px] h-[250px] sm:h-[400px] lg:h-[500px] bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]"
       />
 
-      {/* Grid Pattern */}
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+          backgroundSize: "40px 40px",
         }}
       />
 
-      {/* Radial Gradient Overlay */}
       <div
         className="absolute inset-0"
         style={{
@@ -98,20 +81,14 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Floating Particles - Client Only (avoids hydration mismatch) */}
+      {/* Particles */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
             className="absolute w-1 h-1 rounded-full bg-white/20"
-            style={{
-              top: particle.top,
-              left: particle.left,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 1, 0],
-            }}
+            style={{ top: particle.top, left: particle.left }}
+            animate={{ y: [0, -30, 0], opacity: [0, 1, 0] }}
             transition={{
               duration: particle.duration,
               repeat: Infinity,
@@ -121,24 +98,26 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* === MAIN CONTENT === */}
+      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* LEFT - Text Content */}
+          {/* LEFT - Text */}
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#6366f1]/30 bg-[#6366f1]/10 backdrop-blur-sm mb-6"
+              className="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#6366f1]/30 bg-[#6366f1]/10 backdrop-blur-sm mb-5 sm:mb-6 max-w-full"
             >
-              <Sparkles size={12} className="text-[#06b6d4]" />
-              <span className="text-xs font-medium text-[#06b6d4] tracking-wide uppercase">
-                Premium Web Development Studio
+              <Sparkles size={10} className="text-[#06b6d4] shrink-0" />
+              <span className="text-[10px] sm:text-xs font-medium text-[#06b6d4] tracking-wide uppercase">
+                Premium Web Studio
               </span>
-              <span className="w-1 h-1 rounded-full bg-gray-600" />
-              <span className="text-xs text-gray-400">Est. 2024</span>
+              <span className="hidden sm:inline w-1 h-1 rounded-full bg-gray-600" />
+              <span className="hidden sm:inline text-xs text-gray-400">
+                Est. 2024
+              </span>
             </motion.div>
 
             {/* Headline */}
@@ -146,30 +125,25 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6"
+              className="text-[2rem] xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-4 sm:mb-6"
             >
               We{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                   Build
                 </span>
-                <motion.span
-                  animate={{ scaleX: [0, 1, 1, 0] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    times: [0, 0.3, 0.7, 1],
-                  }}
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#6366f1] to-[#06b6d4] origin-left"
-                />
               </span>
               .
-              <br />
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
               We{" "}
               <span className="bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                 Manage
               </span>
-              . We{" "}
+              .
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
+              We{" "}
               <span className="bg-gradient-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
                 Grow
               </span>
@@ -181,25 +155,25 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+              className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0"
             >
               Custom websites, SEO optimization, and social media management —
               all in one package. Starting at just{" "}
               <span className="text-white font-semibold">PKR 5,000</span>.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-8"
+              className="flex flex-col sm:flex-row items-stretch sm:items-start justify-center lg:justify-start gap-3 mb-6 sm:mb-8"
             >
               <a
                 href={siteData.contactInfo.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_15px_40px_-10px_rgba(99,102,241,0.5)]"
+                className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_15px_40px_-10px_rgba(99,102,241,0.5)]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Start Your Project
@@ -208,16 +182,12 @@ export default function HeroSection() {
                     className="group-hover:translate-x-1 transition-transform"
                   />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
               <button
                 onClick={() => handleScroll("#projects")}
-                className="group w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold text-gray-300 border border-white/10 bg-white/[0.02] backdrop-blur-sm rounded-xl hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300"
+                className="group w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 text-sm font-semibold text-gray-300 border border-white/10 bg-white/[0.02] backdrop-blur-sm rounded-xl hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300"
               >
-                <Code2
-                  size={16}
-                  className="text-[#06b6d4] group-hover:rotate-12 transition-transform"
-                />
+                <Code2 size={16} className="text-[#06b6d4]" />
                 View Our Work
               </button>
             </motion.div>
@@ -227,43 +197,46 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-6 border-t border-white/[0.06]"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 lg:gap-6 pt-5 sm:pt-6 border-t border-white/[0.06]"
             >
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-1">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="flex -space-x-0.5">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      size={14}
+                      size={12}
                       className="text-yellow-400 fill-yellow-400"
                     />
                   ))}
                 </div>
-                <span className="text-xs text-gray-400">5.0 Rating</span>
-              </div>
-              <div className="w-px h-4 bg-white/10" />
-              <div className="flex items-center gap-2">
-                <CheckCircle size={14} className="text-[#06b6d4]" />
-                <span className="text-xs text-gray-400">
-                  3+ Projects Delivered
+                <span className="text-[10px] sm:text-xs text-gray-400">
+                  5.0 Rating
                 </span>
               </div>
-              <div className="w-px h-4 bg-white/10" />
-              <div className="flex items-center gap-2">
-                <Zap size={14} className="text-[#8b5cf6]" />
-                <span className="text-xs text-gray-400">5-10 Day Delivery</span>
+              <div className="w-px h-3 sm:h-4 bg-white/10" />
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <CheckCircle size={12} className="text-[#06b6d4]" />
+                <span className="text-[10px] sm:text-xs text-gray-400">
+                  3+ Projects
+                </span>
+              </div>
+              <div className="w-px h-3 sm:h-4 bg-white/10" />
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Zap size={12} className="text-[#8b5cf6]" />
+                <span className="text-[10px] sm:text-xs text-gray-400">
+                  Fast Delivery
+                </span>
               </div>
             </motion.div>
           </div>
 
-          {/* RIGHT - Visual Element (Code/Browser Preview) */}
+          {/* RIGHT - Code Card (Desktop Only) */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="lg:col-span-5 relative hidden lg:block"
           >
-            {/* Floating Stats Card - Top */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -280,7 +253,6 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Floating Stats Card - Bottom */}
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{
@@ -302,10 +274,8 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Main Code/Browser Card */}
             <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-[#6366f1]/50 via-[#8b5cf6]/30 to-[#06b6d4]/50">
               <div className="bg-[#0c0c14] rounded-2xl overflow-hidden">
-                {/* Browser Header */}
                 <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0a0a0f]">
                   <div className="flex gap-1.5">
                     <div className="w-3 h-3 rounded-full bg-red-500/80" />
@@ -322,7 +292,6 @@ export default function HeroSection() {
                   </div>
                 </div>
 
-                {/* Code Editor Style Content */}
                 <div className="p-5 font-mono text-xs space-y-2 min-h-[320px]">
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -332,7 +301,6 @@ export default function HeroSection() {
                   >
                     {"// Your business, online in days"}
                   </motion.div>
-
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -344,7 +312,6 @@ export default function HeroSection() {
                     <span className="text-gray-500">=</span>
                     <span className="text-gray-300">{"{"}</span>
                   </motion.div>
-
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -357,7 +324,6 @@ export default function HeroSection() {
                     </span>
                     <span className="text-gray-500">,</span>
                   </motion.div>
-
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -368,7 +334,6 @@ export default function HeroSection() {
                     <span className="text-green-400">{"'Lightning Fast'"}</span>
                     <span className="text-gray-500">,</span>
                   </motion.div>
-
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -379,7 +344,6 @@ export default function HeroSection() {
                     <span className="text-green-400">{"'Optimized'"}</span>
                     <span className="text-gray-500">,</span>
                   </motion.div>
-
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -390,42 +354,28 @@ export default function HeroSection() {
                     <span className="text-green-400">{"'Managed'"}</span>
                     <span className="text-gray-500">,</span>
                   </motion.div>
-
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.8 }}
                     className="pl-4 flex flex-wrap gap-x-2"
                   >
-                    <span className="text-[#6366f1]">support:</span>
-                    <span className="text-green-400">{"'3 Months Free'"}</span>
-                    <span className="text-gray-500">,</span>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 2 }}
-                    className="pl-4 flex flex-wrap gap-x-2"
-                  >
                     <span className="text-[#6366f1]">price:</span>
                     <span className="text-yellow-400">{"'PKR 5,000'"}</span>
                     <span className="text-gray-500">,</span>
                   </motion.div>
-
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 2.2 }}
+                    transition={{ delay: 2 }}
                     className="text-gray-300"
                   >
                     {"};"}
                   </motion.div>
-
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 2.4 }}
+                    transition={{ delay: 2.2 }}
                     className="pt-3 flex items-center gap-2"
                   >
                     <span className="text-[#8b5cf6]">{"=>"}</span>
@@ -438,12 +388,10 @@ export default function HeroSection() {
                       className="inline-block w-2 h-4 bg-[#06b6d4]"
                     />
                   </motion.div>
-
-                  {/* Success Message */}
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 2.8 }}
+                    transition={{ delay: 2.6 }}
                     className="mt-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center gap-2"
                   >
                     <CheckCircle size={14} className="text-green-400" />
@@ -454,68 +402,64 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-
-            {/* Glow Effect */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-[#6366f1]/20 to-[#06b6d4]/20 blur-3xl -z-10 rounded-full" />
           </motion.div>
         </div>
 
-        {/* Bottom Feature Pills + Price - Full Width */}
+        {/* Bottom Pills + Price */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
-          className="mt-12 lg:mt-16 flex flex-col items-center gap-6"
+          className="mt-10 sm:mt-12 lg:mt-16 flex flex-col items-center gap-5 sm:gap-6"
         >
-          {/* Feature Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <FeaturePill
-              icon={<Globe size={14} />}
+              icon={<Globe size={12} />}
               text="Custom Code"
               color="#6366f1"
             />
             <FeaturePill
-              icon={<Search size={14} />}
+              icon={<Search size={12} />}
               text="SEO Optimized"
               color="#8b5cf6"
             />
             <FeaturePill
-              icon={<Share2 size={14} />}
+              icon={<Share2 size={12} />}
               text="Social Media"
               color="#06b6d4"
             />
             <FeaturePill
-              icon={<Zap size={14} />}
+              icon={<Zap size={12} />}
               text="Fast Delivery"
               color="#a78bfa"
             />
           </div>
 
-          {/* Price Badge */}
-          <div className="relative group">
+          <div className="relative group w-full sm:w-auto max-w-sm sm:max-w-none">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#06b6d4] rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity" />
-            <div className="relative inline-flex items-center gap-4 px-6 py-3 rounded-2xl bg-[#0c0c14] border border-white/10">
+            <div className="relative flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-3 rounded-2xl bg-[#0c0c14] border border-white/10">
               <div className="flex items-center gap-2">
-                <Sparkles size={14} className="text-[#06b6d4]" />
-                <span className="text-xs text-gray-400 uppercase tracking-wider">
+                <Sparkles size={12} className="text-[#06b6d4]" />
+                <span className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">
                   Limited Time
                 </span>
               </div>
-              <div className="w-px h-6 bg-white/10" />
+              <div className="hidden sm:block w-px h-6 bg-white/10" />
               <div className="flex items-baseline gap-2">
-                <span className="text-xs text-gray-500">Starting from</span>
-                <span className="text-2xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                <span className="text-[10px] sm:text-xs text-gray-500">
+                  Starting from
+                </span>
+                <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                   5,000
                 </span>
-                <span className="text-sm text-gray-400">PKR</span>
+                <span className="text-xs sm:text-sm text-gray-400">PKR</span>
               </div>
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none" />
     </section>
   );
 }
@@ -530,12 +474,11 @@ function FeaturePill({
   color: string;
 }) {
   return (
-    <div
-      className="group flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.05] transition-all duration-300"
-      style={{ boxShadow: `0 0 0 transparent` }}
-    >
+    <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.05] transition-all duration-300">
       <span style={{ color }}>{icon}</span>
-      <span className="text-sm text-gray-300 font-medium">{text}</span>
+      <span className="text-xs sm:text-sm text-gray-300 font-medium whitespace-nowrap">
+        {text}
+      </span>
     </div>
   );
 }
