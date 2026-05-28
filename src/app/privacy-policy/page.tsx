@@ -66,7 +66,7 @@ export default function PrivacyPolicy() {
         title="Privacy Policy"
         badge="Legal Document"
         badgeColor="#6366f1"
-        lastUpdated="January 2025"
+        lastUpdated="May 2026"
         tocItems={sections.map((s) => ({ id: s.id, title: s.title }))}
       >
         {sections.map((section, index) => {
@@ -75,10 +75,10 @@ export default function PrivacyPolicy() {
             <section
               key={section.id}
               id={section.id}
-              className="group p-6 lg:p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#6366f1]/20 hover:bg-white/[0.04] transition-all duration-300 scroll-mt-28"
+              className="group p-6 lg:p-8 rounded-2xl bg-white/2 border border-white/6 hover:border-[#6366f1]/20 hover:bg-white/4 transition-all duration-300 scroll-mt-28"
             >
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center text-white shrink-0 group-hover:shadow-lg group-hover:shadow-[#6366f1]/20 transition-shadow">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center text-white shrink-0 group-hover:shadow-lg group-hover:shadow-[#6366f1]/20 transition-shadow">
                   <Icon size={18} />
                 </div>
                 <div className="flex-1">

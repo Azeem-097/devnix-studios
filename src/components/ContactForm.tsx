@@ -111,7 +111,7 @@ export default function ContactForm() {
             value={formData.from_name}
             onChange={handleChange}
             required
-            placeholder="John Doe"
+            placeholder="Azeem Ahmed"
             className="w-full bg-transparent text-white text-sm placeholder-gray-600 focus:outline-none"
           />
         </FormField>
@@ -242,7 +242,7 @@ export default function ContactForm() {
         disabled={status === "sending"}
         whileHover={{ scale: status === "sending" ? 1 : 1.01 }}
         whileTap={{ scale: status === "sending" ? 1 : 0.99 }}
-        className="group relative w-full flex items-center justify-center gap-2 px-6 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-[#6366f1]/30 disabled:opacity-70 disabled:cursor-not-allowed"
+        className="group relative w-full flex items-center justify-center gap-2 px-6 py-4 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-[#6366f1]/30 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {status === "sending" ? (
           <>
@@ -293,7 +293,7 @@ function FormField({
         {label}
         {required && <span className="text-red-400">*</span>}
       </label>
-      <div className="px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.06] focus-within:border-[#6366f1]/40 focus-within:bg-white/[0.04] transition-all duration-200">
+      <div className="px-4 py-3 rounded-xl bg-white/2 border border-white/6 focus-within:border-[#6366f1]/40 focus-within:bg-white/4 transition-all duration-200">
         {children}
       </div>
     </div>

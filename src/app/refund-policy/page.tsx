@@ -66,7 +66,7 @@ export default function RefundPolicy() {
         title="Refund Policy"
         badge="Legal Document"
         badgeColor="#06b6d4"
-        lastUpdated="January 2025"
+        lastUpdated="May 2026"
         tocItems={sections.map((s) => ({ id: s.id, title: s.title }))}
       >
         {sections.map((section, index) => {
