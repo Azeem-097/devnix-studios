@@ -1,12 +1,35 @@
 ﻿"use client";
 
-import { CheckCircle, Plus, ArrowRight, Info } from "lucide-react";
+import {
+  CheckCircle,
+  Plus,
+  ArrowRight,
+  Info,
+  Layout,
+  FileText,
+  Package,
+} from "lucide-react";
 import { siteData } from "@/lib/data";
 import AnimatedSection from "./AnimatedSection";
 
+const breakdownIconMap: Record<string, React.ReactNode> = {
+  Layout: <Layout size={18} />,
+  FileText: <FileText size={18} />,
+  Package: <Package size={18} />,
+};
+
+const breakdownGradients = [
+  "from-[#6366f1] to-[#8b5cf6]",
+  "from-[#8b5cf6] to-[#06b6d4]",
+  "from-[#06b6d4] to-[#6366f1]",
+];
+
 export default function PackageSection() {
   return (
-    <section id="package" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+    <section
+      id="package"
+      className="relative overflow-hidden py-16 sm:py-24 lg:py-32"
+    >
       <div className="absolute inset-0 bg-[#0a0a0f]" />
       <div className="absolute top-0 left-1/3 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#8b5cf6]/5 rounded-full blur-[80px] sm:blur-[120px]" />
       <div className="absolute bottom-0 right-1/3 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-[#06b6d4]/4 rounded-full blur-[80px] sm:blur-[120px]" />
@@ -51,10 +74,13 @@ export default function PackageSection() {
                     <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                       5,000 PKR
                     </div>
-                    <div className="text-xs text-gray-500 mt-0.5">/ website</div>
+                    <div className="text-xs text-gray-500 mt-0.5">
+                      / website
+                    </div>
                   </div>
                 </div>
 
+                {/* Package Features */}
                 <div className="space-y-3 mb-6 sm:mb-8">
                   {siteData.packageFeatures.map((feature) => (
                     <div key={feature.text} className="flex items-start gap-3">
@@ -76,10 +102,58 @@ export default function PackageSection() {
                   ))}
                 </div>
 
+                {/* Website Breakdown - NEW! */}
                 <div className="border-t border-white/[0.06] pt-5 sm:pt-6 mb-6 sm:mb-8">
-                  <h4 className="text-xs sm:text-sm font-semibold text-[#8b5cf6] uppercase tracking-wider mb-3 sm:mb-4">
-                    Monthly Support Includes
-                  </h4>
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-1 h-4 rounded-full bg-gradient-to-b from-[#6366f1] to-[#06b6d4]" />
+                    <h4 className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
+                      What&apos;s Inside Your Website
+                    </h4>
+                  </div>
+
+                  <div className="space-y-3">
+                    {siteData.websiteBreakdown.map((category, index) => (
+                      <div
+                        key={category.title}
+                        className="p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-white/[0.08] transition-all duration-300"
+                      >
+                        <div className="flex items-center gap-2.5 mb-2.5">
+                          <div
+                            className={`w-8 h-8 rounded-lg bg-gradient-to-br ${breakdownGradients[index]} flex items-center justify-center text-white shrink-0`}
+                          >
+                            {breakdownIconMap[category.icon]}
+                          </div>
+                          <h5 className="text-xs sm:text-sm font-semibold text-white">
+                            {category.title}
+                          </h5>
+                          <span className="ml-auto text-[10px] sm:text-xs text-gray-500 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06]">
+                            {category.items.length} included
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 pl-1">
+                          {category.items.map((item) => (
+                            <div
+                              key={item}
+                              className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gray-400"
+                            >
+                              <div className="w-1 h-1 rounded-full bg-[#06b6d4] shrink-0" />
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Monthly Support */}
+                <div className="border-t border-white/[0.06] pt-5 sm:pt-6 mb-6 sm:mb-8">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-1 h-4 rounded-full bg-gradient-to-b from-[#8b5cf6] to-[#06b6d4]" />
+                    <h4 className="text-xs sm:text-sm font-semibold text-[#8b5cf6] uppercase tracking-wider">
+                      Monthly Support Includes
+                    </h4>
+                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                     {siteData.supportFeatures.map((feature) => (
                       <div
@@ -121,7 +195,7 @@ export default function PackageSection() {
             </div>
           </AnimatedSection>
 
-          {/* Right Side */}
+          {/* Right Side - Pricing + Addons */}
           <div className="lg:col-span-5 space-y-6">
             <AnimatedSection direction="right" delay={0.1}>
               <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
@@ -194,6 +268,50 @@ export default function PackageSection() {
                       </span>
                     </div>
                   ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Quick Stats Card */}
+            <AnimatedSection direction="right" delay={0.3}>
+              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-[#6366f1]/10 via-[#8b5cf6]/5 to-[#06b6d4]/10 border border-[#6366f1]/20">
+                <h4 className="text-base sm:text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                  <CheckCircle size={16} className="text-[#06b6d4]" />
+                  What You Get Initially
+                </h4>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
+                    <div className="text-2xl font-bold bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                      6
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
+                      Products
+                    </div>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
+                    <div className="text-2xl font-bold bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                      2
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
+                      Categories
+                    </div>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
+                    <div className="text-2xl font-bold bg-gradient-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                      5+
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
+                      Pages
+                    </div>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
+                    <div className="text-2xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                      6
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
+                      Sections
+                    </div>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>

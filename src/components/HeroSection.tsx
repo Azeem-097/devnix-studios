@@ -116,7 +116,7 @@ export default function HeroSection() {
               </span>
               <span className="hidden sm:inline w-1 h-1 rounded-full bg-gray-600" />
               <span className="hidden sm:inline text-xs text-gray-400">
-                Est. 2024
+                Est. 202
               </span>
             </motion.div>
 

@@ -78,6 +78,12 @@ export interface ServiceOption {
   label: string;
 }
 
+export interface WebsiteBreakdownItem {
+  icon: string;
+  title: string;
+  items: string[];
+}
+
 export interface SiteData {
   siteName: string;
   tagline: string;
@@ -95,4 +101,5 @@ export interface SiteData {
   contactInfo: ContactInfo;
   projects: Project[];
   serviceOptions: ServiceOption[];
+  websiteBreakdown: WebsiteBreakdownItem[];
 }
