@@ -1,0 +1,24 @@
+================================================
+OG IMAGE INSTRUCTIONS FOR DEVNIX STUDIOS
+================================================
+
+Create a PNG image with these specs:
+- Size: 1200 x 630 pixels
+- Filename: og-image.png
+- Save in: /public folder
+
+Design Guidelines:
+- Background: Dark (#0a0a0f)
+- Logo: Top left corner
+- Main Text: "Devnix Studios"
+- Sub Text: "Website Design Pakistan"
+- Price Tag: "Starting at PKR 5,000"
+- Colors: Purple (#6366f1) and Cyan (#06b6d4)
+
+Tools you can use:
+- Canva (free): canva.com
+- Figma (free): figma.com
+
+After creating save as:
+public/og-image.png
+================================================

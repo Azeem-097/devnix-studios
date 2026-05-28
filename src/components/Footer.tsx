@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
@@ -65,7 +65,7 @@ export default function Footer() {
           >
             <Image
               src="/logo/DevnixlogoWeb.png"
-              alt="Devnix Studios Logo"
+              alt="Devnix Studios - Website Design Pakistan"
               width={40}
               height={40}
               className="rounded-lg group-hover:shadow-lg group-hover:shadow-[#6366f1]/30 transition-shadow"

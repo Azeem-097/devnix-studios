@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
@@ -57,7 +57,7 @@ export default function Navbar() {
           >
             <Image
               src="/logo/DevnixlogoWeb.png"
-              alt="Devnix Studios Logo"
+              alt="Devnix Studios - Website Design Pakistan"
               width={32}
               height={32}
               style={{ width: "auto", height: "32px" }}
