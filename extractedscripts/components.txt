@@ -1,0 +1,2824 @@
+
+
+================================================================================
+FILE: components\AnimatedSection.tsx
+================================================================================
+
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+
+interface AnimatedSectionProps {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: "up" | "down" | "left" | "right" | "none";
+}
+
+export default function AnimatedSection({
+  children,
+  className = "",
+  delay = 0,
+  direction = "up",
+}: AnimatedSectionProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const directionMap = {
+    up: { y: 40, x: 0 },
+    down: { y: -40, x: 0 },
+    left: { y: 0, x: 40 },
+    right: { y: 0, x: -40 },
+    none: { y: 0, x: 0 },
+  };
+
+  const initial = directionMap[direction];
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: initial.y, x: initial.x }}
+      animate={
+        isInView
+          ? { opacity: 1, y: 0, x: 0 }
+          : { opacity: 0, y: initial.y, x: initial.x }
+      }
+      transition={{
+        duration: 0.6,
+        delay: delay,
+        ease: [0.21, 0.47, 0.32, 0.98],
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+================================================================================
+FILE: components\ContactForm.tsx
+================================================================================
+
+"use client";
+
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Send,
+  User,
+  Mail,
+  Phone,
+  MessageSquare,
+  Briefcase,
+  CheckCircle,
+  AlertCircle,
+  Loader,
+} from "lucide-react";
+import { siteData } from "@/lib/data";
+
+type FormStatus = "idle" | "sending" | "success" | "error";
+
+export default function ContactForm() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [formData, setFormData] = useState({
+    from_name: "",
+    from_email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("sending");
+    setErrorMessage("");
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    // Validation
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("❌ EmailJS environment variables not set!");
+      console.log("Service ID:", serviceId);
+      console.log("Template ID:", templateId);
+      console.log("Public Key:", publicKey);
+      setStatus("error");
+      setErrorMessage(
+        "Form not configured. Please contact us directly via WhatsApp."
+      );
+      return;
+    }
+
+    console.log("📤 Sending email via EmailJS...");
+
+    try {
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.from_name,
+          from_email: formData.from_email,
+          phone: formData.phone || "Not provided",
+          service:
+            siteData.serviceOptions.find((s) => s.value === formData.service)
+              ?.label || formData.service,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      console.log("✅ Email sent successfully!", result);
+      setStatus("success");
+      setFormData({
+        from_name: "",
+        from_email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+      setTimeout(() => setStatus("idle"), 6000);
+    } catch (error) {
+      const err = error as { text?: string; message?: string };
+      console.error("❌ EmailJS error:", err);
+      setStatus("error");
+      setErrorMessage(
+        err.text ||
+          err.message ||
+          "Failed to send message. Please try WhatsApp instead."
+      );
+    }
+  };
+
+  return (
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+      {/* Name & Email Row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <FormField icon={<User size={16} />} label="Your Name" required>
+          <input
+            type="text"
+            name="from_name"
+            value={formData.from_name}
+            onChange={handleChange}
+            required
+            placeholder="Azeem Ahmed"
+            className="w-full bg-transparent text-white text-sm placeholder-gray-600 focus:outline-none"
+          />
+        </FormField>
+
+        <FormField icon={<Mail size={16} />} label="Email" required>
+          <input
+            type="email"
+            name="from_email"
+            value={formData.from_email}
+            onChange={handleChange}
+            required
+            placeholder="you@example.com"
+            className="w-full bg-transparent text-white text-sm placeholder-gray-600 focus:outline-none"
+          />
+        </FormField>
+      </div>
+
+      {/* Phone & Service Row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <FormField icon={<Phone size={16} />} label="Phone / WhatsApp">
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="+92 300 0000000"
+            className="w-full bg-transparent text-white text-sm placeholder-gray-600 focus:outline-none"
+          />
+        </FormField>
+
+        <FormField
+          icon={<Briefcase size={16} />}
+          label="Interested In"
+          required
+        >
+          <select
+            name="service"
+            value={formData.service}
+            onChange={handleChange}
+            required
+            className="w-full bg-transparent text-white text-sm focus:outline-none cursor-pointer appearance-none"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e\")",
+              backgroundPosition: "right 0 center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "1.25em 1.25em",
+              paddingRight: "1.5rem",
+            }}
+          >
+            <option value="" className="bg-[#0c0c14] text-gray-500">
+              Select a service
+            </option>
+            {siteData.serviceOptions.map((option) => (
+              <option
+                key={option.value}
+                value={option.value}
+                className="bg-[#0c0c14] text-white"
+              >
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </FormField>
+      </div>
+
+      {/* Message */}
+      <FormField
+        icon={<MessageSquare size={16} />}
+        label="Your Message"
+        required
+      >
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          required
+          rows={5}
+          placeholder="Tell us about your project, business, or any questions..."
+          className="w-full bg-transparent text-white text-sm placeholder-gray-600 focus:outline-none resize-none"
+        />
+      </FormField>
+
+      {/* Status Messages */}
+      <AnimatePresence>
+        {status === "success" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3"
+          >
+            <CheckCircle size={20} className="text-green-400 shrink-0" />
+            <div>
+              <div className="text-sm font-semibold text-green-400">
+                Message sent successfully! 🎉
+              </div>
+              <div className="text-xs text-green-400/70 mt-0.5">
+                We will get back to you within 24 hours.
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {status === "error" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center gap-3"
+          >
+            <AlertCircle size={20} className="text-red-400 shrink-0" />
+            <div>
+              <div className="text-sm font-semibold text-red-400">
+                Failed to send message
+              </div>
+              <div className="text-xs text-red-400/70 mt-0.5">
+                {errorMessage}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Submit Button */}
+      <motion.button
+        type="submit"
+        disabled={status === "sending"}
+        whileHover={{ scale: status === "sending" ? 1 : 1.01 }}
+        whileTap={{ scale: status === "sending" ? 1 : 0.99 }}
+        className="group relative w-full flex items-center justify-center gap-2 px-6 py-4 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-[#6366f1]/30 disabled:opacity-70 disabled:cursor-not-allowed"
+      >
+        {status === "sending" ? (
+          <>
+            <Loader size={16} className="animate-spin" />
+            Sending Message...
+          </>
+        ) : (
+          <>
+            <Send
+              size={16}
+              className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+            />
+            Send Message
+          </>
+        )}
+      </motion.button>
+
+      {/* Privacy Note */}
+      <p className="text-xs text-gray-600 text-center">
+        By submitting, you agree to our{" "}
+        <a
+          href="/privacy-policy"
+          className="text-[#6366f1] hover:text-[#8b5cf6] transition-colors"
+        >
+          Privacy Policy
+        </a>
+        . We will never share your information.
+      </p>
+    </form>
+  );
+}
+
+function FormField({
+  icon,
+  label,
+  required,
+  children,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  required?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="group">
+      <label className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-2">
+        <span className="text-[#6366f1]">{icon}</span>
+        {label}
+        {required && <span className="text-red-400">*</span>}
+      </label>
+      <div className="px-4 py-3 rounded-xl bg-white/2 border border-white/6 focus-within:border-[#6366f1]/40 focus-within:bg-white/4 transition-all duration-200">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+================================================================================
+FILE: components\CTASection.tsx
+================================================================================
+
+"use client";
+
+import { Phone, Mail, MapPin, Sparkles, MessageCircle } from "lucide-react";
+import { siteData } from "@/lib/data";
+import AnimatedSection from "./AnimatedSection";
+import ContactForm from "./ContactForm";
+
+export default function CTASection() {
+  return (
+    <section id="contact" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+      <div className="absolute inset-0 bg-[#0a0a0f]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] bg-[#6366f1]/6 rounded-full blur-[100px] sm:blur-[150px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection>
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#6366f1]/20 bg-[#6366f1]/5 mb-5 sm:mb-6">
+              <Sparkles size={10} className="text-[#06b6d4]" />
+              <span className="text-[10px] sm:text-xs font-medium text-[#06b6d4] tracking-wide uppercase">
+                Get In Touch
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 tracking-tight px-2">
+              Let&apos;s Build Your{" "}
+              <span className="bg-linear-to-r from-[#6366f1] via-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                Online Presence
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4">
+              Have a project in mind? Send us a message and we will get back to
+              you within 24 hours.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+          {/* Contact Info */}
+          <AnimatedSection direction="left" className="lg:col-span-5">
+            <div className="space-y-5 sm:space-y-6 h-full">
+              <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/30 via-transparent to-[#06b6d4]/30">
+                <div className="bg-[#0c0c14] rounded-2xl p-5 sm:p-6 lg:p-8">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
+                    Talk to Us Directly
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-500 mb-5 sm:mb-6">
+                    Prefer a quick chat? Reach out via:
+                  </p>
+
+                  <div className="space-y-3 sm:space-y-4">
+                    <a
+                      href={siteData.contactInfo.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/2 border border-white/4 hover:border-[#25d366]/30 hover:bg-[#25d366]/5 transition-all duration-300 group"
+                    >
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#25d366]/10 flex items-center justify-center shrink-0">
+                        <MessageCircle size={16} className="text-[#25d366]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[10px] sm:text-xs text-gray-500">
+                          WhatsApp
+                        </div>
+                        <div className="text-xs sm:text-sm text-white font-medium truncate">
+                          {siteData.contactInfo.whatsappNumber}
+                        </div>
+                      </div>
+                    </a>
+
+                    <a
+                      href={`mailto:${siteData.contactInfo.email}`}
+                      className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/2 border border-white/4 hover:border-[#8b5cf6]/30 hover:bg-[#8b5cf6]/5 transition-all duration-300 group"
+                    >
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#8b5cf6]/10 flex items-center justify-center shrink-0">
+                        <Mail size={16} className="text-[#8b5cf6]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[10px] sm:text-xs text-gray-500">
+                          Email
+                        </div>
+                        <div className="text-xs sm:text-sm text-white font-medium truncate">
+                          {siteData.contactInfo.email}
+                        </div>
+                      </div>
+                    </a>
+
+                    <div className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/2 border border-white/4">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#06b6d4]/10 flex items-center justify-center shrink-0">
+                        <Phone size={16} className="text-[#06b6d4]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[10px] sm:text-xs text-gray-500">
+                          Phone
+                        </div>
+                        <div className="text-xs sm:text-sm text-white font-medium truncate">
+                          {siteData.contactInfo.phone}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/2 border border-white/4">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#6366f1]/10 flex items-center justify-center shrink-0">
+                        <MapPin size={16} className="text-[#6366f1]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[10px] sm:text-xs text-gray-500">
+                          Location
+                        </div>
+                        <div className="text-xs sm:text-sm text-white font-medium">
+                          {siteData.contactInfo.location}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 sm:mt-6 p-3 sm:p-4 rounded-xl bg-[#06b6d4]/5 border border-[#06b6d4]/10">
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-2 h-2 rounded-full bg-[#06b6d4] animate-pulse" />
+                      <span className="text-xs sm:text-sm text-[#06b6d4] font-semibold">
+                        Currently Available
+                      </span>
+                    </div>
+                    <p className="text-[10px] sm:text-xs text-gray-500">
+                      Accepting new projects • Response within 24 hours
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                <div className="p-3 sm:p-4 rounded-xl bg-white/2 border border-white/6 text-center">
+                  <div className="text-lg sm:text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                    24h
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1">
+                    Response
+                  </div>
+                </div>
+                <div className="p-3 sm:p-4 rounded-xl bg-white/2 border border-white/6 text-center">
+                  <div className="text-lg sm:text-2xl font-bold bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                    5-10
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1">
+                    Days
+                  </div>
+                </div>
+                <div className="p-3 sm:p-4 rounded-xl bg-white/2 border border-white/6 text-center">
+                  <div className="text-lg sm:text-2xl font-bold bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                    100%
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1">
+                    Custom
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Form */}
+          <AnimatedSection
+            direction="right"
+            delay={0.2}
+            className="lg:col-span-7"
+          >
+            <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/40 via-[#8b5cf6]/20 to-[#06b6d4]/40">
+              <div className="bg-[#0c0c14] rounded-2xl p-5 sm:p-6 lg:p-8">
+                <div className="mb-5 sm:mb-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
+                    Send a Message
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-500">
+                    Fill out the form and we will reach out shortly.
+                  </p>
+                </div>
+
+                <ContactForm />
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+================================================================================
+FILE: components\FAQSection.tsx
+================================================================================
+
+"use client";
+
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { siteData } from "@/lib/data";
+import AnimatedSection from "./AnimatedSection";
+
+export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section id="faq" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+      <div className="absolute inset-0 bg-[#0a0a0f]" />
+      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-[#06b6d4]/4 rounded-full blur-[120px]" />
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection>
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#06b6d4]/20 bg-[#06b6d4]/5 mb-6">
+              <span className="text-xs font-medium text-[#06b6d4] tracking-wide uppercase">
+                Got Questions?
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
+              Frequently Asked{" "}
+              <span className="bg-linear-to-r from-[#06b6d4] to-[#8b5cf6] bg-clip-text text-transparent">
+                Questions
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-xl mx-auto">
+              Everything you need to know about our services and how we work.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <div className="space-y-3">
+          {siteData.faqs.map((faq, index) => (
+            <AnimatedSection key={index} delay={index * 0.05}>
+              <div
+                className={`rounded-2xl border transition-all duration-300 ${
+                  openIndex === index
+                    ? "bg-white/3 border-[#6366f1]/20"
+                    : "bg-white/[0.01] border-white/6 hover:border-white/10"
+                }`}
+              >
+                <button
+                  onClick={() => toggle(index)}
+                  className="w-full flex items-center justify-between p-5 lg:p-6 text-left"
+                >
+                  <span
+                    className={`text-sm lg:text-base font-medium pr-4 transition-colors duration-300 ${
+                      openIndex === index ? "text-white" : "text-gray-300"
+                    }`}
+                  >
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    size={18}
+                    className={`shrink-0 text-gray-500 transition-transform duration-300 ${
+                      openIndex === index ? "rotate-180 text-[#6366f1]" : ""
+                    }`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 lg:px-6 pb-5 lg:pb-6">
+                        <p className="text-sm text-gray-500 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+================================================================================
+FILE: components\FloatingWhatsApp.tsx
+================================================================================
+
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Phone, MessageCircle } from "lucide-react";
+import { siteData } from "@/lib/data";
+
+export default function FloatingWhatsApp() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowButton(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleStartChat = () => {
+    const message =
+      "Hi Devnix Studios! 👋 I am interested in your digital catalog services. Can we chat?";
+    const encoded = encodeURIComponent(message);
+    window.open(`${siteData.contactInfo.whatsapp}?text=${encoded}`, "_blank");
+    setIsOpen(false);
+  };
+
+  return (
+    <AnimatePresence>
+      {showButton && (
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0, opacity: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 20 }}
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
+        >
+          {/* Chat Popup */}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 20, scale: 0.9 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="absolute bottom-16 sm:bottom-20 right-0 w-[calc(100vw-2rem)] max-w-[340px] sm:w-[340px] rounded-2xl overflow-hidden shadow-2xl shadow-black/60"
+              >
+                {/* Outer gradient border wrapper */}
+                <div className="p-px rounded-2xl bg-linear-to-br from-[#6366f1]/30 via-white/[0.04] to-[#06b6d4]/30">
+                  <div className="bg-[#0c0c14] rounded-2xl overflow-hidden">
+                    {/* Header */}
+                    <div className="p-5 border-b border-white/6">
+                      <div className="flex items-start justify-between mb-1">
+                        <div className="flex items-center gap-3">
+                          {/* Avatar - Green Circle with WhatsApp icon */}
+                          <div className="relative">
+                            <div className="w-11 h-11 rounded-full bg-[#25d366] flex items-center justify-center shadow-lg shadow-[#25d366]/30">
+                              <MessageCircle
+                                size={20}
+                                className="text-white fill-white"
+                              />
+                            </div>
+                            {/* Online dot */}
+                            <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-[#25d366] border-2 border-[#0c0c14]" />
+                          </div>
+
+                          <div>
+                            <div className="text-white font-semibold text-sm">
+                              Devnix Studios
+                            </div>
+                            <div className="text-gray-400 text-xs flex items-center gap-1.5 mt-0.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#25d366] inline-block" />
+                              Online
+                            </div>
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={() => setIsOpen(false)}
+                          className="w-7 h-7 rounded-full hover:bg-white/5 flex items-center justify-center text-gray-500 hover:text-white transition-colors"
+                        >
+                          <X size={16} />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Message Body */}
+                    <div className="p-5">
+                      {/* Bot Message */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="bg-[#1a1a24] border border-white/6 rounded-2xl rounded-tl-sm p-4 mb-1"
+                      >
+                        <p className="text-sm text-gray-200 leading-relaxed">
+                          👋 Hey! Want a{" "}
+                          <span className="text-[#6366f1] font-medium">
+                            digital catalog
+                          </span>{" "}
+                          for your business?
+                        </p>
+                        <p className="text-sm text-gray-200 leading-relaxed mt-2">
+                          Starting at just{" "}
+                          <span className="bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent font-bold">
+                            PKR 5,000
+                          </span>
+                          — let&apos;s chat!
+                        </p>
+                        <div className="text-right mt-2">
+                          <span className="text-[10px] text-gray-600">Now</span>
+                        </div>
+                      </motion.div>
+
+                      {/* Phone Number */}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                        className="flex items-center gap-2 mt-4 px-1"
+                      >
+                        <Phone size={12} className="text-gray-500" />
+                        <span className="text-xs text-gray-400">
+                          {siteData.contactInfo.whatsappNumber}
+                        </span>
+                      </motion.div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <div className="p-5 pt-0">
+                      <motion.button
+                        onClick={handleStartChat}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#25d366] hover:bg-[#22c55e] text-white font-semibold text-sm rounded-xl shadow-lg shadow-[#25d366]/20 transition-colors duration-200"
+                      >
+                        <MessageCircle size={18} className="fill-white" />
+                        Start Chat
+                      </motion.button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Floating Button */}
+          <motion.button
+            onClick={() => setIsOpen(!isOpen)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative w-14 h-14 rounded-full bg-[#25d366] hover:bg-[#22c55e] flex items-center justify-center shadow-2xl shadow-[#25d366]/40 group"
+          >
+            {/* Outer Ring Pulse */}
+            <span className="absolute inset-0 rounded-full bg-[#25d366] animate-ping opacity-25" />
+
+            {/* Inner highlight */}
+            <span className="absolute inset-1 rounded-full bg-linear-to-br from-white/10 to-transparent" />
+
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative z-10"
+                >
+                  <X size={24} className="text-white" strokeWidth={2.5} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="whatsapp"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative z-10"
+                >
+                  <svg
+                    className="w-7 h-7 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Notification Badge */}
+            {!isOpen && (
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.5, type: "spring" }}
+                className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 border-2 border-[#0a0a0f] flex items-center justify-center"
+              >
+                <span className="text-[10px] font-bold text-white">1</span>
+              </motion.span>
+            )}
+          </motion.button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+================================================================================
+FILE: components\Footer.tsx
+================================================================================
+
+"use client";
+
+import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import { siteData } from "@/lib/data";
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHomePage = pathname === "/";
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleLinkClick = (href: string) => {
+    if (isHomePage) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      router.push(`/${href}`);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Compact nav for footer
+  const compactLinks = [
+    { label: "Home", href: "#home" },
+    { label: "Services", href: "#services" },
+    { label: "Projects", href: "#projects" },
+    { label: "Package", href: "#package" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  return (
+    <footer className="relative border-t border-white/4">
+      <div className="absolute inset-0 bg-[#070710]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* TOP ROW: Logo (left) | Nav (center) | Scroll Top (right) */}
+        <div className="py-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+          {/* Logo */}
+          <a
+            href={isHomePage ? "#home" : "/"}
+            onClick={(e) => {
+              if (isHomePage) {
+                e.preventDefault();
+                handleLinkClick("#home");
+              }
+            }}
+            className="flex items-center gap-3 group"
+          >
+            <Image
+              src="/logo/DevnixlogoWeb.png"
+              alt="Devnix Studios Logo"
+              width={40}
+              height={40}
+              className="rounded-lg group-hover:shadow-lg group-hover:shadow-[#6366f1]/30 transition-shadow"
+            />
+            <div className="flex flex-col leading-tight">
+              <span className="text-sm font-bold tracking-wider text-white uppercase">
+                Devnix Studios
+              </span>
+              <span className="text-[10px] font-medium tracking-[0.2em] uppercase bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                Digital Solutions
+              </span>
+            </div>
+          </a>
+
+          {/* Nav Links */}
+          <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2">
+            {compactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={isHomePage ? link.href : `/${link.href}`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault();
+                    handleLinkClick(link.href);
+                  }
+                }}
+                className="px-3 py-1.5 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Scroll to Top Button */}
+          <button
+            onClick={scrollToTop}
+            className={`w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all duration-300 ${
+              showScrollTop
+                ? "opacity-100"
+                : "opacity-50 hover:opacity-100"
+            }`}
+            title="Back to top"
+          >
+            <ArrowUp size={18} />
+          </button>
+        </div>
+
+        {/* DIVIDER */}
+        <div className="h-px bg-linear-to-r from-transparent via-white/[0.08] to-transparent" />
+
+        {/* SOCIAL ICONS - Centered */}
+        <div className="py-8 flex justify-center">
+          <div className="flex items-center gap-3">
+            {/* Email */}
+            <a
+              href={`mailto:${siteData.contactInfo.email}`}
+              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-[#6366f1]/40 hover:bg-[#6366f1]/5 transition-all duration-300"
+              title="Email"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </a>
+
+            {/* Social Links */}
+            {siteData.socialLinks
+              .filter((s) => s.platform !== "WhatsApp")
+              .map((social) => (
+                <a
+                  key={social.platform}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-[#6366f1]/40 hover:bg-[#6366f1]/5 transition-all duration-300"
+                  title={social.platform}
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d={social.svgPath} />
+                  </svg>
+                </a>
+              ))}
+          </div>
+        </div>
+
+        {/* COPYRIGHT - Centered */}
+        <div className="pb-8 text-center space-y-1">
+          <p className="text-sm text-gray-500">
+            &copy; {currentYear} {siteData.siteName}. All rights reserved.
+          </p>
+          <a
+            href={isHomePage ? "#home" : "/"}
+            onClick={(e) => {
+              if (isHomePage) {
+                e.preventDefault();
+                handleLinkClick("#home");
+              }
+            }}
+            className="text-sm bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent font-medium hover:opacity-80 transition-opacity"
+          >
+            devnixstudios.tech
+          </a>
+        </div>
+
+        {/* HIDDEN LEGAL LINKS (kept accessible but visually minimal) */}
+        <div className="pb-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs">
+          <a
+            href="/privacy-policy"
+            className="text-gray-600 hover:text-gray-400 transition-colors"
+          >
+            Privacy Policy
+          </a>
+          <span className="text-gray-700">•</span>
+          <a
+            href="/terms-of-service"
+            className="text-gray-600 hover:text-gray-400 transition-colors"
+          >
+            Terms of Service
+          </a>
+          <span className="text-gray-700">•</span>
+          <a
+            href="/refund-policy"
+            className="text-gray-600 hover:text-gray-400 transition-colors"
+          >
+            Refund Policy
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+================================================================================
+FILE: components\HeroSection.tsx
+================================================================================
+
+"use client";
+
+import { useState, useEffect } from "react";
+import {
+  ArrowRight,
+  Globe,
+  Search,
+  Share2,
+  Sparkles,
+  Code2,
+  Zap,
+  TrendingUp,
+  CheckCircle,
+  Star,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { siteData } from "@/lib/data";
+
+interface Particle {
+  id: number;
+  top: string;
+  left: string;
+  duration: number;
+  delay: number;
+}
+
+export default function HeroSection() {
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    const generated = Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      duration: 3 + Math.random() * 4,
+      delay: Math.random() * 5,
+    }));
+    setParticles(generated);
+  }, []);
+
+  const handleScroll = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16"
+    >
+      {/* Background Layers */}
+      <div className="absolute inset-0 bg-[#0a0a0f]" />
+
+      <motion.div
+        animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-20 left-0 sm:left-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]"
+      />
+      <motion.div
+        animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-20 right-0 sm:right-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]"
+      />
+
+      <div
+        className="absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 0%, rgba(10,10,15,0.6) 70%, rgba(10,10,15,1) 100%)",
+        }}
+      />
+
+      {/* Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {particles.map((particle) => (
+          <motion.div
+            key={particle.id}
+            className="absolute w-1 h-1 rounded-full bg-white/20"
+            style={{ top: particle.top, left: particle.left }}
+            animate={{ y: [0, -30, 0], opacity: [0, 1, 0] }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              delay: particle.delay,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* LEFT - Text */}
+          <div className="lg:col-span-7 text-center lg:text-left">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#6366f1]/30 bg-[#6366f1]/10 backdrop-blur-sm mb-5 sm:mb-6 max-w-full"
+            >
+              <Sparkles size={10} className="text-[#06b6d4] shrink-0" />
+              <span className="text-[10px] sm:text-xs font-medium text-[#06b6d4] tracking-wide uppercase">
+                Premium Web Studio
+              </span>
+              <span className="hidden sm:inline w-1 h-1 rounded-full bg-gray-600" />
+              <span className="hidden sm:inline text-xs text-gray-400">
+                Est. 202
+              </span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-[2rem] xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-4 sm:mb-6"
+            >
+              We{" "}
+              <span className="relative inline-block">
+                <span className="bg-linear-to-r from-[#6366f1] via-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                  Build
+                </span>
+              </span>
+              .
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
+              We{" "}
+              <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                Manage
+              </span>
+              .
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
+              We{" "}
+              <span className="bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                Grow
+              </span>
+              .
+            </motion.h1>
+
+            {/* Subtext */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0"
+            >
+              Custom websites, SEO optimization, and social media management —
+              all in one package. Starting at just{" "}
+              <span className="text-white font-semibold">PKR 5,000</span>.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-start justify-center lg:justify-start gap-3 mb-6 sm:mb-8"
+            >
+              <a
+                href={siteData.contactInfo.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_15px_40px_-10px_rgba(99,102,241,0.5)]"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  Start Your Project
+                  <ArrowRight
+                    size={16}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </span>
+              </a>
+              <button
+                onClick={() => handleScroll("#projects")}
+                className="group w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 text-sm font-semibold text-gray-300 border border-white/10 bg-white/2 backdrop-blur-sm rounded-xl hover:bg-white/5 hover:border-white/20 transition-all duration-300"
+              >
+                <Code2 size={16} className="text-[#06b6d4]" />
+                View Our Work
+              </button>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 lg:gap-6 pt-5 sm:pt-6 border-t border-white/6"
+            >
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="flex -space-x-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={12}
+                      className="text-yellow-400 fill-yellow-400"
+                    />
+                  ))}
+                </div>
+                <span className="text-[10px] sm:text-xs text-gray-400">
+                  5.0 Rating
+                </span>
+              </div>
+              <div className="w-px h-3 sm:h-4 bg-white/10" />
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <CheckCircle size={12} className="text-[#06b6d4]" />
+                <span className="text-[10px] sm:text-xs text-gray-400">
+                  3+ Projects
+                </span>
+              </div>
+              <div className="w-px h-3 sm:h-4 bg-white/10" />
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Zap size={12} className="text-[#8b5cf6]" />
+                <span className="text-[10px] sm:text-xs text-gray-400">
+                  Fast Delivery
+                </span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* RIGHT - Code Card (Desktop Only) */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="lg:col-span-5 relative hidden lg:block"
+          >
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-4 -left-8 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#6366f1]/20"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center">
+                  <TrendingUp size={18} className="text-white" />
+                </div>
+                <div>
+                  <div className="text-xs text-gray-500">Avg. Load Time</div>
+                  <div className="text-lg font-bold text-white">{"<"}1.5s</div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+              className="absolute -bottom-4 -right-4 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#06b6d4]/20"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#06b6d4] to-[#22d3ee] flex items-center justify-center">
+                  <Zap size={18} className="text-white" />
+                </div>
+                <div>
+                  <div className="text-xs text-gray-500">SEO Score</div>
+                  <div className="text-lg font-bold text-white">95/100</div>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/50 via-[#8b5cf6]/30 to-[#06b6d4]/50">
+              <div className="bg-[#0c0c14] rounded-2xl overflow-hidden">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/6 bg-[#0a0a0f]">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  </div>
+                  <div className="flex-1 ml-3 px-3 py-1.5 rounded-md bg-white/4 border border-white/6">
+                    <div className="flex items-center gap-1.5">
+                      <Globe size={10} className="text-gray-600" />
+                      <span className="text-[10px] text-gray-400">
+                        devnixstudios.tech
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-5 font-mono text-xs space-y-2 min-h-80">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                    className="text-gray-600"
+                  >
+                    {"// Your business, online in days"}
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8 }}
+                    className="flex gap-2"
+                  >
+                    <span className="text-[#8b5cf6]">const</span>
+                    <span className="text-[#06b6d4]">yourWebsite</span>
+                    <span className="text-gray-500">=</span>
+                    <span className="text-gray-300">{"{"}</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1 }}
+                    className="pl-4 flex flex-wrap gap-x-2"
+                  >
+                    <span className="text-[#6366f1]">design:</span>
+                    <span className="text-green-400">
+                      {"'Custom & Modern'"}
+                    </span>
+                    <span className="text-gray-500">,</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.2 }}
+                    className="pl-4 flex flex-wrap gap-x-2"
+                  >
+                    <span className="text-[#6366f1]">performance:</span>
+                    <span className="text-green-400">{"'Lightning Fast'"}</span>
+                    <span className="text-gray-500">,</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.4 }}
+                    className="pl-4 flex flex-wrap gap-x-2"
+                  >
+                    <span className="text-[#6366f1]">seo:</span>
+                    <span className="text-green-400">{"'Optimized'"}</span>
+                    <span className="text-gray-500">,</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.6 }}
+                    className="pl-4 flex flex-wrap gap-x-2"
+                  >
+                    <span className="text-[#6366f1]">socialMedia:</span>
+                    <span className="text-green-400">{"'Managed'"}</span>
+                    <span className="text-gray-500">,</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.8 }}
+                    className="pl-4 flex flex-wrap gap-x-2"
+                  >
+                    <span className="text-[#6366f1]">price:</span>
+                    <span className="text-yellow-400">{"'PKR 5,000'"}</span>
+                    <span className="text-gray-500">,</span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 2 }}
+                    className="text-gray-300"
+                  >
+                    {"};"}
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 2.2 }}
+                    className="pt-3 flex items-center gap-2"
+                  >
+                    <span className="text-[#8b5cf6]">{"=>"}</span>
+                    <span className="text-gray-400">deploy(</span>
+                    <span className="text-[#06b6d4]">yourWebsite</span>
+                    <span className="text-gray-400">);</span>
+                    <motion.span
+                      animate={{ opacity: [1, 0, 1] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                      className="inline-block w-2 h-4 bg-[#06b6d4]"
+                    />
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 2.6 }}
+                    className="mt-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center gap-2"
+                  >
+                    <CheckCircle size={14} className="text-green-400" />
+                    <span className="text-xs text-green-400">
+                      Website deployed successfully! 🚀
+                    </span>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bottom Pills + Price */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+          className="mt-10 sm:mt-12 lg:mt-16 flex flex-col items-center gap-5 sm:gap-6"
+        >
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <FeaturePill
+              icon={<Globe size={12} />}
+              text="Custom Code"
+              color="#6366f1"
+            />
+            <FeaturePill
+              icon={<Search size={12} />}
+              text="SEO Optimized"
+              color="#8b5cf6"
+            />
+            <FeaturePill
+              icon={<Share2 size={12} />}
+              text="Social Media"
+              color="#06b6d4"
+            />
+            <FeaturePill
+              icon={<Zap size={12} />}
+              text="Fast Delivery"
+              color="#a78bfa"
+            />
+          </div>
+
+          <div className="relative group w-full sm:w-auto max-w-sm sm:max-w-none">
+            <div className="absolute -inset-0.5 bg-linear-to-r from-[#6366f1] to-[#06b6d4] rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity" />
+            <div className="relative flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-3 rounded-2xl bg-[#0c0c14] border border-white/10">
+              <div className="flex items-center gap-2">
+                <Sparkles size={12} className="text-[#06b6d4]" />
+                <span className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider">
+                  Limited Time
+                </span>
+              </div>
+              <div className="hidden sm:block w-px h-6 bg-white/10" />
+              <div className="flex items-baseline gap-2">
+                <span className="text-[10px] sm:text-xs text-gray-500">
+                  Starting from
+                </span>
+                <span className="text-xl sm:text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                  5,000
+                </span>
+                <span className="text-xs sm:text-sm text-gray-400">PKR</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-linear-to-t from-[#0a0a0f] to-transparent pointer-events-none" />
+    </section>
+  );
+}
+
+function FeaturePill({
+  icon,
+  text,
+  color,
+}: {
+  icon: React.ReactNode;
+  text: string;
+  color: string;
+}) {
+  return (
+    <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/3 border border-white/6 hover:bg-white/5 transition-all duration-300">
+      <span style={{ color }}>{icon}</span>
+      <span className="text-xs sm:text-sm text-gray-300 font-medium whitespace-nowrap">
+        {text}
+      </span>
+    </div>
+  );
+}
+
+================================================================================
+FILE: components\LegalLayout.tsx
+================================================================================
+
+"use client";
+
+import { Mail, Phone } from "lucide-react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import TableOfContents from "./TableOfContents";
+import { siteData } from "@/lib/data";
+
+interface TOCItem {
+  id: string;
+  title: string;
+}
+
+interface LegalLayoutProps {
+  title: string;
+  badge: string;
+  badgeColor: string;
+  lastUpdated: string;
+  tocItems: TOCItem[];
+  children: React.ReactNode;
+}
+
+export default function LegalLayout({
+  title,
+  badge,
+  badgeColor,
+  lastUpdated,
+  tocItems,
+  children,
+}: LegalLayoutProps) {
+  return (
+    <main className="min-h-screen bg-[#0a0a0f] flex flex-col">
+      {/* Same Navbar as Home */}
+      <Navbar />
+
+      {/* HERO */}
+      <section className="relative overflow-hidden border-b border-white/4 pt-16 lg:pt-20">
+        <div className="absolute inset-0 bg-[#0a0a0f]" />
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[120px] opacity-30"
+          style={{ background: badgeColor }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border mb-6"
+            style={{
+              borderColor: `${badgeColor}33`,
+              backgroundColor: `${badgeColor}0d`,
+            }}
+          >
+            <span
+              className="text-xs font-medium tracking-wide uppercase"
+              style={{ color: badgeColor }}
+            >
+              {badge}
+            </span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
+            {title}
+          </h1>
+          <p className="text-gray-500">Last updated: {lastUpdated}</p>
+        </div>
+      </section>
+
+      {/* CONTENT WITH TOC SIDEBAR */}
+      <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Left: Table of Contents (Desktop only) */}
+          <aside className="hidden lg:block lg:col-span-3">
+            <TableOfContents items={tocItems} accentColor={badgeColor} />
+          </aside>
+
+          {/* Right: Content */}
+          <div className="lg:col-span-9">
+            {/* Mobile TOC */}
+            <div className="lg:hidden mb-8">
+              <details className="rounded-2xl bg-white/2 border border-white/6 overflow-hidden">
+                <summary
+                  className="cursor-pointer p-4 text-sm font-semibold text-white flex items-center justify-between hover:bg-white/2"
+                  style={{ listStyle: "none" }}
+                >
+                  <span className="flex items-center gap-2">
+                    <span
+                      className="w-1 h-4 rounded-full"
+                      style={{ backgroundColor: badgeColor }}
+                    />
+                    Table of Contents
+                  </span>
+                  <span className="text-xs text-gray-500">
+                    {tocItems.length} sections
+                  </span>
+                </summary>
+                <div className="p-4 pt-0 space-y-1">
+                  {tocItems.map((item, index) => (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/2 rounded-lg transition-colors"
+                    >
+                      {index + 1}. {item.title}
+                    </a>
+                  ))}
+                </div>
+              </details>
+            </div>
+
+            {/* Sections */}
+            <div className="space-y-6">{children}</div>
+
+            {/* Contact CTA Card */}
+            <div className="mt-12 p-1 rounded-2xl bg-linear-to-br from-[#6366f1]/30 via-[#8b5cf6]/20 to-[#06b6d4]/30">
+              <div className="bg-[#0c0c14] rounded-2xl p-8 lg:p-10 text-center">
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  Have Questions?
+                </h3>
+                <p className="text-gray-400 mb-6 max-w-md mx-auto">
+                  We are here to help. Reach out to us anytime via email or
+                  WhatsApp.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <a
+                    href={`mailto:${siteData.contactInfo.email}`}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/20 transition-all duration-300"
+                  >
+                    <Mail size={16} />
+                    Email Us
+                  </a>
+                  <a
+                    href={siteData.contactInfo.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-gray-300 border border-white/10 rounded-xl hover:bg-white/5 hover:border-white/20 transition-all duration-300"
+                  >
+                    <Phone size={16} />
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Same Footer as Home */}
+      <Footer />
+    </main>
+  );
+}
+
+================================================================================
+FILE: components\Navbar.tsx
+================================================================================
+
+"use client";
+
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import { siteData } from "@/lib/data";
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHomePage = pathname === "/";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleLinkClick = (href: string) => {
+    setIsOpen(false);
+
+    if (isHomePage) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      router.push(`/${href}`);
+    }
+  };
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled || !isHomePage
+          ? "bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
+          : "bg-[#0a0a0f]/80 backdrop-blur-md"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
+          {/* Logo */}
+          <a
+            href={isHomePage ? "#home" : "/"}
+            onClick={(e) => {
+              if (isHomePage) {
+                e.preventDefault();
+                handleLinkClick("#home");
+              }
+            }}
+            className="flex items-center gap-2 sm:gap-2.5 group shrink-0"
+          >
+            <Image
+              src="/logo/DevnixlogoWeb.png"
+              alt="Devnix Studios Logo"
+              width={32}
+              height={32}
+              style={{ width: "auto", height: "32px" }}
+              className="rounded-lg group-hover:shadow-lg group-hover:shadow-[#6366f1]/30 transition-shadow duration-300 sm:!h-9 lg:!h-10"
+              priority
+            />
+            <div className="flex flex-col leading-tight">
+              <span className="text-xs sm:text-sm lg:text-base font-bold tracking-wider text-white uppercase">
+                Devnix Studios
+              </span>
+              <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                Digital Solutions
+              </span>
+            </div>
+          </a>
+
+          {/* Desktop Links */}
+          <div className="hidden lg:flex items-center gap-1">
+            {siteData.navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={isHomePage ? link.href : `/${link.href}`}
+                onClick={(e) => {
+                  if (isHomePage) {
+                    e.preventDefault();
+                    handleLinkClick(link.href);
+                  }
+                }}
+                className="px-3 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href={siteData.contactInfo.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 text-sm font-medium text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-lg hover:shadow-lg hover:shadow-[#6366f1]/25 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Get Started
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 text-gray-300 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden transition-all duration-300 overflow-hidden ${
+          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="bg-[#0a0a0f]/98 backdrop-blur-xl border-t border-white/5 px-4 py-4 space-y-1">
+          {siteData.navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={isHomePage ? link.href : `/${link.href}`}
+              onClick={(e) => {
+                if (isHomePage) {
+                  e.preventDefault();
+                  handleLinkClick(link.href);
+                }
+              }}
+              className="block px-4 py-3 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+          <div className="pt-3 px-4">
+            <a
+              href={siteData.contactInfo.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center px-5 py-3 text-sm font-medium text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-lg"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+================================================================================
+FILE: components\PackageSection.tsx
+================================================================================
+
+"use client";
+
+import {
+  CheckCircle,
+  Plus,
+  ArrowRight,
+  Info,
+  Layout,
+  FileText,
+  Package,
+} from "lucide-react";
+import { siteData } from "@/lib/data";
+import AnimatedSection from "./AnimatedSection";
+
+const breakdownIconMap: Record<string, React.ReactNode> = {
+  Layout: <Layout size={18} />,
+  FileText: <FileText size={18} />,
+  Package: <Package size={18} />,
+};
+
+const breakdownGradients = [
+  "from-[#6366f1] to-[#8b5cf6]",
+  "from-[#8b5cf6] to-[#06b6d4]",
+  "from-[#06b6d4] to-[#6366f1]",
+];
+
+export default function PackageSection() {
+  return (
+    <section
+      id="package"
+      className="relative overflow-hidden py-16 sm:py-24 lg:py-32"
+    >
+      <div className="absolute inset-0 bg-[#0a0a0f]" />
+      <div className="absolute top-0 left-1/3 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#8b5cf6]/5 rounded-full blur-[80px] sm:blur-[120px]" />
+      <div className="absolute bottom-0 right-1/3 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-[#06b6d4]/4 rounded-full blur-[80px] sm:blur-[120px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection>
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/5 mb-5 sm:mb-6">
+              <span className="text-[10px] sm:text-xs font-medium text-[#8b5cf6] tracking-wide uppercase">
+                Our Package
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 tracking-tight px-2">
+              One Package.{" "}
+              <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                Everything Included.
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4">
+              No confusion, no hidden fees. One complete package that covers
+              your website, management, SEO, and social media.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Main Package Card */}
+          <AnimatedSection className="lg:col-span-7" direction="left">
+            <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/40 via-[#8b5cf6]/20 to-[#06b6d4]/40">
+              <div className="bg-[#0c0c14] rounded-2xl p-5 sm:p-8 lg:p-10 h-full">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 pb-5 sm:pb-0 border-b sm:border-b-0 border-white/6">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
+                      Business Starter
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-500">
+                      Complete website + 3 months management
+                    </p>
+                  </div>
+                  <div className="text-left sm:text-right">
+                    <div className="text-2xl sm:text-3xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                      5,000 PKR
+                    </div>
+                    <div className="text-xs text-gray-500 mt-0.5">
+                      / website
+                    </div>
+                  </div>
+                </div>
+
+                {/* Package Features */}
+                <div className="space-y-3 mb-6 sm:mb-8">
+                  {siteData.packageFeatures.map((feature) => (
+                    <div key={feature.text} className="flex items-start gap-3">
+                      <CheckCircle
+                        size={16}
+                        className="text-[#06b6d4] mt-0.5 shrink-0"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <span className="text-xs sm:text-sm text-white">
+                          {feature.text}
+                        </span>
+                        {feature.note && (
+                          <span className="block sm:inline text-[10px] sm:text-xs text-gray-500 sm:ml-2 mt-0.5 sm:mt-0">
+                            — {feature.note}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Website Breakdown - NEW! */}
+                <div className="border-t border-white/6 pt-5 sm:pt-6 mb-6 sm:mb-8">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#6366f1] to-[#06b6d4]" />
+                    <h4 className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
+                      What&apos;s Inside Your Website
+                    </h4>
+                  </div>
+
+                  <div className="space-y-3">
+                    {siteData.websiteBreakdown.map((category, index) => (
+                      <div
+                        key={category.title}
+                        className="p-3 sm:p-4 rounded-xl bg-white/2 border border-white/4 hover:border-white/8 transition-all duration-300"
+                      >
+                        <div className="flex items-center gap-2.5 mb-2.5">
+                          <div
+                            className={`w-8 h-8 rounded-lg bg-linear-to-br ${breakdownGradients[index]} flex items-center justify-center text-white shrink-0`}
+                          >
+                            {breakdownIconMap[category.icon]}
+                          </div>
+                          <h5 className="text-xs sm:text-sm font-semibold text-white">
+                            {category.title}
+                          </h5>
+                          <span className="ml-auto text-[10px] sm:text-xs text-gray-500 px-2 py-0.5 rounded-full bg-white/4 border border-white/6">
+                            {category.items.length} included
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 pl-1">
+                          {category.items.map((item) => (
+                            <div
+                              key={item}
+                              className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gray-400"
+                            >
+                              <div className="w-1 h-1 rounded-full bg-[#06b6d4] shrink-0" />
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Monthly Support */}
+                <div className="border-t border-white/6 pt-5 sm:pt-6 mb-6 sm:mb-8">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#8b5cf6] to-[#06b6d4]" />
+                    <h4 className="text-xs sm:text-sm font-semibold text-[#8b5cf6] uppercase tracking-wider">
+                      Monthly Support Includes
+                    </h4>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                    {siteData.supportFeatures.map((feature) => (
+                      <div
+                        key={feature.text}
+                        className="flex items-start gap-2 p-2.5 sm:p-3 rounded-xl bg-white/2 border border-white/4"
+                      >
+                        <Plus
+                          size={12}
+                          className="text-[#6366f1] mt-0.5 shrink-0"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <div className="text-[11px] sm:text-xs font-medium text-white">
+                            {feature.text}
+                          </div>
+                          {feature.detail && (
+                            <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5">
+                              {feature.detail}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <a
+                  href={siteData.contactInfo.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-center gap-2 w-full px-6 py-3.5 sm:py-4 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/20 transition-all duration-300"
+                >
+                  Get Started Now
+                  <ArrowRight
+                    size={16}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </a>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Right Side - Pricing + Addons */}
+          <div className="lg:col-span-5 space-y-6">
+            <AnimatedSection direction="right" delay={0.1}>
+              <div className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/6">
+                <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-5 flex items-center gap-2">
+                  <Info size={16} className="text-[#06b6d4]" />
+                  Pricing Breakdown
+                </h4>
+                <div className="space-y-2 sm:space-y-3">
+                  {siteData.pricingBreakdown.map((item, index) => (
+                    <div
+                      key={item.item}
+                      className={`flex items-start justify-between gap-3 py-2.5 sm:py-3 ${
+                        index !== siteData.pricingBreakdown.length - 1
+                          ? "border-b border-white/4"
+                          : ""
+                      } ${
+                        index === siteData.pricingBreakdown.length - 1
+                          ? "pt-3 sm:pt-4"
+                          : ""
+                      }`}
+                    >
+                      <div className="flex-1 min-w-0">
+                        <div
+                          className={`text-xs sm:text-sm ${
+                            index === siteData.pricingBreakdown.length - 1
+                              ? "font-bold text-white"
+                              : "text-gray-400"
+                          }`}
+                        >
+                          {item.item}
+                        </div>
+                        {item.note && (
+                          <div className="text-[10px] sm:text-xs text-gray-600 mt-0.5">
+                            {item.note}
+                          </div>
+                        )}
+                      </div>
+                      <span
+                        className={`text-xs sm:text-sm font-semibold whitespace-nowrap ${
+                          index === siteData.pricingBreakdown.length - 1
+                            ? "text-base sm:text-lg bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent"
+                            : "text-white"
+                        }`}
+                      >
+                        {item.price}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection direction="right" delay={0.2}>
+              <div className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/6">
+                <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-5 flex items-center gap-2">
+                  <Plus size={16} className="text-[#8b5cf6]" />
+                  Add-ons
+                </h4>
+                <div className="space-y-2 sm:space-y-2.5">
+                  {siteData.packageAddons.map((addon) => (
+                    <div
+                      key={addon.item}
+                      className="flex items-center justify-between gap-3 py-1.5 sm:py-2"
+                    >
+                      <span className="text-xs sm:text-sm text-gray-400">
+                        {addon.item}
+                      </span>
+                      <span className="text-xs sm:text-sm font-medium text-[#06b6d4] whitespace-nowrap">
+                        {addon.price}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Quick Stats Card */}
+            <AnimatedSection direction="right" delay={0.3}>
+              <div className="p-5 sm:p-6 rounded-2xl bg-linear-to-br from-[#6366f1]/10 via-[#8b5cf6]/5 to-[#06b6d4]/10 border border-[#6366f1]/20">
+                <h4 className="text-base sm:text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                  <CheckCircle size={16} className="text-[#06b6d4]" />
+                  What You Get Initially
+                </h4>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
+                    <div className="text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                      6
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
+                      Products
+                    </div>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
+                    <div className="text-2xl font-bold bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                      2
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
+                      Categories
+                    </div>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
+                    <div className="text-2xl font-bold bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                      5+
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
+                      Pages
+                    </div>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
+                    <div className="text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                      6
+                    </div>
+                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
+                      Sections
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+================================================================================
+FILE: components\ProcessSection.tsx
+================================================================================
+
+"use client";
+
+import { Phone, Settings, Globe, Package } from "lucide-react";
+import { siteData } from "@/lib/data";
+import AnimatedSection from "./AnimatedSection";
+
+const iconMap: Record<string, React.ReactNode> = {
+  Phone: <Phone size={22} />,
+  Settings: <Settings size={22} />,
+  Globe: <Globe size={22} />,
+  Package: <Package size={22} />,
+};
+
+export default function ProcessSection() {
+  return (
+    <section id="process" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+      <div className="absolute inset-0 bg-[#0a0a0f]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#06b6d4]/5 rounded-full blur-[120px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection>
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#06b6d4]/20 bg-[#06b6d4]/5 mb-6">
+              <span className="text-xs font-medium text-[#06b6d4] tracking-wide uppercase">
+                How It Works
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
+              Simple{" "}
+              <span className="bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                4-Step Process
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto">
+              From our first call to your website going live and beyond — here
+              is how we work together.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {siteData.processSteps.map((step, index) => (
+            <AnimatedSection key={step.step} delay={index * 0.15}>
+              <div className="relative group h-full">
+                {/* Connector Line - Desktop */}
+                {index < siteData.processSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-12 left-[calc(100%-12px)] w-[calc(100%-40px)] h-[2px] z-0">
+                    <div className="h-full bg-linear-to-r from-[#6366f1]/40 via-[#8b5cf6]/30 to-transparent" />
+                  </div>
+                )}
+
+                <div className="relative p-6 rounded-2xl bg-white/2 border border-white/6 hover:border-[#6366f1]/20 hover:bg-white/4 transition-all duration-500 h-full">
+                  {/* Step Badge - Top Left */}
+                  <div className="absolute -top-3 left-6 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0a0a0f] border border-[#6366f1]/30">
+                    <span className="text-[10px] font-medium text-gray-500 tracking-widest uppercase">
+                      Step
+                    </span>
+                    <span className="text-xs font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                      0{step.step}
+                    </span>
+                  </div>
+
+                  {/* Icon */}
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center text-white mb-5 mt-3 group-hover:shadow-lg group-hover:shadow-[#6366f1]/20 transition-shadow duration-500">
+                    {iconMap[step.icon]}
+                  </div>
+
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+================================================================================
+FILE: components\ProjectsSection.tsx
+================================================================================
+
+"use client";
+
+import { useState } from "react";
+import {
+  ArrowRight,
+  Globe,
+  ExternalLink,
+  Sparkles,
+} from "lucide-react";
+import { siteData } from "@/lib/data";
+import AnimatedSection from "./AnimatedSection";
+
+export default function ProjectsSection() {
+  return (
+    <section id="projects" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+      <div className="absolute inset-0 bg-[#0a0a0f]" />
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#8b5cf6]/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#06b6d4]/4 rounded-full blur-[120px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <AnimatedSection>
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/5 mb-6">
+              <Sparkles size={12} className="text-[#8b5cf6]" />
+              <span className="text-xs font-medium text-[#8b5cf6] tracking-wide uppercase">
+                Our Work
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
+              Projects We Have{" "}
+              <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                Delivered
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto">
+              Real projects built for real businesses. Take a look at what we
+              have crafted.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {siteData.projects.map((project, index) => (
+            <AnimatedSection key={project.title} delay={index * 0.15}>
+              <ProjectCard project={project} />
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectCard({
+  project,
+}: {
+  project: (typeof siteData.projects)[0];
+}) {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative h-full flex flex-col rounded-2xl bg-white/2 border border-white/6 hover:border-[#6366f1]/25 overflow-hidden transition-all duration-500 hover:-translate-y-1"
+    >
+      {/* Gradient Header Bar */}
+      <div className={`h-1.5 bg-linear-to-r ${project.gradient}`} />
+
+      {/* Browser Mockup */}
+      <div className="px-5 pt-5 pb-4">
+        <div className="flex items-center gap-2 mb-4">
+          <div className="flex gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+            <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+          </div>
+          <div className="flex-1 ml-2 px-3 py-1.5 rounded-md bg-white/4 border border-white/6">
+            <div className="flex items-center gap-1.5">
+              <Globe size={10} className="text-gray-600" />
+              <span className="text-[10px] text-gray-500 truncate">
+                {project.url.replace("https://", "")}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Screenshot Preview */}
+        <div className="relative h-48 rounded-xl overflow-hidden bg-[#1a1a24] border border-white/4">
+          {project.screenshot && !imgError ? (
+            <picture>
+              {/* AVIF first (smaller, faster) */}
+              <source
+                srcSet={`${project.screenshot}.avif`}
+                type="image/avif"
+              />
+              {/* PNG fallback */}
+              <img
+                src={`${project.screenshot}.png`}
+                alt={`${project.title} preview`}
+                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                onError={() => setImgError(true)}
+                loading="lazy"
+              />
+            </picture>
+          ) : (
+            // Fallback gradient if both images fail
+            <div
+              className={`absolute inset-0 bg-linear-to-br ${project.gradient} flex items-center justify-center`}
+            >
+              <div
+                className="absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+                  backgroundSize: "30px 30px",
+                }}
+              />
+              <div className="text-center relative z-10">
+                <div className="text-2xl font-black text-white drop-shadow-lg">
+                  {project.title}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Overlay on Hover */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+          {/* External Link Badge on Hover */}
+          <div className="absolute top-3 right-3 w-8 h-8 rounded-lg bg-white/95 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0 translate-y-1 shadow-lg">
+            <ExternalLink size={14} className="text-gray-800" />
+          </div>
+
+          {/* Live Indicator */}
+          <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-[10px] font-medium text-white">LIVE</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="px-5 pb-5 flex-1 flex flex-col">
+        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#6366f1] transition-colors duration-300">
+          {project.title}
+        </h3>
+        <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
+          {project.description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-2.5 py-1 text-[10px] font-medium text-gray-400 bg-white/4 border border-white/6 rounded-full"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="inline-flex items-center gap-2 text-sm font-medium text-[#6366f1] group-hover:text-[#8b5cf6] transition-colors duration-200">
+          <ExternalLink size={14} />
+          View Live Site
+          <ArrowRight
+            size={14}
+            className="group-hover:translate-x-1 transition-transform"
+          />
+        </div>
+      </div>
+
+      {/* Hover Glow */}
+      <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-[#6366f1]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+    </a>
+  );
+}
+
+================================================================================
+FILE: components\ServicesSection.tsx
+================================================================================
+
+"use client";
+
+import {
+  Globe,
+  Search,
+  Share2,
+  Package,
+  MapPin,
+  Settings,
+} from "lucide-react";
+import { siteData } from "@/lib/data";
+import AnimatedSection from "./AnimatedSection";
+
+const iconMap: Record<string, React.ReactNode> = {
+  Globe: <Globe size={24} />,
+  Search: <Search size={24} />,
+  Share2: <Share2 size={24} />,
+  Package: <Package size={24} />,
+  MapPin: <MapPin size={24} />,
+  Settings: <Settings size={24} />,
+};
+
+const gradients = [
+  "from-[#6366f1] to-[#8b5cf6]",
+  "from-[#8b5cf6] to-[#a78bfa]",
+  "from-[#06b6d4] to-[#22d3ee]",
+  "from-[#6366f1] to-[#06b6d4]",
+  "from-[#8b5cf6] to-[#06b6d4]",
+  "from-[#06b6d4] to-[#6366f1]",
+];
+
+export default function ServicesSection() {
+  return (
+    <section id="services" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+      <div className="absolute inset-0 bg-[#0a0a0f]" />
+      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-[#6366f1]/5 rounded-full blur-[120px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <AnimatedSection>
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#6366f1]/20 bg-[#6366f1]/5 mb-6">
+              <span className="text-xs font-medium text-[#6366f1] tracking-wide uppercase">
+                What We Offer
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
+              Everything Your Business{" "}
+              <span className="bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                Needs Online
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto">
+              From custom website development to ongoing management, SEO, and
+              social media — we handle it all.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {siteData.services.map((service, index) => (
+            <AnimatedSection key={service.title} delay={index * 0.1}>
+              <div className="group relative p-6 lg:p-8 rounded-2xl bg-white/2 border border-white/6 hover:border-[#6366f1]/20 hover:bg-white/4 transition-all duration-500 h-full">
+                {/* Icon */}
+                <div
+                  className={`w-12 h-12 rounded-xl bg-linear-to-br ${gradients[index]} flex items-center justify-center text-white mb-5 group-hover:shadow-lg group-hover:shadow-[#6366f1]/15 transition-shadow duration-500`}
+                >
+                  {iconMap[service.icon]}
+                </div>
+
+                {/* Content */}
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#6366f1] transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Hover Glow */}
+                <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-[#6366f1]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+================================================================================
+FILE: components\TableOfContents.tsx
+================================================================================
+
+"use client";
+
+import { useState, useEffect } from "react";
+import { List } from "lucide-react";
+
+interface TOCItem {
+  id: string;
+  title: string;
+}
+
+interface TableOfContentsProps {
+  items: TOCItem[];
+  accentColor: string;
+}
+
+export default function TableOfContents({
+  items,
+  accentColor,
+}: TableOfContentsProps) {
+  const [activeId, setActiveId] = useState<string>(items[0]?.id || "");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+      let currentActive = items[0]?.id || "";
+
+      for (const item of items) {
+        const element = document.getElementById(item.id);
+        if (element && element.offsetTop <= scrollPosition) {
+          currentActive = item.id;
+        }
+      }
+
+      setActiveId(currentActive);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [items]);
+
+  const handleClick = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  return (
+    <div className="sticky top-28 p-5 rounded-2xl bg-white/2 border border-white/6">
+      {/* Header */}
+      <div className="flex items-center gap-2 mb-4 pb-4 border-b border-white/6">
+        <List size={16} style={{ color: accentColor }} />
+        <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+          On This Page
+        </h3>
+      </div>
+
+      {/* Items */}
+      <nav className="space-y-1">
+        {items.map((item) => {
+          const isActive = activeId === item.id;
+          return (
+            <button
+              key={item.id}
+              onClick={() => handleClick(item.id)}
+              className={`group w-full text-left flex items-start gap-3 px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
+                isActive
+                  ? "bg-white/4 text-white"
+                  : "text-gray-500 hover:text-gray-300 hover:bg-white/2"
+              }`}
+            >
+              {/* Active Indicator Bar */}
+              <div
+                className={`w-0.5 self-stretch rounded-full mt-0.5 transition-all duration-200 ${
+                  isActive ? "opacity-100" : "opacity-0 group-hover:opacity-30"
+                }`}
+                style={{ backgroundColor: accentColor }}
+              />
+              <span className="flex-1 leading-snug">{item.title}</span>
+            </button>
+          );
+        })}
+      </nav>
+
+      {/* Progress Indicator */}
+      <div className="mt-5 pt-4 border-t border-white/6">
+        <div className="text-[10px] text-gray-600 uppercase tracking-wider mb-2">
+          Reading Progress
+        </div>
+        <div className="h-1 rounded-full bg-white/4 overflow-hidden">
+          <div
+            className="h-full rounded-full transition-all duration-300"
+            style={{
+              width: `${
+                ((items.findIndex((i) => i.id === activeId) + 1) /
+                  items.length) *
+                100
+              }%`,
+              background: `linear-gradient(90deg, ${accentColor}, ${accentColor}80)`,
+            }}
+          />
+        </div>
+        <div className="text-xs text-gray-500 mt-2">
+          Section {items.findIndex((i) => i.id === activeId) + 1} of{" "}
+          {items.length}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+================================================================================
+FILE: components\WhyUsSection.tsx
+================================================================================
+
+"use client";
+
+import { CheckCircle, Star, MessageCircle, ArrowRight } from "lucide-react";
+import { siteData } from "@/lib/data";
+import AnimatedSection from "./AnimatedSection";
+
+const iconMap: Record<string, React.ReactNode> = {
+  CheckCircle: <CheckCircle size={24} />,
+  Star: <Star size={24} />,
+  MessageCircle: <MessageCircle size={24} />,
+  ArrowRight: <ArrowRight size={24} />,
+};
+
+const accentColors = ["#6366f1", "#8b5cf6", "#06b6d4", "#6366f1"];
+const gradients = [
+  "from-[#6366f1] to-[#8b5cf6]",
+  "from-[#8b5cf6] to-[#a78bfa]",
+  "from-[#06b6d4] to-[#22d3ee]",
+  "from-[#6366f1] to-[#06b6d4]",
+];
+
+export default function WhyUsSection() {
+  return (
+    <section id="whyus" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+      <div className="absolute inset-0 bg-[#0a0a0f]" />
+      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#8b5cf6]/4 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/3 right-0 w-[400px] h-[400px] bg-[#6366f1]/5 rounded-full blur-[120px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection>
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#6366f1]/20 bg-[#6366f1]/5 mb-6">
+              <span className="text-xs font-medium text-[#6366f1] tracking-wide uppercase">
+                Why Devnix
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
+              Why Businesses{" "}
+              <span className="bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                Choose Us
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto">
+              We are not just another web agency. Here is what makes Devnix
+              Studios different.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {siteData.whyUsPoints.map((point, index) => (
+            <AnimatedSection
+              key={point.title}
+              delay={index * 0.1}
+              direction={index % 2 === 0 ? "left" : "right"}
+            >
+              <div className="group relative p-8 lg:p-10 rounded-2xl bg-white/2 border border-white/6 hover:border-white/12 transition-all duration-500 h-full overflow-hidden">
+                {/* Top Row: Icon + Number Badge */}
+                <div className="flex items-center justify-between mb-5">
+                  <div
+                    className={`w-12 h-12 rounded-xl bg-linear-to-br ${gradients[index]} flex items-center justify-center text-white group-hover:shadow-lg transition-shadow duration-500`}
+                    style={{
+                      boxShadow: `0 0 0 transparent`,
+                    }}
+                  >
+                    {iconMap[point.icon]}
+                  </div>
+
+                  {/* Clean Number Badge */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-gray-600 font-medium tracking-widest uppercase">
+                      Reason
+                    </span>
+                    <span
+                      className="text-sm font-bold px-2.5 py-1 rounded-md border"
+                      style={{
+                        color: accentColors[index],
+                        borderColor: `${accentColors[index]}30`,
+                        backgroundColor: `${accentColors[index]}08`,
+                      }}
+                    >
+                      0{index + 1}
+                    </span>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {point.title}
+                </h3>
+                <p className="text-gray-500 leading-relaxed">
+                  {point.description}
+                </p>
+
+                {/* Bottom accent line */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${accentColors[index]}80, transparent)`,
+                  }}
+                />
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

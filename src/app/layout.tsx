@@ -31,6 +31,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon-v3.ico",
   },
+  
+  // ✅ ADD THIS SECTION
+  verification: {
+    google: "a8DKm6D41vySR5TrEEtAFB-wkTSCFvo4mRWPTgLnIA8",
+  },
+
   openGraph: {
     title: "Devnix Studios — We Build. We Manage. We Grow.",
     description:

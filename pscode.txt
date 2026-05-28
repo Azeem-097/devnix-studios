@@ -1,0 +1,76 @@
+# Define the base path and folders to process
+$basePath = "D:\Web Development\Websites\Own\devnixstudios\src"
+$foldersToProcess = @("app", "components", "lib", "types")
+
+# Create the output directory
+$outputFolder = Join-Path -Path $basePath -ChildPath "extractedscripts"
+
+# Create extractedscripts folder if it doesn't exist
+if (!(Test-Path -Path $outputFolder)) {
+    New-Item -ItemType Directory -Path $outputFolder -Force | Out-Null
+    Write-Host "Created folder: $outputFolder" -ForegroundColor Green
+}
+
+# Process each folder
+foreach ($folder in $foldersToProcess) {
+    $folderPath = Join-Path -Path $basePath -ChildPath $folder
+    $outputFile = Join-Path -Path $outputFolder -ChildPath "$folder.txt"
+    
+    # Check if source folder exists
+    if (!(Test-Path -Path $folderPath)) {
+        Write-Host "Warning: Folder not found - $folderPath" -ForegroundColor Yellow
+        continue
+    }
+    
+    # Clear/create the output file
+    "" | Out-File -FilePath $outputFile -Encoding UTF8
+    
+    # Get all files recursively
+    $files = Get-ChildItem -Path $folderPath -Recurse -File
+    
+    Write-Host "`nProcessing folder: $folder" -ForegroundColor Cyan
+    Write-Host "Found $($files.Count) files" -ForegroundColor Cyan
+    
+    foreach ($file in $files) {
+        # Get relative path for better readability
+        $relativePath = $file.FullName.Replace($basePath, "").TrimStart("\")
+        
+        # Create separator and header for each file
+        $separator = "=" * 80
+        $header = @"
+
+$separator
+FILE: $relativePath
+$separator
+
+"@
+        
+        # Append header to output file
+        $header | Out-File -FilePath $outputFile -Encoding UTF8 -Append
+        
+        try {
+            # Read and append file content
+            $content = Get-Content -Path $file.FullName -Raw -ErrorAction Stop
+            if ($content) {
+                $content | Out-File -FilePath $outputFile -Encoding UTF8 -Append
+            } else {
+                "[Empty File]" | Out-File -FilePath $outputFile -Encoding UTF8 -Append
+            }
+        }
+        catch {
+            "[Error reading file: $($_.Exception.Message)]" | Out-File -FilePath $outputFile -Encoding UTF8 -Append
+        }
+        
+        Write-Host "  Extracted: $($file.Name)" -ForegroundColor Gray
+    }
+    
+    Write-Host "Output saved to: $outputFile" -ForegroundColor Green
+}
+
+Write-Host "`n✓ Extraction complete!" -ForegroundColor Green
+Write-Host "Output folder: $outputFolder" -ForegroundColor Green
+
+I am working on a next js and react project
+here is the files created yet
+
+------ for codes... write me a powershell code that will automatically create files and folders and write, edit or replace their content when i run that code in vs code terminal - Do this for our project next
