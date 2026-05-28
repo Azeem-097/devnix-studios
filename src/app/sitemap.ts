@@ -90,6 +90,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
+    // ── Industry Pages ─────────────────────────────
+    {
+      url: `${baseUrl}/restaurant-website-pakistan`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/clinic-website-pakistan`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/school-website-pakistan`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/salon-website-pakistan`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/real-estate-website-pakistan`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/poultry-business-website`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/textile-business-website`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+
     // ── Legal Pages ────────────────────────────────
     {
       url: `${baseUrl}/privacy-policy`,
