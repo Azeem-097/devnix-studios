@@ -1,9 +1,10 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone, MessageCircle } from "lucide-react";
 import { siteData } from "@/lib/data";
+import { trackWhatsAppClick } from "./GoogleAnalytics";
 
 export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,7 @@ export default function FloatingWhatsApp() {
   }, []);
 
   const handleStartChat = () => {
+    trackWhatsAppClick("Floating Button");
     const message =
       "Hi Devnix Studios! 👋 I am interested in your digital catalog services. Can we chat?";
     const encoded = encodeURIComponent(message);

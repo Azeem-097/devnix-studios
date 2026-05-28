@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
@@ -15,6 +15,7 @@ import {
   Loader,
 } from "lucide-react";
 import { siteData } from "@/lib/data";
+import { trackFormSubmit } from "./GoogleAnalytics";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
@@ -79,6 +80,7 @@ export default function ContactForm() {
       );
 
       console.log("✅ Email sent successfully!", result);
+      trackFormSubmit("Contact Form");
       setStatus("success");
       setFormData({
         from_name: "",
