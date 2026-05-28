@@ -46,7 +46,7 @@ export default function ServicesSection() {
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
               Everything Your Business{" "}
-              <span className="bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                 Needs Online
               </span>
             </h2>
@@ -61,10 +61,10 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {siteData.services.map((service, index) => (
             <AnimatedSection key={service.title} delay={index * 0.1}>
-              <div className="group relative p-6 lg:p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#6366f1]/20 hover:bg-white/[0.04] transition-all duration-500 h-full">
+              <div className="group relative p-6 lg:p-8 rounded-2xl bg-white/2 border border-white/6 hover:border-[#6366f1]/20 hover:bg-white/4 transition-all duration-500 h-full">
                 {/* Icon */}
                 <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradients[index]} flex items-center justify-center text-white mb-5 group-hover:shadow-lg group-hover:shadow-[#6366f1]/15 transition-shadow duration-500`}
+                  className={`w-12 h-12 rounded-xl bg-linear-to-br ${gradients[index]} flex items-center justify-center text-white mb-5 group-hover:shadow-lg group-hover:shadow-[#6366f1]/15 transition-shadow duration-500`}
                 >
                   {iconMap[service.icon]}
                 </div>
@@ -78,7 +78,7 @@ export default function ServicesSection() {
                 </p>
 
                 {/* Hover Glow */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#6366f1]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-[#6366f1]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               </div>
             </AnimatedSection>
           ))}

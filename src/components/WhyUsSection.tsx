@@ -36,7 +36,7 @@ export default function WhyUsSection() {
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
               Why Businesses{" "}
-              <span className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
                 Choose Us
               </span>
             </h2>
@@ -54,11 +54,11 @@ export default function WhyUsSection() {
               delay={index * 0.1}
               direction={index % 2 === 0 ? "left" : "right"}
             >
-              <div className="group relative p-8 lg:p-10 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-500 h-full overflow-hidden">
+              <div className="group relative p-8 lg:p-10 rounded-2xl bg-white/2 border border-white/6 hover:border-white/12 transition-all duration-500 h-full overflow-hidden">
                 {/* Top Row: Icon + Number Badge */}
                 <div className="flex items-center justify-between mb-5">
                   <div
-                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradients[index]} flex items-center justify-center text-white group-hover:shadow-lg transition-shadow duration-500`}
+                    className={`w-12 h-12 rounded-xl bg-linear-to-br ${gradients[index]} flex items-center justify-center text-white group-hover:shadow-lg transition-shadow duration-500`}
                     style={{
                       boxShadow: `0 0 0 transparent`,
                     }}

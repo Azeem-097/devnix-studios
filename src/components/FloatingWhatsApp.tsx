@@ -43,10 +43,10 @@ export default function FloatingWhatsApp() {
                 className="absolute bottom-16 sm:bottom-20 right-0 w-[calc(100vw-2rem)] max-w-[340px] sm:w-[340px] rounded-2xl overflow-hidden shadow-2xl shadow-black/60"
               >
                 {/* Outer gradient border wrapper */}
-                <div className="p-[1px] rounded-2xl bg-gradient-to-br from-[#6366f1]/30 via-white/[0.04] to-[#06b6d4]/30">
+                <div className="p-px rounded-2xl bg-linear-to-br from-[#6366f1]/30 via-white/[0.04] to-[#06b6d4]/30">
                   <div className="bg-[#0c0c14] rounded-2xl overflow-hidden">
                     {/* Header */}
-                    <div className="p-5 border-b border-white/[0.06]">
+                    <div className="p-5 border-b border-white/6">
                       <div className="flex items-start justify-between mb-1">
                         <div className="flex items-center gap-3">
                           {/* Avatar - Green Circle with WhatsApp icon */}
@@ -88,7 +88,7 @@ export default function FloatingWhatsApp() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="bg-[#1a1a24] border border-white/[0.06] rounded-2xl rounded-tl-sm p-4 mb-1"
+                        className="bg-[#1a1a24] border border-white/6 rounded-2xl rounded-tl-sm p-4 mb-1"
                       >
                         <p className="text-sm text-gray-200 leading-relaxed">
                           👋 Hey! Want a{" "}
@@ -99,7 +99,7 @@ export default function FloatingWhatsApp() {
                         </p>
                         <p className="text-sm text-gray-200 leading-relaxed mt-2">
                           Starting at just{" "}
-                          <span className="bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent font-bold">
+                          <span className="bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent font-bold">
                             PKR 5,000
                           </span>
                           — let&apos;s chat!
@@ -155,7 +155,7 @@ export default function FloatingWhatsApp() {
             <span className="absolute inset-0 rounded-full bg-[#25d366] animate-ping opacity-25" />
 
             {/* Inner highlight */}
-            <span className="absolute inset-1 rounded-full bg-gradient-to-br from-white/10 to-transparent" />
+            <span className="absolute inset-1 rounded-full bg-linear-to-br from-white/10 to-transparent" />
 
             <AnimatePresence mode="wait">
               {isOpen ? (

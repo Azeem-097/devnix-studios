@@ -28,7 +28,7 @@ export default function FAQSection() {
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
               Frequently Asked{" "}
-              <span className="bg-gradient-to-r from-[#06b6d4] to-[#8b5cf6] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#06b6d4] to-[#8b5cf6] bg-clip-text text-transparent">
                 Questions
               </span>
             </h2>
@@ -44,8 +44,8 @@ export default function FAQSection() {
               <div
                 className={`rounded-2xl border transition-all duration-300 ${
                   openIndex === index
-                    ? "bg-white/[0.03] border-[#6366f1]/20"
-                    : "bg-white/[0.01] border-white/[0.06] hover:border-white/[0.1]"
+                    ? "bg-white/3 border-[#6366f1]/20"
+                    : "bg-white/[0.01] border-white/6 hover:border-white/10"
                 }`}
               >
                 <button

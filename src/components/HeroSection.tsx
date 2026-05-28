@@ -56,12 +56,12 @@ export default function HeroSection() {
       <motion.div
         animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-20 left-0 sm:left-1/4 w-[250px] sm:w-[400px] lg:w-[500px] h-[250px] sm:h-[400px] lg:h-[500px] bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]"
+        className="absolute top-20 left-0 sm:left-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]"
       />
       <motion.div
         animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-20 right-0 sm:right-1/4 w-[250px] sm:w-[400px] lg:w-[500px] h-[250px] sm:h-[400px] lg:h-[500px] bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]"
+        className="absolute bottom-20 right-0 sm:right-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]"
       />
 
       <div
@@ -129,7 +129,7 @@ export default function HeroSection() {
             >
               We{" "}
               <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[#6366f1] via-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                   Build
                 </span>
               </span>
@@ -137,14 +137,14 @@ export default function HeroSection() {
               <br className="hidden sm:block" />
               <span className="sm:hidden"> </span>
               We{" "}
-              <span className="bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                 Manage
               </span>
               .
               <br className="hidden sm:block" />
               <span className="sm:hidden"> </span>
               We{" "}
-              <span className="bg-gradient-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
                 Grow
               </span>
               .
@@ -173,7 +173,7 @@ export default function HeroSection() {
                 href={siteData.contactInfo.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_15px_40px_-10px_rgba(99,102,241,0.5)]"
+                className="group relative w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_15px_40px_-10px_rgba(99,102,241,0.5)]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Start Your Project
@@ -185,7 +185,7 @@ export default function HeroSection() {
               </a>
               <button
                 onClick={() => handleScroll("#projects")}
-                className="group w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 text-sm font-semibold text-gray-300 border border-white/10 bg-white/[0.02] backdrop-blur-sm rounded-xl hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300"
+                className="group w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 text-sm font-semibold text-gray-300 border border-white/10 bg-white/2 backdrop-blur-sm rounded-xl hover:bg-white/5 hover:border-white/20 transition-all duration-300"
               >
                 <Code2 size={16} className="text-[#06b6d4]" />
                 View Our Work
@@ -197,7 +197,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 lg:gap-6 pt-5 sm:pt-6 border-t border-white/[0.06]"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 lg:gap-6 pt-5 sm:pt-6 border-t border-white/6"
             >
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <div className="flex -space-x-0.5">
@@ -243,7 +243,7 @@ export default function HeroSection() {
               className="absolute -top-4 -left-8 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#6366f1]/20"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center">
                   <TrendingUp size={18} className="text-white" />
                 </div>
                 <div>
@@ -264,7 +264,7 @@ export default function HeroSection() {
               className="absolute -bottom-4 -right-4 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#06b6d4]/20"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#06b6d4] to-[#22d3ee] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#06b6d4] to-[#22d3ee] flex items-center justify-center">
                   <Zap size={18} className="text-white" />
                 </div>
                 <div>
@@ -274,15 +274,15 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-[#6366f1]/50 via-[#8b5cf6]/30 to-[#06b6d4]/50">
+            <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/50 via-[#8b5cf6]/30 to-[#06b6d4]/50">
               <div className="bg-[#0c0c14] rounded-2xl overflow-hidden">
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0a0a0f]">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/6 bg-[#0a0a0f]">
                   <div className="flex gap-1.5">
                     <div className="w-3 h-3 rounded-full bg-red-500/80" />
                     <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                     <div className="w-3 h-3 rounded-full bg-green-500/80" />
                   </div>
-                  <div className="flex-1 ml-3 px-3 py-1.5 rounded-md bg-white/[0.04] border border-white/[0.06]">
+                  <div className="flex-1 ml-3 px-3 py-1.5 rounded-md bg-white/4 border border-white/6">
                     <div className="flex items-center gap-1.5">
                       <Globe size={10} className="text-gray-600" />
                       <span className="text-[10px] text-gray-400">
@@ -292,7 +292,7 @@ export default function HeroSection() {
                   </div>
                 </div>
 
-                <div className="p-5 font-mono text-xs space-y-2 min-h-[320px]">
+                <div className="p-5 font-mono text-xs space-y-2 min-h-80">
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -436,7 +436,7 @@ export default function HeroSection() {
           </div>
 
           <div className="relative group w-full sm:w-auto max-w-sm sm:max-w-none">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#06b6d4] rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity" />
+            <div className="absolute -inset-0.5 bg-linear-to-r from-[#6366f1] to-[#06b6d4] rounded-2xl blur opacity-50 group-hover:opacity-75 transition-opacity" />
             <div className="relative flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-4 sm:px-6 py-3 rounded-2xl bg-[#0c0c14] border border-white/10">
               <div className="flex items-center gap-2">
                 <Sparkles size={12} className="text-[#06b6d4]" />
@@ -449,7 +449,7 @@ export default function HeroSection() {
                 <span className="text-[10px] sm:text-xs text-gray-500">
                   Starting from
                 </span>
-                <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                <span className="text-xl sm:text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                   5,000
                 </span>
                 <span className="text-xs sm:text-sm text-gray-400">PKR</span>
@@ -459,7 +459,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-linear-to-t from-[#0a0a0f] to-transparent pointer-events-none" />
     </section>
   );
 }
@@ -474,7 +474,7 @@ function FeaturePill({
   color: string;
 }) {
   return (
-    <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.05] transition-all duration-300">
+    <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/3 border border-white/6 hover:bg-white/5 transition-all duration-300">
       <span style={{ color }}>{icon}</span>
       <span className="text-xs sm:text-sm text-gray-300 font-medium whitespace-nowrap">
         {text}

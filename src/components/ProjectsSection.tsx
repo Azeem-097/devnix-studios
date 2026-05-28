@@ -29,7 +29,7 @@ export default function ProjectsSection() {
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
               Projects We Have{" "}
-              <span className="bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                 Delivered
               </span>
             </h2>
@@ -65,10 +65,10 @@ function ProjectCard({
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative h-full flex flex-col rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#6366f1]/25 overflow-hidden transition-all duration-500 hover:-translate-y-1"
+      className="group relative h-full flex flex-col rounded-2xl bg-white/2 border border-white/6 hover:border-[#6366f1]/25 overflow-hidden transition-all duration-500 hover:-translate-y-1"
     >
       {/* Gradient Header Bar */}
-      <div className={`h-1.5 bg-gradient-to-r ${project.gradient}`} />
+      <div className={`h-1.5 bg-linear-to-r ${project.gradient}`} />
 
       {/* Browser Mockup */}
       <div className="px-5 pt-5 pb-4">
@@ -78,7 +78,7 @@ function ProjectCard({
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
           </div>
-          <div className="flex-1 ml-2 px-3 py-1.5 rounded-md bg-white/[0.04] border border-white/[0.06]">
+          <div className="flex-1 ml-2 px-3 py-1.5 rounded-md bg-white/4 border border-white/6">
             <div className="flex items-center gap-1.5">
               <Globe size={10} className="text-gray-600" />
               <span className="text-[10px] text-gray-500 truncate">
@@ -89,7 +89,7 @@ function ProjectCard({
         </div>
 
         {/* Screenshot Preview */}
-        <div className="relative h-48 rounded-xl overflow-hidden bg-[#1a1a24] border border-white/[0.04]">
+        <div className="relative h-48 rounded-xl overflow-hidden bg-[#1a1a24] border border-white/4">
           {project.screenshot && !imgError ? (
             <picture>
               {/* AVIF first (smaller, faster) */}
@@ -109,7 +109,7 @@ function ProjectCard({
           ) : (
             // Fallback gradient if both images fail
             <div
-              className={`absolute inset-0 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
+              className={`absolute inset-0 bg-linear-to-br ${project.gradient} flex items-center justify-center`}
             >
               <div
                 className="absolute inset-0 opacity-10"
@@ -128,7 +128,7 @@ function ProjectCard({
           )}
 
           {/* Overlay on Hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           {/* External Link Badge on Hover */}
           <div className="absolute top-3 right-3 w-8 h-8 rounded-lg bg-white/95 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0 translate-y-1 shadow-lg">
@@ -157,7 +157,7 @@ function ProjectCard({
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-2.5 py-1 text-[10px] font-medium text-gray-400 bg-white/[0.04] border border-white/[0.06] rounded-full"
+              className="px-2.5 py-1 text-[10px] font-medium text-gray-400 bg-white/4 border border-white/6 rounded-full"
             >
               {tag}
             </span>
@@ -176,7 +176,7 @@ function ProjectCard({
       </div>
 
       {/* Hover Glow */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#6366f1]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-[#6366f1]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
     </a>
   );
 }

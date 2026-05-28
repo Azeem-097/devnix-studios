@@ -27,7 +27,7 @@ export default function ProcessSection() {
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
               Simple{" "}
-              <span className="bg-gradient-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
                 4-Step Process
               </span>
             </h2>
@@ -45,23 +45,23 @@ export default function ProcessSection() {
                 {/* Connector Line - Desktop */}
                 {index < siteData.processSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-12 left-[calc(100%-12px)] w-[calc(100%-40px)] h-[2px] z-0">
-                    <div className="h-full bg-gradient-to-r from-[#6366f1]/40 via-[#8b5cf6]/30 to-transparent" />
+                    <div className="h-full bg-linear-to-r from-[#6366f1]/40 via-[#8b5cf6]/30 to-transparent" />
                   </div>
                 )}
 
-                <div className="relative p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#6366f1]/20 hover:bg-white/[0.04] transition-all duration-500 h-full">
+                <div className="relative p-6 rounded-2xl bg-white/2 border border-white/6 hover:border-[#6366f1]/20 hover:bg-white/4 transition-all duration-500 h-full">
                   {/* Step Badge - Top Left */}
                   <div className="absolute -top-3 left-6 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0a0a0f] border border-[#6366f1]/30">
                     <span className="text-[10px] font-medium text-gray-500 tracking-widest uppercase">
                       Step
                     </span>
-                    <span className="text-xs font-bold bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                    <span className="text-xs font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
                       0{step.step}
                     </span>
                   </div>
 
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center text-white mb-5 mt-3 group-hover:shadow-lg group-hover:shadow-[#6366f1]/20 transition-shadow duration-500">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center text-white mb-5 mt-3 group-hover:shadow-lg group-hover:shadow-[#6366f1]/20 transition-shadow duration-500">
                     {iconMap[step.icon]}
                   </div>
 

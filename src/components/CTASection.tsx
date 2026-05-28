@@ -22,7 +22,7 @@ export default function CTASection() {
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 tracking-tight px-2">
               Let&apos;s Build Your{" "}
-              <span className="bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#6366f1] via-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                 Online Presence
               </span>
             </h2>
@@ -37,7 +37,7 @@ export default function CTASection() {
           {/* Contact Info */}
           <AnimatedSection direction="left" className="lg:col-span-5">
             <div className="space-y-5 sm:space-y-6 h-full">
-              <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-[#6366f1]/30 via-transparent to-[#06b6d4]/30">
+              <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/30 via-transparent to-[#06b6d4]/30">
                 <div className="bg-[#0c0c14] rounded-2xl p-5 sm:p-6 lg:p-8">
                   <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
                     Talk to Us Directly
@@ -51,7 +51,7 @@ export default function CTASection() {
                       href={siteData.contactInfo.whatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-[#25d366]/30 hover:bg-[#25d366]/5 transition-all duration-300 group"
+                      className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/2 border border-white/4 hover:border-[#25d366]/30 hover:bg-[#25d366]/5 transition-all duration-300 group"
                     >
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#25d366]/10 flex items-center justify-center shrink-0">
                         <MessageCircle size={16} className="text-[#25d366]" />
@@ -68,7 +68,7 @@ export default function CTASection() {
 
                     <a
                       href={`mailto:${siteData.contactInfo.email}`}
-                      className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-[#8b5cf6]/30 hover:bg-[#8b5cf6]/5 transition-all duration-300 group"
+                      className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/2 border border-white/4 hover:border-[#8b5cf6]/30 hover:bg-[#8b5cf6]/5 transition-all duration-300 group"
                     >
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#8b5cf6]/10 flex items-center justify-center shrink-0">
                         <Mail size={16} className="text-[#8b5cf6]" />
@@ -83,7 +83,7 @@ export default function CTASection() {
                       </div>
                     </a>
 
-                    <div className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04]">
+                    <div className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/2 border border-white/4">
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#06b6d4]/10 flex items-center justify-center shrink-0">
                         <Phone size={16} className="text-[#06b6d4]" />
                       </div>
@@ -97,7 +97,7 @@ export default function CTASection() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04]">
+                    <div className="flex items-center gap-3 sm:gap-4 p-3 rounded-xl bg-white/2 border border-white/4">
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#6366f1]/10 flex items-center justify-center shrink-0">
                         <MapPin size={16} className="text-[#6366f1]" />
                       </div>
@@ -128,24 +128,24 @@ export default function CTASection() {
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                <div className="p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
-                  <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                <div className="p-3 sm:p-4 rounded-xl bg-white/2 border border-white/6 text-center">
+                  <div className="text-lg sm:text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
                     24h
                   </div>
                   <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1">
                     Response
                   </div>
                 </div>
-                <div className="p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
-                  <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                <div className="p-3 sm:p-4 rounded-xl bg-white/2 border border-white/6 text-center">
+                  <div className="text-lg sm:text-2xl font-bold bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                     5-10
                   </div>
                   <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1">
                     Days
                   </div>
                 </div>
-                <div className="p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
-                  <div className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                <div className="p-3 sm:p-4 rounded-xl bg-white/2 border border-white/6 text-center">
+                  <div className="text-lg sm:text-2xl font-bold bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
                     100%
                   </div>
                   <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1">
@@ -162,7 +162,7 @@ export default function CTASection() {
             delay={0.2}
             className="lg:col-span-7"
           >
-            <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-[#6366f1]/40 via-[#8b5cf6]/20 to-[#06b6d4]/40">
+            <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/40 via-[#8b5cf6]/20 to-[#06b6d4]/40">
               <div className="bg-[#0c0c14] rounded-2xl p-5 sm:p-6 lg:p-8">
                 <div className="mb-5 sm:mb-6">
                   <h3 className="text-lg sm:text-xl font-bold text-white mb-1">

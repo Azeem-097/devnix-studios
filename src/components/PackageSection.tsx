@@ -44,7 +44,7 @@ export default function PackageSection() {
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 tracking-tight px-2">
               One Package.{" "}
-              <span className="bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                 Everything Included.
               </span>
             </h2>
@@ -58,10 +58,10 @@ export default function PackageSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Main Package Card */}
           <AnimatedSection className="lg:col-span-7" direction="left">
-            <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-[#6366f1]/40 via-[#8b5cf6]/20 to-[#06b6d4]/40">
+            <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/40 via-[#8b5cf6]/20 to-[#06b6d4]/40">
               <div className="bg-[#0c0c14] rounded-2xl p-5 sm:p-8 lg:p-10 h-full">
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 pb-5 sm:pb-0 border-b sm:border-b-0 border-white/[0.06]">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 pb-5 sm:pb-0 border-b sm:border-b-0 border-white/6">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
                       Business Starter
@@ -71,7 +71,7 @@ export default function PackageSection() {
                     </p>
                   </div>
                   <div className="text-left sm:text-right">
-                    <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                    <div className="text-2xl sm:text-3xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                       5,000 PKR
                     </div>
                     <div className="text-xs text-gray-500 mt-0.5">
@@ -103,9 +103,9 @@ export default function PackageSection() {
                 </div>
 
                 {/* Website Breakdown - NEW! */}
-                <div className="border-t border-white/[0.06] pt-5 sm:pt-6 mb-6 sm:mb-8">
+                <div className="border-t border-white/6 pt-5 sm:pt-6 mb-6 sm:mb-8">
                   <div className="flex items-center gap-2 mb-4">
-                    <div className="w-1 h-4 rounded-full bg-gradient-to-b from-[#6366f1] to-[#06b6d4]" />
+                    <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#6366f1] to-[#06b6d4]" />
                     <h4 className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
                       What&apos;s Inside Your Website
                     </h4>
@@ -115,18 +115,18 @@ export default function PackageSection() {
                     {siteData.websiteBreakdown.map((category, index) => (
                       <div
                         key={category.title}
-                        className="p-3 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-white/[0.08] transition-all duration-300"
+                        className="p-3 sm:p-4 rounded-xl bg-white/2 border border-white/4 hover:border-white/8 transition-all duration-300"
                       >
                         <div className="flex items-center gap-2.5 mb-2.5">
                           <div
-                            className={`w-8 h-8 rounded-lg bg-gradient-to-br ${breakdownGradients[index]} flex items-center justify-center text-white shrink-0`}
+                            className={`w-8 h-8 rounded-lg bg-linear-to-br ${breakdownGradients[index]} flex items-center justify-center text-white shrink-0`}
                           >
                             {breakdownIconMap[category.icon]}
                           </div>
                           <h5 className="text-xs sm:text-sm font-semibold text-white">
                             {category.title}
                           </h5>
-                          <span className="ml-auto text-[10px] sm:text-xs text-gray-500 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06]">
+                          <span className="ml-auto text-[10px] sm:text-xs text-gray-500 px-2 py-0.5 rounded-full bg-white/4 border border-white/6">
                             {category.items.length} included
                           </span>
                         </div>
@@ -147,9 +147,9 @@ export default function PackageSection() {
                 </div>
 
                 {/* Monthly Support */}
-                <div className="border-t border-white/[0.06] pt-5 sm:pt-6 mb-6 sm:mb-8">
+                <div className="border-t border-white/6 pt-5 sm:pt-6 mb-6 sm:mb-8">
                   <div className="flex items-center gap-2 mb-4">
-                    <div className="w-1 h-4 rounded-full bg-gradient-to-b from-[#8b5cf6] to-[#06b6d4]" />
+                    <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#8b5cf6] to-[#06b6d4]" />
                     <h4 className="text-xs sm:text-sm font-semibold text-[#8b5cf6] uppercase tracking-wider">
                       Monthly Support Includes
                     </h4>
@@ -158,7 +158,7 @@ export default function PackageSection() {
                     {siteData.supportFeatures.map((feature) => (
                       <div
                         key={feature.text}
-                        className="flex items-start gap-2 p-2.5 sm:p-3 rounded-xl bg-white/[0.02] border border-white/[0.04]"
+                        className="flex items-start gap-2 p-2.5 sm:p-3 rounded-xl bg-white/2 border border-white/4"
                       >
                         <Plus
                           size={12}
@@ -183,7 +183,7 @@ export default function PackageSection() {
                   href={siteData.contactInfo.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center gap-2 w-full px-6 py-3.5 sm:py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/20 transition-all duration-300"
+                  className="group flex items-center justify-center gap-2 w-full px-6 py-3.5 sm:py-4 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/20 transition-all duration-300"
                 >
                   Get Started Now
                   <ArrowRight
@@ -198,7 +198,7 @@ export default function PackageSection() {
           {/* Right Side - Pricing + Addons */}
           <div className="lg:col-span-5 space-y-6">
             <AnimatedSection direction="right" delay={0.1}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+              <div className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/6">
                 <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-5 flex items-center gap-2">
                   <Info size={16} className="text-[#06b6d4]" />
                   Pricing Breakdown
@@ -209,7 +209,7 @@ export default function PackageSection() {
                       key={item.item}
                       className={`flex items-start justify-between gap-3 py-2.5 sm:py-3 ${
                         index !== siteData.pricingBreakdown.length - 1
-                          ? "border-b border-white/[0.04]"
+                          ? "border-b border-white/4"
                           : ""
                       } ${
                         index === siteData.pricingBreakdown.length - 1
@@ -236,7 +236,7 @@ export default function PackageSection() {
                       <span
                         className={`text-xs sm:text-sm font-semibold whitespace-nowrap ${
                           index === siteData.pricingBreakdown.length - 1
-                            ? "text-base sm:text-lg bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent"
+                            ? "text-base sm:text-lg bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent"
                             : "text-white"
                         }`}
                       >
@@ -249,7 +249,7 @@ export default function PackageSection() {
             </AnimatedSection>
 
             <AnimatedSection direction="right" delay={0.2}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+              <div className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/6">
                 <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-5 flex items-center gap-2">
                   <Plus size={16} className="text-[#8b5cf6]" />
                   Add-ons
@@ -274,38 +274,38 @@ export default function PackageSection() {
 
             {/* Quick Stats Card */}
             <AnimatedSection direction="right" delay={0.3}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-[#6366f1]/10 via-[#8b5cf6]/5 to-[#06b6d4]/10 border border-[#6366f1]/20">
+              <div className="p-5 sm:p-6 rounded-2xl bg-linear-to-br from-[#6366f1]/10 via-[#8b5cf6]/5 to-[#06b6d4]/10 border border-[#6366f1]/20">
                 <h4 className="text-base sm:text-lg font-semibold text-white mb-4 flex items-center gap-2">
                   <CheckCircle size={16} className="text-[#06b6d4]" />
                   What You Get Initially
                 </h4>
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
+                    <div className="text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
                       6
                     </div>
                     <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
                       Products
                     </div>
                   </div>
-                  <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
+                    <div className="text-2xl font-bold bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                       2
                     </div>
                     <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
                       Categories
                     </div>
                   </div>
-                  <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
+                    <div className="text-2xl font-bold bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
                       5+
                     </div>
                     <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
                       Pages
                     </div>
                   </div>
-                  <div className="text-center p-3 rounded-xl bg-white/[0.03] border border-white/[0.05]">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
+                    <div className="text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                       6
                     </div>
                     <div className="text-[10px] sm:text-xs text-gray-400 mt-1">

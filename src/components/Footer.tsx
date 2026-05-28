@@ -46,7 +46,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative border-t border-white/[0.04]">
+    <footer className="relative border-t border-white/4">
       <div className="absolute inset-0 bg-[#070710]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,7 +74,7 @@ export default function Footer() {
               <span className="text-sm font-bold tracking-wider text-white uppercase">
                 Devnix Studios
               </span>
-              <span className="text-[10px] font-medium tracking-[0.2em] uppercase bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+              <span className="text-[10px] font-medium tracking-[0.2em] uppercase bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                 Digital Solutions
               </span>
             </div>
@@ -114,7 +114,7 @@ export default function Footer() {
         </div>
 
         {/* DIVIDER */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="h-px bg-linear-to-r from-transparent via-white/[0.08] to-transparent" />
 
         {/* SOCIAL ICONS - Centered */}
         <div className="py-8 flex justify-center">
@@ -177,7 +177,7 @@ export default function Footer() {
                 handleLinkClick("#home");
               }
             }}
-            className="text-sm bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent font-medium hover:opacity-80 transition-opacity"
+            className="text-sm bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent font-medium hover:opacity-80 transition-opacity"
           >
             devnixstudios.tech
           </a>

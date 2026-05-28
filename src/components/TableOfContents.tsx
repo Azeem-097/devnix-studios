@@ -55,9 +55,9 @@ export default function TableOfContents({
   };
 
   return (
-    <div className="sticky top-28 p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+    <div className="sticky top-28 p-5 rounded-2xl bg-white/2 border border-white/6">
       {/* Header */}
-      <div className="flex items-center gap-2 mb-4 pb-4 border-b border-white/[0.06]">
+      <div className="flex items-center gap-2 mb-4 pb-4 border-b border-white/6">
         <List size={16} style={{ color: accentColor }} />
         <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
           On This Page
@@ -74,8 +74,8 @@ export default function TableOfContents({
               onClick={() => handleClick(item.id)}
               className={`group w-full text-left flex items-start gap-3 px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
                 isActive
-                  ? "bg-white/[0.04] text-white"
-                  : "text-gray-500 hover:text-gray-300 hover:bg-white/[0.02]"
+                  ? "bg-white/4 text-white"
+                  : "text-gray-500 hover:text-gray-300 hover:bg-white/2"
               }`}
             >
               {/* Active Indicator Bar */}
@@ -92,11 +92,11 @@ export default function TableOfContents({
       </nav>
 
       {/* Progress Indicator */}
-      <div className="mt-5 pt-4 border-t border-white/[0.06]">
+      <div className="mt-5 pt-4 border-t border-white/6">
         <div className="text-[10px] text-gray-600 uppercase tracking-wider mb-2">
           Reading Progress
         </div>
-        <div className="h-1 rounded-full bg-white/[0.04] overflow-hidden">
+        <div className="h-1 rounded-full bg-white/4 overflow-hidden">
           <div
             className="h-full rounded-full transition-all duration-300"
             style={{

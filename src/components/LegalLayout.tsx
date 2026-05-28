@@ -34,7 +34,7 @@ export default function LegalLayout({
       <Navbar />
 
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-white/[0.04] pt-16 lg:pt-20">
+      <section className="relative overflow-hidden border-b border-white/4 pt-16 lg:pt-20">
         <div className="absolute inset-0 bg-[#0a0a0f]" />
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[120px] opacity-30"
@@ -83,9 +83,9 @@ export default function LegalLayout({
           <div className="lg:col-span-9">
             {/* Mobile TOC */}
             <div className="lg:hidden mb-8">
-              <details className="rounded-2xl bg-white/[0.02] border border-white/[0.06] overflow-hidden">
+              <details className="rounded-2xl bg-white/2 border border-white/6 overflow-hidden">
                 <summary
-                  className="cursor-pointer p-4 text-sm font-semibold text-white flex items-center justify-between hover:bg-white/[0.02]"
+                  className="cursor-pointer p-4 text-sm font-semibold text-white flex items-center justify-between hover:bg-white/2"
                   style={{ listStyle: "none" }}
                 >
                   <span className="flex items-center gap-2">
@@ -104,7 +104,7 @@ export default function LegalLayout({
                     <a
                       key={item.id}
                       href={`#${item.id}`}
-                      className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/[0.02] rounded-lg transition-colors"
+                      className="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/2 rounded-lg transition-colors"
                     >
                       {index + 1}. {item.title}
                     </a>
@@ -117,7 +117,7 @@ export default function LegalLayout({
             <div className="space-y-6">{children}</div>
 
             {/* Contact CTA Card */}
-            <div className="mt-12 p-1 rounded-2xl bg-gradient-to-br from-[#6366f1]/30 via-[#8b5cf6]/20 to-[#06b6d4]/30">
+            <div className="mt-12 p-1 rounded-2xl bg-linear-to-br from-[#6366f1]/30 via-[#8b5cf6]/20 to-[#06b6d4]/30">
               <div className="bg-[#0c0c14] rounded-2xl p-8 lg:p-10 text-center">
                 <h3 className="text-2xl font-bold text-white mb-3">
                   Have Questions?
@@ -129,7 +129,7 @@ export default function LegalLayout({
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <a
                     href={`mailto:${siteData.contactInfo.email}`}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/20 transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/20 transition-all duration-300"
                   >
                     <Mail size={16} />
                     Email Us
