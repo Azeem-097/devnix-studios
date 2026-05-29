@@ -92,22 +92,21 @@ function ProjectCard({
         <div className="relative h-48 rounded-xl overflow-hidden bg-[#1a1a24] border border-white/4">
           {project.screenshot && !imgError ? (
             <picture>
-              {/* AVIF first (smaller, faster) */}
               <source
-                srcSet={`${project.screenshot}.avif`}
+                srcSet={`${project.screenshot}.avif 600w`}
                 type="image/avif"
                 sizes="(max-width: 640px) 345px, (max-width: 1024px) 400px, 400px"
               />
-              {/* PNG fallback */}
               <img
                 src={`${project.screenshot}.png`}
                 alt={`${project.title} preview`}
-                width={400}
-                height={250}
+                width={600}
+                height={375}
                 className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 onError={() => setImgError(true)}
                 loading="lazy"
                 decoding="async"
+                fetchPriority="low"
               />
             </picture>
           ) : (
@@ -184,3 +183,4 @@ function ProjectCard({
     </a>
   );
 }
+

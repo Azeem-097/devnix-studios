@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import { useEffect, useState } from "react";
 
 const GA_MEASUREMENT_ID = "G-ED15ZV8J1G";
 
@@ -12,13 +13,38 @@ declare global {
 }
 
 export default function GoogleAnalytics() {
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    // Load GA only after user interaction OR 3 seconds idle
+    const loadGA = () => setShouldLoad(true);
+
+    // Load on first user interaction
+    const events = ["scroll", "mousemove", "touchstart", "keydown"];
+    events.forEach((event) => {
+      window.addEventListener(event, loadGA, { once: true, passive: true });
+    });
+
+    // Or load after 3 seconds (whichever comes first)
+    const timer = setTimeout(loadGA, 3000);
+
+    return () => {
+      clearTimeout(timer);
+      events.forEach((event) => {
+        window.removeEventListener(event, loadGA);
+      });
+    };
+  }, []);
+
+  if (!shouldLoad) return null;
+
   return (
     <>
       <Script
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -32,18 +58,15 @@ export default function GoogleAnalytics() {
   );
 }
 
-// Helper function to track conversions
 export const trackEvent = (
   eventName: string,
   params?: Record<string, string | number>
 ) => {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", eventName, params || {});
-    console.log(`📊 GA Event Tracked: ${eventName}`, params);
   }
 };
 
-// Pre-defined conversion events
 export const trackWhatsAppClick = (location: string) => {
   trackEvent("whatsapp_click", {
     event_category: "Contact",

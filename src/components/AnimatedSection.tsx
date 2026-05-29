@@ -1,6 +1,6 @@
-﻿"use client";
+"use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 interface AnimatedSectionProps {
@@ -17,7 +17,19 @@ export default function AnimatedSection({
   direction = "up",
 }: AnimatedSectionProps) {
   const ref = useRef(null);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  useEffect(() => {
+    // Only enable animations after hydration to avoid blocking LCP
+    const timer = setTimeout(() => setShouldAnimate(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Check user's motion preference
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const directionMap = {
     up: { y: 40, x: 0 },
@@ -28,6 +40,15 @@ export default function AnimatedSection({
   };
 
   const initial = directionMap[direction];
+
+  // If reduced motion preferred or not yet hydrated, render without animation
+  if (prefersReducedMotion || !shouldAnimate) {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    );
+  }
 
   return (
     <motion.div

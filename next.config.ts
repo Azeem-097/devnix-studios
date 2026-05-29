@@ -10,13 +10,12 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: false,
   },
 
-  // Compression & optimizations
   compress: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
 
-  // Modern JS - no polyfills for old browsers
+  // Experimental optimizations
   experimental: {
     optimizePackageImports: [
       "lucide-react",
@@ -24,20 +23,29 @@ const nextConfig: NextConfig = {
       "@emailjs/browser",
     ],
     optimizeCss: true,
+    scrollRestoration: true,
   },
 
-  // Compiler optimizations
+  // SWC compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === "production" ? {
       exclude: ["error", "warn"],
     } : false,
   },
 
-  // Production caching headers
+  // Modular imports for tree shaking
+  modularizeImports: {
+    "lucide-react": {
+      transform: "lucide-react/dist/esm/icons/{{kebabCase member}}",
+      preventFullImport: true,
+    },
+  },
+
+  // Cache headers
   async headers() {
     return [
       {
-        source: "/:all*(svg|jpg|jpeg|png|gif|ico|webp|avif|woff|woff2)",
+        source: "/:all*(svg|jpg|jpeg|png|gif|ico|webp|avif|woff|woff2|js|css)",
         headers: [
           {
             key: "Cache-Control",
@@ -66,26 +74,10 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: [
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "DENY",
-          },
-          {
-            key: "X-XSS-Protection",
-            value: "1; mode=block",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
-          },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-XSS-Protection", value: "1; mode=block" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
         ],
       },
     ];

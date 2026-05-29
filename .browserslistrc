@@ -1,17 +1,16 @@
-# Modern browsers only - eliminates legacy JS polyfills
-# Saves ~13 KiB of bundle size
+# Only browsers that support ALL ES2022 features natively
+# This eliminates ALL polyfills
 
-# Only browsers that support ES2020+ natively
+[production]
 Chrome >= 87
 Edge >= 88
 Firefox >= 78
 Safari >= 14
-iOS >= 14
-Opera >= 73
-
-# Exclude dead/legacy browsers
 not IE 11
-not IE_Mob 11
-not op_mini all
 not dead
-not < 0.5%
+not op_mini all
+
+[development]
+last 1 chrome version
+last 1 firefox version
+last 1 safari version
