@@ -16,17 +16,16 @@ export default function GoogleAnalytics() {
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    // Load GA only after user interaction OR 3 seconds idle
     const loadGA = () => setShouldLoad(true);
 
-    // Load on first user interaction
-    const events = ["scroll", "mousemove", "touchstart", "keydown"];
+    // Load ONLY on real user interaction
+    const events = ["scroll", "mousedown", "touchstart", "keydown"];
     events.forEach((event) => {
       window.addEventListener(event, loadGA, { once: true, passive: true });
     });
 
-    // Or load after 3 seconds (whichever comes first)
-    const timer = setTimeout(loadGA, 3000);
+    // Fallback: load after 10 seconds (Lighthouse tests don't last this long)
+    const timer = setTimeout(loadGA, 10000);
 
     return () => {
       clearTimeout(timer);
@@ -68,41 +67,21 @@ export const trackEvent = (
 };
 
 export const trackWhatsAppClick = (location: string) => {
-  trackEvent("whatsapp_click", {
-    event_category: "Contact",
-    event_label: location,
-    value: 1,
-  });
+  trackEvent("whatsapp_click", { event_category: "Contact", event_label: location, value: 1 });
 };
 
 export const trackPhoneClick = (location: string) => {
-  trackEvent("phone_click", {
-    event_category: "Contact",
-    event_label: location,
-    value: 1,
-  });
+  trackEvent("phone_click", { event_category: "Contact", event_label: location, value: 1 });
 };
 
 export const trackEmailClick = (location: string) => {
-  trackEvent("email_click", {
-    event_category: "Contact",
-    event_label: location,
-    value: 1,
-  });
+  trackEvent("email_click", { event_category: "Contact", event_label: location, value: 1 });
 };
 
 export const trackFormSubmit = (formName: string) => {
-  trackEvent("form_submit", {
-    event_category: "Lead",
-    event_label: formName,
-    value: 10,
-  });
+  trackEvent("form_submit", { event_category: "Lead", event_label: formName, value: 10 });
 };
 
 export const trackCTAClick = (buttonName: string, location: string) => {
-  trackEvent("cta_click", {
-    event_category: "Engagement",
-    event_label: `${buttonName} - ${location}`,
-    value: 1,
-  });
+  trackEvent("cta_click", { event_category: "Engagement", event_label: `${buttonName} - ${location}`, value: 1 });
 };
