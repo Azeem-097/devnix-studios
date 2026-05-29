@@ -48,20 +48,14 @@ export default function ContactForm() {
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    // Validation
     if (!serviceId || !templateId || !publicKey) {
       console.error("❌ EmailJS environment variables not set!");
-      console.log("Service ID:", serviceId);
-      console.log("Template ID:", templateId);
-      console.log("Public Key:", publicKey);
       setStatus("error");
       setErrorMessage(
         "Form not configured. Please contact us directly via WhatsApp."
       );
       return;
     }
-
-    console.log("📤 Sending email via EmailJS...");
 
     try {
       const result = await emailjs.send(
@@ -103,29 +97,50 @@ export default function ContactForm() {
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className="space-y-4"
+      aria-label="Contact form"
+    >
       {/* Name & Email Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <FormField icon={<User size={16} />} label="Your Name" required>
+        <FormField
+          icon={<User size={16} />}
+          label="Your Name"
+          htmlFor="from_name"
+          required
+        >
           <input
+            id="from_name"
             type="text"
             name="from_name"
             value={formData.from_name}
             onChange={handleChange}
             required
             placeholder="Azeem Ahmed"
+            aria-required="true"
+            autoComplete="name"
             className="w-full bg-transparent text-white text-sm placeholder-gray-600 focus:outline-none"
           />
         </FormField>
 
-        <FormField icon={<Mail size={16} />} label="Email" required>
+        <FormField
+          icon={<Mail size={16} />}
+          label="Email"
+          htmlFor="from_email"
+          required
+        >
           <input
+            id="from_email"
             type="email"
             name="from_email"
             value={formData.from_email}
             onChange={handleChange}
             required
             placeholder="you@example.com"
+            aria-required="true"
+            autoComplete="email"
             className="w-full bg-transparent text-white text-sm placeholder-gray-600 focus:outline-none"
           />
         </FormField>
@@ -133,13 +148,19 @@ export default function ContactForm() {
 
       {/* Phone & Service Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <FormField icon={<Phone size={16} />} label="Phone / WhatsApp">
+        <FormField
+          icon={<Phone size={16} />}
+          label="Phone / WhatsApp"
+          htmlFor="phone"
+        >
           <input
+            id="phone"
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
             placeholder="+92 300 0000000"
+            autoComplete="tel"
             className="w-full bg-transparent text-white text-sm placeholder-gray-600 focus:outline-none"
           />
         </FormField>
@@ -147,13 +168,17 @@ export default function ContactForm() {
         <FormField
           icon={<Briefcase size={16} />}
           label="Interested In"
+          htmlFor="service"
           required
         >
           <select
+            id="service"
             name="service"
             value={formData.service}
             onChange={handleChange}
             required
+            aria-required="true"
+            aria-label="Select a service you are interested in"
             className="w-full bg-transparent text-white text-sm focus:outline-none cursor-pointer appearance-none"
             style={{
               backgroundImage:
@@ -184,15 +209,18 @@ export default function ContactForm() {
       <FormField
         icon={<MessageSquare size={16} />}
         label="Your Message"
+        htmlFor="message"
         required
       >
         <textarea
+          id="message"
           name="message"
           value={formData.message}
           onChange={handleChange}
           required
           rows={5}
           placeholder="Tell us about your project, business, or any questions..."
+          aria-required="true"
           className="w-full bg-transparent text-white text-sm placeholder-gray-600 focus:outline-none resize-none"
         />
       </FormField>
@@ -204,9 +232,11 @@ export default function ContactForm() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
+            role="status"
+            aria-live="polite"
             className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3"
           >
-            <CheckCircle size={20} className="text-green-400 shrink-0" />
+            <CheckCircle size={20} className="text-green-400 shrink-0" aria-hidden="true" />
             <div>
               <div className="text-sm font-semibold text-green-400">
                 Message sent successfully! 🎉
@@ -223,9 +253,11 @@ export default function ContactForm() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
+            role="alert"
+            aria-live="assertive"
             className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center gap-3"
           >
-            <AlertCircle size={20} className="text-red-400 shrink-0" />
+            <AlertCircle size={20} className="text-red-400 shrink-0" aria-hidden="true" />
             <div>
               <div className="text-sm font-semibold text-red-400">
                 Failed to send message
@@ -244,11 +276,12 @@ export default function ContactForm() {
         disabled={status === "sending"}
         whileHover={{ scale: status === "sending" ? 1 : 1.01 }}
         whileTap={{ scale: status === "sending" ? 1 : 0.99 }}
+        aria-label={status === "sending" ? "Sending your message" : "Send message"}
         className="group relative w-full flex items-center justify-center gap-2 px-6 py-4 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-[#6366f1]/30 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {status === "sending" ? (
           <>
-            <Loader size={16} className="animate-spin" />
+            <Loader size={16} className="animate-spin" aria-hidden="true" />
             Sending Message...
           </>
         ) : (
@@ -256,6 +289,7 @@ export default function ContactForm() {
             <Send
               size={16}
               className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              aria-hidden="true"
             />
             Send Message
           </>
@@ -267,7 +301,7 @@ export default function ContactForm() {
         By submitting, you agree to our{" "}
         <a
           href="/privacy-policy"
-          className="text-[#6366f1] hover:text-[#8b5cf6] transition-colors"
+          className="text-[#6366f1] hover:text-[#8b5cf6] transition-colors underline"
         >
           Privacy Policy
         </a>
@@ -280,20 +314,34 @@ export default function ContactForm() {
 function FormField({
   icon,
   label,
+  htmlFor,
   required,
   children,
 }: {
   icon: React.ReactNode;
   label: string;
+  htmlFor: string;
   required?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <div className="group">
-      <label className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-2">
-        <span className="text-[#6366f1]">{icon}</span>
+      <label
+        htmlFor={htmlFor}
+        className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-2"
+      >
+        <span className="text-[#6366f1]" aria-hidden="true">
+          {icon}
+        </span>
         {label}
-        {required && <span className="text-red-400">*</span>}
+        {required && (
+          <>
+            <span className="text-red-400" aria-hidden="true">
+              *
+            </span>
+            <span className="sr-only">(required)</span>
+          </>
+        )}
       </label>
       <div className="px-4 py-3 rounded-xl bg-white/2 border border-white/6 focus-within:border-[#6366f1]/40 focus-within:bg-white/4 transition-all duration-200">
         {children}
