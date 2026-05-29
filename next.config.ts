@@ -6,28 +6,24 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000, // 1 year
+    minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: false,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  // Compression
+  // Compression & optimizations
   compress: true,
-
-  // Disable powered-by header
   poweredByHeader: false,
-
-  // Production optimizations
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
 
-  // Modern JS - disable polyfills for modern browsers
+  // Modern JS - no polyfills for old browsers
   experimental: {
     optimizePackageImports: [
       "lucide-react",
       "framer-motion",
       "@emailjs/browser",
     ],
+    optimizeCss: true,
   },
 
   // Compiler optimizations
@@ -37,11 +33,11 @@ const nextConfig: NextConfig = {
     } : false,
   },
 
-  // Headers for caching and security
+  // Production caching headers
   async headers() {
     return [
       {
-        source: "/:all*(svg|jpg|jpeg|png|gif|ico|webp|avif)",
+        source: "/:all*(svg|jpg|jpeg|png|gif|ico|webp|avif|woff|woff2)",
         headers: [
           {
             key: "Cache-Control",

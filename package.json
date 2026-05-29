@@ -21,9 +21,26 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "critters": "^0.0.23",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      "Chrome >= 87",
+      "Edge >= 88",
+      "Firefox >= 78",
+      "Safari >= 14",
+      "not IE 11",
+      "not dead",
+      "not op_mini all"
+    ]
   }
 }

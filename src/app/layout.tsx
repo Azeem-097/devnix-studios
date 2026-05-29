@@ -1,10 +1,16 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import SchemaOrg from "@/components/SchemaOrg";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  variable: "--font-inter",
+  adjustFontFallback: true,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://devnixstudios.tech"),
@@ -73,6 +79,10 @@ export const metadata: Metadata = {
       "Custom websites starting at PKR 5,000. SEO + Social Media included.",
     images: ["https://devnixstudios.tech/og-image.png"],
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo/DevnixlogoWeb.avif",
+  },
 };
 
 export default function RootLayout({
@@ -81,7 +91,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
+      <head>
+        {/* Preconnect to external origins for faster connection */}
+        <link
+          rel="preconnect"
+          href="https://www.googletagmanager.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://www.google-analytics.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="dns-prefetch"
+          href="https://www.googletagmanager.com"
+        />
+        <link
+          rel="dns-prefetch"
+          href="https://www.google-analytics.com"
+        />
+
+        {/* Preload the logo for instant rendering */}
+        <link
+          rel="preload"
+          href="/logo/DevnixlogoWeb.avif"
+          as="image"
+          type="image/avif"
+          fetchPriority="high"
+        />
+      </head>
       <body className={inter.className}>
         <GoogleAnalytics />
         <SchemaOrg />
