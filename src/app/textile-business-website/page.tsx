@@ -1,120 +1,92 @@
-﻿import type { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import IndustryPageContent from "@/components/IndustryPageContent";
 
 export const metadata: Metadata = {
-  title: "Textile Business Website Pakistan | Fabric Website Design | Devnix Studios",
+  title: "Textile Business Website Pakistan — Fabric Mill Website | Devnix Studios",
   description:
-    "Professional textile and fabric business website design in Pakistan starting at PKR 5,000. Product catalog, fabric gallery, wholesale pricing, WhatsApp ordering. Grow your textile business online!",
+    "Professional textile and fabric business website design in Pakistan. Product catalog, wholesale inquiries, export-ready. Starting at PKR 5,000.",
   keywords: [
-    "textile website pakistan",
-    "textile business website pakistan",
-    "fabric website pakistan",
-    "clothing website pakistan",
-    "garment website pakistan",
-    "textile website faisalabad",
-    "textile website karachi",
-    "wholesale fabric website pakistan",
-    "kapra website pakistan",
+    "textile website Pakistan",
+    "textile business website Pakistan",
+    "fabric website Pakistan",
+    "textile mill website Pakistan",
+    "garment website Pakistan",
+    "textile export website Pakistan",
   ],
-  alternates: {
-    canonical: "https://devnixstudios.tech/textile-business-website",
-  },
+  alternates: { canonical: "https://devnixstudios.tech/textile-business-website" },
   openGraph: {
     title: "Textile Business Website Pakistan | Devnix Studios",
-    description:
-      "Custom textile and fabric websites in Pakistan starting at PKR 5,000. Product catalog, gallery, WhatsApp ordering.",
+    description: "Professional textile and fabric business websites. Starting at PKR 5,000.",
     url: "https://devnixstudios.tech/textile-business-website",
-    images: [{ url: "https://devnixstudios.tech/og-image.png" }],
+    type: "website",
   },
 };
 
-export default function TextilePage() {
+const features = [
+  { title: "Fabric Catalog", description: "Beautiful display of all your fabrics with high-quality photos, GSM, composition, colors available, and pricing." },
+  { title: "Wholesale Inquiry System", description: "B2B buyers send detailed inquiries with quantity, specifications, and delivery requirements via WhatsApp." },
+  { title: "Product Categories", description: "Organize by fabric type, end-use, season, or any structure that helps buyers navigate your products." },
+  { title: "Mill Photo Gallery", description: "Showcase your manufacturing facility, machinery, and quality control. Important for export and B2B credibility." },
+  { title: "Certifications Display", description: "Highlight your ISO, OEKO-TEX, GOTS, or other certifications. Critical for international buyers." },
+  { title: "Export Information", description: "Dedicated sections for international buyers — payment terms, shipping, MOQ, lead times, and export experience." },
+];
+
+const benefits = [
+  "Compete with large textile brands online",
+  "Attract export buyers from Middle East, EU, and USA",
+  "Showcase quality and certifications to serious buyers",
+  "WhatsApp integration for instant inquiries",
+  "Professional presence builds trust for large orders",
+  "SEO helps buyers find you for specific fabric searches",
+  "Showcase your mill facilities to build credibility",
+  "Multilingual ready for international clients",
+];
+
+const whatsIncluded = [
+  "Custom textile website (no templates)",
+  "Complete fabric catalog",
+  "Product category organization",
+  "Mill facility photo gallery",
+  "Certifications section",
+  "Wholesale inquiry system",
+  "Export information section",
+  "WhatsApp integration",
+  "Mobile responsive design",
+  "Google Business Profile setup",
+  "Free 1-year hosting",
+  "3 months management included",
+];
+
+const faq = [
+  { q: "Is this suitable for textile mills or fabric traders?", a: "Both! Whether you are a textile manufacturer (mill), fabric trader, garment exporter, or yarn supplier — we customize the website for your specific business type. The structure adapts to your needs." },
+  { q: "Can international buyers contact me through the website?", a: "Yes! We make sure your website works for international visitors — multiple contact methods, WhatsApp Business with international format, email forms, and clear export information. We can even add multi-language support if needed (additional cost)." },
+  { q: "How do I showcase my fabric collections?", a: "We organize your fabric catalog with high-quality photos, technical details (GSM, composition, width), available colors, MOQ, and pricing tiers. We include up to 50 fabric items in the base package." },
+  { q: "Can I show my certifications and quality standards?", a: "Yes! We include a dedicated certifications section where you can display ISO, OEKO-TEX, GOTS, BSCI, or any other certifications you have. This is crucial for international buyers." },
+  { q: "Will the website help me get export orders?", a: "A professional website is essential for export business. International buyers research suppliers online before contacting them. With SEO optimization for export-related keywords and a professional presentation, you significantly improve your chances of getting international inquiries." },
+];
+
+export default function TextileBusinessWebsitePage() {
   return (
     <main className="min-h-screen bg-[#0a0a0f]">
       <Navbar />
       <IndustryPageContent
-        badge="Textile Websites"
+        badge="Textile Business"
         badgeColor="#8b5cf6"
         emoji="🧵"
-        heroHeading="Textile Business Website Design in Pakistan"
-        heroSubheading="Showcase your fabrics and garments online. Professional product catalog with photos, colors, pricing, and WhatsApp ordering — starting at PKR 5,000."
-        industryName="Textile"
-        features={[
-          {
-            title: "Fabric Product Catalog",
-            description:
-              "Display all fabrics with high-quality photos showing colors, patterns, and textures clearly.",
-          },
-          {
-            title: "Color and Design Variants",
-            description:
-              "Show multiple color options and designs for each fabric type so buyers see all choices.",
-          },
-          {
-            title: "Wholesale Pricing",
-            description:
-              "Display per-meter or per-piece pricing with minimum order quantities for wholesale buyers.",
-          },
-          {
-            title: "WhatsApp Ordering",
-            description:
-              "Buyers place orders directly via WhatsApp. Send fabric samples and confirm orders easily.",
-          },
-          {
-            title: "Category Organization",
-            description:
-              "Organize by fabric type — lawn, cotton, silk, chiffon, ready-made — for easy browsing.",
-          },
-          {
-            title: "Pakistan-Wide Delivery Info",
-            description:
-              "Display delivery options, shipping rates, and areas you serve across Pakistan.",
-          },
-        ]}
-        whatsIncluded={[
-          "Custom textile website design",
-          "Fabric product catalog",
-          "Color variant display",
-          "Wholesale pricing section",
-          "WhatsApp order button",
-          "1 year free hosting",
-          "Google Business listing",
-          "3 months support",
-          "SEO optimization",
-          "Mobile responsive design",
-          "Category organization",
-          "Fast loading speed",
-        ]}
-        benefits={[
-          "Buyers find your fabrics on Google",
-          "Show entire catalog online",
-          "WhatsApp orders from across Pakistan",
-          "Reach wholesale buyers digitally",
-          "Professional brand image",
-          "Social media posts for new designs",
-        ]}
-        faq={[
-          {
-            q: "Can I show fabric colors and variants?",
-            a: "Yes! We display multiple color options and design variants for each fabric so buyers can choose what they want.",
-          },
-          {
-            q: "Can I take orders from other cities?",
-            a: "Absolutely! Your website reaches buyers across Pakistan. WhatsApp ordering makes it easy to sell anywhere.",
-          },
-          {
-            q: "Can I add new fabric designs regularly?",
-            a: "Yes! Monthly management includes 2 new products per week. New designs are added quickly when you send us photos.",
-          },
-          {
-            q: "Is this good for a small fabric shop?",
-            a: "Yes! Even small fabric shops benefit massively from going online. Buyers increasingly search for fabrics on Google and Instagram.",
-          },
-        ]}
+        heroHeading="Professional Textile Business Websites for Pakistan"
+        heroSubheading="Custom websites for textile mills, fabric traders, and garment exporters in Pakistan. Product catalog, mill gallery, and export-ready features included."
+        industryName="Textile Business"
+        slug="textile-business-website"
+        features={features}
+        benefits={benefits}
+        faq={faq}
+        whatsIncluded={whatsIncluded}
       />
       <Footer />
+      <FloatingWhatsApp />
     </main>
   );
 }

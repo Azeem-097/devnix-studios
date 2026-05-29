@@ -44,9 +44,6 @@ export default function Footer() {
     { label: "Social Media", href: "/social-media-management-pakistan" },
     { label: "E-commerce", href: "/ecommerce-development-pakistan" },
     { label: "Landing Pages", href: "/landing-page-design" },
-    { label: "Facebook Ads", href: "/facebook-ads-setup" },
-    { label: "Google Business", href: "/google-business-setup" },
-    { label: "Maintenance", href: "/website-maintenance" },
   ];
 
   const cityLinks = [

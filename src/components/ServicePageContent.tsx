@@ -11,6 +11,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteData } from "@/lib/data";
 import AnimatedSection from "./AnimatedSection";
+import FAQSchema from "./FAQSchema";
 
 interface WhatWeDoItem {
   title: string;
@@ -45,6 +46,7 @@ export default function ServicePageContent({
   price,
   pricePeriod,
   priceNote,
+  slug,
   whatWeDoTitle,
   whatWeDo,
   benefits,
@@ -52,8 +54,19 @@ export default function ServicePageContent({
 }: ServicePageContentProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  const faqsForSchema = faq.map((item) => ({
+    question: item.q,
+    answer: item.a,
+  }));
+
   return (
     <div className="pt-20 lg:pt-24">
+      {/* FAQ SCHEMA */}
+      <FAQSchema
+        faqs={faqsForSchema}
+        pageUrl={`https://devnixstudios.tech/${slug}`}
+      />
+
       {/* HERO */}
       <section className="relative overflow-hidden py-20 lg:py-32">
         <div className="absolute inset-0 bg-[#0a0a0f]" />

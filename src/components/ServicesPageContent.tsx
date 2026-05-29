@@ -22,7 +22,7 @@ const services = [
     description:
       "Fully custom-built websites tailored to your business. No templates, no drag-and-drop. Clean code, fast performance, and unique design.",
     gradient: "from-[#6366f1] to-[#8b5cf6]",
-    link: "/ecommerce-development-pakistan",
+    link: "/web-development-services",
     linkText: "Learn More",
   },
   {
@@ -45,27 +45,27 @@ const services = [
   },
   {
     icon: <Package size={24} />,
-    title: "Product Management",
+    title: "E-commerce Development",
     description:
-      "Regular product uploads, category management, image optimization, and content updates to keep your store fresh and up-to-date.",
+      "Online stores with product catalog, WhatsApp ordering, payment integration, and inventory management — perfect for Pakistani businesses.",
     gradient: "from-[#6366f1] to-[#06b6d4]",
-    link: null,
-    linkText: null,
+    link: "/ecommerce-development-pakistan",
+    linkText: "Learn More",
   },
   {
     icon: <MapPin size={24} />,
-    title: "Google Business Setup",
+    title: "Landing Page Design",
     description:
-      "Get your business listed on Google Maps and Google Places so local customers can find you easily when searching online.",
+      "High-converting landing pages for Facebook ads, Google ads, and product launches. Optimized to turn visitors into customers.",
     gradient: "from-[#8b5cf6] to-[#06b6d4]",
-    link: null,
-    linkText: null,
+    link: "/landing-page-design",
+    linkText: "Learn More",
   },
   {
     icon: <Settings size={24} />,
-    title: "Website Maintenance",
+    title: "Complete Package",
     description:
-      "Ongoing support, bug fixes, theme changes, page additions, and performance monitoring to keep everything running smooth.",
+      "Everything you need in one affordable package — website, SEO, social media, Google Business, and 3 months of management.",
     gradient: "from-[#06b6d4] to-[#6366f1]",
     link: null,
     linkText: null,
@@ -74,7 +74,7 @@ const services = [
 
 const stats = [
   { value: "5,000", label: "PKR Starting Price" },
-  { value: "6", label: "Services Offered" },
+  { value: "5", label: "Core Services" },
   { value: "3", label: "Months Support" },
   { value: "100%", label: "Custom Built" },
 ];
@@ -164,14 +164,12 @@ export default function ServicesPageContent() {
             {services.map((service, index) => (
               <AnimatedSection key={service.title} delay={index * 0.1}>
                 <div className="group relative p-6 lg:p-8 rounded-2xl bg-white/2 border border-white/6 hover:border-[#6366f1]/20 hover:bg-white/4 transition-all duration-500 h-full flex flex-col">
-                  {/* Icon */}
                   <div
                     className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white mb-5 group-hover:shadow-lg group-hover:shadow-[#6366f1]/15 transition-shadow duration-500`}
                   >
                     {service.icon}
                   </div>
 
-                  {/* Content */}
                   <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#6366f1] transition-colors duration-300">
                     {service.title}
                   </h3>
@@ -179,7 +177,6 @@ export default function ServicesPageContent() {
                     {service.description}
                   </p>
 
-                  {/* Link */}
                   {service.link && (
                     <Link
                       href={service.link}
@@ -193,7 +190,6 @@ export default function ServicesPageContent() {
                     </Link>
                   )}
 
-                  {/* Hover Glow */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#6366f1]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </div>
               </AnimatedSection>

@@ -1,119 +1,91 @@
-﻿import type { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import IndustryPageContent from "@/components/IndustryPageContent";
 
 export const metadata: Metadata = {
-  title: "Salon Website Pakistan | Beauty Parlor Website Design | Devnix Studios",
+  title: "Salon & Spa Website Design Pakistan — Beauty Parlor Sites | Devnix Studios",
   description:
-    "Professional salon and beauty parlor website design in Pakistan starting at PKR 5,000. Services menu, price list, before and after gallery, WhatsApp booking. Get more clients today!",
+    "Beautiful salon and spa website design in Pakistan. Service menu, online booking, before/after gallery. Starting at PKR 5,000.",
   keywords: [
-    "salon website pakistan",
-    "beauty parlor website pakistan",
-    "salon website design pakistan",
-    "beauty salon website pakistan",
-    "parlor website pakistan",
-    "salon website karachi",
-    "salon website lahore",
-    "hair salon website pakistan",
+    "salon website Pakistan",
+    "beauty parlor website Pakistan",
+    "spa website Pakistan",
+    "salon website design Pakistan",
+    "barber shop website Pakistan",
+    "beauty salon Pakistan",
   ],
-  alternates: {
-    canonical: "https://devnixstudios.tech/salon-website-pakistan",
-  },
+  alternates: { canonical: "https://devnixstudios.tech/salon-website-pakistan" },
   openGraph: {
-    title: "Salon Website Pakistan | Devnix Studios",
-    description:
-      "Custom salon and beauty parlor websites in Pakistan starting at PKR 5,000. Services, price list, gallery, booking.",
+    title: "Salon Website Design Pakistan | Devnix Studios",
+    description: "Beautiful salon and spa websites with online booking. Starting at PKR 5,000.",
     url: "https://devnixstudios.tech/salon-website-pakistan",
-    images: [{ url: "https://devnixstudios.tech/og-image.png" }],
+    type: "website",
   },
 };
 
-export default function SalonPage() {
+const features = [
+  { title: "Service Menu with Prices", description: "Beautiful display of all services — hair, makeup, facial, manicure, etc. — with clear pricing." },
+  { title: "Before & After Gallery", description: "Showcase your best transformations. Before/after photos are the most powerful selling tool for salons." },
+  { title: "Online Appointment Booking", description: "Clients book appointments via WhatsApp with service, date, and time pre-filled. Most popular Pakistani booking method." },
+  { title: "Photo Gallery", description: "Show your salon interior, equipment, products, and work portfolio. Build trust and credibility." },
+  { title: "Stylist Profiles", description: "Introduce your beauty experts with photos, specialties, and experience. Clients book confidently." },
+  { title: "Promotions Section", description: "Highlight special offers, package deals, and seasonal discounts to attract new clients." },
+];
+
+const benefits = [
+  "Beautiful design attracts upscale clientele",
+  "Before/after gallery sells services better than descriptions",
+  "WhatsApp booking matches how Pakistani clients prefer to book",
+  "Mobile-optimized — clients browse on Instagram, then book on web",
+  "Helps you rank for salon near me searches",
+  "Increases foot traffic with Google Maps integration",
+  "Showcases your work portfolio professionally",
+  "Builds trust with new clients before they visit",
+];
+
+const whatsIncluded = [
+  "Custom salon website (no templates)",
+  "Complete service menu with prices",
+  "Before/after gallery section",
+  "Up to 5 stylist profiles",
+  "WhatsApp booking integration",
+  "Photo gallery section",
+  "Promotions/offers section",
+  "Mobile responsive design",
+  "Google Business Profile setup",
+  "Free 1-year hosting",
+  "3 months management included",
+];
+
+const faq = [
+  { q: "Can clients book appointments online?", a: "Yes! Clients select the service they want, choose preferred date and time, and click 'Book Now' which opens WhatsApp with everything pre-filled. You confirm via WhatsApp. This is the most popular booking method in Pakistan." },
+  { q: "How many services can I add to the menu?", a: "The package includes your complete service menu with all categories (hair, makeup, facial, etc.) and pricing. We typically include 30-50 services. If you have more, we can include them — usually no extra cost." },
+  { q: "Can I add before and after photos?", a: "Absolutely! Before/after galleries are essential for salon websites — they sell better than any description. We include a dedicated section and help organize your transformation photos beautifully." },
+  { q: "Will my salon show up in Google Maps searches?", a: "Yes! We set up your Google Business Profile so your salon appears in 'salon near me', 'beauty parlor [city]', and similar searches. This brings walk-in clients." },
+  { q: "Do you handle the photography of my work?", a: "We do not provide photography services but help you organize photos beautifully. Most salons take their own before/after photos with phone cameras — we just need clear, well-lit images." },
+];
+
+export default function SalonWebsitePage() {
   return (
     <main className="min-h-screen bg-[#0a0a0f]">
       <Navbar />
       <IndustryPageContent
         badge="Salon Websites"
         badgeColor="#ec4899"
-        emoji="💅"
-        heroHeading="Salon & Beauty Parlor Website in Pakistan"
-        heroSubheading="Attract more clients with a stunning salon website. Services menu, price list, before and after gallery, and WhatsApp booking — starting at PKR 5,000."
+        emoji="💇"
+        heroHeading="Beautiful Salon & Spa Websites for Pakistan"
+        heroSubheading="Modern, elegant websites for beauty salons, spas, and barber shops. Online booking, service menu, and before/after gallery included."
         industryName="Salon"
-        features={[
-          {
-            title: "Services Menu",
-            description:
-              "Complete list of all salon services with descriptions and prices so clients know what to expect.",
-          },
-          {
-            title: "Before and After Gallery",
-            description:
-              "Showcase your work with before and after photos. Let your results speak for themselves.",
-          },
-          {
-            title: "WhatsApp Booking",
-            description:
-              "Clients book appointments directly via WhatsApp. No booking apps or software needed.",
-          },
-          {
-            title: "Price List",
-            description:
-              "Transparent pricing displayed on the website so clients know costs before coming in.",
-          },
-          {
-            title: "Location and Hours",
-            description:
-              "Google Maps and opening hours so clients can easily find you and know when you are open.",
-          },
-          {
-            title: "Instagram Feed",
-            description:
-              "Connect your Instagram so your latest work automatically appears on the website.",
-          },
-        ]}
-        whatsIncluded={[
-          "Custom salon website design",
-          "Services and price list",
-          "Before and after gallery",
-          "WhatsApp booking button",
-          "Google Maps location",
-          "1 year free hosting",
-          "Google Business listing",
-          "3 months support",
-          "Local SEO optimization",
-          "Mobile responsive design",
-          "Social media posts for work",
-          "Fast loading speed",
-        ]}
-        benefits={[
-          "New clients find you on Google",
-          "Show your work before they visit",
-          "WhatsApp bookings without apps",
-          "Look more professional than competitors",
-          "Get found on Google Maps",
-          "Social media posts for every service",
-        ]}
-        faq={[
-          {
-            q: "Can clients book appointments through the website?",
-            a: "Yes! We add a WhatsApp booking button. Clients tap it and message you directly to book. Simple and effective.",
-          },
-          {
-            q: "Can I show before and after photos?",
-            a: "Absolutely! A before and after gallery is included. Just send us your photos and we upload them professionally.",
-          },
-          {
-            q: "Can I update services and prices later?",
-            a: "Yes! Service and price updates are included in monthly management at no extra cost.",
-          },
-          {
-            q: "Is this good for a home-based salon?",
-            a: "Yes! Home-based salons especially benefit from a website. Clients search for salons near them and a website makes you look professional.",
-          },
-        ]}
+        slug="salon-website-pakistan"
+        features={features}
+        benefits={benefits}
+        faq={faq}
+        whatsIncluded={whatsIncluded}
       />
       <Footer />
+      <FloatingWhatsApp />
     </main>
   );
 }

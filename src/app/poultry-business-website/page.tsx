@@ -1,119 +1,91 @@
-﻿import type { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import IndustryPageContent from "@/components/IndustryPageContent";
 
 export const metadata: Metadata = {
-  title: "Poultry Business Website Pakistan | Farm Website Design | Devnix Studios",
+  title: "Poultry Business Website Pakistan — Farm Website Design | Devnix Studios",
   description:
-    "Professional poultry and farm business website design in Pakistan starting at PKR 5,000. Product catalog, pricing, WhatsApp ordering, Google Business listing. Grow your poultry business online!",
+    "Professional poultry farm and business website design in Pakistan. Product catalog, wholesale inquiries, WhatsApp orders. Starting at PKR 5,000.",
   keywords: [
-    "poultry website pakistan",
-    "poultry business website pakistan",
-    "chicken farm website pakistan",
-    "poultry farm website pakistan",
-    "murgi farm website pakistan",
-    "poultry products website pakistan",
-    "farm website pakistan",
-    "poultry dealer website pakistan",
+    "poultry website Pakistan",
+    "poultry business website Pakistan",
+    "poultry farm website Pakistan",
+    "chicken business website Pakistan",
+    "poultry website design Pakistan",
+    "egg farm website Pakistan",
   ],
-  alternates: {
-    canonical: "https://devnixstudios.tech/poultry-business-website",
-  },
+  alternates: { canonical: "https://devnixstudios.tech/poultry-business-website" },
   openGraph: {
     title: "Poultry Business Website Pakistan | Devnix Studios",
-    description:
-      "Custom poultry and farm websites in Pakistan starting at PKR 5,000. Products, pricing, WhatsApp ordering.",
+    description: "Professional poultry farm and business websites. Starting at PKR 5,000.",
     url: "https://devnixstudios.tech/poultry-business-website",
-    images: [{ url: "https://devnixstudios.tech/og-image.png" }],
+    type: "website",
   },
 };
 
-export default function PoultryPage() {
+const features = [
+  { title: "Product Catalog", description: "Display all your poultry products — broilers, layers, eggs, chicks, feed — with photos, prices, and specifications." },
+  { title: "Wholesale Pricing", description: "Separate sections for retail and wholesale customers with bulk pricing tiers and minimum order quantities." },
+  { title: "WhatsApp Ordering", description: "Buyers place orders directly via WhatsApp with quantity, product, and delivery location pre-filled." },
+  { title: "Farm Photo Gallery", description: "Showcase your farm facilities, cleanliness, and quality standards. Builds trust with serious buyers." },
+  { title: "Service Areas", description: "Clearly list delivery areas and cities you serve. Helps qualify leads quickly." },
+  { title: "Daily Rate Updates", description: "Easy to update daily/weekly rates as poultry prices fluctuate. Keeps customers informed." },
+];
+
+const benefits = [
+  "Reach buyers across Pakistan, not just your local area",
+  "Wholesale buyers research online before placing big orders",
+  "WhatsApp integration matches Pakistani B2B buying behavior",
+  "Showcase your farm cleanliness and quality online",
+  "SEO helps you rank for poultry supplier [city] searches",
+  "Professional image builds trust for large orders",
+  "Reduces phone calls with self-service product info",
+  "Compete with established poultry brands",
+];
+
+const whatsIncluded = [
+  "Custom poultry website (no templates)",
+  "Complete product catalog",
+  "Wholesale and retail sections",
+  "Farm photo gallery",
+  "WhatsApp ordering integration",
+  "Service area listings",
+  "Daily rate update capability",
+  "Mobile responsive design",
+  "Google Business Profile setup",
+  "Free 1-year hosting",
+  "3 months management included",
+];
+
+const faq = [
+  { q: "Is this website suitable for poultry farms or poultry dealers?", a: "Both! Whether you run a poultry farm (broilers, layers, eggs), a poultry dealer business, or a poultry feed supplier — we customize the website for your specific operation. Just let us know your business type." },
+  { q: "Can buyers place bulk orders through the website?", a: "Yes! We integrate WhatsApp for orders where buyers specify product, quantity, delivery location, and any special requirements. You confirm pricing and delivery via WhatsApp — perfect for wholesale orders." },
+  { q: "Can I update poultry rates daily?", a: "Yes! Poultry rates fluctuate daily. We can either update rates for you (included in 3-month management) or train you to update them yourself in 5 minutes." },
+  { q: "Will I get customers from other cities?", a: "Yes! Your website is visible across Pakistan. With proper SEO and Google Business Profile, you will get inquiries from cities you have never served before. We have built poultry websites that get inquiries from Karachi to Peshawar." },
+  { q: "Do you have experience with poultry businesses?", a: "Yes! We have built websites for poultry businesses including Ali Poultry Enterprises (you can see it live in our portfolio). We understand the specific needs of Pakistani poultry industry." },
+];
+
+export default function PoultryBusinessWebsitePage() {
   return (
     <main className="min-h-screen bg-[#0a0a0f]">
       <Navbar />
       <IndustryPageContent
-        badge="Poultry Websites"
-        badgeColor="#eab308"
+        badge="Poultry Business"
+        badgeColor="#f97316"
         emoji="🐔"
-        heroHeading="Poultry Business Website Design in Pakistan"
-        heroSubheading="Grow your poultry business online. Professional product catalog with live rates, WhatsApp ordering, and Google Business listing — starting at PKR 5,000."
-        industryName="Poultry"
-        features={[
-          {
-            title: "Product Catalog",
-            description:
-              "List all your poultry products — live chickens, meat, eggs, chicks — with photos and current prices.",
-          },
-          {
-            title: "Live Rate Display",
-            description:
-              "Update chicken and product rates daily so buyers always see current market prices.",
-          },
-          {
-            title: "WhatsApp Ordering",
-            description:
-              "Buyers order directly via WhatsApp. Fast, simple, and no complicated payment needed.",
-          },
-          {
-            title: "Wholesale Section",
-            description:
-              "Separate section for wholesale buyers with bulk pricing and minimum order details.",
-          },
-          {
-            title: "Farm Location",
-            description:
-              "Google Maps integration so buyers can find your farm or shop location easily.",
-          },
-          {
-            title: "Google Business",
-            description:
-              "Get listed on Google Maps so local buyers searching for poultry find your business first.",
-          },
-        ]}
-        whatsIncluded={[
-          "Custom poultry business website",
-          "Product and rate catalog",
-          "Daily rate update option",
-          "WhatsApp order button",
-          "Google Maps location",
-          "1 year free hosting",
-          "Google Business listing",
-          "3 months support",
-          "Local SEO optimization",
-          "Mobile responsive design",
-          "Wholesale info section",
-          "Fast loading speed",
-        ]}
-        benefits={[
-          "Buyers find your farm on Google",
-          "Show live rates online",
-          "WhatsApp orders without middlemen",
-          "Look professional to wholesale buyers",
-          "Get listed on Google Maps",
-          "Reach more customers across Pakistan",
-        ]}
-        faq={[
-          {
-            q: "Can I update chicken rates daily?",
-            a: "Yes! Daily rate updates are simple and included in monthly management. Just send us the new rates and we update within hours.",
-          },
-          {
-            q: "Can I sell to both retail and wholesale buyers?",
-            a: "Yes! We create separate sections for retail and wholesale with different pricing and minimum orders.",
-          },
-          {
-            q: "Is this good for a small poultry shop?",
-            a: "Absolutely! Even small poultry shops benefit from online presence. Buyers search for poultry products near them on Google.",
-          },
-          {
-            q: "Can I add farm photos?",
-            a: "Yes! We add a photo gallery of your farm, products, and facilities to build trust with buyers.",
-          },
-        ]}
+        heroHeading="Professional Poultry Business Websites for Pakistan"
+        heroSubheading="Custom websites for poultry farms, dealers, and suppliers in Pakistan. Product catalog, wholesale pricing, and WhatsApp ordering included."
+        industryName="Poultry Business"
+        slug="poultry-business-website"
+        features={features}
+        benefits={benefits}
+        faq={faq}
+        whatsIncluded={whatsIncluded}
       />
       <Footer />
+      <FloatingWhatsApp />
     </main>
   );
 }

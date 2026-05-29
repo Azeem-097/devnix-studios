@@ -1,3 +1,20 @@
+# ====================================================================
+# Devnix Studios - Remove E-commerce & Landing Pages from Navbar
+# Run this in VS Code terminal: .\update-navbar.ps1
+# ====================================================================
+
+Write-Host "🚀 Updating Navbar.tsx..." -ForegroundColor Cyan
+
+$navbarPath = "components\Navbar.tsx"
+
+# Check if file exists
+if (-not (Test-Path $navbarPath)) {
+    Write-Host "❌ Error: $navbarPath not found!" -ForegroundColor Red
+    Write-Host "   Make sure you run this from your project root directory." -ForegroundColor Yellow
+    exit 1
+}
+
+$navbarContent = @'
 "use client";
 
 import { useState, useEffect } from "react";
@@ -221,3 +238,20 @@ export default function Navbar() {
     </nav>
   );
 }
+'@
+
+# Write the updated content
+Set-Content -Path $navbarPath -Value $navbarContent -Encoding UTF8
+
+Write-Host "✅ Successfully updated $navbarPath" -ForegroundColor Green
+Write-Host ""
+Write-Host "📋 Changes made:" -ForegroundColor Cyan
+Write-Host "   ❌ Removed: E-commerce" -ForegroundColor Yellow
+Write-Host "   ❌ Removed: Landing Pages" -ForegroundColor Yellow
+Write-Host ""
+Write-Host "   ✅ Dropdown now shows:" -ForegroundColor Green
+Write-Host "      • Web Development" -ForegroundColor White
+Write-Host "      • SEO Services" -ForegroundColor White
+Write-Host "      • Social Media" -ForegroundColor White
+Write-Host ""
+Write-Host "💡 Refresh your browser to see the changes!" -ForegroundColor Magenta

@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { siteData } from "@/lib/data";
 import AnimatedSection from "./AnimatedSection";
+import FAQSchema from "./FAQSchema";
+import IndustryServiceSchema from "./IndustryServiceSchema";
 
 interface IndustryFeature {
   title: string;
@@ -27,6 +29,7 @@ interface IndustryPageContentProps {
   heroHeading: string;
   heroSubheading: string;
   industryName: string;
+  slug?: string;
   features: IndustryFeature[];
   benefits: string[];
   faq: IndustryFAQ[];
@@ -40,13 +43,29 @@ export default function IndustryPageContent({
   heroHeading,
   heroSubheading,
   industryName,
+  slug,
   features,
   benefits,
   faq,
   whatsIncluded,
 }: IndustryPageContentProps) {
+  const pageSlug = slug || industryName.toLowerCase().replace(/\s+/g, "-") + "-website-pakistan";
+  const pageUrl = `https://devnixstudios.tech/${pageSlug}`;
+
+  const faqsForSchema = faq.map((item) => ({
+    question: item.q,
+    answer: item.a,
+  }));
+
   return (
     <div className="pt-20 lg:pt-24">
+      {/* SCHEMAS */}
+      <FAQSchema faqs={faqsForSchema} pageUrl={pageUrl} />
+      <IndustryServiceSchema
+        industryName={industryName}
+        description={heroSubheading}
+        slug={pageSlug}
+      />
 
       {/* HERO */}
       <section className="relative overflow-hidden py-20 lg:py-32">
@@ -58,7 +77,6 @@ export default function IndustryPageContent({
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            {/* Emoji Icon */}
             <div className="text-6xl mb-6">{emoji}</div>
 
             <div
