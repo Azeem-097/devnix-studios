@@ -1,4 +1,4 @@
-﻿export default function SchemaOrg() {
+export default function SchemaOrg() {
   const localBusiness = JSON.stringify({
     "@context": "https://schema.org",
     "@type": ["ProfessionalService", "LocalBusiness"],
@@ -10,7 +10,7 @@
     url: "https://devnixstudios.tech",
     logo: {
       "@type": "ImageObject",
-      url: "https://devnixstudios.tech/logo/DevnixlogoWeb.png",
+      url: "https://devnixstudios.tech/logo/DevnixlogoWeb.avif",
       width: 512,
       height: 512,
     },

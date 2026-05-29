@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
@@ -71,7 +71,7 @@ export default function Footer() {
               className="flex items-center gap-2 group mb-4"
             >
               <Image
-                src="/logo/DevnixlogoWeb.png"
+                src="/logo/DevnixlogoWeb.avif"
                 alt="Devnix Studios"
                 width={36}
                 height={36}

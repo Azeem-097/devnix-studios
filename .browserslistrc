@@ -1,0 +1,24 @@
+# Target modern browsers only (no IE11, no old Safari)
+# This reduces polyfills and saves ~13KB JavaScript
+
+# Browsers with >0.5% market share globally
+>0.5%
+
+# Last 2 versions of major browsers
+last 2 versions
+
+# Not Internet Explorer (dead browser)
+not IE 11
+not IE_Mob 11
+
+# Not Opera Mini (limited JS support)
+not op_mini all
+
+# Not dead browsers (no updates in 24 months)
+not dead
+
+# Firefox/Chrome ESR
+Firefox ESR
+
+# Maintain support for browsers that support ES Modules
+supports es6-module

@@ -23,8 +23,8 @@ export default function WhyUsSection() {
   return (
     <section id="whyus" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 bg-[#0a0a0f]" />
-      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#8b5cf6]/4 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/3 right-0 w-[400px] h-[400px] bg-[#6366f1]/5 rounded-full blur-[120px]" />
+      <div className="absolute top-1/3 left-0 w-125 h-125 bg-[#8b5cf6]/4 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/3 right-0 w-100 h-100 bg-[#6366f1]/5 rounded-full blur-[120px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
@@ -93,7 +93,7 @@ export default function WhyUsSection() {
 
                 {/* Bottom accent line */}
                 <div
-                  className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     background: `linear-gradient(90deg, transparent, ${accentColors[index]}80, transparent)`,
                   }}

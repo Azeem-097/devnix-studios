@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import {
@@ -96,14 +96,18 @@ function ProjectCard({
               <source
                 srcSet={`${project.screenshot}.avif`}
                 type="image/avif"
+                sizes="(max-width: 640px) 345px, (max-width: 1024px) 400px, 400px"
               />
               {/* PNG fallback */}
               <img
                 src={`${project.screenshot}.png`}
                 alt={`${project.title} preview`}
+                width={400}
+                height={250}
                 className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 onError={() => setImgError(true)}
                 loading="lazy"
+                decoding="async"
               />
             </picture>
           ) : (

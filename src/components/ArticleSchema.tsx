@@ -1,4 +1,4 @@
-﻿interface ArticleSchemaProps {
+interface ArticleSchemaProps {
   title: string;
   description: string;
   slug: string;
@@ -42,7 +42,7 @@ export default function ArticleSchema({
       url: "https://devnixstudios.tech",
       logo: {
         "@type": "ImageObject",
-        url: "https://devnixstudios.tech/logo/DevnixlogoWeb.png",
+        url: "https://devnixstudios.tech/logo/DevnixlogoWeb.avif",
       },
     },
     publisher: {
@@ -50,7 +50,7 @@ export default function ArticleSchema({
       name: "Devnix Studios",
       logo: {
         "@type": "ImageObject",
-        url: "https://devnixstudios.tech/logo/DevnixlogoWeb.png",
+        url: "https://devnixstudios.tech/logo/DevnixlogoWeb.avif",
         width: 512,
         height: 512,
       },

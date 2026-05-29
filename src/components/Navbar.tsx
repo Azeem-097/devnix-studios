@@ -73,12 +73,12 @@ export default function Navbar() {
             className="flex items-center gap-2 sm:gap-2.5 group shrink-0"
           >
             <Image
-              src="/logo/DevnixlogoWeb.png"
+              src="/logo/DevnixlogoWeb.avif"
               alt="Devnix Studios - Website Design Pakistan"
               width={32}
               height={32}
               style={{ width: "auto", height: "32px" }}
-              className="rounded-lg group-hover:shadow-lg group-hover:shadow-[#6366f1]/30 transition-shadow duration-300 sm:!h-9 lg:!h-10"
+              className="rounded-lg group-hover:shadow-lg group-hover:shadow-[#6366f1]/30 transition-shadow duration-300 sm:h-9! lg:h-10!"
               priority
             />
             <div className="flex flex-col leading-tight">
@@ -176,7 +176,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "max-h-150 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="bg-[#0a0a0f]/98 backdrop-blur-xl border-t border-white/5 px-4 py-4 space-y-1">
@@ -221,3 +221,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

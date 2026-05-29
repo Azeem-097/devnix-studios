@@ -34,7 +34,7 @@ export default function BlogSchema({
       name: "Devnix Studios",
       logo: {
         "@type": "ImageObject",
-        url: "https://devnixstudios.tech/logo/DevnixlogoWeb.png",
+        url: "https://devnixstudios.tech/logo/DevnixlogoWeb.avif",
       },
     },
     mainEntityOfPage: {
