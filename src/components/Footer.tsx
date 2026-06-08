@@ -41,19 +41,7 @@ export default function Footer() {
   const serviceLinks = [
     { label: "Web Development", href: "/web-development-services" },
     { label: "SEO Services", href: "/seo-services-pakistan" },
-    { label: "Social Media", href: "/social-media-management-pakistan" },
-    { label: "E-commerce", href: "/ecommerce-development-pakistan" },
-    { label: "Landing Pages", href: "/landing-page-design" },
-  ];
-
-  const cityLinks = [
-    { label: "Karachi", href: "/website-design-karachi" },
-    { label: "Lahore", href: "/website-design-lahore" },
-    { label: "Islamabad", href: "/website-design-islamabad" },
-    { label: "Faisalabad", href: "/website-design-faisalabad" },
-    { label: "Rawalpindi", href: "/website-design-rawalpindi" },
-    { label: "Multan", href: "/website-design-multan" },
-    { label: "Peshawar", href: "/website-design-peshawar" },
+    { label: "All Services", href: "/services" },
   ];
 
   return (
@@ -62,9 +50,9 @@ export default function Footer() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* MAIN FOOTER GRID */}
-        <div className="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div>
             <a
               href={isHomePage ? "#home" : "/"}
               onClick={(e) => { if (isHomePage) { e.preventDefault(); handleScrollLink("#home"); } }}
@@ -83,7 +71,7 @@ export default function Footer() {
               </div>
             </a>
             <p className="text-xs text-gray-500 leading-relaxed mb-4">
-              Custom websites, SEO, and social media management for Pakistan businesses. Starting at PKR 5,000.
+              Custom websites, SEO, and digital solutions for Pakistan businesses. Starting at PKR 5,000.
             </p>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -96,18 +84,6 @@ export default function Footer() {
             <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Services</h4>
             <div className="space-y-2">
               {serviceLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-sm text-gray-500 hover:text-white transition-colors">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Cities */}
-          <div>
-            <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Cities We Serve</h4>
-            <div className="space-y-2">
-              {cityLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="block text-sm text-gray-500 hover:text-white transition-colors">
                   {link.label}
                 </Link>
@@ -130,7 +106,6 @@ export default function Footer() {
                 </a>
               ))}
               <Link href="/blog" className="block text-sm text-gray-500 hover:text-white transition-colors">Blog</Link>
-              <Link href="/services" className="block text-sm text-gray-500 hover:text-white transition-colors">All Services</Link>
             </div>
             <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">Contact</h4>
             <div className="space-y-2">

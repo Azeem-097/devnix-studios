@@ -1,0 +1,1373 @@
+
+====================================================================================================
+FILE: blogData.ts
+FULL PATH: D:\Web Development\Websites\Own\devnixstudios\src\lib\blogData.ts
+====================================================================================================
+export interface BlogPost {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+  category: string;
+  categoryColor: string;
+  content: string;
+}
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "5-reasons-small-business-needs-website-pakistan",
+    title: "5 Reasons Every Small Business in Pakistan Needs a Website in 2026",
+    description:
+      "Still running your business on WhatsApp alone? Here are 5 reasons why every small business in Pakistan needs a website in 2026 — with real examples.",
+    date: "2026-05-01",
+    readTime: "9 min read",
+    category: "Business",
+    categoryColor: "#10b981",
+    content: "",
+  },
+  {
+    slug: "how-much-does-website-cost-pakistan",
+    title: "How Much Does a Website Cost in Pakistan? (2025 Guide)",
+    description:
+      "Complete breakdown of website costs in Pakistan. From freelancers to agencies, templates to custom code. Find out exactly what you should pay.",
+    date: "2025-01-15",
+    readTime: "8 min read",
+    category: "Pricing",
+    categoryColor: "#6366f1",
+    content: "",
+  },
+  {
+    slug: "custom-website-vs-wordpress-pakistan",
+    title: "Custom Website vs WordPress — Which is Better for Pakistan Businesses?",
+    description:
+      "Honest comparison between custom-coded websites and WordPress for Pakistani businesses. Speed, cost, SEO, and long-term value explained.",
+    date: "2025-01-20",
+    readTime: "7 min read",
+    category: "Web Design",
+    categoryColor: "#8b5cf6",
+    content: "",
+  },
+  {
+    slug: "top-web-designers-pakistan-2025",
+    title: "Top Web Designers in Pakistan 2025 — What to Look For",
+    description:
+      "How to find and choose the best web designer for your Pakistan business. Red flags to avoid, questions to ask, and what good work looks like.",
+    date: "2025-01-25",
+    readTime: "6 min read",
+    category: "Tips",
+    categoryColor: "#06b6d4",
+    content: "",
+  },
+  {
+    slug: "facebook-ads-without-website-pakistan",
+    title: "Running Facebook Ads Without a Website — Big Mistake!",
+    description:
+      "Why running Meta ads to WhatsApp instead of a website is costing you money. Learn how a website doubles your ad ROI in Pakistan.",
+    date: "2025-02-05",
+    readTime: "6 min read",
+    category: "Marketing",
+    categoryColor: "#f59e0b",
+    content: "",
+  },
+  {
+    slug: "best-hosting-pakistan-2025",
+    title: "Best Website Hosting Options in Pakistan 2025",
+    description:
+      "Comparing the top website hosting providers available in Pakistan. Local vs international, shared vs VPS, and what is best for your business.",
+    date: "2025-02-10",
+    readTime: "7 min read",
+    category: "Hosting",
+    categoryColor: "#0ea5e9",
+    content: "",
+  },
+  {
+    slug: "complete-seo-guide-pakistan-businesses",
+    title: "Complete SEO Guide for Pakistan Businesses (2025)",
+    description:
+      "Step-by-step SEO guide specifically for Pakistani businesses. Learn how to rank on Google Pakistan and get free traffic for years.",
+    date: "2025-02-15",
+    readTime: "10 min read",
+    category: "SEO",
+    categoryColor: "#a855f7",
+    content: "",
+  },
+  {
+    slug: "free-vs-paid-website-pakistan",
+    title: "Free Website vs Paid Website in Pakistan — The Truth Revealed",
+    description:
+      "Wix free, Blogger, or a paid custom website? We break down the real difference and why free websites are killing Pakistani businesses.",
+    date: "2025-02-20",
+    readTime: "6 min read",
+    category: "Tips",
+    categoryColor: "#06b6d4",
+    content: "",
+  },
+  {
+    slug: "start-online-store-pakistan-guide",
+    title: "Complete Guide to Starting an Online Store in Pakistan (2025)",
+    description:
+      "Everything you need to know to launch your online store in Pakistan. Products, payments, delivery, and marketing all explained.",
+    date: "2025-02-25",
+    readTime: "9 min read",
+    category: "Ecommerce",
+    categoryColor: "#ec4899",
+    content: "",
+  },
+  {
+    slug: "how-to-choose-web-designer-pakistan-city",
+    title: "How to Choose a Web Designer in Your City — Pakistan Guide",
+    description:
+      "Looking for a web designer in Karachi, Lahore, or Islamabad? Here is a practical guide to finding and hiring the right one in any Pakistani city.",
+    date: "2025-03-01",
+    readTime: "5 min read",
+    category: "Tips",
+    categoryColor: "#f97316",
+    content: "",
+  },
+  {
+    slug: "instagram-business-account-pakistan",
+    title: "How to Grow Your Instagram Business Account in Pakistan",
+    description:
+      "Practical tips to grow your Instagram business in Pakistan. Hashtags, content strategy, posting times, and how to convert followers to customers.",
+    date: "2025-03-10",
+    readTime: "7 min read",
+    category: "Social Media",
+    categoryColor: "#ec4899",
+    content: "",
+  },
+];
+
+
+====================================================================================================
+FILE: data.ts
+FULL PATH: D:\Web Development\Websites\Own\devnixstudios\src\lib\data.ts
+====================================================================================================
+import { SiteData } from "@/types";
+
+export const siteData: SiteData = {
+  siteName: "Devnix Studios",
+  tagline: "We Build. We Manage. We Grow.",
+  description:
+    "Professional web development, SEO, and social media management for businesses that want to dominate online.",
+
+  navLinks: [
+    { label: "Home", href: "#home" },
+    { label: "Services", href: "#services" },
+    { label: "Projects", href: "#projects" },
+    { label: "Package", href: "#package" },
+    { label: "Process", href: "#process" },
+    { label: "Why Us", href: "#whyus" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Contact", href: "#contact" },
+  ],
+
+  services: [
+    {
+      icon: "Globe",
+      title: "Custom Website Development",
+      description:
+        "Fully custom-built websites tailored to your business. No templates, no drag-and-drop. Clean code, fast performance.",
+    },
+    {
+      icon: "Search",
+      title: "Basic SEO Optimization",
+      description:
+        "On-page SEO for every product and page. Meta tags, image alt texts, structured data, and keyword optimization.",
+    },
+    {
+      icon: "Share2",
+      title: "Social Media Management",
+      description:
+        "Facebook & Instagram posts with professional captions and hashtags for every product added to your website.",
+    },
+    {
+      icon: "Package",
+      title: "Product Management",
+      description:
+        "Regular product uploads, category management, image optimization, and content updates to keep your store fresh.",
+    },
+    {
+      icon: "MapPin",
+      title: "Google Business Setup",
+      description:
+        "Get your business listed on Google Maps and Google Places so local customers can find you easily.",
+    },
+    {
+      icon: "Settings",
+      title: "Website Maintenance",
+      description:
+        "Ongoing support, bug fixes, theme changes, page additions, and performance monitoring to keep everything running smooth.",
+    },
+  ],
+
+  projects: [
+    {
+      title: "EarnixLab",
+      description:
+        "A modern platform built with cutting-edge web technologies. Clean design, fast performance, and seamless user experience.",
+      url: "https://earnixlab.com",
+      tags: ["Web App", "Full Stack", "Modern UI"],
+      gradient: "from-[#6366f1] to-[#8b5cf6]",
+      screenshot: "/projects/earnixlab",
+    },
+    {
+      title: "NextGenZ",
+      description:
+        "A sleek modern platform showcasing the future of digital experiences. Built with Next.js and deployed on Vercel for blazing speed.",
+      url: "https://nextgenzai.vercel.app",
+      tags: ["Modern", "Next.js", "Vercel"],
+      gradient: "from-[#8b5cf6] to-[#06b6d4]",
+      screenshot: "/projects/nextgenz",
+    },
+    {
+      title: "Ali Poultry",
+      description:
+        "A professional business website for a poultry enterprise. Product catalog, business info, and clean responsive design.",
+      url: "https://ali-poultry-enterprises-demo.vercel.app",
+      tags: ["Business", "Catalog", "Responsive"],
+      gradient: "from-[#06b6d4] to-[#6366f1]",
+      screenshot: "/projects/alipoultry",
+    },
+  ],
+
+  testimonials: [
+    {
+      name: "Muhammad Ali",
+      business: "Ali Poultry Enterprises",
+      location: "Lahore, Pakistan",
+      rating: 5,
+      review:
+        "Devnix Studios built our poultry business website in just 7 days. The design is clean, loads fast, and we are already getting WhatsApp inquiries from new customers we never reached before. Highly recommended!",
+      service: "Business Website",
+      initials: "MA",
+      color: "#6366f1",
+    },
+    {
+      name: "Sarah Khan",
+      business: "Karachi Boutique",
+      location: "Karachi, Pakistan",
+      rating: 5,
+      review:
+        "Very professional team. They understood exactly what I needed for my clothing business. The social media posts they make for every product are amazing. My Instagram followers have grown since we started.",
+      service: "Website + Social Media",
+      initials: "SK",
+      color: "#8b5cf6",
+    },
+    {
+      name: "Ahmed Raza",
+      business: "Raza Real Estate",
+      location: "Islamabad, Pakistan",
+      rating: 5,
+      review:
+        "I was skeptical about getting a website at PKR 5,000 but the quality exceeded my expectations. My property listings are now on Google and I get calls from people who found me online. Worth every rupee.",
+      service: "Real Estate Website",
+      initials: "AR",
+      color: "#06b6d4",
+    },
+    {
+      name: "Dr. Fatima",
+      business: "Fatima Medical Clinic",
+      location: "Faisalabad, Pakistan",
+      rating: 5,
+      review:
+        "Our clinic needed a professional online presence. Devnix Studios delivered exactly that. Patients now find us on Google Maps and book appointments via WhatsApp directly from the website.",
+      service: "Clinic Website",
+      initials: "DF",
+      color: "#10b981",
+    },
+    {
+      name: "Usman Tariq",
+      business: "Tariq Textile Mills",
+      location: "Faisalabad, Pakistan",
+      rating: 5,
+      review:
+        "Excellent work! Our fabric catalog is now online and we are getting wholesale inquiries from Karachi and Lahore. The team is responsive and updates our products quickly whenever we send new designs.",
+      service: "Textile Website",
+      initials: "UT",
+      color: "#f59e0b",
+    },
+    {
+      name: "Zara Malik",
+      business: "Glamour Salon",
+      location: "Rawalpindi, Pakistan",
+      rating: 5,
+      review:
+        "My salon now looks so professional online. The before and after gallery was exactly what I needed to show my work. New clients are finding me on Google every week. Amazing service at a great price.",
+      service: "Salon Website",
+      initials: "ZM",
+      color: "#ec4899",
+    },
+  ],
+
+  serviceOptions: [
+    { value: "custom-website", label: "Custom Website Development" },
+    { value: "seo", label: "SEO Optimization" },
+    { value: "social-media", label: "Social Media Management" },
+    { value: "full-package", label: "Complete Package (Website + Support)" },
+    { value: "maintenance", label: "Website Maintenance Only" },
+    { value: "other", label: "Other / Custom Request" },
+  ],
+
+  packageFeatures: [
+    { text: "Fully Custom-Built Website", included: true },
+    {
+      text: "1 Year Free Hosting",
+      included: true,
+      note: "Minimal charges after first year",
+    },
+    {
+      text: "Domain Management",
+      included: true,
+      note: "Domain bought by client. 500 PKR/year if we manage it",
+    },
+    { text: "3 Months Support & Management", included: true },
+    { text: "Google Business Listing", included: true },
+    {
+      text: "Meta Pixel Installation",
+      included: true,
+      note: "Free first time. 500 PKR for changes",
+    },
+    { text: "Mobile Responsive Design", included: true },
+    { text: "Fast Loading Speed", included: true },
+  ],
+
+  supportFeatures: [
+    {
+      text: "2 Products Uploaded Per Week",
+      detail: "Extra products: 150 PKR each",
+    },
+    {
+      text: "Basic SEO for Each Product",
+      detail: "Meta tags, keywords, image alt texts",
+    },
+    {
+      text: "1 New Category Every 2 Weeks",
+      detail: "Extra categories: 200 PKR each",
+    },
+    {
+      text: "2 Product Revisions Per Month",
+      detail: "Extra revisions: 50 PKR each",
+    },
+    {
+      text: "Image Optimization",
+      detail: "Compressed & optimized for fast loading",
+    },
+    {
+      text: "Facebook & Instagram Posts",
+      detail: "With hashtags and captions for each product",
+    },
+  ],
+
+  packageAddons: [
+    { item: "Extra Product Upload", price: "150 PKR" },
+    { item: "Extra Category", price: "200 PKR" },
+    { item: "Extra Product Revision", price: "50 PKR" },
+    { item: "New Page Addition", price: "300 PKR" },
+    { item: "Theme Customization", price: "500 - 1000+ PKR" },
+    { item: "Meta Pixel Change", price: "500 PKR" },
+    { item: "Domain Management", price: "500 PKR/year" },
+  ],
+
+  pricingBreakdown: [
+    {
+      item: "Complete Website Build",
+      price: "5,000 PKR",
+      note: "One-time payment",
+    },
+    {
+      item: "Month 1 - Support & Management",
+      price: "2,500 PKR",
+      note: "Discounted first month",
+    },
+    { item: "Month 2 - Support & Management", price: "5,000 PKR" },
+    { item: "Month 3 - Support & Management", price: "5,000 PKR" },
+    {
+      item: "Total (3-Month Contract)",
+      price: "17,500 PKR",
+      note: "New contract with updated prices after 3 months",
+    },
+  ],
+
+  processSteps: [
+    {
+      step: 1,
+      title: "Discovery Call",
+      description:
+        "We discuss your business, goals, products, and what you need from your website.",
+      icon: "Phone",
+    },
+    {
+      step: 2,
+      title: "Design & Development",
+      description:
+        "We build your custom website from scratch. You get to review and request changes before launch.",
+      icon: "Settings",
+    },
+    {
+      step: 3,
+      title: "Launch & Setup",
+      description:
+        "Website goes live. Google Business listing, Meta Pixel, and all integrations are set up.",
+      icon: "Globe",
+    },
+    {
+      step: 4,
+      title: "Ongoing Management",
+      description:
+        "We handle products, SEO, social media, and maintenance so you can focus on your business.",
+      icon: "Package",
+    },
+  ],
+
+  whyUsPoints: [
+    {
+      icon: "CheckCircle",
+      title: "No Templates, Pure Custom Code",
+      description:
+        "Every website is built from scratch. No WordPress themes, no Wix. Just clean, fast, custom code.",
+    },
+    {
+      icon: "Star",
+      title: "All-In-One Package",
+      description:
+        "Website + SEO + Social Media + Management. You do not need to hire 4 different people.",
+    },
+    {
+      icon: "MessageCircle",
+      title: "Direct Communication",
+      description:
+        "No middlemen, no ticket systems. Talk directly with the developer who builds your site.",
+    },
+    {
+      icon: "ArrowRight",
+      title: "Affordable Pricing",
+      description:
+        "Enterprise-quality work at prices that make sense for small and medium businesses in Pakistan.",
+    },
+  ],
+
+  faqs: [
+    {
+      question: "What kind of websites do you build?",
+      answer:
+        "We build custom websites for businesses - including product catalogs, service websites, portfolios, and e-commerce stores. Every site is coded from scratch for maximum performance.",
+    },
+    {
+      question: "Do I need to buy my own domain?",
+      answer:
+        "Yes, you purchase your own domain name. If you want us to manage it for you, there is a 500 PKR annual management fee.",
+    },
+    {
+      question: "What happens after the 3-month contract?",
+      answer:
+        "After 3 months, we sign a new contract with updated pricing based on your needs. You are not locked in - you can continue, modify, or end the service.",
+    },
+    {
+      question: "Can I add more products than the included amount?",
+      answer:
+        "Absolutely! The package includes 2 products per week. Additional products cost just 150 PKR each, including SEO and social media posting.",
+    },
+    {
+      question: "Do you provide the hosting?",
+      answer:
+        "Yes! First year of hosting is completely free. After that, minimal hosting charges apply to keep your site running.",
+    },
+    {
+      question: "What is Meta Pixel and do I need it?",
+      answer:
+        "Meta Pixel is a tracking code for Facebook/Instagram ads. If you plan to run ads, you need it. We install it free the first time.",
+    },
+    {
+      question: "How long does it take to build the website?",
+      answer:
+        "Typically 5-10 business days depending on the complexity and how quickly you provide content and feedback.",
+    },
+    {
+      question: "Can I request custom design changes later?",
+      answer:
+        "Yes! Theme customizations cost 500-1000+ PKR depending on complexity. New page additions cost 300 PKR per page.",
+    },
+  ],
+
+  socialLinks: [
+    {
+      platform: "Facebook",
+      url: "https://www.facebook.com/profile.php?id=61590108942219",
+      svgPath:
+        "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z",
+    },
+    {
+      platform: "Instagram",
+      url: "https://www.instagram.com/devnixstudios/",
+      svgPath:
+        "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z",
+    },
+    {
+      platform: "GitHub",
+      url: "https://github.com/Azeem-097",
+      svgPath:
+        "M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12",
+    },
+    {
+      platform: "WhatsApp",
+      url: "https://wa.me/923184632828",
+      svgPath:
+        "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z",
+    },
+  ],
+
+  websiteBreakdown: [
+    {
+      icon: "Layout",
+      title: "Homepage Sections",
+      items: [
+        "Hero / Landing Section",
+        "How It Works",
+        "Why Choose Us",
+        "Customer Reviews",
+        "FAQs Section",
+        "Contact / CTA",
+      ],
+    },
+    {
+      icon: "FileText",
+      title: "Website Pages",
+      items: [
+        "Home Page",
+        "Product Catalog Page",
+        "Category Catalog Page",
+        "Individual Product Pages",
+        "About / Contact Page",
+      ],
+    },
+    {
+      icon: "Package",
+      title: "Initial Content Setup",
+      items: [
+        "6 Products Pre-Loaded",
+        "2 Categories Created",
+        "Product Images Optimized",
+        "Basic SEO on Each Product",
+        "Mobile Responsive Layout",
+      ],
+    },
+  ],
+
+  contactInfo: {
+    phone: "+92 318 4632828",
+    email: "Info@devnixstudios.tech",
+    whatsapp: "https://wa.me/923184632828",
+    whatsappNumber: "+92 318 4632828",
+    location: "Pakistan",
+  },
+};
+
+
+====================================================================================================
+FILE: seoPackagesData.ts
+FULL PATH: D:\Web Development\Websites\Own\devnixstudios\src\lib\seoPackagesData.ts
+====================================================================================================
+export interface SEOPackage {
+  slug: string;
+  title: string;
+  emoji: string;
+  shortDesc: string;
+  price: string;
+  pricePeriod: string;
+  priceNumber: number;
+  badge?: string;
+  badgeColor: string;
+  gradient: string;
+  popular?: boolean;
+  forWho: string;
+  whatsIncluded: string[];
+  deliverables: string[];
+  features: string[];
+  timeline: string;
+}
+
+export const seoPackages: SEOPackage[] = [
+  {
+    slug: "basic-seo-setup",
+    title: "Basic SEO Setup",
+    emoji: "🔍",
+    shortDesc:
+      "One-time SEO setup for your new website. Get the foundation right so Google can find and rank your business.",
+    price: "PKR 3,000",
+    pricePeriod: "one-time",
+    priceNumber: 3000,
+    badgeColor: "#8b5cf6",
+    gradient: "from-[#8b5cf6] to-[#a78bfa]",
+    forWho:
+      "New websites or businesses that have never done SEO before. Perfect starting point.",
+    whatsIncluded: [
+      "Keyword research for your business",
+      "Meta titles for all pages",
+      "Meta descriptions optimized",
+      "Image alt texts added",
+      "URL structure optimization",
+      "Sitemap.xml generation",
+      "Robots.txt setup",
+      "Google Search Console setup",
+      "Google Analytics installation",
+      "Basic schema markup",
+    ],
+    deliverables: [
+      "Optimized website pages",
+      "Search Console verified",
+      "Analytics tracking active",
+      "Sitemap submitted to Google",
+      "SEO setup report",
+    ],
+    features: [
+      "Up to 10 pages optimized",
+      "5-10 target keywords",
+      "Local Pakistan keywords",
+      "Mobile SEO check",
+      "Page speed basics",
+    ],
+    timeline: "Completed within 3-5 days",
+  },
+  {
+    slug: "monthly-seo-plan",
+    title: "Monthly SEO Plan",
+    emoji: "📈",
+    shortDesc:
+      "Ongoing SEO management to improve rankings month after month. Reports, optimization, and continuous improvement.",
+    price: "PKR 5,000",
+    pricePeriod: "/ month",
+    priceNumber: 5000,
+    badge: "Most Popular",
+    badgeColor: "#6366f1",
+    gradient: "from-[#6366f1] to-[#8b5cf6]",
+    popular: true,
+    forWho:
+      "Businesses serious about ranking on Google long-term. Best ROI for sustained growth.",
+    whatsIncluded: [
+      "Monthly keyword tracking",
+      "Continuous on-page optimization",
+      "Content optimization",
+      "New blog post SEO (2/month)",
+      "Backlink monitoring",
+      "Competitor analysis",
+      "Technical SEO checks",
+      "Monthly performance reports",
+      "Google ranking updates",
+      "Strategy adjustments",
+    ],
+    deliverables: [
+      "Monthly SEO report (PDF)",
+      "Ranking position tracking",
+      "Traffic growth analysis",
+      "Action plan for next month",
+      "WhatsApp consultation",
+    ],
+    features: [
+      "Up to 20 keywords tracked",
+      "Unlimited page optimizations",
+      "2 SEO-optimized blog posts/month",
+      "Local + national SEO",
+      "Cancel anytime",
+    ],
+    timeline: "Ongoing monthly service",
+  },
+  {
+    slug: "local-seo-pakistan",
+    title: "Local SEO Pakistan",
+    emoji: "📍",
+    shortDesc:
+      "Rank #1 in your city. Get found by customers searching for businesses in Karachi, Lahore, Islamabad, or anywhere in Pakistan.",
+    price: "PKR 5,000",
+    pricePeriod: "one-time",
+    priceNumber: 5000,
+    badgeColor: "#06b6d4",
+    gradient: "from-[#06b6d4] to-[#22d3ee]",
+    forWho:
+      "Local businesses targeting customers in specific cities — salons, restaurants, doctors, shops, services.",
+    whatsIncluded: [
+      "City-specific keyword research",
+      "Local landing pages creation",
+      "Google Business Profile setup",
+      "Google Maps optimization",
+      "NAP consistency (Name, Address, Phone)",
+      "Local schema markup",
+      "Pakistani directory submissions",
+      "Local backlinks strategy",
+      "Reviews acquisition guide",
+      "Location pages optimization",
+    ],
+    deliverables: [
+      "Google Business Profile live",
+      "City landing page created",
+      "5+ directory submissions",
+      "Local SEO report",
+      "Reviews growth plan",
+    ],
+    features: [
+      "Target 1 city (or multiple +1500/city)",
+      "Google Maps top 3 strategy",
+      "Local pack optimization",
+      "Mobile-first approach",
+      "Urdu + English keywords",
+    ],
+    timeline: "Completed within 7-10 days",
+  },
+  {
+    slug: "ecommerce-seo",
+    title: "E-Commerce SEO",
+    emoji: "🛍️",
+    shortDesc:
+      "Specialized SEO for online stores. Get every product to rank on Google and bring in organic sales.",
+    price: "PKR 5,000",
+    pricePeriod: "one-time",
+    priceNumber: 5000,
+    badgeColor: "#ec4899",
+    gradient: "from-[#ec4899] to-[#f472b6]",
+    forWho:
+      "Online stores with multiple products — clothing brands, electronics, accessories, fashion stores.",
+    whatsIncluded: [
+      "Product page SEO optimization",
+      "Category page optimization",
+      "Product schema markup",
+      "Image SEO for products",
+      "Internal linking strategy",
+      "Product description rewriting",
+      "Title tag optimization",
+      "Breadcrumb navigation",
+      "Site search optimization",
+      "Product reviews schema",
+    ],
+    deliverables: [
+      "All products optimized",
+      "Category pages optimized",
+      "Product schema implemented",
+      "Image optimization done",
+      "Performance report",
+    ],
+    features: [
+      "Up to 30 products covered",
+      "Extra products: PKR 100 each",
+      "Rich snippets in search",
+      "Product star ratings ready",
+      "Conversion-focused SEO",
+    ],
+    timeline: "Completed within 10-15 days",
+  },
+  {
+    slug: "seo-audit-strategy",
+    title: "SEO Audit & Strategy",
+    emoji: "🏆",
+    shortDesc:
+      "Deep-dive analysis of your current website. Get a complete audit + 90-day action plan to dominate Google.",
+    price: "PKR 7,000",
+    pricePeriod: "one-time",
+    priceNumber: 7000,
+    badgeColor: "#f59e0b",
+    gradient: "from-[#f59e0b] to-[#fbbf24]",
+    forWho:
+      "Existing websites struggling to rank, or businesses planning to invest seriously in SEO and want a roadmap first.",
+    whatsIncluded: [
+      "Complete technical SEO audit",
+      "On-page SEO analysis",
+      "Backlink profile analysis",
+      "Competitor SEO analysis (3 competitors)",
+      "Keyword opportunity report",
+      "Content gap analysis",
+      "Page speed analysis",
+      "Mobile usability check",
+      "User experience review",
+      "90-day strategic action plan",
+    ],
+    deliverables: [
+      "30+ page detailed audit report",
+      "Competitor comparison chart",
+      "Keyword opportunity sheet",
+      "Priority action list",
+      "90-day execution roadmap",
+    ],
+    features: [
+      "Full website analysis",
+      "100+ SEO factors checked",
+      "Actionable recommendations",
+      "1-hour consultation call",
+      "Implementation guidance",
+    ],
+    timeline: "Audit delivered within 5-7 days",
+  },
+  {
+    slug: "google-business-setup",
+    title: "Google Business Setup",
+    emoji: "🚀",
+    shortDesc:
+      "Get your business listed on Google Maps and search. Essential for any local business in Pakistan.",
+    price: "PKR 5,000",
+    pricePeriod: "one-time",
+    priceNumber: 5000,
+    badgeColor: "#10b981",
+    gradient: "from-[#10b981] to-[#34d399]",
+    forWho:
+      "Any local business that wants to appear on Google Maps when customers search nearby.",
+    whatsIncluded: [
+      "Google Business Profile creation",
+      "Verification handling",
+      "Business info optimization",
+      "Service area setup",
+      "Categories optimization",
+      "Photo uploads (10+ photos)",
+      "Business description writing",
+      "Operating hours setup",
+      "Attributes & features added",
+      "Posts & updates setup",
+    ],
+    deliverables: [
+      "Live Google Business Profile",
+      "Google Maps listing active",
+      "Optimized business info",
+      "Photo gallery uploaded",
+      "First Google post published",
+    ],
+    features: [
+      "Single location setup",
+      "Multiple locations: +2000/location",
+      "Reviews response training",
+      "Booking integration option",
+      "Direct messaging enabled",
+    ],
+    timeline: "Live within 5-7 days (after verification)",
+  },
+];
+
+
+====================================================================================================
+FILE: webPackagesData.ts
+FULL PATH: D:\Web Development\Websites\Own\devnixstudios\src\lib\webPackagesData.ts
+====================================================================================================
+export interface WebPackage {
+  slug: string;
+  title: string;
+  emoji: string;
+  shortDesc: string;
+  price: string;
+  priceNumber: number;
+  badge?: string;
+  badgeColor: string;
+  gradient: string;
+  popular?: boolean;
+  forWho: string;
+  whatsIncluded: string[];
+  pages: string[];
+  features: string[];
+  support: string;
+}
+
+export const webPackages: WebPackage[] = [
+  {
+    slug: "online-store",
+    title: "Online Store with Admin Panel",
+    emoji: "🛒",
+    shortDesc:
+      "Complete online store with admin panel to manage products, orders, and customers yourself.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badge: "Most Popular",
+    badgeColor: "#6366f1",
+    gradient: "from-[#6366f1] to-[#8b5cf6]",
+    popular: true,
+    forWho:
+      "Businesses that want full control to add/edit products and view orders themselves.",
+    whatsIncluded: [
+      "Custom-built online store",
+      "Admin panel (you manage everything)",
+      "Product catalog with categories",
+      "WhatsApp ordering integration",
+      "1 year free hosting",
+      "Google Business listing",
+      "Basic SEO on all pages",
+      "Mobile responsive design",
+      "Meta Pixel installation",
+      "3 months support & management",
+    ],
+    pages: [
+      "Home Page",
+      "Product Listing",
+      "Individual Product Pages",
+      "Categories Page",
+      "About Page",
+      "Contact Page",
+      "Admin Dashboard",
+    ],
+    features: [
+      "Add/edit products from admin",
+      "View customer orders",
+      "Manage product inventory",
+      "Upload product images",
+      "Update prices instantly",
+      "WhatsApp order notifications",
+    ],
+    support: "3 months full support included",
+  },
+  {
+    slug: "portfolio",
+    title: "Portfolio Website",
+    emoji: "🎨",
+    shortDesc:
+      "Professional portfolio to showcase your work, skills, and services. Perfect for freelancers and creatives.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#8b5cf6",
+    gradient: "from-[#8b5cf6] to-[#a78bfa]",
+    forWho:
+      "Freelancers, photographers, designers, artists, writers, consultants.",
+    whatsIncluded: [
+      "Custom portfolio design",
+      "Project showcase gallery",
+      "About me section",
+      "Services list",
+      "Contact form",
+      "1 year free hosting",
+      "Basic SEO",
+      "Mobile responsive",
+      "Social media links",
+      "3 months support",
+    ],
+    pages: [
+      "Home / Hero Page",
+      "About Me",
+      "Portfolio / Projects",
+      "Services",
+      "Contact",
+    ],
+    features: [
+      "Beautiful project gallery",
+      "Testimonials section",
+      "Skills showcase",
+      "Downloadable CV/resume",
+      "Direct WhatsApp contact",
+      "Social proof section",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "landing-page",
+    title: "Landing Page",
+    emoji: "🎯",
+    shortDesc:
+      "Single high-converting page designed to capture leads or sell one specific product. Perfect for Meta ads.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#f97316",
+    gradient: "from-[#f97316] to-[#fb923c]",
+    forWho:
+      "Businesses running Meta/Google ads, product launches, lead generation campaigns.",
+    whatsIncluded: [
+      "Custom landing page design",
+      "Conversion-focused layout",
+      "Lead capture form",
+      "WhatsApp button",
+      "Meta Pixel integration",
+      "Fast loading (<2s)",
+      "Mobile optimized",
+      "1 year free hosting",
+      "Basic SEO",
+      "3 months support",
+    ],
+    pages: ["Single Landing Page (Long-form)"],
+    features: [
+      "Hero section with strong CTA",
+      "Benefits & features section",
+      "Customer testimonials",
+      "FAQ section",
+      "Lead capture form",
+      "Meta Pixel for ad tracking",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "ecommerce",
+    title: "E-Commerce Website",
+    emoji: "🛍️",
+    shortDesc:
+      "Full-featured online store for businesses with 20+ products. Includes shopping cart and order management.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#06b6d4",
+    gradient: "from-[#06b6d4] to-[#22d3ee]",
+    forWho:
+      "Businesses with large product catalogs (clothing brands, electronics, accessories).",
+    whatsIncluded: [
+      "Full e-commerce website",
+      "Shopping cart functionality",
+      "WhatsApp checkout",
+      "Multiple payment options info",
+      "Product categories",
+      "Search & filter",
+      "1 year free hosting",
+      "Google Business listing",
+      "SEO for all products",
+      "3 months support",
+    ],
+    pages: [
+      "Home Page",
+      "Shop / Product Listing",
+      "Product Detail Pages",
+      "Categories",
+      "Cart Page",
+      "Checkout Page",
+      "About Page",
+      "Contact Page",
+    ],
+    features: [
+      "Shopping cart with multiple items",
+      "Order via WhatsApp/Email",
+      "Product variants (size, color)",
+      "Search and filter products",
+      "Featured products section",
+      "Customer reviews on products",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "restaurant",
+    title: "Restaurant Website",
+    emoji: "🍽️",
+    shortDesc:
+      "Beautiful restaurant website with menu, food gallery, WhatsApp ordering, and Google Maps integration.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#ef4444",
+    gradient: "from-[#ef4444] to-[#f87171]",
+    forWho:
+      "Restaurants, cafes, food trucks, catering businesses, dhabas, bakeries selling food.",
+    whatsIncluded: [
+      "Restaurant-themed design",
+      "Digital food menu",
+      "Food photo gallery",
+      "WhatsApp ordering",
+      "Google Maps location",
+      "Opening hours display",
+      "1 year free hosting",
+      "Google Business listing",
+      "Local SEO",
+      "3 months support",
+    ],
+    pages: [
+      "Home Page (Hero with food)",
+      "Menu Page",
+      "Photo Gallery",
+      "About Us",
+      "Reservations / Order",
+      "Contact & Location",
+    ],
+    features: [
+      "Beautiful menu with categories",
+      "High-quality food gallery",
+      "WhatsApp order button",
+      "Google Maps embedded",
+      "Special offers section",
+      "Reviews/testimonials",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "hotel",
+    title: "Hotel Website",
+    emoji: "🏨",
+    shortDesc:
+      "Premium hotel website with rooms, amenities, booking inquiries, and beautiful gallery.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#0ea5e9",
+    gradient: "from-[#0ea5e9] to-[#38bdf8]",
+    forWho:
+      "Hotels, guest houses, resorts, hostels, vacation rentals in Pakistan.",
+    whatsIncluded: [
+      "Luxury hotel design",
+      "Rooms showcase pages",
+      "Amenities section",
+      "Photo gallery",
+      "Booking inquiry form",
+      "WhatsApp booking",
+      "Google Maps",
+      "1 year free hosting",
+      "Local SEO",
+      "3 months support",
+    ],
+    pages: [
+      "Home Page",
+      "Rooms / Suites",
+      "Amenities & Services",
+      "Photo Gallery",
+      "Booking",
+      "About Hotel",
+      "Contact & Directions",
+    ],
+    features: [
+      "Beautiful room showcases",
+      "Room availability info",
+      "Pricing per room type",
+      "Amenities highlights",
+      "Location and nearby attractions",
+      "WhatsApp booking inquiry",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "hospital",
+    title: "Hospital / Clinic Website",
+    emoji: "🏥",
+    shortDesc:
+      "Professional medical website with doctors profiles, departments, services, and appointment booking.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#10b981",
+    gradient: "from-[#10b981] to-[#34d399]",
+    forWho:
+      "Hospitals, clinics, medical centers, dental offices, specialist doctors.",
+    whatsIncluded: [
+      "Professional medical design",
+      "Doctor profiles",
+      "Department/services list",
+      "WhatsApp appointment booking",
+      "Google Maps location",
+      "Opening hours",
+      "1 year free hosting",
+      "Google Business listing",
+      "Local SEO",
+      "3 months support",
+    ],
+    pages: [
+      "Home Page",
+      "About Hospital",
+      "Doctors",
+      "Departments / Services",
+      "Appointments",
+      "Contact & Location",
+    ],
+    features: [
+      "Doctor profile pages",
+      "Department/specialty list",
+      "Service descriptions",
+      "Appointment booking",
+      "Emergency contact info",
+      "Patient testimonials",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "bakery",
+    title: "Bakery Website",
+    emoji: "🧁",
+    shortDesc:
+      "Sweet bakery website with product showcase, custom order options, and WhatsApp ordering.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#ec4899",
+    gradient: "from-[#ec4899] to-[#f472b6]",
+    forWho:
+      "Bakeries, cake shops, dessert shops, home-based bakers, sweet shops.",
+    whatsIncluded: [
+      "Sweet bakery design",
+      "Product showcase (cakes, pastries)",
+      "Custom order form",
+      "Photo gallery",
+      "WhatsApp ordering",
+      "Google Maps",
+      "1 year free hosting",
+      "Local SEO",
+      "Google Business listing",
+      "3 months support",
+    ],
+    pages: [
+      "Home Page",
+      "Product Catalog",
+      "Custom Orders / Cakes",
+      "Gallery",
+      "About Us",
+      "Contact & Order",
+    ],
+    features: [
+      "Beautiful product display",
+      "Custom cake order form",
+      "Flavor & size options",
+      "Gallery of past creations",
+      "Delivery area info",
+      "Bulk order discounts",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "school",
+    title: "School / Academy Website",
+    emoji: "🏫",
+    shortDesc:
+      "Educational website with admissions info, faculty profiles, programs, and notices section.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#f59e0b",
+    gradient: "from-[#f59e0b] to-[#fbbf24]",
+    forWho:
+      "Schools, academies, tuition centers, training institutes, coaching centers.",
+    whatsIncluded: [
+      "Educational design",
+      "Admissions section",
+      "Faculty profiles",
+      "Programs/courses list",
+      "Notice board",
+      "Photo gallery",
+      "1 year free hosting",
+      "Google Business listing",
+      "Local SEO",
+      "3 months support",
+    ],
+    pages: [
+      "Home Page",
+      "About School",
+      "Programs / Courses",
+      "Faculty",
+      "Admissions",
+      "Notices / Events",
+      "Gallery",
+      "Contact",
+    ],
+    features: [
+      "Admissions information",
+      "Class schedules",
+      "Teacher profiles",
+      "Notice board for parents",
+      "Photo gallery of events",
+      "Fee structure section",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "gym",
+    title: "Gym / Fitness Website",
+    emoji: "💪",
+    shortDesc:
+      "Energetic fitness website with class schedules, trainers, membership plans, and contact.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#dc2626",
+    gradient: "from-[#dc2626] to-[#ef4444]",
+    forWho:
+      "Gyms, fitness centers, yoga studios, CrossFit boxes, personal trainers.",
+    whatsIncluded: [
+      "Energetic gym design",
+      "Membership plans display",
+      "Class schedule",
+      "Trainer profiles",
+      "Photo gallery",
+      "Free trial signup",
+      "1 year free hosting",
+      "Google Business listing",
+      "Local SEO",
+      "3 months support",
+    ],
+    pages: [
+      "Home Page",
+      "About Us",
+      "Membership Plans",
+      "Classes / Programs",
+      "Trainers",
+      "Schedule",
+      "Free Trial",
+      "Contact",
+    ],
+    features: [
+      "Class schedule grid",
+      "Trainer profiles with specialties",
+      "Membership pricing",
+      "Free trial booking",
+      "Gym facility gallery",
+      "Member testimonials",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "salon",
+    title: "Salon / Beauty Parlor Website",
+    emoji: "💅",
+    shortDesc:
+      "Elegant salon website with services menu, price list, before/after gallery, and WhatsApp booking.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#a855f7",
+    gradient: "from-[#a855f7] to-[#c084fc]",
+    forWho:
+      "Beauty salons, parlors, spas, nail salons, hair salons, home-based beauticians.",
+    whatsIncluded: [
+      "Elegant salon design",
+      "Services with prices",
+      "Before/after gallery",
+      "WhatsApp booking",
+      "Google Maps",
+      "Opening hours",
+      "1 year free hosting",
+      "Google Business listing",
+      "Local SEO",
+      "3 months support",
+    ],
+    pages: [
+      "Home Page",
+      "Services & Pricing",
+      "Gallery (Before/After)",
+      "About Us",
+      "Booking",
+      "Contact & Location",
+    ],
+    features: [
+      "Service menu with prices",
+      "Before/after photo gallery",
+      "WhatsApp appointment booking",
+      "Special offers section",
+      "Stylist profiles",
+      "Customer reviews",
+    ],
+    support: "3 months support included",
+  },
+  {
+    slug: "real-estate",
+    title: "Real Estate Website",
+    emoji: "🏠",
+    shortDesc:
+      "Property website with listings, photo galleries, location maps, and WhatsApp inquiries.",
+    price: "PKR 5,000",
+    priceNumber: 5000,
+    badgeColor: "#14b8a6",
+    gradient: "from-[#14b8a6] to-[#2dd4bf]",
+    forWho:
+      "Real estate agents, property dealers, builders, developers, plot dealers.",
+    whatsIncluded: [
+      "Real estate design",
+      "Property listings",
+      "Property photo galleries",
+      "Google Maps per property",
+      "WhatsApp inquiries",
+      "Category filters",
+      "1 year free hosting",
+      "Google Business listing",
+      "Local SEO",
+      "3 months support",
+    ],
+    pages: [
+      "Home Page",
+      "Property Listings",
+      "Individual Property Pages",
+      "Categories (Plots, Houses, etc.)",
+      "About Us",
+      "Contact",
+    ],
+    features: [
+      "Property cards with photos",
+      "Detailed property pages",
+      "Price and size info",
+      "Google Maps location",
+      "WhatsApp inquiry button",
+      "Mark as Sold/Available",
+    ],
+    support: "3 months support included",
+  },
+];
+
+

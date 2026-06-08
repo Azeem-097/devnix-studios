@@ -19,7 +19,6 @@ const navLinks = [
 const serviceDropdown = [
   { label: "Web Development", href: "/web-development-services" },
   { label: "SEO Services", href: "/seo-services-pakistan" },
-  { label: "Social Media", href: "/social-media-management-pakistan" },
 ];
 
 export default function Navbar() {
@@ -221,4 +220,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
