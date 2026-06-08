@@ -102,7 +102,7 @@ export default function FloatingWhatsApp() {
                         <p className="text-sm text-gray-200 leading-relaxed mt-2">
                           Starting at just{" "}
                           <span className="bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent font-bold">
-                            PKR 5,000
+                            PKR 20,000
                           </span>
                           — let&apos;s chat!
                         </p>

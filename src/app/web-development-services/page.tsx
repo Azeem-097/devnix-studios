@@ -1,13 +1,13 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WebDevServicesContent from "@/components/WebDevServicesContent";
 
 export const metadata: Metadata = {
   title:
-    "Web Development Services Pakistan | 12 Website Packages at PKR 5,000 | Devnix Studios",
+    "Web Development Services Pakistan | 12 Website Packages at PKR 20,000 | Devnix Studios",
   description:
-    "Complete web development services in Pakistan starting at PKR 5,000. Online stores, portfolios, restaurants, hotels, hospitals, schools, salons, gyms, real estate websites and more. All custom built.",
+    "Complete web development services in Pakistan starting at PKR 20,000. Online stores, portfolios, restaurants, hotels, hospitals, schools, salons, gyms, real estate websites and more. All custom built.",
   keywords: [
     "web development pakistan",
     "website packages pakistan",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Web Development Services Pakistan | Devnix Studios",
     description:
-      "12 custom website packages all at PKR 5,000. Online stores, restaurants, hotels, hospitals, schools, and more.",
+      "12 custom website packages all at PKR 20,000. Online stores, restaurants, hotels, hospitals, schools, and more.",
     url: "https://devnixstudios.tech/web-development-services",
     images: [{ url: "https://devnixstudios.tech/og-image.png" }],
   },

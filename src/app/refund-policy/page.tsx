@@ -1,4 +1,4 @@
-﻿import LegalLayout from "@/components/LegalLayout";
+import LegalLayout from "@/components/LegalLayout";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import {
   Globe,
@@ -20,7 +20,7 @@ const sections = [
     icon: Globe,
     title: "Website Development Refund",
     content:
-      "If you are not satisfied with the initial website design, you may request revisions before the website goes live. Once the website has been approved and launched, the development fee of 5,000 PKR is non-refundable. If we fail to deliver the website as agreed, a full refund will be issued.",
+      "If you are not satisfied with the initial website design, you may request revisions before the website goes live. Once the website has been approved and launched, the development fee of 20,000 PKR is non-refundable. If we fail to deliver the website as agreed, a full refund will be issued.",
   },
   {
     id: "monthly-refund",

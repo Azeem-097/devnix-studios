@@ -161,7 +161,7 @@ export default function HeroSection() {
             <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
               Custom websites, SEO optimization, and social media management —
               all in one package. Starting at just{" "}
-              <span className="text-white font-semibold">PKR 5,000</span>.
+              <span className="text-white font-semibold">PKR 20,000</span>.
             </p>
 
             {/* CTAs - NO animation */}
@@ -317,7 +317,7 @@ export default function HeroSection() {
                     </div>
                     <div className="pl-4 flex flex-wrap gap-x-2">
                       <span className="text-[#6366f1]">price:</span>
-                      <span className="text-yellow-400">{"'PKR 5,000'"}</span>
+                      <span className="text-yellow-400">{"'PKR 20,000'"}</span>
                       <span className="text-gray-500">,</span>
                     </div>
                     <div className="text-gray-300">{"};"}</div>
@@ -384,9 +384,7 @@ export default function HeroSection() {
                 <span className="text-[10px] sm:text-xs text-gray-500">
                   Starting from
                 </span>
-                <span className="text-xl sm:text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
-                  5,000
-                </span>
+                <span className="text-xl sm:text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">20,000</span>
                 <span className="text-xs sm:text-sm text-gray-400">PKR</span>
               </div>
             </div>

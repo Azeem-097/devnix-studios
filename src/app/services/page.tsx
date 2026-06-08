@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicesPageContent from "@/components/ServicesPageContent";
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Our Services | Devnix Studios",
     description:
-      "Website design, SEO, social media, and more for Pakistan businesses. Starting at PKR 5,000.",
+      "Website design, SEO, social media, and more for Pakistan businesses. Starting at PKR 20,000.",
     url: "https://devnixstudios.tech/services",
     images: [{ url: "https://devnixstudios.tech/og-image.png" }],
   },

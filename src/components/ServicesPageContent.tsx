@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import {
   Globe,
@@ -20,7 +20,7 @@ const services = [
     icon: <Globe size={24} />,
     title: "Custom Website Development",
     description:
-      "Fully custom-built websites tailored to your business. No templates, no drag-and-drop. Clean code, fast performance, and unique design.",
+      "Fully custom-built websites with admin panel. No templates, no drag-and-drop. Clean code, fast performance, and unique design.",
     gradient: "from-[#6366f1] to-[#8b5cf6]",
     link: "/web-development-services",
     linkText: "Learn More",
@@ -36,12 +36,12 @@ const services = [
   },
   {
     icon: <Share2 size={24} />,
-    title: "Social Media Management",
+    title: "Admin Panel Access",
     description:
-      "Facebook and Instagram posts with professional captions and hashtags for every product added to your website.",
+      "Easy-to-use admin panel included with every website. Manage your content, products, and orders without technical knowledge.",
     gradient: "from-[#06b6d4] to-[#22d3ee]",
-    link: "/social-media-management-pakistan",
-    linkText: "Learn More",
+    link: null,
+    linkText: null,
   },
   {
     icon: <Package size={24} />,
@@ -49,8 +49,8 @@ const services = [
     description:
       "Online stores with product catalog, WhatsApp ordering, payment integration, and inventory management — perfect for Pakistani businesses.",
     gradient: "from-[#6366f1] to-[#06b6d4]",
-    link: "/ecommerce-development-pakistan",
-    linkText: "Learn More",
+    link: null,
+    linkText: null,
   },
   {
     icon: <MapPin size={24} />,
@@ -58,14 +58,14 @@ const services = [
     description:
       "High-converting landing pages for Facebook ads, Google ads, and product launches. Optimized to turn visitors into customers.",
     gradient: "from-[#8b5cf6] to-[#06b6d4]",
-    link: "/landing-page-design",
-    linkText: "Learn More",
+    link: null,
+    linkText: null,
   },
   {
     icon: <Settings size={24} />,
     title: "Complete Package",
     description:
-      "Everything you need in one affordable package — website, SEO, social media, Google Business, and 3 months of management.",
+      "Everything you need in one affordable package — website, SEO, admin panel, Google Business, hosting, and 3 months of management.",
     gradient: "from-[#06b6d4] to-[#6366f1]",
     link: null,
     linkText: null,
@@ -73,8 +73,8 @@ const services = [
 ];
 
 const stats = [
-  { value: "5,000", label: "PKR Starting Price" },
-  { value: "5", label: "Core Services" },
+  { value: "20,000", label: "PKR Starting Price" },
+  { value: "6", label: "Core Services" },
   { value: "3", label: "Months Support" },
   { value: "100%", label: "Custom Built" },
 ];
@@ -104,7 +104,7 @@ export default function ServicesPageContent() {
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed">
-              From custom website development to SEO, social media, and ongoing
+              From custom website development with admin panel to SEO and ongoing
               management — we handle everything so you can focus on your business.
             </p>
 
@@ -154,7 +154,7 @@ export default function ServicesPageContent() {
                 Our Complete Service List
               </h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                All services are included in our PKR 5,000 starter package. No
+                All services are included in our PKR 20,000 starter package. No
                 hidden fees.
               </p>
             </div>
@@ -206,7 +206,7 @@ export default function ServicesPageContent() {
               Ready to Get Started?
             </h2>
             <p className="text-gray-400 mb-8">
-              All services included in one affordable package. Contact us today.
+              All services included in one premium package. Contact us today.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a

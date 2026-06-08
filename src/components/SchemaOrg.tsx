@@ -6,7 +6,7 @@ export default function SchemaOrg() {
     name: "Devnix Studios",
     alternateName: "Devnix",
     description:
-      "Affordable custom website design in Pakistan starting at 5,000 PKR. Includes SEO, social media management and 3 months support.",
+      "Affordable custom website design in Pakistan starting at 20,000 PKR. Includes SEO, social media management and 3 months support.",
     url: "https://devnixstudios.tech",
     logo: {
       "@type": "ImageObject",
@@ -44,7 +44,7 @@ export default function SchemaOrg() {
         closes: "22:00",
       },
     ],
-    priceRange: "PKR 5,000 - PKR 17,500",
+    priceRange: "PKR 20,000 - PKR 17,500",
     currenciesAccepted: "PKR",
     paymentAccepted: "Cash, Bank Transfer, JazzCash, EasyPaisa",
     aggregateRating: {
@@ -74,7 +74,7 @@ export default function SchemaOrg() {
         author: { "@type": "Person", name: "Ahmed Raza" },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
         reviewBody:
-          "I was skeptical about getting a website at PKR 5,000 but the quality exceeded my expectations. My property listings are now on Google and I get calls from people who found me online.",
+          "I was skeptical about getting a website at PKR 20,000 but the quality exceeded my expectations. My property listings are now on Google and I get calls from people who found me online.",
       },
     ],
     sameAs: [
@@ -94,7 +94,7 @@ export default function SchemaOrg() {
             description:
               "Fully custom-built websites. No templates, no drag-and-drop. Clean code, fast performance.",
           },
-          price: "5000",
+          price: "20000",
           priceCurrency: "PKR",
         },
         {
@@ -153,7 +153,7 @@ export default function SchemaOrg() {
         name: "How much does a website cost in Pakistan?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Our website packages start at just 5,000 PKR for a complete custom-built website including 3 months of support and management. This includes hosting, SEO, and social media management.",
+          text: "Our website packages start at just 20,000 PKR for a complete custom-built website including 3 months of support and management. This includes hosting, SEO, and social media management.",
         },
       },
       {

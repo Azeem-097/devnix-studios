@@ -9,7 +9,7 @@ export default function CitySchema({ city, slug }: CitySchemaProps) {
     "@type": ["ProfessionalService", "LocalBusiness"],
     "@id": `https://devnixstudios.tech/website-design-${slug}/#business`,
     name: `Devnix Studios - Website Design ${city}`,
-    description: `Affordable custom website design in ${city}, Pakistan starting at 5,000 PKR. Professional web development, SEO, and social media management for ${city} businesses.`,
+    description: `Affordable custom website design in ${city}, Pakistan starting at 20,000 PKR. Professional web development, SEO, and social media management for ${city} businesses.`,
     url: `https://devnixstudios.tech/website-design-${slug}`,
     telephone: "+923184632828",
     email: "Info@devnixstudios.tech",
@@ -39,7 +39,7 @@ export default function CitySchema({ city, slug }: CitySchemaProps) {
         closes: "22:00",
       },
     ],
-    priceRange: "PKR 5,000 - PKR 17,500",
+    priceRange: "PKR 20,000 - PKR 17,500",
     currenciesAccepted: "PKR",
     sameAs: [
       "https://www.facebook.com/profile.php?id=61590108942219",

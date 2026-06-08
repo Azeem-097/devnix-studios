@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import {
@@ -46,7 +46,7 @@ export default function WebDevServicesContent() {
 
             <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed">
               Choose from 12 specialized website packages — all at{" "}
-              <span className="text-white font-semibold">PKR 5,000</span>. From
+              <span className="text-white font-semibold">PKR 20,000</span>. From
               online stores to restaurants, hotels to gyms — we build it all.
             </p>
 
@@ -82,7 +82,7 @@ export default function WebDevServicesContent() {
               </div>
               <div>
                 <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
-                  5K
+                  20K
                 </div>
                 <div className="text-xs text-gray-500 mt-1">PKR Starting</div>
               </div>
@@ -162,12 +162,12 @@ export default function WebDevServicesContent() {
         </div>
       </section>
 
-      {/* ─── WHY ALL PKR 5,000 ─── */}
+      {/* ─── WHY ALL PKR 20,000 ─── */}
       <section className="py-20 lg:py-28 bg-white/[0.01] border-y border-white/4">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-              Why is everything PKR 5,000?
+              Why is everything PKR 20,000?
             </h2>
             <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
               We believe every Pakistani business deserves a professional

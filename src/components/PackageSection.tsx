@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import {
   CheckCircle,
@@ -50,7 +50,7 @@ export default function PackageSection() {
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4">
               No confusion, no hidden fees. One complete package that covers
-              your website, management, SEO, and social media.
+              your website, management, SEO, and more.
             </p>
           </div>
         </AnimatedSection>
@@ -67,12 +67,12 @@ export default function PackageSection() {
                       Business Starter
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-500">
-                      Complete website + 3 months management
+                      Complete website + premium features
                     </p>
                   </div>
                   <div className="text-left sm:text-right">
                     <div className="text-2xl sm:text-3xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
-                      5,000 PKR
+                      20,000 PKR
                     </div>
                     <div className="text-xs text-gray-500 mt-0.5">
                       / website
@@ -102,7 +102,7 @@ export default function PackageSection() {
                   ))}
                 </div>
 
-                {/* Website Breakdown - NEW! */}
+                {/* Website Breakdown */}
                 <div className="border-t border-white/6 pt-5 sm:pt-6 mb-6 sm:mb-8">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#6366f1] to-[#06b6d4]" />
@@ -146,39 +146,6 @@ export default function PackageSection() {
                   </div>
                 </div>
 
-                {/* Monthly Support */}
-                <div className="border-t border-white/6 pt-5 sm:pt-6 mb-6 sm:mb-8">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#8b5cf6] to-[#06b6d4]" />
-                    <h4 className="text-xs sm:text-sm font-semibold text-[#8b5cf6] uppercase tracking-wider">
-                      Monthly Support Includes
-                    </h4>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                    {siteData.supportFeatures.map((feature) => (
-                      <div
-                        key={feature.text}
-                        className="flex items-start gap-2 p-2.5 sm:p-3 rounded-xl bg-white/2 border border-white/4"
-                      >
-                        <Plus
-                          size={12}
-                          className="text-[#6366f1] mt-0.5 shrink-0"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <div className="text-[11px] sm:text-xs font-medium text-white">
-                            {feature.text}
-                          </div>
-                          {feature.detail && (
-                            <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5">
-                              {feature.detail}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
                 <a
                   href={siteData.contactInfo.whatsapp}
                   target="_blank"
@@ -195,8 +162,9 @@ export default function PackageSection() {
             </div>
           </AnimatedSection>
 
-          {/* Right Side - Pricing + Addons */}
+          {/* Right Side - Pricing + Monthly Support */}
           <div className="lg:col-span-5 space-y-6">
+            {/* Pricing Breakdown */}
             <AnimatedSection direction="right" delay={0.1}>
               <div className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/6">
                 <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-5 flex items-center gap-2">
@@ -211,20 +179,10 @@ export default function PackageSection() {
                         index !== siteData.pricingBreakdown.length - 1
                           ? "border-b border-white/4"
                           : ""
-                      } ${
-                        index === siteData.pricingBreakdown.length - 1
-                          ? "pt-3 sm:pt-4"
-                          : ""
                       }`}
                     >
                       <div className="flex-1 min-w-0">
-                        <div
-                          className={`text-xs sm:text-sm ${
-                            index === siteData.pricingBreakdown.length - 1
-                              ? "font-bold text-white"
-                              : "text-gray-400"
-                          }`}
-                        >
+                        <div className="text-xs sm:text-sm text-white font-medium">
                           {item.item}
                         </div>
                         {item.note && (
@@ -233,13 +191,7 @@ export default function PackageSection() {
                           </div>
                         )}
                       </div>
-                      <span
-                        className={`text-xs sm:text-sm font-semibold whitespace-nowrap ${
-                          index === siteData.pricingBreakdown.length - 1
-                            ? "text-base sm:text-lg bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent"
-                            : "text-white"
-                        }`}
-                      >
+                      <span className="text-sm sm:text-base font-semibold whitespace-nowrap bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                         {item.price}
                       </span>
                     </div>
@@ -248,70 +200,40 @@ export default function PackageSection() {
               </div>
             </AnimatedSection>
 
+            {/* Monthly Support Includes */}
             <AnimatedSection direction="right" delay={0.2}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/6">
-                <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-5 flex items-center gap-2">
-                  <Plus size={16} className="text-[#8b5cf6]" />
-                  Add-ons
-                </h4>
-                <div className="space-y-2 sm:space-y-2.5">
-                  {siteData.packageAddons.map((addon) => (
+              <div className="p-5 sm:p-6 rounded-2xl bg-linear-to-br from-[#8b5cf6]/10 via-[#6366f1]/5 to-[#06b6d4]/10 border border-[#8b5cf6]/20">
+                <div className="flex items-center gap-2 mb-4 sm:mb-5">
+                  <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#8b5cf6] to-[#06b6d4]" />
+                  <h4 className="text-base sm:text-lg font-semibold text-white">
+                    Monthly Support Includes
+                  </h4>
+                  <span className="ml-auto text-[10px] sm:text-xs text-[#8b5cf6] px-2 py-0.5 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 font-semibold">
+                    7,500/mo
+                  </span>
+                </div>
+                <div className="space-y-2.5 sm:space-y-3">
+                  {siteData.supportFeatures.map((feature) => (
                     <div
-                      key={addon.item}
-                      className="flex items-center justify-between gap-3 py-1.5 sm:py-2"
+                      key={feature.text}
+                      className="flex items-start gap-2 p-2.5 sm:p-3 rounded-xl bg-white/2 border border-white/4"
                     >
-                      <span className="text-xs sm:text-sm text-gray-400">
-                        {addon.item}
-                      </span>
-                      <span className="text-xs sm:text-sm font-medium text-[#06b6d4] whitespace-nowrap">
-                        {addon.price}
-                      </span>
+                      <Plus
+                        size={12}
+                        className="text-[#6366f1] mt-0.5 shrink-0"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[11px] sm:text-xs font-medium text-white">
+                          {feature.text}
+                        </div>
+                        {feature.detail && (
+                          <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5">
+                            {feature.detail}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   ))}
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Quick Stats Card */}
-            <AnimatedSection direction="right" delay={0.3}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-linear-to-br from-[#6366f1]/10 via-[#8b5cf6]/5 to-[#06b6d4]/10 border border-[#6366f1]/20">
-                <h4 className="text-base sm:text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <CheckCircle size={16} className="text-[#06b6d4]" />
-                  What You Get Initially
-                </h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
-                    <div className="text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
-                      6
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
-                      Products
-                    </div>
-                  </div>
-                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
-                    <div className="text-2xl font-bold bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
-                      2
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
-                      Categories
-                    </div>
-                  </div>
-                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
-                    <div className="text-2xl font-bold bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
-                      5+
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
-                      Pages
-                    </div>
-                  </div>
-                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
-                    <div className="text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
-                      6
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
-                      Sections
-                    </div>
-                  </div>
                 </div>
               </div>
             </AnimatedSection>

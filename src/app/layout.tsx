@@ -16,27 +16,25 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://devnixstudios.tech"),
   title: {
     default:
-      "Devnix Studios | Affordable Website Design Pakistan | Starting PKR 5,000",
+      "Devnix Studios | Premium Website Design Pakistan | Starting PKR 20,000",
     template: "%s | Devnix Studios",
   },
   description:
-    "Professional custom website design in Pakistan starting at PKR 5,000. Includes SEO optimization, social media management, and 3 months support. Serving Karachi, Lahore, Islamabad and all Pakistan.",
+    "Professional custom website design in Pakistan starting at PKR 20,000. Includes admin panel, hosting, domain, SEO, and 3 months support. Serving all Pakistan.",
   keywords: [
     "website design pakistan",
     "web development pakistan",
-    "affordable website pakistan",
+    "premium website pakistan",
     "custom website pakistan",
     "website design karachi",
     "website design lahore",
     "website design islamabad",
     "seo services pakistan",
-    "social media management pakistan",
     "web designer pakistan",
-    "cheap website pakistan",
     "ecommerce website pakistan",
     "business website pakistan",
     "devnix studios",
-    "website 5000 pkr",
+    "admin panel website pakistan",
   ],
   authors: [{ name: "Devnix Studios", url: "https://devnixstudios.tech" }],
   creator: "Devnix Studios",
@@ -56,9 +54,9 @@ export const metadata: Metadata = {
     canonical: "https://devnixstudios.tech",
   },
   openGraph: {
-    title: "Devnix Studios | Website Design Pakistan | PKR 5,000",
+    title: "Devnix Studios | Premium Website Design Pakistan | PKR 20,000",
     description:
-      "Custom websites starting at PKR 5,000. SEO + Social Media + 3 Months Support included. Serving all of Pakistan.",
+      "Custom websites with admin panel starting at PKR 20,000. Hosting + Domain + SEO + 3 Months Support included.",
     url: "https://devnixstudios.tech",
     siteName: "Devnix Studios",
     images: [
@@ -74,13 +72,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Devnix Studios | Website Design Pakistan",
+    title: "Devnix Studios | Premium Website Design Pakistan",
     description:
-      "Custom websites starting at PKR 5,000. SEO + Social Media included.",
+      "Custom websites with admin panel starting at PKR 20,000.",
     images: ["https://devnixstudios.tech/og-image.png"],
   },
   icons: {
-    icon: "/favicon.ico",
     apple: "/logo/DevnixlogoWeb.avif",
   },
 };
@@ -91,9 +88,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} data-scroll-behavior="smooth">
       <head>
-        {/* Preconnect to external origins for faster connection */}
         <link
           rel="preconnect"
           href="https://www.googletagmanager.com"
@@ -111,15 +107,6 @@ export default function RootLayout({
         <link
           rel="dns-prefetch"
           href="https://www.google-analytics.com"
-        />
-
-        {/* Preload the logo for instant rendering */}
-        <link
-          rel="preload"
-          href="/logo/DevnixlogoWeb.avif"
-          as="image"
-          type="image/avif"
-          fetchPriority="high"
         />
       </head>
       <body className={inter.className}>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import {
   CheckCircle,
@@ -135,7 +135,7 @@ export default function IndustryPageContent({
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-center">
               <div>
                 <span className="text-4xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
-                  5,000 PKR
+                  20,000 PKR
                 </span>
                 <span className="text-gray-400 ml-2 text-sm">one-time</span>
               </div>
@@ -291,7 +291,7 @@ export default function IndustryPageContent({
               Get Your {industryName} Website Today
             </h2>
             <p className="text-gray-400 mb-8">
-              Starting at PKR 5,000. Contact us and we will get back within 24
+              Starting at PKR 20,000. Contact us and we will get back within 24
               hours.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

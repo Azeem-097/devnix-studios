@@ -1,4 +1,4 @@
-﻿import LegalLayout from "@/components/LegalLayout";
+import LegalLayout from "@/components/LegalLayout";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import {
   FileText,
@@ -29,7 +29,7 @@ const sections = [
     icon: CreditCard,
     title: "Payment Terms",
     content:
-      "The initial website build costs 5,000 PKR (one-time payment). Monthly support and management is charged at 2,500 PKR for the first month and 5,000 PKR for subsequent months. Payment is due at the beginning of each month. Add-on services are charged separately as outlined in our package details.",
+      "The initial website build costs 20,000 PKR (one-time payment). Monthly support and management is charged at 2,500 PKR for the first month and 20,000 PKR for subsequent months. Payment is due at the beginning of each month. Add-on services are charged separately as outlined in our package details.",
   },
   {
     id: "contract-duration",

@@ -1,4 +1,4 @@
-﻿interface IndustryServiceSchemaProps {
+interface IndustryServiceSchemaProps {
   industryName: string;
   description: string;
   slug: string;
@@ -9,7 +9,7 @@ export default function IndustryServiceSchema({
   industryName,
   description,
   slug,
-  price = "5000",
+  price = "20000",
 }: IndustryServiceSchemaProps) {
   const pageUrl = `https://devnixstudios.tech/${slug}`;
 

@@ -236,7 +236,7 @@ export default function CityPageContent({
             <div className="p-px rounded-2xl bg-gradient-to-br from-[#6366f1]/40 to-[#06b6d4]/40">
               <div className="bg-[#0c0c14] rounded-2xl p-8">
                 <div className="text-5xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent mb-2">
-                  5,000 PKR
+                  20,000 PKR
                 </div>
                 <div className="text-gray-500 mb-6">Complete website package</div>
 

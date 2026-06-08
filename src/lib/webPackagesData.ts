@@ -1,4 +1,4 @@
-﻿export interface WebPackage {
+export interface WebPackage {
   slug: string;
   title: string;
   emoji: string;
@@ -23,7 +23,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🛒",
     shortDesc:
       "Complete online store with admin panel to manage products, orders, and customers yourself.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badge: "Most Popular",
     badgeColor: "#6366f1",
@@ -68,7 +68,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🎨",
     shortDesc:
       "Professional portfolio to showcase your work, skills, and services. Perfect for freelancers and creatives.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#8b5cf6",
     gradient: "from-[#8b5cf6] to-[#a78bfa]",
@@ -109,7 +109,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🎯",
     shortDesc:
       "Single high-converting page designed to capture leads or sell one specific product. Perfect for Meta ads.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#f97316",
     gradient: "from-[#f97316] to-[#fb923c]",
@@ -144,7 +144,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🛍️",
     shortDesc:
       "Full-featured online store for businesses with 20+ products. Includes shopping cart and order management.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#06b6d4",
     gradient: "from-[#06b6d4] to-[#22d3ee]",
@@ -188,7 +188,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🍽️",
     shortDesc:
       "Beautiful restaurant website with menu, food gallery, WhatsApp ordering, and Google Maps integration.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#ef4444",
     gradient: "from-[#ef4444] to-[#f87171]",
@@ -230,7 +230,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🏨",
     shortDesc:
       "Premium hotel website with rooms, amenities, booking inquiries, and beautiful gallery.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#0ea5e9",
     gradient: "from-[#0ea5e9] to-[#38bdf8]",
@@ -273,7 +273,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🏥",
     shortDesc:
       "Professional medical website with doctors profiles, departments, services, and appointment booking.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#10b981",
     gradient: "from-[#10b981] to-[#34d399]",
@@ -315,7 +315,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🧁",
     shortDesc:
       "Sweet bakery website with product showcase, custom order options, and WhatsApp ordering.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#ec4899",
     gradient: "from-[#ec4899] to-[#f472b6]",
@@ -357,7 +357,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🏫",
     shortDesc:
       "Educational website with admissions info, faculty profiles, programs, and notices section.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#f59e0b",
     gradient: "from-[#f59e0b] to-[#fbbf24]",
@@ -401,7 +401,7 @@ export const webPackages: WebPackage[] = [
     emoji: "💪",
     shortDesc:
       "Energetic fitness website with class schedules, trainers, membership plans, and contact.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#dc2626",
     gradient: "from-[#dc2626] to-[#ef4444]",
@@ -445,7 +445,7 @@ export const webPackages: WebPackage[] = [
     emoji: "💅",
     shortDesc:
       "Elegant salon website with services menu, price list, before/after gallery, and WhatsApp booking.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#a855f7",
     gradient: "from-[#a855f7] to-[#c084fc]",
@@ -487,7 +487,7 @@ export const webPackages: WebPackage[] = [
     emoji: "🏠",
     shortDesc:
       "Property website with listings, photo galleries, location maps, and WhatsApp inquiries.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     priceNumber: 5000,
     badgeColor: "#14b8a6",
     gradient: "from-[#14b8a6] to-[#2dd4bf]",

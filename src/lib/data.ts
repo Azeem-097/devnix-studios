@@ -1,10 +1,10 @@
-﻿import { SiteData } from "@/types";
+import { SiteData } from "@/types";
 
 export const siteData: SiteData = {
   siteName: "Devnix Studios",
   tagline: "We Build. We Manage. We Grow.",
   description:
-    "Professional web development, SEO, and social media management for businesses that want to dominate online.",
+    "Professional web development, SEO, and digital solutions for businesses that want to dominate online.",
 
   navLinks: [
     { label: "Home", href: "#home" },
@@ -22,25 +22,25 @@ export const siteData: SiteData = {
       icon: "Globe",
       title: "Custom Website Development",
       description:
-        "Fully custom-built websites tailored to your business. No templates, no drag-and-drop. Clean code, fast performance.",
+        "Fully custom-built websites with admin panel. No templates, no drag-and-drop. Clean code, fast performance.",
     },
     {
       icon: "Search",
       title: "Basic SEO Optimization",
       description:
-        "On-page SEO for every product and page. Meta tags, image alt texts, structured data, and keyword optimization.",
+        "On-page SEO for every page. Meta tags, image alt texts, structured data, and keyword optimization.",
     },
     {
       icon: "Share2",
-      title: "Social Media Management",
+      title: "Speed Optimization",
       description:
-        "Facebook & Instagram posts with professional captions and hashtags for every product added to your website.",
+        "Continuous performance monitoring and improvements to keep your site blazing fast at all times.",
     },
     {
       icon: "Package",
-      title: "Product Management",
+      title: "Admin Panel Access",
       description:
-        "Regular product uploads, category management, image optimization, and content updates to keep your store fresh.",
+        "Easy-to-use admin panel to manage your content, products, and website data without technical knowledge.",
     },
     {
       icon: "MapPin",
@@ -52,7 +52,7 @@ export const siteData: SiteData = {
       icon: "Settings",
       title: "Website Maintenance",
       description:
-        "Ongoing support, bug fixes, theme changes, page additions, and performance monitoring to keep everything running smooth.",
+        "Ongoing support, bug fixes, theme changes, page additions, and performance monitoring included.",
     },
   ],
 
@@ -69,20 +69,20 @@ export const siteData: SiteData = {
     {
       title: "NextGenZ",
       description:
-        "A sleek modern platform showcasing the future of digital experiences. Built with Next.js and deployed on Vercel for blazing speed.",
-      url: "https://nextgenzai.vercel.app",
-      tags: ["Modern", "Next.js", "Vercel"],
+        "A sleek modern platform showcasing the future of digital experiences. Built with Next.js for blazing speed.",
+      url: "https://nextgenzai.store",
+      tags: ["Modern", "Next.js", "E-commerce"],
       gradient: "from-[#8b5cf6] to-[#06b6d4]",
       screenshot: "/projects/nextgenz",
     },
     {
-      title: "Ali Poultry",
+      title: "Muhammad Umair",
       description:
-        "A professional business website for a poultry enterprise. Product catalog, business info, and clean responsive design.",
-      url: "https://ali-poultry-enterprises-demo.vercel.app",
-      tags: ["Business", "Catalog", "Responsive"],
+        "A professional personal portfolio website showcasing skills, experience, and achievements with modern elegant design.",
+      url: "https://muhammadumairkhalid.info",
+      tags: ["Portfolio", "Personal Brand", "Responsive"],
       gradient: "from-[#06b6d4] to-[#6366f1]",
-      screenshot: "/projects/alipoultry",
+      screenshot: "/projects/muhammadumair",
     },
   ],
 
@@ -93,7 +93,7 @@ export const siteData: SiteData = {
       location: "Lahore, Pakistan",
       rating: 5,
       review:
-        "Devnix Studios built our poultry business website in just 7 days. The design is clean, loads fast, and we are already getting WhatsApp inquiries from new customers we never reached before. Highly recommended!",
+        "Devnix Studios built our business website in just 7 days. The design is clean, loads fast, and we are already getting WhatsApp inquiries from new customers we never reached before. Highly recommended!",
       service: "Business Website",
       initials: "MA",
       color: "#6366f1",
@@ -104,8 +104,8 @@ export const siteData: SiteData = {
       location: "Karachi, Pakistan",
       rating: 5,
       review:
-        "Very professional team. They understood exactly what I needed for my clothing business. The social media posts they make for every product are amazing. My Instagram followers have grown since we started.",
-      service: "Website + Social Media",
+        "Very professional team. They understood exactly what I needed for my clothing business. The admin panel makes it easy to manage products myself. Excellent service!",
+      service: "Ecommerce Website",
       initials: "SK",
       color: "#8b5cf6",
     },
@@ -115,7 +115,7 @@ export const siteData: SiteData = {
       location: "Islamabad, Pakistan",
       rating: 5,
       review:
-        "I was skeptical about getting a website at PKR 5,000 but the quality exceeded my expectations. My property listings are now on Google and I get calls from people who found me online. Worth every rupee.",
+        "The quality of work exceeded my expectations. My property listings are now on Google and I get calls from people who found me online. Worth every rupee.",
       service: "Real Estate Website",
       initials: "AR",
       color: "#06b6d4",
@@ -137,8 +137,8 @@ export const siteData: SiteData = {
       location: "Faisalabad, Pakistan",
       rating: 5,
       review:
-        "Excellent work! Our fabric catalog is now online and we are getting wholesale inquiries from Karachi and Lahore. The team is responsive and updates our products quickly whenever we send new designs.",
-      service: "Textile Website",
+        "Excellent work! Our fabric catalog is now online and we are getting wholesale inquiries from Karachi and Lahore. The team is responsive and updates our products quickly.",
+      service: "Business Website",
       initials: "UT",
       color: "#f59e0b",
     },
@@ -148,7 +148,7 @@ export const siteData: SiteData = {
       location: "Rawalpindi, Pakistan",
       rating: 5,
       review:
-        "My salon now looks so professional online. The before and after gallery was exactly what I needed to show my work. New clients are finding me on Google every week. Amazing service at a great price.",
+        "My salon now looks so professional online. The before and after gallery was exactly what I needed to show my work. New clients are finding me on Google every week.",
       service: "Salon Website",
       initials: "ZM",
       color: "#ec4899",
@@ -157,90 +157,80 @@ export const siteData: SiteData = {
 
   serviceOptions: [
     { value: "custom-website", label: "Custom Website Development" },
-    { value: "seo", label: "SEO Optimization" },
-    { value: "social-media", label: "Social Media Management" },
-    { value: "full-package", label: "Complete Package (Website + Support)" },
-    { value: "maintenance", label: "Website Maintenance Only" },
+    { value: "ecommerce", label: "Ecommerce Website with Admin Panel" },
+    { value: "portfolio", label: "Portfolio Website" },
+    { value: "business", label: "Business Website" },
+    { value: "maintenance", label: "Website Maintenance" },
     { value: "other", label: "Other / Custom Request" },
   ],
 
   packageFeatures: [
     { text: "Fully Custom-Built Website", included: true },
-    {
-      text: "1 Year Free Hosting",
-      included: true,
-      note: "Minimal charges after first year",
-    },
-    {
-      text: "Domain Management",
-      included: true,
-      note: "Domain bought by client. 500 PKR/year if we manage it",
-    },
-    { text: "3 Months Support & Management", included: true },
+    { text: "User Panel + Admin Panel", included: true },
     { text: "Google Business Listing", included: true },
     {
       text: "Meta Pixel Installation",
       included: true,
-      note: "Free first time. 500 PKR for changes",
     },
     { text: "Mobile Responsive Design", included: true },
     { text: "Fast Loading Speed", included: true },
+    { text: "Free Domain & Hosting Setup", included: true },
   ],
 
   supportFeatures: [
     {
-      text: "2 Products Uploaded Per Week",
-      detail: "Extra products: 150 PKR each",
+      text: "Basic SEO Optimization",
+      detail: "Meta tags, keywords, image alt texts for all pages",
     },
     {
-      text: "Basic SEO for Each Product",
-      detail: "Meta tags, keywords, image alt texts",
+      text: "Speed Optimization",
+      detail: "Continuous performance monitoring and improvements",
     },
     {
-      text: "1 New Category Every 2 Weeks",
-      detail: "Extra categories: 200 PKR each",
+      text: "Hosting Included",
+      detail: "Premium hosting with 99.9% uptime guarantee",
     },
     {
-      text: "2 Product Revisions Per Month",
-      detail: "Extra revisions: 50 PKR each",
+      text: "Domain Management",
+      detail: "Full domain handling and renewal management",
     },
     {
-      text: "Image Optimization",
-      detail: "Compressed & optimized for fast loading",
+      text: "Extra Features Integration",
+      detail: "Add new functionality as your business grows",
     },
     {
-      text: "Facebook & Instagram Posts",
-      detail: "With hashtags and captions for each product",
+      text: "Theme Customization",
+      detail: "Design tweaks and visual updates anytime",
+    },
+    {
+      text: "New Pages Addition",
+      detail: "Add new pages to your website as needed",
+    },
+    {
+      text: "Regular Backups",
+      detail: "Weekly automated backups to prevent data loss",
     },
   ],
 
   packageAddons: [
-    { item: "Extra Product Upload", price: "150 PKR" },
-    { item: "Extra Category", price: "200 PKR" },
-    { item: "Extra Product Revision", price: "50 PKR" },
-    { item: "New Page Addition", price: "300 PKR" },
-    { item: "Theme Customization", price: "500 - 1000+ PKR" },
+    { item: "Extra Page Addition", price: "1,000 PKR" },
+    { item: "Theme Customization", price: "2,000 - 5,000 PKR" },
     { item: "Meta Pixel Change", price: "500 PKR" },
-    { item: "Domain Management", price: "500 PKR/year" },
+    { item: "Custom Feature Integration", price: "From 3,000 PKR" },
+    { item: "Logo Design", price: "2,500 PKR" },
+    { item: "Extra Backup Restoration", price: "1,500 PKR" },
   ],
 
   pricingBreakdown: [
     {
       item: "Complete Website Build",
-      price: "5,000 PKR",
+      price: "20,000 PKR",
       note: "One-time payment",
     },
     {
-      item: "Month 1 - Support & Management",
-      price: "2,500 PKR",
-      note: "Discounted first month",
-    },
-    { item: "Month 2 - Support & Management", price: "5,000 PKR" },
-    { item: "Month 3 - Support & Management", price: "5,000 PKR" },
-    {
-      item: "Total (3-Month Contract)",
-      price: "17,500 PKR",
-      note: "New contract with updated prices after 3 months",
+      item: "Monthly Support & Management",
+      price: "7,500 PKR",
+      note: "First month free, then monthly",
     },
   ],
 
@@ -249,28 +239,28 @@ export const siteData: SiteData = {
       step: 1,
       title: "Discovery Call",
       description:
-        "We discuss your business, goals, products, and what you need from your website.",
+        "We discuss your business, goals, and what you need from your website.",
       icon: "Phone",
     },
     {
       step: 2,
       title: "Design & Development",
       description:
-        "We build your custom website from scratch. You get to review and request changes before launch.",
+        "We build your custom website from scratch with admin panel. You review and request changes before launch.",
       icon: "Settings",
     },
     {
       step: 3,
       title: "Launch & Setup",
       description:
-        "Website goes live. Google Business listing, Meta Pixel, and all integrations are set up.",
+        "Website goes live. Google Business listing, Meta Pixel, hosting, and all integrations are set up.",
       icon: "Globe",
     },
     {
       step: 4,
       title: "Ongoing Management",
       description:
-        "We handle products, SEO, social media, and maintenance so you can focus on your business.",
+        "We handle SEO, maintenance, backups, and updates so you can focus on your business.",
       icon: "Package",
     },
   ],
@@ -284,9 +274,9 @@ export const siteData: SiteData = {
     },
     {
       icon: "Star",
-      title: "All-In-One Package",
+      title: "Admin Panel Included",
       description:
-        "Website + SEO + Social Media + Management. You do not need to hire 4 different people.",
+        "Manage your website yourself with our easy-to-use admin panel. No technical knowledge required.",
     },
     {
       icon: "MessageCircle",
@@ -296,9 +286,9 @@ export const siteData: SiteData = {
     },
     {
       icon: "ArrowRight",
-      title: "Affordable Pricing",
+      title: "Premium Quality",
       description:
-        "Enterprise-quality work at prices that make sense for small and medium businesses in Pakistan.",
+        "Enterprise-grade work with hosting, domain, SEO, and ongoing support all included in one package.",
     },
   ],
 
@@ -306,12 +296,12 @@ export const siteData: SiteData = {
     {
       question: "What kind of websites do you build?",
       answer:
-        "We build custom websites for businesses - including product catalogs, service websites, portfolios, and e-commerce stores. Every site is coded from scratch for maximum performance.",
+        "We build custom websites with admin panels for businesses - including ecommerce stores, portfolios, business sites, and service websites. Every site is coded from scratch for maximum performance.",
     },
     {
-      question: "Do I need to buy my own domain?",
+      question: "Is domain and hosting included?",
       answer:
-        "Yes, you purchase your own domain name. If you want us to manage it for you, there is a 500 PKR annual management fee.",
+        "Yes! Domain and hosting are fully managed by us as part of the package. You do not need to worry about technical setup or renewals.",
     },
     {
       question: "What happens after the 3-month contract?",
@@ -319,14 +309,14 @@ export const siteData: SiteData = {
         "After 3 months, we sign a new contract with updated pricing based on your needs. You are not locked in - you can continue, modify, or end the service.",
     },
     {
-      question: "Can I add more products than the included amount?",
+      question: "Do I get an admin panel to manage my website?",
       answer:
-        "Absolutely! The package includes 2 products per week. Additional products cost just 150 PKR each, including SEO and social media posting.",
+        "Yes! Every website comes with both a user panel (for your customers) and an admin panel (for you) so you can manage content, products, and orders yourself.",
     },
     {
-      question: "Do you provide the hosting?",
+      question: "What is included in the monthly support?",
       answer:
-        "Yes! First year of hosting is completely free. After that, minimal hosting charges apply to keep your site running.",
+        "Monthly support includes hosting, domain management, SEO, speed optimization, theme customization, new page additions, regular backups, and 99.9% uptime guarantee.",
     },
     {
       question: "What is Meta Pixel and do I need it?",
@@ -336,12 +326,12 @@ export const siteData: SiteData = {
     {
       question: "How long does it take to build the website?",
       answer:
-        "Typically 5-10 business days depending on the complexity and how quickly you provide content and feedback.",
+        "Typically 7-14 business days depending on complexity and how quickly you provide content and feedback.",
     },
     {
       question: "Can I request custom design changes later?",
       answer:
-        "Yes! Theme customizations cost 500-1000+ PKR depending on complexity. New page additions cost 300 PKR per page.",
+        "Yes! Theme customizations are included in monthly support. Major redesigns may cost extra (2,000-5,000 PKR).",
     },
   ],
 
@@ -390,20 +380,21 @@ export const siteData: SiteData = {
       title: "Website Pages",
       items: [
         "Home Page",
-        "Product Catalog Page",
-        "Category Catalog Page",
-        "Individual Product Pages",
-        "About / Contact Page",
+        "About Page",
+        "Services Page",
+        "Products / Portfolio Page",
+        "Contact Page",
+        "Admin Dashboard",
       ],
     },
     {
       icon: "Package",
-      title: "Initial Content Setup",
+      title: "Technical Setup",
       items: [
-        "6 Products Pre-Loaded",
-        "2 Categories Created",
-        "Product Images Optimized",
-        "Basic SEO on Each Product",
+        "Custom Admin Panel",
+        "Hosting Configuration",
+        "Domain Setup",
+        "Basic SEO Implementation",
         "Mobile Responsive Layout",
       ],
     },

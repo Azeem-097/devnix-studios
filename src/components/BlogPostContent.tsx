@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import {
   Clock,
@@ -106,7 +106,7 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
                 Ready to Get Your Business Online?
               </h3>
               <p className="text-gray-400 text-sm mb-6">
-                Starting at just PKR 5,000 — custom website, SEO, and 3 months support included.
+                Starting at just PKR 20,000 — custom website, SEO, and 3 months support included.
               </p>
               <a href={siteData.contactInfo.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/20 transition-all duration-300">
                 <MessageCircle size={16} />
@@ -182,7 +182,7 @@ function FiveReasonsPost() {
       <p>Plus, if you run Facebook or Instagram ads, you can install a <strong>Meta Pixel</strong> on your website. This pixel tracks visitors, helps Facebook find more customers like them, and dramatically increases your ad performance. Without a website, you are running ads blind.</p>
 
       <h2 className="text-2xl font-bold text-white mt-10">The Good News</h2>
-      <p>Getting a professional website in Pakistan is now extremely affordable. At <strong>Devnix Studios</strong>, we help small businesses go online with a complete custom-built package starting at just <strong className="text-[#06b6d4]">PKR 5,000</strong>.</p>
+      <p>Getting a professional website in Pakistan is now extremely affordable. At <strong>Devnix Studios</strong>, we help small businesses go online with a complete custom-built package starting at just <strong className="text-[#06b6d4]">PKR 20,000</strong>.</p>
     </div>
   );
 }
@@ -203,7 +203,7 @@ function WebsiteCostPost() {
       <h3 className="text-lg font-semibold text-white">2. WordPress with Premium Theme (PKR 3,000 to 15,000)</h3>
       <p>A step up — but still template-based. Performance is average, SEO requires extra plugins, and customization is limited.</p>
 
-      <h3 className="text-lg font-semibold text-white">3. Custom-Built Website (PKR 5,000 to 50,000+)</h3>
+      <h3 className="text-lg font-semibold text-white">3. Custom-Built Website (PKR 20,000 to 50,000+)</h3>
       <p>Built from scratch by a developer. Fast, unique, SEO-optimized, and fully yours.</p>
 
       <h2 className="text-2xl font-bold text-white mt-10">Market Rates Comparison</h2>
@@ -221,7 +221,7 @@ function WebsiteCostPost() {
               ["Freelancer (beginner)", "PKR 3,000 - 8,000", "Simple info sites"],
               ["Freelancer (experienced)", "PKR 8,000 - 25,000", "Business websites"],
               ["Agency (small)", "PKR 15,000 - 60,000", "Professional sites"],
-              ["Devnix Studios", "PKR 5,000", "Complete package"],
+              ["Devnix Studios", "PKR 20,000", "Complete package"],
             ].map(([type, price, best]) => (
               <tr key={type}>
                 <td className="py-3 pr-6 text-gray-300">{type}</td>
@@ -241,7 +241,7 @@ function WebsiteCostPost() {
       </ul>
 
       <h2 className="text-2xl font-bold text-white mt-10">Final Verdict</h2>
-      <p>For a Pakistani business that wants a professional online presence, PKR 5,000 to 15,000 is the sweet spot. At Devnix Studios, we offer a complete package starting at PKR 5,000 — no hidden fees, no surprises.</p>
+      <p>For a Pakistani business that wants a professional online presence, PKR 20,000 to 15,000 is the sweet spot. At Devnix Studios, we offer a complete package starting at PKR 20,000 — no hidden fees, no surprises.</p>
     </div>
   );
 }
@@ -529,7 +529,7 @@ function FreeVsPaidPost() {
             <tr className="border-b border-white/10">
               <th className="text-left py-3 pr-6 text-white">Feature</th>
               <th className="text-left py-3 pr-6 text-white">Free Website</th>
-              <th className="text-left py-3 text-white">Devnix PKR 5,000</th>
+              <th className="text-left py-3 text-white">Devnix PKR 20,000</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/6">
@@ -554,7 +554,7 @@ function FreeVsPaidPost() {
 
       <h2 className="text-2xl font-bold text-white mt-10">Real Cost Comparison Over 1 Year</h2>
       <p><strong className="text-white">Free website:</strong> 0 PKR upfront, but you lose customers daily because nobody trusts a site at yourbusiness.wix.com</p>
-      <p><strong className="text-white">Paid custom website:</strong> PKR 5,000 once, get unlimited customers for years to come</p>
+      <p><strong className="text-white">Paid custom website:</strong> PKR 20,000 once, get unlimited customers for years to come</p>
 
       <h2 className="text-2xl font-bold text-white mt-10">When Free is OK</h2>
       <p>Free websites are fine if:</p>
@@ -565,7 +565,7 @@ function FreeVsPaidPost() {
       </ul>
 
       <h2 className="text-2xl font-bold text-white mt-10">The Truth</h2>
-      <p>If you are serious about your business, free is the most expensive option you can choose — because of all the customers you lose. PKR 5,000 once is the smartest small business investment you will make this year.</p>
+      <p>If you are serious about your business, free is the most expensive option you can choose — because of all the customers you lose. PKR 20,000 once is the smartest small business investment you will make this year.</p>
     </div>
   );
 }
@@ -619,7 +619,7 @@ function OnlineStorePost() {
       <h2 className="text-2xl font-bold text-white mt-10">Step 5: Get Your First Customers</h2>
       <ul className="space-y-2">
         {[
-          "Run small Meta ads (PKR 5,000-10,000/month)",
+          "Run small Meta ads (PKR 20,000-10,000/month)",
           "Post on Instagram daily",
           "Get listed on Google Business",
           "Get reviews from first customers",
@@ -644,7 +644,7 @@ function OnlineStorePost() {
       </ul>
 
       <h2 className="text-2xl font-bold text-white mt-10">Devnix Studios Online Store Package</h2>
-      <p>We build complete online stores starting at PKR 5,000 — including product catalog, WhatsApp ordering, payment options, and 3 months of management. Get your store live in 5-10 days.</p>
+      <p>We build complete online stores starting at PKR 20,000 — including product catalog, WhatsApp ordering, payment options, and 3 months of management. Get your store live in 5-10 days.</p>
     </div>
   );
 }
@@ -704,7 +704,7 @@ function ChooseDesignerPost() {
       <p>For most businesses, a remote designer is just as good — most communication happens online anyway.</p>
 
       <h2 className="text-2xl font-bold text-white mt-10">Devnix Studios Serves All Pakistan</h2>
-      <p>We are based in Pakistan and serve clients in Karachi, Lahore, Islamabad, Faisalabad, Rawalpindi, Multan, Peshawar, and every other city — all remotely via WhatsApp. Starting at PKR 5,000.</p>
+      <p>We are based in Pakistan and serve clients in Karachi, Lahore, Islamabad, Faisalabad, Rawalpindi, Multan, Peshawar, and every other city — all remotely via WhatsApp. Starting at PKR 20,000.</p>
     </div>
   );
 }

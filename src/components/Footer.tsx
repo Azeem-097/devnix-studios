@@ -71,7 +71,7 @@ export default function Footer() {
               </div>
             </a>
             <p className="text-xs text-gray-500 leading-relaxed mb-4">
-              Custom websites, SEO, and digital solutions for Pakistan businesses. Starting at PKR 5,000.
+              Custom websites, SEO, and digital solutions for Pakistan businesses. Starting at PKR 20,000.
             </p>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />

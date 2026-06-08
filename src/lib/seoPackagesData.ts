@@ -1,4 +1,4 @@
-﻿export interface SEOPackage {
+export interface SEOPackage {
   slug: string;
   title: string;
   emoji: string;
@@ -65,7 +65,7 @@ export const seoPackages: SEOPackage[] = [
     emoji: "📈",
     shortDesc:
       "Ongoing SEO management to improve rankings month after month. Reports, optimization, and continuous improvement.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     pricePeriod: "/ month",
     priceNumber: 5000,
     badge: "Most Popular",
@@ -108,7 +108,7 @@ export const seoPackages: SEOPackage[] = [
     emoji: "📍",
     shortDesc:
       "Rank #1 in your city. Get found by customers searching for businesses in Karachi, Lahore, Islamabad, or anywhere in Pakistan.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     pricePeriod: "one-time",
     priceNumber: 5000,
     badgeColor: "#06b6d4",
@@ -149,7 +149,7 @@ export const seoPackages: SEOPackage[] = [
     emoji: "🛍️",
     shortDesc:
       "Specialized SEO for online stores. Get every product to rank on Google and bring in organic sales.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     pricePeriod: "one-time",
     priceNumber: 5000,
     badgeColor: "#ec4899",
@@ -231,7 +231,7 @@ export const seoPackages: SEOPackage[] = [
     emoji: "🚀",
     shortDesc:
       "Get your business listed on Google Maps and search. Essential for any local business in Pakistan.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     pricePeriod: "one-time",
     priceNumber: 5000,
     badgeColor: "#10b981",
