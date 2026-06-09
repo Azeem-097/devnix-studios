@@ -1,10 +1,11 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteData } from "@/lib/data";
 import AnimatedSection from "./AnimatedSection";
+import FAQSchema from "./FAQSchema";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -15,6 +16,12 @@ export default function FAQSection() {
 
   return (
     <section id="faq" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+      {/* FAQ Schema - ONLY on homepage */}
+      <FAQSchema
+        faqs={siteData.faqs}
+        pageUrl="https://devnixstudios.tech/"
+      />
+
       <div className="absolute inset-0 bg-[#0a0a0f]" />
       <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-[#06b6d4]/4 rounded-full blur-[120px]" />
 

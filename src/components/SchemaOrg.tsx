@@ -136,53 +136,6 @@ export default function SchemaOrg() {
     },
   });
 
-  const faq = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What kind of websites do you build?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We build custom websites for businesses including product catalogs, service websites, portfolios, and e-commerce stores. Every site is coded from scratch for maximum performance.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How much does a website cost in Pakistan?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Our website packages start at just 20,000 PKR as a one-time payment for a complete custom-built website. This includes hosting, SEO, and admin panel. Monthly maintenance & support is optional at PKR 7,500/month.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How long does it take to build a website in Pakistan?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Typically 5-10 business days depending on complexity and how quickly you provide content and feedback.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Do you provide hosting for websites in Pakistan?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes! First year of hosting is completely free. After that, minimal hosting charges apply.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Do you serve clients all over Pakistan?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes! We serve clients all over Pakistan including Karachi, Lahore, Islamabad, Faisalabad, Rawalpindi, Multan, and Peshawar. Everything is done online.",
-        },
-      },
-    ],
-  });
-
   const breadcrumb = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -217,10 +170,6 @@ export default function SchemaOrg() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: website }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: faq }}
       />
       <script
         type="application/ld+json"
