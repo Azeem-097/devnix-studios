@@ -10,6 +10,7 @@ export interface SEOPackage {
   badgeColor: string;
   gradient: string;
   popular?: boolean;
+  unavailable?: boolean;
   forWho: string;
   whatsIncluded: string[];
   deliverables: string[];
@@ -24,9 +25,9 @@ export const seoPackages: SEOPackage[] = [
     emoji: "🔍",
     shortDesc:
       "One-time SEO setup for your new website. Get the foundation right so Google can find and rank your business.",
-    price: "PKR 3,000",
+    price: "PKR 5,000",
     pricePeriod: "one-time",
-    priceNumber: 3000,
+    priceNumber: 5000,
     badgeColor: "#8b5cf6",
     gradient: "from-[#8b5cf6] to-[#a78bfa]",
     forWho:
@@ -67,7 +68,7 @@ export const seoPackages: SEOPackage[] = [
       "Ongoing SEO management to improve rankings month after month. Reports, optimization, and continuous improvement.",
     price: "PKR 20,000",
     pricePeriod: "/ month",
-    priceNumber: 5000,
+    priceNumber: 20000,
     badge: "Most Popular",
     badgeColor: "#6366f1",
     gradient: "from-[#6366f1] to-[#8b5cf6]",
@@ -110,7 +111,7 @@ export const seoPackages: SEOPackage[] = [
       "Rank #1 in your city. Get found by customers searching for businesses in Karachi, Lahore, Islamabad, or anywhere in Pakistan.",
     price: "PKR 20,000",
     pricePeriod: "one-time",
-    priceNumber: 5000,
+    priceNumber: 20000,
     badgeColor: "#06b6d4",
     gradient: "from-[#06b6d4] to-[#22d3ee]",
     forWho:
@@ -135,13 +136,13 @@ export const seoPackages: SEOPackage[] = [
       "Reviews growth plan",
     ],
     features: [
-      "Target 1 city (or multiple +1500/city)",
+      "Target 1 city (or multiple +3000/city)",
       "Google Maps top 3 strategy",
       "Local pack optimization",
       "Mobile-first approach",
       "Urdu + English keywords",
     ],
-    timeline: "Completed within 7-10 days",
+    timeline: "Completed within 10-15 days",
   },
   {
     slug: "ecommerce-seo",
@@ -151,7 +152,7 @@ export const seoPackages: SEOPackage[] = [
       "Specialized SEO for online stores. Get every product to rank on Google and bring in organic sales.",
     price: "PKR 20,000",
     pricePeriod: "one-time",
-    priceNumber: 5000,
+    priceNumber: 20000,
     badgeColor: "#ec4899",
     gradient: "from-[#ec4899] to-[#f472b6]",
     forWho:
@@ -177,7 +178,7 @@ export const seoPackages: SEOPackage[] = [
     ],
     features: [
       "Up to 30 products covered",
-      "Extra products: PKR 100 each",
+      "Extra products: PKR 500 each",
       "Rich snippets in search",
       "Product star ratings ready",
       "Conversion-focused SEO",
@@ -187,6 +188,7 @@ export const seoPackages: SEOPackage[] = [
   {
     slug: "seo-audit-strategy",
     title: "SEO Audit & Strategy",
+    unavailable: true,
     emoji: "🏆",
     shortDesc:
       "Deep-dive analysis of your current website. Get a complete audit + 90-day action plan to dominate Google.",
@@ -228,12 +230,13 @@ export const seoPackages: SEOPackage[] = [
   {
     slug: "google-business-setup",
     title: "Google Business Setup",
+    unavailable: true,
     emoji: "🚀",
     shortDesc:
       "Get your business listed on Google Maps and search. Essential for any local business in Pakistan.",
     price: "PKR 20,000",
     pricePeriod: "one-time",
-    priceNumber: 5000,
+    priceNumber: 20000,
     badgeColor: "#10b981",
     gradient: "from-[#10b981] to-[#34d399]",
     forWho:
@@ -259,7 +262,7 @@ export const seoPackages: SEOPackage[] = [
     ],
     features: [
       "Single location setup",
-      "Multiple locations: +2000/location",
+      "Multiple locations: +5000/location",
       "Reviews response training",
       "Booking integration option",
       "Direct messaging enabled",
@@ -267,3 +270,4 @@ export const seoPackages: SEOPackage[] = [
     timeline: "Live within 5-7 days (after verification)",
   },
 ];
+

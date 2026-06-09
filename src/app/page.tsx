@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title:
     "Devnix Studios | Premium Website Design Pakistan | Starting PKR 20,000",
   description:
-    "Professional custom website design in Pakistan starting at PKR 20,000. Includes SEO optimization, social media management, and 3 months support. Serving Karachi, Lahore, Islamabad and all Pakistan.",
+    "Professional custom website design in Pakistan starting at PKR 20,000. One-time payment with optional monthly maintenance & support. SEO optimization, admin panel, hosting included. Serving Karachi, Lahore, Islamabad and all Pakistan.",
   alternates: {
     canonical: "https://devnixstudios.tech",
   },

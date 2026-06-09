@@ -10,8 +10,8 @@ import { siteData } from "@/lib/data";
 const navLinks = [
   { label: "Home", href: "#home", type: "scroll" },
   { label: "Services", href: "/services", type: "page" },
-  { label: "Projects", href: "#projects", type: "scroll" },
-  { label: "Package", href: "#package", type: "scroll" },
+  { label: "Projects", href: "/projects", type: "page" },
+  { label: "FAQs", href: "/faqs", type: "page" },
   { label: "Blog", href: "/blog", type: "page" },
   { label: "Contact", href: "#contact", type: "scroll" },
 ];

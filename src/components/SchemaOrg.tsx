@@ -6,7 +6,7 @@ export default function SchemaOrg() {
     name: "Devnix Studios",
     alternateName: "Devnix",
     description:
-      "Affordable custom website design in Pakistan starting at 20,000 PKR. Includes SEO, social media management and 3 months support.",
+      "Affordable custom website design in Pakistan starting at 20,000 PKR. One-time payment with optional monthly maintenance & support. No lock-in contract.",
     url: "https://devnixstudios.tech",
     logo: {
       "@type": "ImageObject",
@@ -153,7 +153,7 @@ export default function SchemaOrg() {
         name: "How much does a website cost in Pakistan?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Our website packages start at just 20,000 PKR for a complete custom-built website including 3 months of support and management. This includes hosting, SEO, and social media management.",
+          text: "Our website packages start at just 20,000 PKR as a one-time payment for a complete custom-built website. This includes hosting, SEO, and admin panel. Monthly maintenance & support is optional at PKR 7,500/month.",
         },
       },
       {

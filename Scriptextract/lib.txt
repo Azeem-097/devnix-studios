@@ -26,117 +26,8 @@ export const blogPosts: BlogPost[] = [
     categoryColor: "#10b981",
     content: "",
   },
-  {
-    slug: "how-much-does-website-cost-pakistan",
-    title: "How Much Does a Website Cost in Pakistan? (2025 Guide)",
-    description:
-      "Complete breakdown of website costs in Pakistan. From freelancers to agencies, templates to custom code. Find out exactly what you should pay.",
-    date: "2025-01-15",
-    readTime: "8 min read",
-    category: "Pricing",
-    categoryColor: "#6366f1",
-    content: "",
-  },
-  {
-    slug: "custom-website-vs-wordpress-pakistan",
-    title: "Custom Website vs WordPress — Which is Better for Pakistan Businesses?",
-    description:
-      "Honest comparison between custom-coded websites and WordPress for Pakistani businesses. Speed, cost, SEO, and long-term value explained.",
-    date: "2025-01-20",
-    readTime: "7 min read",
-    category: "Web Design",
-    categoryColor: "#8b5cf6",
-    content: "",
-  },
-  {
-    slug: "top-web-designers-pakistan-2025",
-    title: "Top Web Designers in Pakistan 2025 — What to Look For",
-    description:
-      "How to find and choose the best web designer for your Pakistan business. Red flags to avoid, questions to ask, and what good work looks like.",
-    date: "2025-01-25",
-    readTime: "6 min read",
-    category: "Tips",
-    categoryColor: "#06b6d4",
-    content: "",
-  },
-  {
-    slug: "facebook-ads-without-website-pakistan",
-    title: "Running Facebook Ads Without a Website — Big Mistake!",
-    description:
-      "Why running Meta ads to WhatsApp instead of a website is costing you money. Learn how a website doubles your ad ROI in Pakistan.",
-    date: "2025-02-05",
-    readTime: "6 min read",
-    category: "Marketing",
-    categoryColor: "#f59e0b",
-    content: "",
-  },
-  {
-    slug: "best-hosting-pakistan-2025",
-    title: "Best Website Hosting Options in Pakistan 2025",
-    description:
-      "Comparing the top website hosting providers available in Pakistan. Local vs international, shared vs VPS, and what is best for your business.",
-    date: "2025-02-10",
-    readTime: "7 min read",
-    category: "Hosting",
-    categoryColor: "#0ea5e9",
-    content: "",
-  },
-  {
-    slug: "complete-seo-guide-pakistan-businesses",
-    title: "Complete SEO Guide for Pakistan Businesses (2025)",
-    description:
-      "Step-by-step SEO guide specifically for Pakistani businesses. Learn how to rank on Google Pakistan and get free traffic for years.",
-    date: "2025-02-15",
-    readTime: "10 min read",
-    category: "SEO",
-    categoryColor: "#a855f7",
-    content: "",
-  },
-  {
-    slug: "free-vs-paid-website-pakistan",
-    title: "Free Website vs Paid Website in Pakistan — The Truth Revealed",
-    description:
-      "Wix free, Blogger, or a paid custom website? We break down the real difference and why free websites are killing Pakistani businesses.",
-    date: "2025-02-20",
-    readTime: "6 min read",
-    category: "Tips",
-    categoryColor: "#06b6d4",
-    content: "",
-  },
-  {
-    slug: "start-online-store-pakistan-guide",
-    title: "Complete Guide to Starting an Online Store in Pakistan (2025)",
-    description:
-      "Everything you need to know to launch your online store in Pakistan. Products, payments, delivery, and marketing all explained.",
-    date: "2025-02-25",
-    readTime: "9 min read",
-    category: "Ecommerce",
-    categoryColor: "#ec4899",
-    content: "",
-  },
-  {
-    slug: "how-to-choose-web-designer-pakistan-city",
-    title: "How to Choose a Web Designer in Your City — Pakistan Guide",
-    description:
-      "Looking for a web designer in Karachi, Lahore, or Islamabad? Here is a practical guide to finding and hiring the right one in any Pakistani city.",
-    date: "2025-03-01",
-    readTime: "5 min read",
-    category: "Tips",
-    categoryColor: "#f97316",
-    content: "",
-  },
-  {
-    slug: "instagram-business-account-pakistan",
-    title: "How to Grow Your Instagram Business Account in Pakistan",
-    description:
-      "Practical tips to grow your Instagram business in Pakistan. Hashtags, content strategy, posting times, and how to convert followers to customers.",
-    date: "2025-03-10",
-    readTime: "7 min read",
-    category: "Social Media",
-    categoryColor: "#ec4899",
-    content: "",
-  },
 ];
+
 
 
 ====================================================================================================
@@ -149,7 +40,7 @@ export const siteData: SiteData = {
   siteName: "Devnix Studios",
   tagline: "We Build. We Manage. We Grow.",
   description:
-    "Professional web development, SEO, and social media management for businesses that want to dominate online.",
+    "Professional web development, SEO, and digital solutions for businesses that want to dominate online.",
 
   navLinks: [
     { label: "Home", href: "#home" },
@@ -167,25 +58,25 @@ export const siteData: SiteData = {
       icon: "Globe",
       title: "Custom Website Development",
       description:
-        "Fully custom-built websites tailored to your business. No templates, no drag-and-drop. Clean code, fast performance.",
+        "Fully custom-built websites with admin panel. No templates, no drag-and-drop. Clean code, fast performance.",
     },
     {
       icon: "Search",
       title: "Basic SEO Optimization",
       description:
-        "On-page SEO for every product and page. Meta tags, image alt texts, structured data, and keyword optimization.",
+        "On-page SEO for every page. Meta tags, image alt texts, structured data, and keyword optimization.",
     },
     {
       icon: "Share2",
-      title: "Social Media Management",
+      title: "Speed Optimization",
       description:
-        "Facebook & Instagram posts with professional captions and hashtags for every product added to your website.",
+        "Continuous performance monitoring and improvements to keep your site blazing fast at all times.",
     },
     {
       icon: "Package",
-      title: "Product Management",
+      title: "Admin Panel Access",
       description:
-        "Regular product uploads, category management, image optimization, and content updates to keep your store fresh.",
+        "Easy-to-use admin panel to manage your content, products, and website data without technical knowledge.",
     },
     {
       icon: "MapPin",
@@ -197,7 +88,7 @@ export const siteData: SiteData = {
       icon: "Settings",
       title: "Website Maintenance",
       description:
-        "Ongoing support, bug fixes, theme changes, page additions, and performance monitoring to keep everything running smooth.",
+        "Ongoing support, bug fixes, theme changes, page additions, and performance monitoring included.",
     },
   ],
 
@@ -214,20 +105,20 @@ export const siteData: SiteData = {
     {
       title: "NextGenZ",
       description:
-        "A sleek modern platform showcasing the future of digital experiences. Built with Next.js and deployed on Vercel for blazing speed.",
-      url: "https://nextgenzai.vercel.app",
-      tags: ["Modern", "Next.js", "Vercel"],
+        "A sleek modern platform showcasing the future of digital experiences. Built with Next.js for blazing speed.",
+      url: "https://nextgenzai.store",
+      tags: ["Modern", "Next.js", "E-commerce"],
       gradient: "from-[#8b5cf6] to-[#06b6d4]",
       screenshot: "/projects/nextgenz",
     },
     {
-      title: "Ali Poultry",
+      title: "Muhammad Umair",
       description:
-        "A professional business website for a poultry enterprise. Product catalog, business info, and clean responsive design.",
-      url: "https://ali-poultry-enterprises-demo.vercel.app",
-      tags: ["Business", "Catalog", "Responsive"],
+        "A professional personal portfolio website showcasing skills, experience, and achievements with modern elegant design.",
+      url: "https://muhammadumairkhalid.info",
+      tags: ["Portfolio", "Personal Brand", "Responsive"],
       gradient: "from-[#06b6d4] to-[#6366f1]",
-      screenshot: "/projects/alipoultry",
+      screenshot: "/projects/muhammadumair",
     },
   ],
 
@@ -238,7 +129,7 @@ export const siteData: SiteData = {
       location: "Lahore, Pakistan",
       rating: 5,
       review:
-        "Devnix Studios built our poultry business website in just 7 days. The design is clean, loads fast, and we are already getting WhatsApp inquiries from new customers we never reached before. Highly recommended!",
+        "Devnix Studios built our business website in just 7 days. The design is clean, loads fast, and we are already getting WhatsApp inquiries from new customers we never reached before. Highly recommended!",
       service: "Business Website",
       initials: "MA",
       color: "#6366f1",
@@ -249,8 +140,8 @@ export const siteData: SiteData = {
       location: "Karachi, Pakistan",
       rating: 5,
       review:
-        "Very professional team. They understood exactly what I needed for my clothing business. The social media posts they make for every product are amazing. My Instagram followers have grown since we started.",
-      service: "Website + Social Media",
+        "Very professional team. They understood exactly what I needed for my clothing business. The admin panel makes it easy to manage products myself. Excellent service!",
+      service: "Ecommerce Website",
       initials: "SK",
       color: "#8b5cf6",
     },
@@ -260,7 +151,7 @@ export const siteData: SiteData = {
       location: "Islamabad, Pakistan",
       rating: 5,
       review:
-        "I was skeptical about getting a website at PKR 5,000 but the quality exceeded my expectations. My property listings are now on Google and I get calls from people who found me online. Worth every rupee.",
+        "The quality of work exceeded my expectations. My property listings are now on Google and I get calls from people who found me online. Worth every rupee.",
       service: "Real Estate Website",
       initials: "AR",
       color: "#06b6d4",
@@ -282,8 +173,8 @@ export const siteData: SiteData = {
       location: "Faisalabad, Pakistan",
       rating: 5,
       review:
-        "Excellent work! Our fabric catalog is now online and we are getting wholesale inquiries from Karachi and Lahore. The team is responsive and updates our products quickly whenever we send new designs.",
-      service: "Textile Website",
+        "Excellent work! Our fabric catalog is now online and we are getting wholesale inquiries from Karachi and Lahore. The team is responsive and updates our products quickly.",
+      service: "Business Website",
       initials: "UT",
       color: "#f59e0b",
     },
@@ -293,7 +184,7 @@ export const siteData: SiteData = {
       location: "Rawalpindi, Pakistan",
       rating: 5,
       review:
-        "My salon now looks so professional online. The before and after gallery was exactly what I needed to show my work. New clients are finding me on Google every week. Amazing service at a great price.",
+        "My salon now looks so professional online. The before and after gallery was exactly what I needed to show my work. New clients are finding me on Google every week.",
       service: "Salon Website",
       initials: "ZM",
       color: "#ec4899",
@@ -302,90 +193,80 @@ export const siteData: SiteData = {
 
   serviceOptions: [
     { value: "custom-website", label: "Custom Website Development" },
-    { value: "seo", label: "SEO Optimization" },
-    { value: "social-media", label: "Social Media Management" },
-    { value: "full-package", label: "Complete Package (Website + Support)" },
-    { value: "maintenance", label: "Website Maintenance Only" },
+    { value: "ecommerce", label: "Ecommerce Website with Admin Panel" },
+    { value: "portfolio", label: "Portfolio Website" },
+    { value: "business", label: "Business Website" },
+    { value: "maintenance", label: "Website Maintenance" },
     { value: "other", label: "Other / Custom Request" },
   ],
 
   packageFeatures: [
     { text: "Fully Custom-Built Website", included: true },
-    {
-      text: "1 Year Free Hosting",
-      included: true,
-      note: "Minimal charges after first year",
-    },
-    {
-      text: "Domain Management",
-      included: true,
-      note: "Domain bought by client. 500 PKR/year if we manage it",
-    },
-    { text: "3 Months Support & Management", included: true },
+    { text: "User Panel + Admin Panel", included: true },
     { text: "Google Business Listing", included: true },
     {
       text: "Meta Pixel Installation",
       included: true,
-      note: "Free first time. 500 PKR for changes",
     },
     { text: "Mobile Responsive Design", included: true },
     { text: "Fast Loading Speed", included: true },
+    { text: "Free Domain & Hosting Setup", included: true },
   ],
 
   supportFeatures: [
     {
-      text: "2 Products Uploaded Per Week",
-      detail: "Extra products: 150 PKR each",
+      text: "Basic SEO Optimization",
+      detail: "Meta tags, keywords, image alt texts for all pages",
     },
     {
-      text: "Basic SEO for Each Product",
-      detail: "Meta tags, keywords, image alt texts",
+      text: "Speed Optimization",
+      detail: "Continuous performance monitoring and improvements",
     },
     {
-      text: "1 New Category Every 2 Weeks",
-      detail: "Extra categories: 200 PKR each",
+      text: "Hosting Included",
+      detail: "Premium hosting with 99.9% uptime guarantee",
     },
     {
-      text: "2 Product Revisions Per Month",
-      detail: "Extra revisions: 50 PKR each",
+      text: "Domain Management",
+      detail: "Full domain handling and renewal management",
     },
     {
-      text: "Image Optimization",
-      detail: "Compressed & optimized for fast loading",
+      text: "Extra Features Integration",
+      detail: "Add new functionality as your business grows",
     },
     {
-      text: "Facebook & Instagram Posts",
-      detail: "With hashtags and captions for each product",
+      text: "Theme Customization",
+      detail: "Design tweaks and visual updates anytime",
+    },
+    {
+      text: "New Pages Addition",
+      detail: "Add new pages to your website as needed",
+    },
+    {
+      text: "Regular Backups",
+      detail: "Weekly automated backups to prevent data loss",
     },
   ],
 
   packageAddons: [
-    { item: "Extra Product Upload", price: "150 PKR" },
-    { item: "Extra Category", price: "200 PKR" },
-    { item: "Extra Product Revision", price: "50 PKR" },
-    { item: "New Page Addition", price: "300 PKR" },
-    { item: "Theme Customization", price: "500 - 1000+ PKR" },
+    { item: "Extra Page Addition", price: "1,000 PKR" },
+    { item: "Theme Customization", price: "2,000 - 5,000 PKR" },
     { item: "Meta Pixel Change", price: "500 PKR" },
-    { item: "Domain Management", price: "500 PKR/year" },
+    { item: "Custom Feature Integration", price: "From 3,000 PKR" },
+    { item: "Logo Design", price: "2,500 PKR" },
+    { item: "Extra Backup Restoration", price: "1,500 PKR" },
   ],
 
   pricingBreakdown: [
     {
       item: "Complete Website Build",
-      price: "5,000 PKR",
+      price: "20,000 PKR",
       note: "One-time payment",
     },
     {
-      item: "Month 1 - Support & Management",
-      price: "2,500 PKR",
-      note: "Discounted first month",
-    },
-    { item: "Month 2 - Support & Management", price: "5,000 PKR" },
-    { item: "Month 3 - Support & Management", price: "5,000 PKR" },
-    {
-      item: "Total (3-Month Contract)",
-      price: "17,500 PKR",
-      note: "New contract with updated prices after 3 months",
+      item: "Monthly Support & Management",
+      price: "7,500 PKR",
+      note: "First month free, then monthly",
     },
   ],
 
@@ -394,28 +275,28 @@ export const siteData: SiteData = {
       step: 1,
       title: "Discovery Call",
       description:
-        "We discuss your business, goals, products, and what you need from your website.",
+        "We discuss your business, goals, and what you need from your website.",
       icon: "Phone",
     },
     {
       step: 2,
       title: "Design & Development",
       description:
-        "We build your custom website from scratch. You get to review and request changes before launch.",
+        "We build your custom website from scratch with admin panel. You review and request changes before launch.",
       icon: "Settings",
     },
     {
       step: 3,
       title: "Launch & Setup",
       description:
-        "Website goes live. Google Business listing, Meta Pixel, and all integrations are set up.",
+        "Website goes live. Google Business listing, Meta Pixel, hosting, and all integrations are set up.",
       icon: "Globe",
     },
     {
       step: 4,
       title: "Ongoing Management",
       description:
-        "We handle products, SEO, social media, and maintenance so you can focus on your business.",
+        "We handle SEO, maintenance, backups, and updates so you can focus on your business.",
       icon: "Package",
     },
   ],
@@ -429,9 +310,9 @@ export const siteData: SiteData = {
     },
     {
       icon: "Star",
-      title: "All-In-One Package",
+      title: "Admin Panel Included",
       description:
-        "Website + SEO + Social Media + Management. You do not need to hire 4 different people.",
+        "Manage your website yourself with our easy-to-use admin panel. No technical knowledge required.",
     },
     {
       icon: "MessageCircle",
@@ -441,9 +322,9 @@ export const siteData: SiteData = {
     },
     {
       icon: "ArrowRight",
-      title: "Affordable Pricing",
+      title: "Premium Quality",
       description:
-        "Enterprise-quality work at prices that make sense for small and medium businesses in Pakistan.",
+        "Enterprise-grade work with hosting, domain, SEO, and ongoing support all included in one package.",
     },
   ],
 
@@ -451,12 +332,12 @@ export const siteData: SiteData = {
     {
       question: "What kind of websites do you build?",
       answer:
-        "We build custom websites for businesses - including product catalogs, service websites, portfolios, and e-commerce stores. Every site is coded from scratch for maximum performance.",
+        "We build custom websites with admin panels for businesses - including ecommerce stores, portfolios, business sites, and service websites. Every site is coded from scratch for maximum performance.",
     },
     {
-      question: "Do I need to buy my own domain?",
+      question: "Is domain and hosting included?",
       answer:
-        "Yes, you purchase your own domain name. If you want us to manage it for you, there is a 500 PKR annual management fee.",
+        "Yes! Domain and hosting are fully managed by us as part of the package. You do not need to worry about technical setup or renewals.",
     },
     {
       question: "What happens after the 3-month contract?",
@@ -464,14 +345,14 @@ export const siteData: SiteData = {
         "After 3 months, we sign a new contract with updated pricing based on your needs. You are not locked in - you can continue, modify, or end the service.",
     },
     {
-      question: "Can I add more products than the included amount?",
+      question: "Do I get an admin panel to manage my website?",
       answer:
-        "Absolutely! The package includes 2 products per week. Additional products cost just 150 PKR each, including SEO and social media posting.",
+        "Yes! Every website comes with both a user panel (for your customers) and an admin panel (for you) so you can manage content, products, and orders yourself.",
     },
     {
-      question: "Do you provide the hosting?",
+      question: "What is included in the monthly support?",
       answer:
-        "Yes! First year of hosting is completely free. After that, minimal hosting charges apply to keep your site running.",
+        "Monthly support includes hosting, domain management, SEO, speed optimization, theme customization, new page additions, regular backups, and 99.9% uptime guarantee.",
     },
     {
       question: "What is Meta Pixel and do I need it?",
@@ -481,12 +362,12 @@ export const siteData: SiteData = {
     {
       question: "How long does it take to build the website?",
       answer:
-        "Typically 5-10 business days depending on the complexity and how quickly you provide content and feedback.",
+        "Typically 7-14 business days depending on complexity and how quickly you provide content and feedback.",
     },
     {
       question: "Can I request custom design changes later?",
       answer:
-        "Yes! Theme customizations cost 500-1000+ PKR depending on complexity. New page additions cost 300 PKR per page.",
+        "Yes! Theme customizations are included in monthly support. Major redesigns may cost extra (2,000-5,000 PKR).",
     },
   ],
 
@@ -535,20 +416,21 @@ export const siteData: SiteData = {
       title: "Website Pages",
       items: [
         "Home Page",
-        "Product Catalog Page",
-        "Category Catalog Page",
-        "Individual Product Pages",
-        "About / Contact Page",
+        "About Page",
+        "Services Page",
+        "Products / Portfolio Page",
+        "Contact Page",
+        "Admin Dashboard",
       ],
     },
     {
       icon: "Package",
-      title: "Initial Content Setup",
+      title: "Technical Setup",
       items: [
-        "6 Products Pre-Loaded",
-        "2 Categories Created",
-        "Product Images Optimized",
-        "Basic SEO on Each Product",
+        "Custom Admin Panel",
+        "Hosting Configuration",
+        "Domain Setup",
+        "Basic SEO Implementation",
         "Mobile Responsive Layout",
       ],
     },
@@ -562,6 +444,7 @@ export const siteData: SiteData = {
     location: "Pakistan",
   },
 };
+
 
 
 ====================================================================================================
@@ -580,6 +463,7 @@ export interface SEOPackage {
   badgeColor: string;
   gradient: string;
   popular?: boolean;
+  unavailable?: boolean;
   forWho: string;
   whatsIncluded: string[];
   deliverables: string[];
@@ -594,9 +478,9 @@ export const seoPackages: SEOPackage[] = [
     emoji: "🔍",
     shortDesc:
       "One-time SEO setup for your new website. Get the foundation right so Google can find and rank your business.",
-    price: "PKR 3,000",
+    price: "PKR 5,000",
     pricePeriod: "one-time",
-    priceNumber: 3000,
+    priceNumber: 5000,
     badgeColor: "#8b5cf6",
     gradient: "from-[#8b5cf6] to-[#a78bfa]",
     forWho:
@@ -635,9 +519,9 @@ export const seoPackages: SEOPackage[] = [
     emoji: "📈",
     shortDesc:
       "Ongoing SEO management to improve rankings month after month. Reports, optimization, and continuous improvement.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     pricePeriod: "/ month",
-    priceNumber: 5000,
+    priceNumber: 20000,
     badge: "Most Popular",
     badgeColor: "#6366f1",
     gradient: "from-[#6366f1] to-[#8b5cf6]",
@@ -678,9 +562,9 @@ export const seoPackages: SEOPackage[] = [
     emoji: "📍",
     shortDesc:
       "Rank #1 in your city. Get found by customers searching for businesses in Karachi, Lahore, Islamabad, or anywhere in Pakistan.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     pricePeriod: "one-time",
-    priceNumber: 5000,
+    priceNumber: 20000,
     badgeColor: "#06b6d4",
     gradient: "from-[#06b6d4] to-[#22d3ee]",
     forWho:
@@ -705,13 +589,13 @@ export const seoPackages: SEOPackage[] = [
       "Reviews growth plan",
     ],
     features: [
-      "Target 1 city (or multiple +1500/city)",
+      "Target 1 city (or multiple +3000/city)",
       "Google Maps top 3 strategy",
       "Local pack optimization",
       "Mobile-first approach",
       "Urdu + English keywords",
     ],
-    timeline: "Completed within 7-10 days",
+    timeline: "Completed within 10-15 days",
   },
   {
     slug: "ecommerce-seo",
@@ -719,9 +603,9 @@ export const seoPackages: SEOPackage[] = [
     emoji: "🛍️",
     shortDesc:
       "Specialized SEO for online stores. Get every product to rank on Google and bring in organic sales.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     pricePeriod: "one-time",
-    priceNumber: 5000,
+    priceNumber: 20000,
     badgeColor: "#ec4899",
     gradient: "from-[#ec4899] to-[#f472b6]",
     forWho:
@@ -747,7 +631,7 @@ export const seoPackages: SEOPackage[] = [
     ],
     features: [
       "Up to 30 products covered",
-      "Extra products: PKR 100 each",
+      "Extra products: PKR 500 each",
       "Rich snippets in search",
       "Product star ratings ready",
       "Conversion-focused SEO",
@@ -757,6 +641,7 @@ export const seoPackages: SEOPackage[] = [
   {
     slug: "seo-audit-strategy",
     title: "SEO Audit & Strategy",
+    unavailable: true,
     emoji: "🏆",
     shortDesc:
       "Deep-dive analysis of your current website. Get a complete audit + 90-day action plan to dominate Google.",
@@ -798,12 +683,13 @@ export const seoPackages: SEOPackage[] = [
   {
     slug: "google-business-setup",
     title: "Google Business Setup",
+    unavailable: true,
     emoji: "🚀",
     shortDesc:
       "Get your business listed on Google Maps and search. Essential for any local business in Pakistan.",
-    price: "PKR 5,000",
+    price: "PKR 20,000",
     pricePeriod: "one-time",
-    priceNumber: 5000,
+    priceNumber: 20000,
     badgeColor: "#10b981",
     gradient: "from-[#10b981] to-[#34d399]",
     forWho:
@@ -829,7 +715,7 @@ export const seoPackages: SEOPackage[] = [
     ],
     features: [
       "Single location setup",
-      "Multiple locations: +2000/location",
+      "Multiple locations: +5000/location",
       "Reviews response training",
       "Booking integration option",
       "Direct messaging enabled",
@@ -837,6 +723,8 @@ export const seoPackages: SEOPackage[] = [
     timeline: "Live within 5-7 days (after verification)",
   },
 ];
+
+
 
 
 ====================================================================================================
@@ -850,6 +738,8 @@ export interface WebPackage {
   shortDesc: string;
   price: string;
   priceNumber: number;
+  monthlyPrice: string;
+  monthlyPriceNumber: number;
   badge?: string;
   badgeColor: string;
   gradient: string;
@@ -858,8 +748,43 @@ export interface WebPackage {
   whatsIncluded: string[];
   pages: string[];
   features: string[];
-  support: string;
+  monthlySupport: { text: string; detail: string }[];
 }
+
+export const monthlySupportFeatures = [
+  {
+    text: "Basic SEO Optimization",
+    detail: "Meta tags, keywords, image alt texts for all pages",
+  },
+  {
+    text: "Speed Optimization",
+    detail: "Continuous performance monitoring and improvements",
+  },
+  {
+    text: "Hosting Included",
+    detail: "Premium hosting with 99.9% uptime guarantee",
+  },
+  {
+    text: "Domain Management",
+    detail: "Full domain handling and renewal management",
+  },
+  {
+    text: "Extra Features Integration",
+    detail: "Add new functionality as your business grows",
+  },
+  {
+    text: "Theme Customization",
+    detail: "Design tweaks and visual updates anytime",
+  },
+  {
+    text: "New Pages Addition",
+    detail: "Add new pages to your website as needed",
+  },
+  {
+    text: "Regular Backups",
+    detail: "Weekly automated backups to prevent data loss",
+  },
+];
 
 export const webPackages: WebPackage[] = [
   {
@@ -868,8 +793,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🛒",
     shortDesc:
       "Complete online store with admin panel to manage products, orders, and customers yourself.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badge: "Most Popular",
     badgeColor: "#6366f1",
     gradient: "from-[#6366f1] to-[#8b5cf6]",
@@ -881,12 +808,10 @@ export const webPackages: WebPackage[] = [
       "Admin panel (you manage everything)",
       "Product catalog with categories",
       "WhatsApp ordering integration",
-      "1 year free hosting",
       "Google Business listing",
       "Basic SEO on all pages",
       "Mobile responsive design",
       "Meta Pixel installation",
-      "3 months support & management",
     ],
     pages: [
       "Home Page",
@@ -905,7 +830,7 @@ export const webPackages: WebPackage[] = [
       "Update prices instantly",
       "WhatsApp order notifications",
     ],
-    support: "3 months full support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "portfolio",
@@ -913,8 +838,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🎨",
     shortDesc:
       "Professional portfolio to showcase your work, skills, and services. Perfect for freelancers and creatives.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 15,000",
+    priceNumber: 15000,
+    monthlyPrice: "PKR 5,000",
+    monthlyPriceNumber: 5000,
     badgeColor: "#8b5cf6",
     gradient: "from-[#8b5cf6] to-[#a78bfa]",
     forWho:
@@ -925,11 +852,9 @@ export const webPackages: WebPackage[] = [
       "About me section",
       "Services list",
       "Contact form",
-      "1 year free hosting",
       "Basic SEO",
       "Mobile responsive",
       "Social media links",
-      "3 months support",
     ],
     pages: [
       "Home / Hero Page",
@@ -946,7 +871,7 @@ export const webPackages: WebPackage[] = [
       "Direct WhatsApp contact",
       "Social proof section",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "landing-page",
@@ -954,8 +879,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🎯",
     shortDesc:
       "Single high-converting page designed to capture leads or sell one specific product. Perfect for Meta ads.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 10,000",
+    priceNumber: 10000,
+    monthlyPrice: "PKR 5,000",
+    monthlyPriceNumber: 5000,
     badgeColor: "#f97316",
     gradient: "from-[#f97316] to-[#fb923c]",
     forWho:
@@ -968,9 +895,7 @@ export const webPackages: WebPackage[] = [
       "Meta Pixel integration",
       "Fast loading (<2s)",
       "Mobile optimized",
-      "1 year free hosting",
       "Basic SEO",
-      "3 months support",
     ],
     pages: ["Single Landing Page (Long-form)"],
     features: [
@@ -981,7 +906,7 @@ export const webPackages: WebPackage[] = [
       "Lead capture form",
       "Meta Pixel for ad tracking",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "ecommerce",
@@ -989,8 +914,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🛍️",
     shortDesc:
       "Full-featured online store for businesses with 20+ products. Includes shopping cart and order management.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#06b6d4",
     gradient: "from-[#06b6d4] to-[#22d3ee]",
     forWho:
@@ -1002,10 +929,8 @@ export const webPackages: WebPackage[] = [
       "Multiple payment options info",
       "Product categories",
       "Search & filter",
-      "1 year free hosting",
       "Google Business listing",
       "SEO for all products",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -1025,7 +950,7 @@ export const webPackages: WebPackage[] = [
       "Featured products section",
       "Customer reviews on products",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "restaurant",
@@ -1033,8 +958,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🍽️",
     shortDesc:
       "Beautiful restaurant website with menu, food gallery, WhatsApp ordering, and Google Maps integration.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#ef4444",
     gradient: "from-[#ef4444] to-[#f87171]",
     forWho:
@@ -1046,10 +973,8 @@ export const webPackages: WebPackage[] = [
       "WhatsApp ordering",
       "Google Maps location",
       "Opening hours display",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page (Hero with food)",
@@ -1067,7 +992,7 @@ export const webPackages: WebPackage[] = [
       "Special offers section",
       "Reviews/testimonials",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "hotel",
@@ -1075,8 +1000,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🏨",
     shortDesc:
       "Premium hotel website with rooms, amenities, booking inquiries, and beautiful gallery.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#0ea5e9",
     gradient: "from-[#0ea5e9] to-[#38bdf8]",
     forWho:
@@ -1089,9 +1016,7 @@ export const webPackages: WebPackage[] = [
       "Booking inquiry form",
       "WhatsApp booking",
       "Google Maps",
-      "1 year free hosting",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -1110,7 +1035,7 @@ export const webPackages: WebPackage[] = [
       "Location and nearby attractions",
       "WhatsApp booking inquiry",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "hospital",
@@ -1118,8 +1043,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🏥",
     shortDesc:
       "Professional medical website with doctors profiles, departments, services, and appointment booking.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#10b981",
     gradient: "from-[#10b981] to-[#34d399]",
     forWho:
@@ -1131,10 +1058,8 @@ export const webPackages: WebPackage[] = [
       "WhatsApp appointment booking",
       "Google Maps location",
       "Opening hours",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -1152,7 +1077,7 @@ export const webPackages: WebPackage[] = [
       "Emergency contact info",
       "Patient testimonials",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "bakery",
@@ -1160,8 +1085,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🧁",
     shortDesc:
       "Sweet bakery website with product showcase, custom order options, and WhatsApp ordering.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#ec4899",
     gradient: "from-[#ec4899] to-[#f472b6]",
     forWho:
@@ -1173,10 +1100,8 @@ export const webPackages: WebPackage[] = [
       "Photo gallery",
       "WhatsApp ordering",
       "Google Maps",
-      "1 year free hosting",
       "Local SEO",
       "Google Business listing",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -1194,7 +1119,7 @@ export const webPackages: WebPackage[] = [
       "Delivery area info",
       "Bulk order discounts",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "school",
@@ -1202,8 +1127,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🏫",
     shortDesc:
       "Educational website with admissions info, faculty profiles, programs, and notices section.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 5,000",
+    monthlyPriceNumber: 5000,
     badgeColor: "#f59e0b",
     gradient: "from-[#f59e0b] to-[#fbbf24]",
     forWho:
@@ -1215,10 +1142,8 @@ export const webPackages: WebPackage[] = [
       "Programs/courses list",
       "Notice board",
       "Photo gallery",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -1238,7 +1163,7 @@ export const webPackages: WebPackage[] = [
       "Photo gallery of events",
       "Fee structure section",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "gym",
@@ -1246,8 +1171,10 @@ export const webPackages: WebPackage[] = [
     emoji: "💪",
     shortDesc:
       "Energetic fitness website with class schedules, trainers, membership plans, and contact.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#dc2626",
     gradient: "from-[#dc2626] to-[#ef4444]",
     forWho:
@@ -1259,10 +1186,8 @@ export const webPackages: WebPackage[] = [
       "Trainer profiles",
       "Photo gallery",
       "Free trial signup",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -1282,7 +1207,7 @@ export const webPackages: WebPackage[] = [
       "Gym facility gallery",
       "Member testimonials",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "salon",
@@ -1290,8 +1215,10 @@ export const webPackages: WebPackage[] = [
     emoji: "💅",
     shortDesc:
       "Elegant salon website with services menu, price list, before/after gallery, and WhatsApp booking.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 5,000",
+    monthlyPriceNumber: 5000,
     badgeColor: "#a855f7",
     gradient: "from-[#a855f7] to-[#c084fc]",
     forWho:
@@ -1303,10 +1230,8 @@ export const webPackages: WebPackage[] = [
       "WhatsApp booking",
       "Google Maps",
       "Opening hours",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -1324,7 +1249,7 @@ export const webPackages: WebPackage[] = [
       "Stylist profiles",
       "Customer reviews",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "real-estate",
@@ -1332,8 +1257,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🏠",
     shortDesc:
       "Property website with listings, photo galleries, location maps, and WhatsApp inquiries.",
-    price: "PKR 5,000",
-    priceNumber: 5000,
+    price: "PKR 20,000",
+    priceNumber: 20000,
+    monthlyPrice: "PKR 6,000",
+    monthlyPriceNumber: 6000,
     badgeColor: "#14b8a6",
     gradient: "from-[#14b8a6] to-[#2dd4bf]",
     forWho:
@@ -1345,10 +1272,8 @@ export const webPackages: WebPackage[] = [
       "Google Maps per property",
       "WhatsApp inquiries",
       "Category filters",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -1366,7 +1291,7 @@ export const webPackages: WebPackage[] = [
       "WhatsApp inquiry button",
       "Mark as Sold/Available",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
 ];
 

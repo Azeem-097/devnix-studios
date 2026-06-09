@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlogSchema from "@/components/BlogSchema";
 import BlogPostContent from "@/components/BlogPostContent";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { blogPosts } from "@/lib/blogData";
 
 interface Props {
@@ -62,6 +63,7 @@ export default async function BlogPostPage({ params }: Props) {
       <Navbar />
       <BlogPostContent post={post} />
       <Footer />
+      <FloatingWhatsApp />
     </main>
   );
 }

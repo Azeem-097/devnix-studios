@@ -52,32 +52,12 @@ export default function HeroSection() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16"
     >
-      {/* Background Layers */}
+      {/* Background Layers - STATIC for SSR */}
       <div className="absolute inset-0 bg-[#0a0a0f]" />
 
-      {/* Background blobs - only animate after mount */}
-      {mounted && (
-        <>
-          <motion.div
-            animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 left-0 sm:left-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]"
-          />
-          <motion.div
-            animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-20 right-0 sm:right-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]"
-          />
-        </>
-      )}
-
-      {/* Static background blobs as fallback for SSR */}
-      {!mounted && (
-        <>
-          <div className="absolute top-20 left-0 sm:left-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]" />
-          <div className="absolute bottom-20 right-0 sm:right-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]" />
-        </>
-      )}
+      {/* Static background blobs - always render same on server and client */}
+      <div className="absolute top-20 left-0 sm:left-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]" />
+      <div className="absolute bottom-20 right-0 sm:right-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]" />
 
       <div
         className="absolute inset-0 opacity-[0.025]"
@@ -96,9 +76,9 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Particles - only render after mount */}
-      {mounted && (
-        <div className="absolute inset-0 pointer-events-none">
+      {/* Particles - ONLY render client-side after mount */}
+      {mounted && particles.length > 0 && (
+        <div className="absolute inset-0 pointer-events-none" suppressHydrationWarning>
           {particles.map((particle) => (
             <motion.div
               key={particle.id}
@@ -120,7 +100,6 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* LEFT - Text */}
           <div className="lg:col-span-7 text-center lg:text-left">
-            {/* Badge - NO animation for instant LCP */}
             <div className="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#6366f1]/30 bg-[#6366f1]/10 backdrop-blur-sm mb-5 sm:mb-6 max-w-full">
               <Sparkles size={10} className="text-[#06b6d4] shrink-0" />
               <span className="text-[10px] sm:text-xs font-medium text-[#06b6d4] tracking-wide uppercase">
@@ -132,7 +111,6 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* HEADLINE - NO animation, render immediately for LCP */}
             <h1 className="text-[2rem] xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-4 sm:mb-6">
               We{" "}
               <span className="relative inline-block">
@@ -157,14 +135,12 @@ export default function HeroSection() {
               .
             </h1>
 
-            {/* Subtext - NO animation for fast render */}
             <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
               Custom websites, SEO optimization, and social media management —
               all in one package. Starting at just{" "}
               <span className="text-white font-semibold">PKR 20,000</span>.
             </p>
 
-            {/* CTAs - NO animation */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-start justify-center lg:justify-start gap-3 mb-6 sm:mb-8">
               <a
                 href={siteData.contactInfo.whatsapp}
@@ -189,7 +165,6 @@ export default function HeroSection() {
               </button>
             </div>
 
-            {/* Trust Indicators - NO animation */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 lg:gap-6 pt-5 sm:pt-6 border-t border-white/6">
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <div className="flex -space-x-0.5">
@@ -224,128 +199,128 @@ export default function HeroSection() {
 
           {/* RIGHT - Code Card (Desktop Only) - Only render after mount */}
           {mounted && (
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="lg:col-span-5 relative hidden lg:block"
-            >
+            <div className="lg:col-span-5 relative hidden lg:block" suppressHydrationWarning>
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -left-8 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#6366f1]/20"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center">
-                    <TrendingUp size={18} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-500">Avg. Load Time</div>
-                    <div className="text-lg font-bold text-white">{"<"}1.5s</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute -bottom-4 -right-4 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#06b6d4]/20"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#06b6d4] to-[#22d3ee] flex items-center justify-center">
-                    <Zap size={18} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-500">SEO Score</div>
-                    <div className="text-lg font-bold text-white">95/100</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/50 via-[#8b5cf6]/30 to-[#06b6d4]/50">
-                <div className="bg-[#0c0c14] rounded-2xl overflow-hidden">
-                  <div className="flex items-center gap-2 px-4 py-3 border-b border-white/6 bg-[#0a0a0f]">
-                    <div className="flex gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-4 -left-8 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#6366f1]/20"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center">
+                      <TrendingUp size={18} className="text-white" />
                     </div>
-                    <div className="flex-1 ml-3 px-3 py-1.5 rounded-md bg-white/4 border border-white/6">
-                      <div className="flex items-center gap-1.5">
-                        <Globe size={10} className="text-gray-600" />
-                        <span className="text-[10px] text-gray-400">
-                          devnixstudios.tech
+                    <div>
+                      <div className="text-xs text-gray-500">Avg. Load Time</div>
+                      <div className="text-lg font-bold text-white">{"<"}1.5s</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                  className="absolute -bottom-4 -right-4 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#06b6d4]/20"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#06b6d4] to-[#22d3ee] flex items-center justify-center">
+                      <Zap size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-gray-500">SEO Score</div>
+                      <div className="text-lg font-bold text-white">95/100</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/50 via-[#8b5cf6]/30 to-[#06b6d4]/50">
+                  <div className="bg-[#0c0c14] rounded-2xl overflow-hidden">
+                    <div className="flex items-center gap-2 px-4 py-3 border-b border-white/6 bg-[#0a0a0f]">
+                      <div className="flex gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                      </div>
+                      <div className="flex-1 ml-3 px-3 py-1.5 rounded-md bg-white/4 border border-white/6">
+                        <div className="flex items-center gap-1.5">
+                          <Globe size={10} className="text-gray-600" />
+                          <span className="text-[10px] text-gray-400">
+                            devnixstudios.tech
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-5 font-mono text-xs space-y-2 min-h-80">
+                      <div className="text-gray-600">
+                        {"// Your business, online in days"}
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="text-[#8b5cf6]">const</span>
+                        <span className="text-[#06b6d4]">yourWebsite</span>
+                        <span className="text-gray-500">=</span>
+                        <span className="text-gray-300">{"{"}</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">design:</span>
+                        <span className="text-green-400">{"'Custom & Modern'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">performance:</span>
+                        <span className="text-green-400">{"'Lightning Fast'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">seo:</span>
+                        <span className="text-green-400">{"'Optimized'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">socialMedia:</span>
+                        <span className="text-green-400">{"'Managed'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">price:</span>
+                        <span className="text-yellow-400">{"'PKR 20,000'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="text-gray-300">{"};"}</div>
+                      <div className="pt-3 flex items-center gap-2">
+                        <span className="text-[#8b5cf6]">{"=>"}</span>
+                        <span className="text-gray-400">deploy(</span>
+                        <span className="text-[#06b6d4]">yourWebsite</span>
+                        <span className="text-gray-400">);</span>
+                        <motion.span
+                          animate={{ opacity: [1, 0, 1] }}
+                          transition={{ duration: 1, repeat: Infinity }}
+                          className="inline-block w-2 h-4 bg-[#06b6d4]"
+                        />
+                      </div>
+                      <div className="mt-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center gap-2">
+                        <CheckCircle size={14} className="text-green-400" />
+                        <span className="text-xs text-green-400">
+                          Website deployed successfully! 🚀
                         </span>
                       </div>
                     </div>
                   </div>
-
-                  <div className="p-5 font-mono text-xs space-y-2 min-h-80">
-                    <div className="text-gray-600">
-                      {"// Your business, online in days"}
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="text-[#8b5cf6]">const</span>
-                      <span className="text-[#06b6d4]">yourWebsite</span>
-                      <span className="text-gray-500">=</span>
-                      <span className="text-gray-300">{"{"}</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">design:</span>
-                      <span className="text-green-400">{"'Custom & Modern'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">performance:</span>
-                      <span className="text-green-400">{"'Lightning Fast'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">seo:</span>
-                      <span className="text-green-400">{"'Optimized'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">socialMedia:</span>
-                      <span className="text-green-400">{"'Managed'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">price:</span>
-                      <span className="text-yellow-400">{"'PKR 20,000'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="text-gray-300">{"};"}</div>
-                    <div className="pt-3 flex items-center gap-2">
-                      <span className="text-[#8b5cf6]">{"=>"}</span>
-                      <span className="text-gray-400">deploy(</span>
-                      <span className="text-[#06b6d4]">yourWebsite</span>
-                      <span className="text-gray-400">);</span>
-                      <motion.span
-                        animate={{ opacity: [1, 0, 1] }}
-                        transition={{ duration: 1, repeat: Infinity }}
-                        className="inline-block w-2 h-4 bg-[#06b6d4]"
-                      />
-                    </div>
-                    <div className="mt-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center gap-2">
-                      <CheckCircle size={14} className="text-green-400" />
-                      <span className="text-xs text-green-400">
-                        Website deployed successfully! 🚀
-                      </span>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           )}
         </div>
 
-        {/* Bottom Pills + Price - Static for SSR, no animation */}
         <div className="mt-10 sm:mt-12 lg:mt-16 flex flex-col items-center gap-5 sm:gap-6">
           <div className="flex flex-wrap items-center justify-center gap-2">
             <FeaturePill

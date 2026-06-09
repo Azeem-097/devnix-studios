@@ -143,7 +143,7 @@ export default function IndustryPageContent({
               <div className="flex items-center gap-2">
                 <Zap size={14} className="text-[#06b6d4]" />
                 <p className="text-sm text-gray-400">
-                  Complete {industryName} website with 3 months support
+                  Complete {industryName} website with optional monthly support
                 </p>
               </div>
               <div className="hidden sm:block w-px h-10 bg-white/10" />

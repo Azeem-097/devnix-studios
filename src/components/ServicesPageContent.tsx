@@ -75,7 +75,7 @@ const services = [
 const stats = [
   { value: "20,000", label: "PKR Starting Price" },
   { value: "6", label: "Core Services" },
-  { value: "3", label: "Months Support" },
+  { value: "0", label: "Lock-in Period" },
   { value: "100%", label: "Custom Built" },
 ];
 

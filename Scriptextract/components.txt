@@ -411,7 +411,7 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
                 Ready to Get Your Business Online?
               </h3>
               <p className="text-gray-400 text-sm mb-6">
-                Starting at just PKR 5,000 — custom website, SEO, and 3 months support included.
+                Starting at just PKR 20,000 — custom website, SEO, and 3 months support included.
               </p>
               <a href={siteData.contactInfo.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/20 transition-all duration-300">
                 <MessageCircle size={16} />
@@ -487,7 +487,7 @@ function FiveReasonsPost() {
       <p>Plus, if you run Facebook or Instagram ads, you can install a <strong>Meta Pixel</strong> on your website. This pixel tracks visitors, helps Facebook find more customers like them, and dramatically increases your ad performance. Without a website, you are running ads blind.</p>
 
       <h2 className="text-2xl font-bold text-white mt-10">The Good News</h2>
-      <p>Getting a professional website in Pakistan is now extremely affordable. At <strong>Devnix Studios</strong>, we help small businesses go online with a complete custom-built package starting at just <strong className="text-[#06b6d4]">PKR 5,000</strong>.</p>
+      <p>Getting a professional website in Pakistan is now extremely affordable. At <strong>Devnix Studios</strong>, we help small businesses go online with a complete custom-built package starting at just <strong className="text-[#06b6d4]">PKR 20,000</strong>.</p>
     </div>
   );
 }
@@ -508,7 +508,7 @@ function WebsiteCostPost() {
       <h3 className="text-lg font-semibold text-white">2. WordPress with Premium Theme (PKR 3,000 to 15,000)</h3>
       <p>A step up — but still template-based. Performance is average, SEO requires extra plugins, and customization is limited.</p>
 
-      <h3 className="text-lg font-semibold text-white">3. Custom-Built Website (PKR 5,000 to 50,000+)</h3>
+      <h3 className="text-lg font-semibold text-white">3. Custom-Built Website (PKR 20,000 to 50,000+)</h3>
       <p>Built from scratch by a developer. Fast, unique, SEO-optimized, and fully yours.</p>
 
       <h2 className="text-2xl font-bold text-white mt-10">Market Rates Comparison</h2>
@@ -526,7 +526,7 @@ function WebsiteCostPost() {
               ["Freelancer (beginner)", "PKR 3,000 - 8,000", "Simple info sites"],
               ["Freelancer (experienced)", "PKR 8,000 - 25,000", "Business websites"],
               ["Agency (small)", "PKR 15,000 - 60,000", "Professional sites"],
-              ["Devnix Studios", "PKR 5,000", "Complete package"],
+              ["Devnix Studios", "PKR 20,000", "Complete package"],
             ].map(([type, price, best]) => (
               <tr key={type}>
                 <td className="py-3 pr-6 text-gray-300">{type}</td>
@@ -546,7 +546,7 @@ function WebsiteCostPost() {
       </ul>
 
       <h2 className="text-2xl font-bold text-white mt-10">Final Verdict</h2>
-      <p>For a Pakistani business that wants a professional online presence, PKR 5,000 to 15,000 is the sweet spot. At Devnix Studios, we offer a complete package starting at PKR 5,000 — no hidden fees, no surprises.</p>
+      <p>For a Pakistani business that wants a professional online presence, PKR 20,000 to 15,000 is the sweet spot. At Devnix Studios, we offer a complete package starting at PKR 20,000 — no hidden fees, no surprises.</p>
     </div>
   );
 }
@@ -834,7 +834,7 @@ function FreeVsPaidPost() {
             <tr className="border-b border-white/10">
               <th className="text-left py-3 pr-6 text-white">Feature</th>
               <th className="text-left py-3 pr-6 text-white">Free Website</th>
-              <th className="text-left py-3 text-white">Devnix PKR 5,000</th>
+              <th className="text-left py-3 text-white">Devnix PKR 20,000</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/6">
@@ -859,7 +859,7 @@ function FreeVsPaidPost() {
 
       <h2 className="text-2xl font-bold text-white mt-10">Real Cost Comparison Over 1 Year</h2>
       <p><strong className="text-white">Free website:</strong> 0 PKR upfront, but you lose customers daily because nobody trusts a site at yourbusiness.wix.com</p>
-      <p><strong className="text-white">Paid custom website:</strong> PKR 5,000 once, get unlimited customers for years to come</p>
+      <p><strong className="text-white">Paid custom website:</strong> PKR 20,000 once, get unlimited customers for years to come</p>
 
       <h2 className="text-2xl font-bold text-white mt-10">When Free is OK</h2>
       <p>Free websites are fine if:</p>
@@ -870,7 +870,7 @@ function FreeVsPaidPost() {
       </ul>
 
       <h2 className="text-2xl font-bold text-white mt-10">The Truth</h2>
-      <p>If you are serious about your business, free is the most expensive option you can choose — because of all the customers you lose. PKR 5,000 once is the smartest small business investment you will make this year.</p>
+      <p>If you are serious about your business, free is the most expensive option you can choose — because of all the customers you lose. PKR 20,000 once is the smartest small business investment you will make this year.</p>
     </div>
   );
 }
@@ -924,7 +924,7 @@ function OnlineStorePost() {
       <h2 className="text-2xl font-bold text-white mt-10">Step 5: Get Your First Customers</h2>
       <ul className="space-y-2">
         {[
-          "Run small Meta ads (PKR 5,000-10,000/month)",
+          "Run small Meta ads (PKR 20,000-10,000/month)",
           "Post on Instagram daily",
           "Get listed on Google Business",
           "Get reviews from first customers",
@@ -949,7 +949,7 @@ function OnlineStorePost() {
       </ul>
 
       <h2 className="text-2xl font-bold text-white mt-10">Devnix Studios Online Store Package</h2>
-      <p>We build complete online stores starting at PKR 5,000 — including product catalog, WhatsApp ordering, payment options, and 3 months of management. Get your store live in 5-10 days.</p>
+      <p>We build complete online stores starting at PKR 20,000 — including product catalog, WhatsApp ordering, payment options, and 3 months of management. Get your store live in 5-10 days.</p>
     </div>
   );
 }
@@ -1009,7 +1009,7 @@ function ChooseDesignerPost() {
       <p>For most businesses, a remote designer is just as good — most communication happens online anyway.</p>
 
       <h2 className="text-2xl font-bold text-white mt-10">Devnix Studios Serves All Pakistan</h2>
-      <p>We are based in Pakistan and serve clients in Karachi, Lahore, Islamabad, Faisalabad, Rawalpindi, Multan, Peshawar, and every other city — all remotely via WhatsApp. Starting at PKR 5,000.</p>
+      <p>We are based in Pakistan and serve clients in Karachi, Lahore, Islamabad, Faisalabad, Rawalpindi, Multan, Peshawar, and every other city — all remotely via WhatsApp. Starting at PKR 20,000.</p>
     </div>
   );
 }
@@ -1453,7 +1453,7 @@ export default function CityPageContent({
             <div className="p-px rounded-2xl bg-gradient-to-br from-[#6366f1]/40 to-[#06b6d4]/40">
               <div className="bg-[#0c0c14] rounded-2xl p-8">
                 <div className="text-5xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent mb-2">
-                  5,000 PKR
+                  20,000 PKR
                 </div>
                 <div className="text-gray-500 mb-6">Complete website package</div>
 
@@ -1577,7 +1577,7 @@ export default function CitySchema({ city, slug }: CitySchemaProps) {
     "@type": ["ProfessionalService", "LocalBusiness"],
     "@id": `https://devnixstudios.tech/website-design-${slug}/#business`,
     name: `Devnix Studios - Website Design ${city}`,
-    description: `Affordable custom website design in ${city}, Pakistan starting at 5,000 PKR. Professional web development, SEO, and social media management for ${city} businesses.`,
+    description: `Affordable custom website design in ${city}, Pakistan starting at 20,000 PKR. Professional web development, SEO, and social media management for ${city} businesses.`,
     url: `https://devnixstudios.tech/website-design-${slug}`,
     telephone: "+923184632828",
     email: "Info@devnixstudios.tech",
@@ -1607,7 +1607,7 @@ export default function CitySchema({ city, slug }: CitySchemaProps) {
         closes: "22:00",
       },
     ],
-    priceRange: "PKR 5,000 - PKR 17,500",
+    priceRange: "PKR 20,000 - PKR 17,500",
     currenciesAccepted: "PKR",
     sameAs: [
       "https://www.facebook.com/profile.php?id=61590108942219",
@@ -2398,7 +2398,7 @@ export default function FloatingWhatsApp() {
                         <p className="text-sm text-gray-200 leading-relaxed mt-2">
                           Starting at just{" "}
                           <span className="bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent font-bold">
-                            PKR 5,000
+                            PKR 20,000
                           </span>
                           — let&apos;s chat!
                         </p>
@@ -2521,7 +2521,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { siteData } from "@/lib/data";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
   const pathname = usePathname();
   const router = useRouter();
   const isHomePage = pathname === "/";
@@ -2554,19 +2554,7 @@ export default function Footer() {
   const serviceLinks = [
     { label: "Web Development", href: "/web-development-services" },
     { label: "SEO Services", href: "/seo-services-pakistan" },
-    { label: "Social Media", href: "/social-media-management-pakistan" },
-    { label: "E-commerce", href: "/ecommerce-development-pakistan" },
-    { label: "Landing Pages", href: "/landing-page-design" },
-  ];
-
-  const cityLinks = [
-    { label: "Karachi", href: "/website-design-karachi" },
-    { label: "Lahore", href: "/website-design-lahore" },
-    { label: "Islamabad", href: "/website-design-islamabad" },
-    { label: "Faisalabad", href: "/website-design-faisalabad" },
-    { label: "Rawalpindi", href: "/website-design-rawalpindi" },
-    { label: "Multan", href: "/website-design-multan" },
-    { label: "Peshawar", href: "/website-design-peshawar" },
+    { label: "All Services", href: "/services" },
   ];
 
   return (
@@ -2575,9 +2563,9 @@ export default function Footer() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* MAIN FOOTER GRID */}
-        <div className="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div>
             <a
               href={isHomePage ? "#home" : "/"}
               onClick={(e) => { if (isHomePage) { e.preventDefault(); handleScrollLink("#home"); } }}
@@ -2596,7 +2584,7 @@ export default function Footer() {
               </div>
             </a>
             <p className="text-xs text-gray-500 leading-relaxed mb-4">
-              Custom websites, SEO, and social media management for Pakistan businesses. Starting at PKR 5,000.
+              Custom websites, SEO, and digital solutions for Pakistan businesses. Starting at PKR 20,000.
             </p>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -2609,18 +2597,6 @@ export default function Footer() {
             <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Services</h4>
             <div className="space-y-2">
               {serviceLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-sm text-gray-500 hover:text-white transition-colors">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Cities */}
-          <div>
-            <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-4">Cities We Serve</h4>
-            <div className="space-y-2">
-              {cityLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="block text-sm text-gray-500 hover:text-white transition-colors">
                   {link.label}
                 </Link>
@@ -2643,7 +2619,6 @@ export default function Footer() {
                 </a>
               ))}
               <Link href="/blog" className="block text-sm text-gray-500 hover:text-white transition-colors">Blog</Link>
-              <Link href="/services" className="block text-sm text-gray-500 hover:text-white transition-colors">All Services</Link>
             </div>
             <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">Contact</h4>
             <div className="space-y-2">
@@ -2654,7 +2629,7 @@ export default function Footer() {
         </div>
 
         {/* DIVIDER */}
-        <div className="h-px bg-linear-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="h-px bg-linear-to-r from-transparent via-white/8 to-transparent" />
 
         {/* BOTTOM ROW */}
         <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -2701,6 +2676,7 @@ export default function Footer() {
     </footer>
   );
 }
+
 
 
 ====================================================================================================
@@ -2855,32 +2831,12 @@ export default function HeroSection() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16"
     >
-      {/* Background Layers */}
+      {/* Background Layers - STATIC for SSR */}
       <div className="absolute inset-0 bg-[#0a0a0f]" />
 
-      {/* Background blobs - only animate after mount */}
-      {mounted && (
-        <>
-          <motion.div
-            animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 left-0 sm:left-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]"
-          />
-          <motion.div
-            animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-20 right-0 sm:right-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]"
-          />
-        </>
-      )}
-
-      {/* Static background blobs as fallback for SSR */}
-      {!mounted && (
-        <>
-          <div className="absolute top-20 left-0 sm:left-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]" />
-          <div className="absolute bottom-20 right-0 sm:right-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]" />
-        </>
-      )}
+      {/* Static background blobs - always render same on server and client */}
+      <div className="absolute top-20 left-0 sm:left-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#6366f1]/20 rounded-full blur-[80px] sm:blur-[120px]" />
+      <div className="absolute bottom-20 right-0 sm:right-1/4 w-62.5 sm:w-100 lg:w-125 h-62.5 sm:h-100 lg:h-125 bg-[#06b6d4]/15 rounded-full blur-[80px] sm:blur-[120px]" />
 
       <div
         className="absolute inset-0 opacity-[0.025]"
@@ -2899,9 +2855,9 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Particles - only render after mount */}
-      {mounted && (
-        <div className="absolute inset-0 pointer-events-none">
+      {/* Particles - ONLY render client-side after mount */}
+      {mounted && particles.length > 0 && (
+        <div className="absolute inset-0 pointer-events-none" suppressHydrationWarning>
           {particles.map((particle) => (
             <motion.div
               key={particle.id}
@@ -2923,7 +2879,6 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* LEFT - Text */}
           <div className="lg:col-span-7 text-center lg:text-left">
-            {/* Badge - NO animation for instant LCP */}
             <div className="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#6366f1]/30 bg-[#6366f1]/10 backdrop-blur-sm mb-5 sm:mb-6 max-w-full">
               <Sparkles size={10} className="text-[#06b6d4] shrink-0" />
               <span className="text-[10px] sm:text-xs font-medium text-[#06b6d4] tracking-wide uppercase">
@@ -2935,7 +2890,6 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* HEADLINE - NO animation, render immediately for LCP */}
             <h1 className="text-[2rem] xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-4 sm:mb-6">
               We{" "}
               <span className="relative inline-block">
@@ -2960,14 +2914,12 @@ export default function HeroSection() {
               .
             </h1>
 
-            {/* Subtext - NO animation for fast render */}
             <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
               Custom websites, SEO optimization, and social media management —
               all in one package. Starting at just{" "}
-              <span className="text-white font-semibold">PKR 5,000</span>.
+              <span className="text-white font-semibold">PKR 20,000</span>.
             </p>
 
-            {/* CTAs - NO animation */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-start justify-center lg:justify-start gap-3 mb-6 sm:mb-8">
               <a
                 href={siteData.contactInfo.whatsapp}
@@ -2992,7 +2944,6 @@ export default function HeroSection() {
               </button>
             </div>
 
-            {/* Trust Indicators - NO animation */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 lg:gap-6 pt-5 sm:pt-6 border-t border-white/6">
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <div className="flex -space-x-0.5">
@@ -3027,128 +2978,128 @@ export default function HeroSection() {
 
           {/* RIGHT - Code Card (Desktop Only) - Only render after mount */}
           {mounted && (
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="lg:col-span-5 relative hidden lg:block"
-            >
+            <div className="lg:col-span-5 relative hidden lg:block" suppressHydrationWarning>
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -left-8 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#6366f1]/20"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center">
-                    <TrendingUp size={18} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-500">Avg. Load Time</div>
-                    <div className="text-lg font-bold text-white">{"<"}1.5s</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute -bottom-4 -right-4 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#06b6d4]/20"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#06b6d4] to-[#22d3ee] flex items-center justify-center">
-                    <Zap size={18} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-500">SEO Score</div>
-                    <div className="text-lg font-bold text-white">95/100</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/50 via-[#8b5cf6]/30 to-[#06b6d4]/50">
-                <div className="bg-[#0c0c14] rounded-2xl overflow-hidden">
-                  <div className="flex items-center gap-2 px-4 py-3 border-b border-white/6 bg-[#0a0a0f]">
-                    <div className="flex gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-4 -left-8 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#6366f1]/20"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center">
+                      <TrendingUp size={18} className="text-white" />
                     </div>
-                    <div className="flex-1 ml-3 px-3 py-1.5 rounded-md bg-white/4 border border-white/6">
-                      <div className="flex items-center gap-1.5">
-                        <Globe size={10} className="text-gray-600" />
-                        <span className="text-[10px] text-gray-400">
-                          devnixstudios.tech
+                    <div>
+                      <div className="text-xs text-gray-500">Avg. Load Time</div>
+                      <div className="text-lg font-bold text-white">{"<"}1.5s</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                  className="absolute -bottom-4 -right-4 z-20 p-4 rounded-2xl bg-[#0c0c14]/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-[#06b6d4]/20"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-linear-to-br from-[#06b6d4] to-[#22d3ee] flex items-center justify-center">
+                      <Zap size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-gray-500">SEO Score</div>
+                      <div className="text-lg font-bold text-white">95/100</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <div className="relative p-px rounded-2xl bg-linear-to-br from-[#6366f1]/50 via-[#8b5cf6]/30 to-[#06b6d4]/50">
+                  <div className="bg-[#0c0c14] rounded-2xl overflow-hidden">
+                    <div className="flex items-center gap-2 px-4 py-3 border-b border-white/6 bg-[#0a0a0f]">
+                      <div className="flex gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                      </div>
+                      <div className="flex-1 ml-3 px-3 py-1.5 rounded-md bg-white/4 border border-white/6">
+                        <div className="flex items-center gap-1.5">
+                          <Globe size={10} className="text-gray-600" />
+                          <span className="text-[10px] text-gray-400">
+                            devnixstudios.tech
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-5 font-mono text-xs space-y-2 min-h-80">
+                      <div className="text-gray-600">
+                        {"// Your business, online in days"}
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="text-[#8b5cf6]">const</span>
+                        <span className="text-[#06b6d4]">yourWebsite</span>
+                        <span className="text-gray-500">=</span>
+                        <span className="text-gray-300">{"{"}</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">design:</span>
+                        <span className="text-green-400">{"'Custom & Modern'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">performance:</span>
+                        <span className="text-green-400">{"'Lightning Fast'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">seo:</span>
+                        <span className="text-green-400">{"'Optimized'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">socialMedia:</span>
+                        <span className="text-green-400">{"'Managed'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="pl-4 flex flex-wrap gap-x-2">
+                        <span className="text-[#6366f1]">price:</span>
+                        <span className="text-yellow-400">{"'PKR 20,000'"}</span>
+                        <span className="text-gray-500">,</span>
+                      </div>
+                      <div className="text-gray-300">{"};"}</div>
+                      <div className="pt-3 flex items-center gap-2">
+                        <span className="text-[#8b5cf6]">{"=>"}</span>
+                        <span className="text-gray-400">deploy(</span>
+                        <span className="text-[#06b6d4]">yourWebsite</span>
+                        <span className="text-gray-400">);</span>
+                        <motion.span
+                          animate={{ opacity: [1, 0, 1] }}
+                          transition={{ duration: 1, repeat: Infinity }}
+                          className="inline-block w-2 h-4 bg-[#06b6d4]"
+                        />
+                      </div>
+                      <div className="mt-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center gap-2">
+                        <CheckCircle size={14} className="text-green-400" />
+                        <span className="text-xs text-green-400">
+                          Website deployed successfully! 🚀
                         </span>
                       </div>
                     </div>
                   </div>
-
-                  <div className="p-5 font-mono text-xs space-y-2 min-h-80">
-                    <div className="text-gray-600">
-                      {"// Your business, online in days"}
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="text-[#8b5cf6]">const</span>
-                      <span className="text-[#06b6d4]">yourWebsite</span>
-                      <span className="text-gray-500">=</span>
-                      <span className="text-gray-300">{"{"}</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">design:</span>
-                      <span className="text-green-400">{"'Custom & Modern'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">performance:</span>
-                      <span className="text-green-400">{"'Lightning Fast'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">seo:</span>
-                      <span className="text-green-400">{"'Optimized'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">socialMedia:</span>
-                      <span className="text-green-400">{"'Managed'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="pl-4 flex flex-wrap gap-x-2">
-                      <span className="text-[#6366f1]">price:</span>
-                      <span className="text-yellow-400">{"'PKR 5,000'"}</span>
-                      <span className="text-gray-500">,</span>
-                    </div>
-                    <div className="text-gray-300">{"};"}</div>
-                    <div className="pt-3 flex items-center gap-2">
-                      <span className="text-[#8b5cf6]">{"=>"}</span>
-                      <span className="text-gray-400">deploy(</span>
-                      <span className="text-[#06b6d4]">yourWebsite</span>
-                      <span className="text-gray-400">);</span>
-                      <motion.span
-                        animate={{ opacity: [1, 0, 1] }}
-                        transition={{ duration: 1, repeat: Infinity }}
-                        className="inline-block w-2 h-4 bg-[#06b6d4]"
-                      />
-                    </div>
-                    <div className="mt-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center gap-2">
-                      <CheckCircle size={14} className="text-green-400" />
-                      <span className="text-xs text-green-400">
-                        Website deployed successfully! 🚀
-                      </span>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           )}
         </div>
 
-        {/* Bottom Pills + Price - Static for SSR, no animation */}
         <div className="mt-10 sm:mt-12 lg:mt-16 flex flex-col items-center gap-5 sm:gap-6">
           <div className="flex flex-wrap items-center justify-center gap-2">
             <FeaturePill
@@ -3187,9 +3138,7 @@ export default function HeroSection() {
                 <span className="text-[10px] sm:text-xs text-gray-500">
                   Starting from
                 </span>
-                <span className="text-xl sm:text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
-                  5,000
-                </span>
+                <span className="text-xl sm:text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">20,000</span>
                 <span className="text-xs sm:text-sm text-gray-400">PKR</span>
               </div>
             </div>
@@ -3364,7 +3313,7 @@ export default function IndustryPageContent({
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-center">
               <div>
                 <span className="text-4xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
-                  5,000 PKR
+                  20,000 PKR
                 </span>
                 <span className="text-gray-400 ml-2 text-sm">one-time</span>
               </div>
@@ -3520,7 +3469,7 @@ export default function IndustryPageContent({
               Get Your {industryName} Website Today
             </h2>
             <p className="text-gray-400 mb-8">
-              Starting at PKR 5,000. Contact us and we will get back within 24
+              Starting at PKR 20,000. Contact us and we will get back within 24
               hours.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -3567,7 +3516,7 @@ export default function IndustryServiceSchema({
   industryName,
   description,
   slug,
-  price = "5000",
+  price = "20000",
 }: IndustryServiceSchemaProps) {
   const pageUrl = `https://devnixstudios.tech/${slug}`;
 
@@ -3850,7 +3799,6 @@ const navLinks = [
 const serviceDropdown = [
   { label: "Web Development", href: "/web-development-services" },
   { label: "SEO Services", href: "/seo-services-pakistan" },
-  { label: "Social Media", href: "/social-media-management-pakistan" },
 ];
 
 export default function Navbar() {
@@ -4054,8 +4002,6 @@ export default function Navbar() {
 }
 
 
-
-
 ====================================================================================================
 FILE: PackageSection.tsx
 FULL PATH: D:\Web Development\Websites\Own\devnixstudios\src\components\PackageSection.tsx
@@ -4112,7 +4058,7 @@ export default function PackageSection() {
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4">
               No confusion, no hidden fees. One complete package that covers
-              your website, management, SEO, and social media.
+              your website, management, SEO, and more.
             </p>
           </div>
         </AnimatedSection>
@@ -4129,12 +4075,12 @@ export default function PackageSection() {
                       Business Starter
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-500">
-                      Complete website + 3 months management
+                      Complete website + premium features
                     </p>
                   </div>
                   <div className="text-left sm:text-right">
                     <div className="text-2xl sm:text-3xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
-                      5,000 PKR
+                      20,000 PKR
                     </div>
                     <div className="text-xs text-gray-500 mt-0.5">
                       / website
@@ -4164,7 +4110,7 @@ export default function PackageSection() {
                   ))}
                 </div>
 
-                {/* Website Breakdown - NEW! */}
+                {/* Website Breakdown */}
                 <div className="border-t border-white/6 pt-5 sm:pt-6 mb-6 sm:mb-8">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#6366f1] to-[#06b6d4]" />
@@ -4208,39 +4154,6 @@ export default function PackageSection() {
                   </div>
                 </div>
 
-                {/* Monthly Support */}
-                <div className="border-t border-white/6 pt-5 sm:pt-6 mb-6 sm:mb-8">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#8b5cf6] to-[#06b6d4]" />
-                    <h4 className="text-xs sm:text-sm font-semibold text-[#8b5cf6] uppercase tracking-wider">
-                      Monthly Support Includes
-                    </h4>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                    {siteData.supportFeatures.map((feature) => (
-                      <div
-                        key={feature.text}
-                        className="flex items-start gap-2 p-2.5 sm:p-3 rounded-xl bg-white/2 border border-white/4"
-                      >
-                        <Plus
-                          size={12}
-                          className="text-[#6366f1] mt-0.5 shrink-0"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <div className="text-[11px] sm:text-xs font-medium text-white">
-                            {feature.text}
-                          </div>
-                          {feature.detail && (
-                            <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5">
-                              {feature.detail}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
                 <a
                   href={siteData.contactInfo.whatsapp}
                   target="_blank"
@@ -4257,8 +4170,9 @@ export default function PackageSection() {
             </div>
           </AnimatedSection>
 
-          {/* Right Side - Pricing + Addons */}
+          {/* Right Side - Pricing + Monthly Support */}
           <div className="lg:col-span-5 space-y-6">
+            {/* Pricing Breakdown */}
             <AnimatedSection direction="right" delay={0.1}>
               <div className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/6">
                 <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-5 flex items-center gap-2">
@@ -4273,20 +4187,10 @@ export default function PackageSection() {
                         index !== siteData.pricingBreakdown.length - 1
                           ? "border-b border-white/4"
                           : ""
-                      } ${
-                        index === siteData.pricingBreakdown.length - 1
-                          ? "pt-3 sm:pt-4"
-                          : ""
                       }`}
                     >
                       <div className="flex-1 min-w-0">
-                        <div
-                          className={`text-xs sm:text-sm ${
-                            index === siteData.pricingBreakdown.length - 1
-                              ? "font-bold text-white"
-                              : "text-gray-400"
-                          }`}
-                        >
+                        <div className="text-xs sm:text-sm text-white font-medium">
                           {item.item}
                         </div>
                         {item.note && (
@@ -4295,13 +4199,7 @@ export default function PackageSection() {
                           </div>
                         )}
                       </div>
-                      <span
-                        className={`text-xs sm:text-sm font-semibold whitespace-nowrap ${
-                          index === siteData.pricingBreakdown.length - 1
-                            ? "text-base sm:text-lg bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent"
-                            : "text-white"
-                        }`}
-                      >
+                      <span className="text-sm sm:text-base font-semibold whitespace-nowrap bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                         {item.price}
                       </span>
                     </div>
@@ -4310,70 +4208,40 @@ export default function PackageSection() {
               </div>
             </AnimatedSection>
 
+            {/* Monthly Support Includes */}
             <AnimatedSection direction="right" delay={0.2}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-white/2 border border-white/6">
-                <h4 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-5 flex items-center gap-2">
-                  <Plus size={16} className="text-[#8b5cf6]" />
-                  Add-ons
-                </h4>
-                <div className="space-y-2 sm:space-y-2.5">
-                  {siteData.packageAddons.map((addon) => (
+              <div className="p-5 sm:p-6 rounded-2xl bg-linear-to-br from-[#8b5cf6]/10 via-[#6366f1]/5 to-[#06b6d4]/10 border border-[#8b5cf6]/20">
+                <div className="flex items-center gap-2 mb-4 sm:mb-5">
+                  <div className="w-1 h-4 rounded-full bg-linear-to-b from-[#8b5cf6] to-[#06b6d4]" />
+                  <h4 className="text-base sm:text-lg font-semibold text-white">
+                    Monthly Support Includes
+                  </h4>
+                  <span className="ml-auto text-[10px] sm:text-xs text-[#8b5cf6] px-2 py-0.5 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 font-semibold">
+                    7,500/mo
+                  </span>
+                </div>
+                <div className="space-y-2.5 sm:space-y-3">
+                  {siteData.supportFeatures.map((feature) => (
                     <div
-                      key={addon.item}
-                      className="flex items-center justify-between gap-3 py-1.5 sm:py-2"
+                      key={feature.text}
+                      className="flex items-start gap-2 p-2.5 sm:p-3 rounded-xl bg-white/2 border border-white/4"
                     >
-                      <span className="text-xs sm:text-sm text-gray-400">
-                        {addon.item}
-                      </span>
-                      <span className="text-xs sm:text-sm font-medium text-[#06b6d4] whitespace-nowrap">
-                        {addon.price}
-                      </span>
+                      <Plus
+                        size={12}
+                        className="text-[#6366f1] mt-0.5 shrink-0"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[11px] sm:text-xs font-medium text-white">
+                          {feature.text}
+                        </div>
+                        {feature.detail && (
+                          <div className="text-[10px] sm:text-xs text-gray-500 mt-0.5">
+                            {feature.detail}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   ))}
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Quick Stats Card */}
-            <AnimatedSection direction="right" delay={0.3}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-linear-to-br from-[#6366f1]/10 via-[#8b5cf6]/5 to-[#06b6d4]/10 border border-[#6366f1]/20">
-                <h4 className="text-base sm:text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <CheckCircle size={16} className="text-[#06b6d4]" />
-                  What You Get Initially
-                </h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
-                    <div className="text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
-                      6
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
-                      Products
-                    </div>
-                  </div>
-                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
-                    <div className="text-2xl font-bold bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
-                      2
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
-                      Categories
-                    </div>
-                  </div>
-                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
-                    <div className="text-2xl font-bold bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
-                      5+
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
-                      Pages
-                    </div>
-                  </div>
-                  <div className="text-center p-3 rounded-xl bg-white/3 border border-white/5">
-                    <div className="text-2xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
-                      6
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
-                      Sections
-                    </div>
-                  </div>
                 </div>
               </div>
             </AnimatedSection>
@@ -4383,6 +4251,7 @@ export default function PackageSection() {
     </section>
   );
 }
+
 
 
 ====================================================================================================
@@ -4678,7 +4547,7 @@ export default function SchemaOrg() {
     name: "Devnix Studios",
     alternateName: "Devnix",
     description:
-      "Affordable custom website design in Pakistan starting at 5,000 PKR. Includes SEO, social media management and 3 months support.",
+      "Affordable custom website design in Pakistan starting at 20,000 PKR. Includes SEO, social media management and 3 months support.",
     url: "https://devnixstudios.tech",
     logo: {
       "@type": "ImageObject",
@@ -4716,7 +4585,7 @@ export default function SchemaOrg() {
         closes: "22:00",
       },
     ],
-    priceRange: "PKR 5,000 - PKR 17,500",
+    priceRange: "PKR 20,000 - PKR 17,500",
     currenciesAccepted: "PKR",
     paymentAccepted: "Cash, Bank Transfer, JazzCash, EasyPaisa",
     aggregateRating: {
@@ -4746,7 +4615,7 @@ export default function SchemaOrg() {
         author: { "@type": "Person", name: "Ahmed Raza" },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
         reviewBody:
-          "I was skeptical about getting a website at PKR 5,000 but the quality exceeded my expectations. My property listings are now on Google and I get calls from people who found me online.",
+          "I was skeptical about getting a website at PKR 20,000 but the quality exceeded my expectations. My property listings are now on Google and I get calls from people who found me online.",
       },
     ],
     sameAs: [
@@ -4766,7 +4635,7 @@ export default function SchemaOrg() {
             description:
               "Fully custom-built websites. No templates, no drag-and-drop. Clean code, fast performance.",
           },
-          price: "5000",
+          price: "20000",
           priceCurrency: "PKR",
         },
         {
@@ -4825,7 +4694,7 @@ export default function SchemaOrg() {
         name: "How much does a website cost in Pakistan?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Our website packages start at just 5,000 PKR for a complete custom-built website including 3 months of support and management. This includes hosting, SEO, and social media management.",
+          text: "Our website packages start at just 20,000 PKR for a complete custom-built website including 3 months of support and management. This includes hosting, SEO, and social media management.",
         },
       },
       {
@@ -4936,7 +4805,7 @@ export default function SEOServicesContent() {
       {/* ─── HERO ─── */}
       <section className="relative overflow-hidden py-20 lg:py-28">
         <div className="absolute inset-0 bg-[#0a0a0f]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#8b5cf6]/8 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-125 bg-[#8b5cf6]/8 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
@@ -4949,7 +4818,7 @@ export default function SEOServicesContent() {
 
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
               SEO Services{" "}
-              <span className="bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                 in Pakistan
               </span>
             </h1>
@@ -4965,7 +4834,7 @@ export default function SEOServicesContent() {
                 href={siteData.contactInfo.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#8b5cf6] to-[#6366f1] rounded-xl hover:shadow-xl hover:shadow-[#8b5cf6]/30 transition-all duration-300"
+                className="group flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-linear-to-r from-[#8b5cf6] to-[#6366f1] rounded-xl hover:shadow-xl hover:shadow-[#8b5cf6]/30 transition-all duration-300"
               >
                 <MessageCircle size={16} />
                 Get Started
@@ -4985,19 +4854,19 @@ export default function SEOServicesContent() {
             {/* Stats Row */}
             <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-8 border-t border-white/6">
               <div>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                <div className="text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                   6
                 </div>
                 <div className="text-xs text-gray-500 mt-1">Packages</div>
               </div>
               <div>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
-                  3K
+                <div className="text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                  5K
                 </div>
                 <div className="text-xs text-gray-500 mt-1">PKR Starting</div>
               </div>
               <div>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                <div className="text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
                   90
                 </div>
                 <div className="text-xs text-gray-500 mt-1">Day Results</div>
@@ -5031,7 +4900,7 @@ export default function SEOServicesContent() {
                 >
                   {/* Popular Badge */}
                   {pkg.popular && (
-                    <div className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white text-[10px] font-bold tracking-wider uppercase shadow-lg shadow-[#6366f1]/30">
+                    <div className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-linear-to-r from-[#6366f1] to-[#8b5cf6] text-white text-[10px] font-bold tracking-wider uppercase shadow-lg shadow-[#6366f1]/30">
                       {pkg.badge}
                     </div>
                   )}
@@ -5075,7 +4944,7 @@ export default function SEOServicesContent() {
       </section>
 
       {/* ─── WHY SEO MATTERS ─── */}
-      <section className="py-20 lg:py-28 bg-white/[0.01] border-y border-white/4">
+      <section className="py-20 lg:py-28 bg-white/1 border-y border-white/4">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
@@ -5154,7 +5023,7 @@ export default function SEOServicesContent() {
               href={siteData.contactInfo.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#8b5cf6] to-[#6366f1] rounded-xl hover:shadow-xl hover:shadow-[#8b5cf6]/30 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-linear-to-r from-[#8b5cf6] to-[#6366f1] rounded-xl hover:shadow-xl hover:shadow-[#8b5cf6]/30 transition-all duration-300"
             >
               <MessageCircle size={16} />
               Talk to Us on WhatsApp
@@ -5297,7 +5166,7 @@ export default function SEOServicesContent() {
               </div>
 
               {/* Footer CTA */}
-              <div className="p-6 border-t border-white/6 bg-white/[0.02]">
+              <div className="p-6 border-t border-white/6 bg-white/2">
                 <a
                   href={`${siteData.contactInfo.whatsapp}?text=${encodeURIComponent(
                     `Hi! I am interested in the ${selectedPackage.title} (${selectedPackage.price} ${selectedPackage.pricePeriod}). Please share more details.`
@@ -5744,7 +5613,7 @@ const services = [
     icon: <Globe size={24} />,
     title: "Custom Website Development",
     description:
-      "Fully custom-built websites tailored to your business. No templates, no drag-and-drop. Clean code, fast performance, and unique design.",
+      "Fully custom-built websites with admin panel. No templates, no drag-and-drop. Clean code, fast performance, and unique design.",
     gradient: "from-[#6366f1] to-[#8b5cf6]",
     link: "/web-development-services",
     linkText: "Learn More",
@@ -5760,12 +5629,12 @@ const services = [
   },
   {
     icon: <Share2 size={24} />,
-    title: "Social Media Management",
+    title: "Admin Panel Access",
     description:
-      "Facebook and Instagram posts with professional captions and hashtags for every product added to your website.",
+      "Easy-to-use admin panel included with every website. Manage your content, products, and orders without technical knowledge.",
     gradient: "from-[#06b6d4] to-[#22d3ee]",
-    link: "/social-media-management-pakistan",
-    linkText: "Learn More",
+    link: null,
+    linkText: null,
   },
   {
     icon: <Package size={24} />,
@@ -5773,8 +5642,8 @@ const services = [
     description:
       "Online stores with product catalog, WhatsApp ordering, payment integration, and inventory management — perfect for Pakistani businesses.",
     gradient: "from-[#6366f1] to-[#06b6d4]",
-    link: "/ecommerce-development-pakistan",
-    linkText: "Learn More",
+    link: null,
+    linkText: null,
   },
   {
     icon: <MapPin size={24} />,
@@ -5782,14 +5651,14 @@ const services = [
     description:
       "High-converting landing pages for Facebook ads, Google ads, and product launches. Optimized to turn visitors into customers.",
     gradient: "from-[#8b5cf6] to-[#06b6d4]",
-    link: "/landing-page-design",
-    linkText: "Learn More",
+    link: null,
+    linkText: null,
   },
   {
     icon: <Settings size={24} />,
     title: "Complete Package",
     description:
-      "Everything you need in one affordable package — website, SEO, social media, Google Business, and 3 months of management.",
+      "Everything you need in one affordable package — website, SEO, admin panel, Google Business, hosting, and 3 months of management.",
     gradient: "from-[#06b6d4] to-[#6366f1]",
     link: null,
     linkText: null,
@@ -5797,8 +5666,8 @@ const services = [
 ];
 
 const stats = [
-  { value: "5,000", label: "PKR Starting Price" },
-  { value: "5", label: "Core Services" },
+  { value: "20,000", label: "PKR Starting Price" },
+  { value: "6", label: "Core Services" },
   { value: "3", label: "Months Support" },
   { value: "100%", label: "Custom Built" },
 ];
@@ -5828,7 +5697,7 @@ export default function ServicesPageContent() {
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed">
-              From custom website development to SEO, social media, and ongoing
+              From custom website development with admin panel to SEO and ongoing
               management — we handle everything so you can focus on your business.
             </p>
 
@@ -5878,7 +5747,7 @@ export default function ServicesPageContent() {
                 Our Complete Service List
               </h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                All services are included in our PKR 5,000 starter package. No
+                All services are included in our PKR 20,000 starter package. No
                 hidden fees.
               </p>
             </div>
@@ -5930,7 +5799,7 @@ export default function ServicesPageContent() {
               Ready to Get Started?
             </h2>
             <p className="text-gray-400 mb-8">
-              All services included in one affordable package. Contact us today.
+              All services included in one premium package. Contact us today.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -5959,6 +5828,7 @@ export default function ServicesPageContent() {
     </div>
   );
 }
+
 
 
 ====================================================================================================
@@ -6345,6 +6215,8 @@ import {
   Layout,
   Zap,
   Headphones,
+  Calendar,
+  Plus,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { webPackages, WebPackage } from "@/lib/webPackagesData";
@@ -6361,7 +6233,7 @@ export default function WebDevServicesContent() {
       {/* ─── HERO ─── */}
       <section className="relative overflow-hidden py-20 lg:py-28">
         <div className="absolute inset-0 bg-[#0a0a0f]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#6366f1]/8 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-125 bg-[#6366f1]/8 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
@@ -6374,14 +6246,14 @@ export default function WebDevServicesContent() {
 
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
               Web Development{" "}
-              <span className="bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                 Services in Pakistan
               </span>
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed">
               Choose from 12 specialized website packages — all at{" "}
-              <span className="text-white font-semibold">PKR 5,000</span>. From
+              <span className="text-white font-semibold">PKR 20,000</span>. From
               online stores to restaurants, hotels to gyms — we build it all.
             </p>
 
@@ -6390,7 +6262,7 @@ export default function WebDevServicesContent() {
                 href={siteData.contactInfo.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/30 transition-all duration-300"
+                className="group flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/30 transition-all duration-300"
               >
                 <MessageCircle size={16} />
                 Get Started
@@ -6407,25 +6279,24 @@ export default function WebDevServicesContent() {
               </a>
             </div>
 
-            {/* Stats Row */}
             <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-8 border-t border-white/6">
               <div>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
+                <div className="text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#6366f1] to-[#06b6d4] bg-clip-text text-transparent">
                   12
                 </div>
                 <div className="text-xs text-gray-500 mt-1">Packages</div>
               </div>
               <div>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
-                  5K
+                <div className="text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                  20K
                 </div>
                 <div className="text-xs text-gray-500 mt-1">PKR Starting</div>
               </div>
               <div>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
-                  3
+                <div className="text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                  5K
                 </div>
-                <div className="text-xs text-gray-500 mt-1">Months Support</div>
+                <div className="text-xs text-gray-500 mt-1">PKR / Month</div>
               </div>
             </div>
           </AnimatedSection>
@@ -6454,27 +6325,22 @@ export default function WebDevServicesContent() {
                   onClick={() => setSelectedPackage(pkg)}
                   className="group relative w-full text-left p-6 rounded-2xl bg-white/2 border border-white/6 hover:border-[#6366f1]/30 hover:bg-white/4 transition-all duration-300 h-full flex flex-col"
                 >
-                  {/* Popular Badge */}
                   {pkg.popular && (
-                    <div className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white text-[10px] font-bold tracking-wider uppercase shadow-lg shadow-[#6366f1]/30">
+                    <div className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-linear-to-r from-[#6366f1] to-[#8b5cf6] text-white text-[10px] font-bold tracking-wider uppercase shadow-lg shadow-[#6366f1]/30">
                       {pkg.badge}
                     </div>
                   )}
 
-                  {/* Emoji Icon */}
                   <div className="text-4xl mb-4">{pkg.emoji}</div>
 
-                  {/* Title */}
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#6366f1] transition-colors">
                     {pkg.title}
                   </h3>
 
-                  {/* Description */}
                   <p className="text-xs text-gray-500 leading-relaxed mb-4 flex-1 line-clamp-3">
                     {pkg.shortDesc}
                   </p>
 
-                  {/* Price */}
                   <div className="pt-4 border-t border-white/6 flex items-center justify-between">
                     <div>
                       <div className="text-xs text-gray-500">Starting at</div>
@@ -6497,12 +6363,12 @@ export default function WebDevServicesContent() {
         </div>
       </section>
 
-      {/* ─── WHY ALL PKR 5,000 ─── */}
-      <section className="py-20 lg:py-28 bg-white/[0.01] border-y border-white/4">
+      {/* ─── WHY ALL PKR 20,000 ─── */}
+      <section className="py-20 lg:py-28 bg-white/1 border-y border-white/4">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-              Why is everything PKR 5,000?
+              Why is everything PKR 20,000?
             </h2>
             <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
               We believe every Pakistani business deserves a professional
@@ -6540,10 +6406,10 @@ export default function WebDevServicesContent() {
                   <Headphones size={20} className="text-[#06b6d4]" />
                 </div>
                 <h3 className="text-base font-semibold text-white mb-2">
-                  Same Support
+                  Optional Support
                 </h3>
                 <p className="text-sm text-gray-500">
-                  3 months free support and management with every package.
+                  Add monthly support at PKR 5,000/mo when you need it.
                 </p>
               </div>
             </div>
@@ -6566,7 +6432,7 @@ export default function WebDevServicesContent() {
               href={siteData.contactInfo.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/30 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-linear-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/30 transition-all duration-300"
             >
               <MessageCircle size={16} />
               Talk to Us on WhatsApp
@@ -6607,30 +6473,67 @@ export default function WebDevServicesContent() {
                   <X size={16} />
                 </button>
 
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 mb-5">
                   <div className="text-5xl">{selectedPackage.emoji}</div>
                   <div className="flex-1">
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                       {selectedPackage.title}
                     </h3>
-                    <p className="text-sm text-gray-400 mb-3">
+                    <p className="text-sm text-gray-400">
                       {selectedPackage.shortDesc}
                     </p>
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="text-2xl font-bold"
-                        style={{ color: selectedPackage.badgeColor }}
-                      >
-                        {selectedPackage.price}
-                      </span>
-                      <span className="text-xs text-gray-500">one-time</span>
+                  </div>
+                </div>
+
+                {/* PRICING - Two-tier */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {/* One-time */}
+                  <div
+                    className="p-4 rounded-xl border"
+                    style={{
+                      borderColor: `${selectedPackage.badgeColor}30`,
+                      backgroundColor: `${selectedPackage.badgeColor}08`,
+                    }}
+                  >
+                    <div className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-1">
+                      Website Build
                     </div>
+                    <div
+                      className="text-2xl font-bold"
+                      style={{ color: selectedPackage.badgeColor }}
+                    >
+                      {selectedPackage.price}
+                    </div>
+                    <div className="text-xs text-gray-500 mt-0.5">
+                      one-time payment
+                    </div>
+
+                  </div>
+
+                  {/* Monthly */}
+                  <div className="p-4 rounded-xl border border-[#06b6d4]/20 bg-[#06b6d4]/5">
+                    <div className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-1">
+                      Support & Maintenance
+                    </div>
+                    <div className="text-2xl font-bold text-[#06b6d4]">
+                      {selectedPackage.monthlyPrice}
+                    </div>
+                    <div className="text-xs text-gray-500 mt-0.5">
+                      per month (optional)
+                    </div>
+                    <div className="text-[10px] text-gray-600 mt-1 leading-tight">
+                      Domain under $15 — premium domains cost extra
+                    </div>
+                    <div className="text-[10px] text-gray-600 mt-1 leading-tight">
+                      May increase with traffic, hosting usage, or workload
+                    </div>
+
                   </div>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 sm:p-8 space-y-6 max-h-[60vh] overflow-y-auto">
+              <div className="p-6 sm:p-8 space-y-6 max-h-[55vh] overflow-y-auto">
                 {/* For Who */}
                 <div>
                   <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
@@ -6641,10 +6544,10 @@ export default function WebDevServicesContent() {
                   </p>
                 </div>
 
-                {/* What's Included */}
+                {/* What's Included (One-time) */}
                 <div>
                   <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
-                    What is Included
+                    What is Included (One-time Build)
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {selectedPackage.whatsIncluded.map((item) => (
@@ -6677,7 +6580,7 @@ export default function WebDevServicesContent() {
                   </div>
                 </div>
 
-                {/* Features */}
+                {/* Key Features */}
                 <div>
                   <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
                     Key Features
@@ -6687,7 +6590,9 @@ export default function WebDevServicesContent() {
                       <div key={feature} className="flex items-start gap-2">
                         <span
                           className="shrink-0 mt-1.5 w-1 h-1 rounded-full"
-                          style={{ backgroundColor: selectedPackage.badgeColor }}
+                          style={{
+                            backgroundColor: selectedPackage.badgeColor,
+                          }}
                         />
                         <span className="text-xs text-gray-400">{feature}</span>
                       </div>
@@ -6695,22 +6600,46 @@ export default function WebDevServicesContent() {
                   </div>
                 </div>
 
-                {/* Support */}
-                <div className="p-4 rounded-xl bg-[#06b6d4]/5 border border-[#06b6d4]/15">
-                  <div className="flex items-center gap-2">
-                    <Headphones size={14} className="text-[#06b6d4]" />
-                    <span className="text-xs font-semibold text-[#06b6d4]">
-                      {selectedPackage.support}
+                {/* Monthly Support Includes */}
+                <div className="p-5 rounded-xl bg-linear-to-br from-[#8b5cf6]/10 via-[#6366f1]/5 to-[#06b6d4]/10 border border-[#8b5cf6]/20">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Calendar size={14} className="text-[#8b5cf6]" />
+                    <h4 className="text-sm font-semibold text-white">
+                      Monthly Support Includes
+                    </h4>
+                    <span className="ml-auto text-[10px] text-[#8b5cf6] px-2 py-0.5 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 font-semibold">
+                      {selectedPackage.monthlyPrice}/mo
                     </span>
+                  </div>
+                  <div className="space-y-2">
+                    {selectedPackage.monthlySupport.map((item) => (
+                      <div
+                        key={item.text}
+                        className="flex items-start gap-2 p-2.5 rounded-lg bg-white/2 border border-white/4"
+                      >
+                        <Plus
+                          size={12}
+                          className="text-[#6366f1] mt-0.5 shrink-0"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <div className="text-xs font-medium text-white">
+                            {item.text}
+                          </div>
+                          <div className="text-[11px] text-gray-500 mt-0.5">
+                            {item.detail}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
 
               {/* Footer CTA */}
-              <div className="p-6 border-t border-white/6 bg-white/[0.02]">
+              <div className="p-6 border-t border-white/6 bg-white/2">
                 <a
                   href={`${siteData.contactInfo.whatsapp}?text=${encodeURIComponent(
-                    `Hi! I am interested in the ${selectedPackage.title} package (${selectedPackage.price}). Please share more details.`
+                    `Hi! I am interested in the ${selectedPackage.title} package (${selectedPackage.price} one-time + ${selectedPackage.monthlyPrice}/month support). Please share more details.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -6731,6 +6660,7 @@ export default function WebDevServicesContent() {
     </div>
   );
 }
+
 
 
 ====================================================================================================

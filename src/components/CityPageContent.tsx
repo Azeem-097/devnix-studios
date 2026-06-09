@@ -245,7 +245,7 @@ export default function CityPageContent({
                     "Custom-built website (no templates)",
                     "1 year free hosting",
                     "Google Business listing",
-                    "3 months support & management",
+                    "Optional monthly maintenance & support",
                     "SEO optimization",
                     "Social media management",
                     "Mobile responsive design",

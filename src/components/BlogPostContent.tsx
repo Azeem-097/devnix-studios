@@ -106,7 +106,7 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
                 Ready to Get Your Business Online?
               </h3>
               <p className="text-gray-400 text-sm mb-6">
-                Starting at just PKR 20,000 — custom website, SEO, and 3 months support included.
+                Starting at just PKR 20,000 — one-time payment with optional monthly support. Custom website, SEO & admin panel included.
               </p>
               <a href={siteData.contactInfo.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-xl hover:shadow-xl hover:shadow-[#6366f1]/20 transition-all duration-300">
                 <MessageCircle size={16} />

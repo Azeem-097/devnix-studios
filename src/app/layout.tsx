@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Devnix Studios",
   },
   description:
-    "Professional custom website design in Pakistan starting at PKR 20,000. Includes admin panel, hosting, domain, SEO, and 3 months support. Serving all Pakistan.",
+    "Professional custom website design in Pakistan starting at PKR 20,000. One-time payment with optional monthly maintenance & support. Admin panel, hosting, domain, and SEO included.",
   keywords: [
     "website design pakistan",
     "web development pakistan",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Devnix Studios | Premium Website Design Pakistan | PKR 20,000",
     description:
-      "Custom websites with admin panel starting at PKR 20,000. Hosting + Domain + SEO + 3 Months Support included.",
+      "Custom websites with admin panel starting at PKR 20,000. One-time payment + optional monthly support. Hosting, domain, and SEO included.",
     url: "https://devnixstudios.tech",
     siteName: "Devnix Studios",
     images: [

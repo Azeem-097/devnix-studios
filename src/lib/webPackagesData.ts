@@ -5,6 +5,8 @@ export interface WebPackage {
   shortDesc: string;
   price: string;
   priceNumber: number;
+  monthlyPrice: string;
+  monthlyPriceNumber: number;
   badge?: string;
   badgeColor: string;
   gradient: string;
@@ -13,8 +15,43 @@ export interface WebPackage {
   whatsIncluded: string[];
   pages: string[];
   features: string[];
-  support: string;
+  monthlySupport: { text: string; detail: string }[];
 }
+
+export const monthlySupportFeatures = [
+  {
+    text: "Basic SEO Optimization",
+    detail: "Meta tags, keywords, image alt texts for all pages",
+  },
+  {
+    text: "Speed Optimization",
+    detail: "Continuous performance monitoring and improvements",
+  },
+  {
+    text: "Hosting Included",
+    detail: "Premium hosting with 99.9% uptime guarantee",
+  },
+  {
+    text: "Domain Management",
+    detail: "Full domain handling and renewal management",
+  },
+  {
+    text: "Extra Features Integration",
+    detail: "Add new functionality as your business grows",
+  },
+  {
+    text: "Theme Customization",
+    detail: "Design tweaks and visual updates anytime",
+  },
+  {
+    text: "New Pages Addition",
+    detail: "Add new pages to your website as needed",
+  },
+  {
+    text: "Regular Backups",
+    detail: "Weekly automated backups to prevent data loss",
+  },
+];
 
 export const webPackages: WebPackage[] = [
   {
@@ -24,7 +61,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Complete online store with admin panel to manage products, orders, and customers yourself.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badge: "Most Popular",
     badgeColor: "#6366f1",
     gradient: "from-[#6366f1] to-[#8b5cf6]",
@@ -36,12 +75,10 @@ export const webPackages: WebPackage[] = [
       "Admin panel (you manage everything)",
       "Product catalog with categories",
       "WhatsApp ordering integration",
-      "1 year free hosting",
       "Google Business listing",
       "Basic SEO on all pages",
       "Mobile responsive design",
       "Meta Pixel installation",
-      "3 months support & management",
     ],
     pages: [
       "Home Page",
@@ -60,7 +97,7 @@ export const webPackages: WebPackage[] = [
       "Update prices instantly",
       "WhatsApp order notifications",
     ],
-    support: "3 months full support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "portfolio",
@@ -68,8 +105,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🎨",
     shortDesc:
       "Professional portfolio to showcase your work, skills, and services. Perfect for freelancers and creatives.",
-    price: "PKR 20,000",
-    priceNumber: 5000,
+    price: "PKR 15,000",
+    priceNumber: 15000,
+    monthlyPrice: "PKR 5,000",
+    monthlyPriceNumber: 5000,
     badgeColor: "#8b5cf6",
     gradient: "from-[#8b5cf6] to-[#a78bfa]",
     forWho:
@@ -80,11 +119,9 @@ export const webPackages: WebPackage[] = [
       "About me section",
       "Services list",
       "Contact form",
-      "1 year free hosting",
       "Basic SEO",
       "Mobile responsive",
       "Social media links",
-      "3 months support",
     ],
     pages: [
       "Home / Hero Page",
@@ -101,7 +138,7 @@ export const webPackages: WebPackage[] = [
       "Direct WhatsApp contact",
       "Social proof section",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "landing-page",
@@ -109,8 +146,10 @@ export const webPackages: WebPackage[] = [
     emoji: "🎯",
     shortDesc:
       "Single high-converting page designed to capture leads or sell one specific product. Perfect for Meta ads.",
-    price: "PKR 20,000",
-    priceNumber: 5000,
+    price: "PKR 10,000",
+    priceNumber: 10000,
+    monthlyPrice: "PKR 5,000",
+    monthlyPriceNumber: 5000,
     badgeColor: "#f97316",
     gradient: "from-[#f97316] to-[#fb923c]",
     forWho:
@@ -123,9 +162,7 @@ export const webPackages: WebPackage[] = [
       "Meta Pixel integration",
       "Fast loading (<2s)",
       "Mobile optimized",
-      "1 year free hosting",
       "Basic SEO",
-      "3 months support",
     ],
     pages: ["Single Landing Page (Long-form)"],
     features: [
@@ -136,7 +173,7 @@ export const webPackages: WebPackage[] = [
       "Lead capture form",
       "Meta Pixel for ad tracking",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "ecommerce",
@@ -145,7 +182,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Full-featured online store for businesses with 20+ products. Includes shopping cart and order management.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#06b6d4",
     gradient: "from-[#06b6d4] to-[#22d3ee]",
     forWho:
@@ -157,10 +196,8 @@ export const webPackages: WebPackage[] = [
       "Multiple payment options info",
       "Product categories",
       "Search & filter",
-      "1 year free hosting",
       "Google Business listing",
       "SEO for all products",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -180,7 +217,7 @@ export const webPackages: WebPackage[] = [
       "Featured products section",
       "Customer reviews on products",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "restaurant",
@@ -189,7 +226,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Beautiful restaurant website with menu, food gallery, WhatsApp ordering, and Google Maps integration.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#ef4444",
     gradient: "from-[#ef4444] to-[#f87171]",
     forWho:
@@ -201,10 +240,8 @@ export const webPackages: WebPackage[] = [
       "WhatsApp ordering",
       "Google Maps location",
       "Opening hours display",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page (Hero with food)",
@@ -222,7 +259,7 @@ export const webPackages: WebPackage[] = [
       "Special offers section",
       "Reviews/testimonials",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "hotel",
@@ -231,7 +268,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Premium hotel website with rooms, amenities, booking inquiries, and beautiful gallery.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#0ea5e9",
     gradient: "from-[#0ea5e9] to-[#38bdf8]",
     forWho:
@@ -244,9 +283,7 @@ export const webPackages: WebPackage[] = [
       "Booking inquiry form",
       "WhatsApp booking",
       "Google Maps",
-      "1 year free hosting",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -265,7 +302,7 @@ export const webPackages: WebPackage[] = [
       "Location and nearby attractions",
       "WhatsApp booking inquiry",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "hospital",
@@ -274,7 +311,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Professional medical website with doctors profiles, departments, services, and appointment booking.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#10b981",
     gradient: "from-[#10b981] to-[#34d399]",
     forWho:
@@ -286,10 +325,8 @@ export const webPackages: WebPackage[] = [
       "WhatsApp appointment booking",
       "Google Maps location",
       "Opening hours",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -307,7 +344,7 @@ export const webPackages: WebPackage[] = [
       "Emergency contact info",
       "Patient testimonials",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "bakery",
@@ -316,7 +353,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Sweet bakery website with product showcase, custom order options, and WhatsApp ordering.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#ec4899",
     gradient: "from-[#ec4899] to-[#f472b6]",
     forWho:
@@ -328,10 +367,8 @@ export const webPackages: WebPackage[] = [
       "Photo gallery",
       "WhatsApp ordering",
       "Google Maps",
-      "1 year free hosting",
       "Local SEO",
       "Google Business listing",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -349,7 +386,7 @@ export const webPackages: WebPackage[] = [
       "Delivery area info",
       "Bulk order discounts",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "school",
@@ -358,7 +395,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Educational website with admissions info, faculty profiles, programs, and notices section.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 5,000",
+    monthlyPriceNumber: 5000,
     badgeColor: "#f59e0b",
     gradient: "from-[#f59e0b] to-[#fbbf24]",
     forWho:
@@ -370,10 +409,8 @@ export const webPackages: WebPackage[] = [
       "Programs/courses list",
       "Notice board",
       "Photo gallery",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -393,7 +430,7 @@ export const webPackages: WebPackage[] = [
       "Photo gallery of events",
       "Fee structure section",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "gym",
@@ -402,7 +439,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Energetic fitness website with class schedules, trainers, membership plans, and contact.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 7,500",
+    monthlyPriceNumber: 7500,
     badgeColor: "#dc2626",
     gradient: "from-[#dc2626] to-[#ef4444]",
     forWho:
@@ -414,10 +453,8 @@ export const webPackages: WebPackage[] = [
       "Trainer profiles",
       "Photo gallery",
       "Free trial signup",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -437,7 +474,7 @@ export const webPackages: WebPackage[] = [
       "Gym facility gallery",
       "Member testimonials",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "salon",
@@ -446,7 +483,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Elegant salon website with services menu, price list, before/after gallery, and WhatsApp booking.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 5,000",
+    monthlyPriceNumber: 5000,
     badgeColor: "#a855f7",
     gradient: "from-[#a855f7] to-[#c084fc]",
     forWho:
@@ -458,10 +497,8 @@ export const webPackages: WebPackage[] = [
       "WhatsApp booking",
       "Google Maps",
       "Opening hours",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -479,7 +516,7 @@ export const webPackages: WebPackage[] = [
       "Stylist profiles",
       "Customer reviews",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
   {
     slug: "real-estate",
@@ -488,7 +525,9 @@ export const webPackages: WebPackage[] = [
     shortDesc:
       "Property website with listings, photo galleries, location maps, and WhatsApp inquiries.",
     price: "PKR 20,000",
-    priceNumber: 5000,
+    priceNumber: 20000,
+    monthlyPrice: "PKR 6,000",
+    monthlyPriceNumber: 6000,
     badgeColor: "#14b8a6",
     gradient: "from-[#14b8a6] to-[#2dd4bf]",
     forWho:
@@ -500,10 +539,8 @@ export const webPackages: WebPackage[] = [
       "Google Maps per property",
       "WhatsApp inquiries",
       "Category filters",
-      "1 year free hosting",
       "Google Business listing",
       "Local SEO",
-      "3 months support",
     ],
     pages: [
       "Home Page",
@@ -521,6 +558,6 @@ export const webPackages: WebPackage[] = [
       "WhatsApp inquiry button",
       "Mark as Sold/Available",
     ],
-    support: "3 months support included",
+    monthlySupport: monthlySupportFeatures,
   },
 ];

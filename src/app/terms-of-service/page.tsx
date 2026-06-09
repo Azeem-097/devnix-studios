@@ -29,14 +29,14 @@ const sections = [
     icon: CreditCard,
     title: "Payment Terms",
     content:
-      "The initial website build costs 20,000 PKR (one-time payment). Monthly support and management is charged at 2,500 PKR for the first month and 20,000 PKR for subsequent months. Payment is due at the beginning of each month. Add-on services are charged separately as outlined in our package details.",
+      "The website build costs 20,000 PKR as a one-time payment. Monthly maintenance and support is optional and charged at 7,500 PKR per month, billed at the start of each month. You can cancel the monthly support anytime — your website continues to work normally. Add-on services are charged separately as outlined in our package details.",
   },
   {
-    id: "contract-duration",
+    id: "payment-structure",
     icon: Calendar,
-    title: "Contract Duration",
+    title: "Payment Structure",
     content:
-      "The initial contract covers a 3-month period including website development and monthly support. After the 3-month period, a new contract will be signed with updated pricing based on your requirements. You are not locked in and may choose to continue, modify, or end the service.",
+      "Our pricing is simple and transparent. You pay a one-time fee for the website build. After that, monthly maintenance and support charges are optional — you can continue, pause, or cancel anytime. There is no fixed contract duration and no lock-in period. Your website always belongs to you.",
   },
   {
     id: "domain-hosting",
@@ -50,7 +50,7 @@ const sections = [
     icon: Package,
     title: "Scope of Work",
     content:
-      "Monthly support includes: 2 product uploads per week, basic SEO for each product, 1 new category every 2 weeks, 2 product revisions per month, image optimization, and social media posts with captions and hashtags. Additional work beyond the included scope is charged at the add-on rates specified in our package.",
+      "Monthly maintenance & support includes: hosting management, basic SEO optimization, speed optimization, theme customization, new page additions, regular backups, and ongoing technical support. Additional work beyond the included scope is charged at the add-on rates specified in our package.",
   },
   {
     id: "intellectual-property",

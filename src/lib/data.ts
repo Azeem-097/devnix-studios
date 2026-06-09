@@ -228,9 +228,9 @@ export const siteData: SiteData = {
       note: "One-time payment",
     },
     {
-      item: "Monthly Support & Management",
+      item: "Monthly Maintenance & Support",
       price: "7,500 PKR",
-      note: "First month free, then monthly",
+      note: "Optional - cancel anytime",
     },
   ],
 
@@ -304,9 +304,9 @@ export const siteData: SiteData = {
         "Yes! Domain and hosting are fully managed by us as part of the package. You do not need to worry about technical setup or renewals.",
     },
     {
-      question: "What happens after the 3-month contract?",
+      question: "Is there any contract or lock-in period?",
       answer:
-        "After 3 months, we sign a new contract with updated pricing based on your needs. You are not locked in - you can continue, modify, or end the service.",
+        "No contract, no lock-in. You pay a one-time fee for your website, then optional monthly maintenance & support charges. You can pause, continue, or cancel the monthly support anytime — your website always stays yours.",
     },
     {
       question: "Do I get an admin panel to manage my website?",

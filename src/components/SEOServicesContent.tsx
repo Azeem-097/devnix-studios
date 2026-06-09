@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import {
@@ -11,6 +11,7 @@ import {
   Target,
   Award,
   Clock,
+  Lock,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { seoPackages, SEOPackage } from "@/lib/seoPackagesData";
@@ -27,7 +28,7 @@ export default function SEOServicesContent() {
       {/* ─── HERO ─── */}
       <section className="relative overflow-hidden py-20 lg:py-28">
         <div className="absolute inset-0 bg-[#0a0a0f]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#8b5cf6]/8 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-125 bg-[#8b5cf6]/8 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
@@ -40,7 +41,7 @@ export default function SEOServicesContent() {
 
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
               SEO Services{" "}
-              <span className="bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                 in Pakistan
               </span>
             </h1>
@@ -56,7 +57,7 @@ export default function SEOServicesContent() {
                 href={siteData.contactInfo.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#8b5cf6] to-[#6366f1] rounded-xl hover:shadow-xl hover:shadow-[#8b5cf6]/30 transition-all duration-300"
+                className="group flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-linear-to-r from-[#8b5cf6] to-[#6366f1] rounded-xl hover:shadow-xl hover:shadow-[#8b5cf6]/30 transition-all duration-300"
               >
                 <MessageCircle size={16} />
                 Get Started
@@ -76,19 +77,19 @@ export default function SEOServicesContent() {
             {/* Stats Row */}
             <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-8 border-t border-white/6">
               <div>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
+                <div className="text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#8b5cf6] to-[#06b6d4] bg-clip-text text-transparent">
                   6
                 </div>
                 <div className="text-xs text-gray-500 mt-1">Packages</div>
               </div>
               <div>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
-                  3K
+                <div className="text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#06b6d4] to-[#6366f1] bg-clip-text text-transparent">
+                  5K
                 </div>
                 <div className="text-xs text-gray-500 mt-1">PKR Starting</div>
               </div>
               <div>
-                <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
+                <div className="text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#6366f1] to-[#8b5cf6] bg-clip-text text-transparent">
                   90
                 </div>
                 <div className="text-xs text-gray-500 mt-1">Day Results</div>
@@ -118,17 +119,29 @@ export default function SEOServicesContent() {
               <AnimatedSection key={pkg.slug} delay={index * 0.05}>
                 <button
                   onClick={() => setSelectedPackage(pkg)}
-                  className="group relative w-full text-left p-6 rounded-2xl bg-white/2 border border-white/6 hover:border-[#8b5cf6]/30 hover:bg-white/4 transition-all duration-300 h-full flex flex-col"
+                  className={`group relative w-full text-left p-6 rounded-2xl bg-white/2 border border-white/6 hover:border-[#8b5cf6]/30 hover:bg-white/4 transition-all duration-300 h-full flex flex-col ${
+                    pkg.unavailable ? "opacity-75" : ""
+                  }`}
                 >
                   {/* Popular Badge */}
-                  {pkg.popular && (
-                    <div className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white text-[10px] font-bold tracking-wider uppercase shadow-lg shadow-[#6366f1]/30">
+                  {pkg.popular && !pkg.unavailable && (
+                    <div className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-linear-to-r from-[#6366f1] to-[#8b5cf6] text-white text-[10px] font-bold tracking-wider uppercase shadow-lg shadow-[#6366f1]/30">
                       {pkg.badge}
                     </div>
                   )}
 
+                  {/* Unavailable Badge */}
+                  {pkg.unavailable && (
+                    <div className="absolute -top-2 -right-2 px-2.5 py-1 rounded-full bg-linear-to-r from-gray-600 to-gray-700 text-white text-[10px] font-bold tracking-wider uppercase shadow-lg flex items-center gap-1">
+                      <Lock size={10} />
+                      Unavailable
+                    </div>
+                  )}
+
                   {/* Emoji Icon */}
-                  <div className="text-4xl mb-4">{pkg.emoji}</div>
+                  <div className={`text-4xl mb-4 ${pkg.unavailable ? "grayscale" : ""}`}>
+                    {pkg.emoji}
+                  </div>
 
                   {/* Title */}
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#8b5cf6] transition-colors">
@@ -144,19 +157,26 @@ export default function SEOServicesContent() {
                   <div className="pt-4 border-t border-white/6 flex items-center justify-between">
                     <div>
                       <div className="text-xs text-gray-500">
-                        {pkg.pricePeriod}
+                        {pkg.unavailable ? "Currently" : pkg.pricePeriod}
                       </div>
                       <div
                         className="text-lg font-bold"
-                        style={{ color: pkg.badgeColor }}
+                        style={{ color: pkg.unavailable ? "#6b7280" : pkg.badgeColor }}
                       >
-                        {pkg.price}
+                        {pkg.unavailable ? "Unavailable" : pkg.price}
                       </div>
                     </div>
-                    <ArrowRight
-                      size={16}
-                      className="text-gray-600 group-hover:text-[#8b5cf6] group-hover:translate-x-1 transition-all"
-                    />
+                    {pkg.unavailable ? (
+                      <Lock
+                        size={16}
+                        className="text-gray-600"
+                      />
+                    ) : (
+                      <ArrowRight
+                        size={16}
+                        className="text-gray-600 group-hover:text-[#8b5cf6] group-hover:translate-x-1 transition-all"
+                      />
+                    )}
                   </div>
                 </button>
               </AnimatedSection>
@@ -166,7 +186,7 @@ export default function SEOServicesContent() {
       </section>
 
       {/* ─── WHY SEO MATTERS ─── */}
-      <section className="py-20 lg:py-28 bg-white/[0.01] border-y border-white/4">
+      <section className="py-20 lg:py-28 bg-white/1 border-y border-white/4">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
@@ -245,7 +265,7 @@ export default function SEOServicesContent() {
               href={siteData.contactInfo.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-[#8b5cf6] to-[#6366f1] rounded-xl hover:shadow-xl hover:shadow-[#8b5cf6]/30 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-linear-to-r from-[#8b5cf6] to-[#6366f1] rounded-xl hover:shadow-xl hover:shadow-[#8b5cf6]/30 transition-all duration-300"
             >
               <MessageCircle size={16} />
               Talk to Us on WhatsApp
@@ -276,7 +296,9 @@ export default function SEOServicesContent() {
               <div
                 className="relative p-6 sm:p-8 border-b border-white/6"
                 style={{
-                  background: `linear-gradient(to right, ${selectedPackage.badgeColor}10, transparent)`,
+                  background: selectedPackage.unavailable
+                    ? "linear-gradient(to right, #6b728010, transparent)"
+                    : `linear-gradient(to right, ${selectedPackage.badgeColor}10, transparent)`,
                 }}
               >
                 <button
@@ -286,8 +308,20 @@ export default function SEOServicesContent() {
                   <X size={16} />
                 </button>
 
+                {/* Unavailable Banner */}
+                {selectedPackage.unavailable && (
+                  <div className="mb-4 p-3 rounded-xl bg-gray-500/10 border border-gray-500/20 flex items-center gap-2">
+                    <Lock size={14} className="text-gray-400" />
+                    <span className="text-xs font-semibold text-gray-300">
+                      This package is currently unavailable
+                    </span>
+                  </div>
+                )}
+
                 <div className="flex items-start gap-4">
-                  <div className="text-5xl">{selectedPackage.emoji}</div>
+                  <div className={`text-5xl ${selectedPackage.unavailable ? "grayscale" : ""}`}>
+                    {selectedPackage.emoji}
+                  </div>
                   <div className="flex-1">
                     <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                       {selectedPackage.title}
@@ -298,7 +332,11 @@ export default function SEOServicesContent() {
                     <div className="flex items-center gap-3">
                       <span
                         className="text-2xl font-bold"
-                        style={{ color: selectedPackage.badgeColor }}
+                        style={{
+                          color: selectedPackage.unavailable
+                            ? "#6b7280"
+                            : selectedPackage.badgeColor,
+                        }}
                       >
                         {selectedPackage.price}
                       </span>
@@ -333,7 +371,11 @@ export default function SEOServicesContent() {
                         <CheckCircle
                           size={14}
                           className="shrink-0 mt-0.5"
-                          style={{ color: selectedPackage.badgeColor }}
+                          style={{
+                            color: selectedPackage.unavailable
+                              ? "#6b7280"
+                              : selectedPackage.badgeColor,
+                          }}
                         />
                         <span className="text-xs text-gray-300">{item}</span>
                       </div>
@@ -368,7 +410,11 @@ export default function SEOServicesContent() {
                       <div key={feature} className="flex items-start gap-2">
                         <span
                           className="shrink-0 mt-1.5 w-1 h-1 rounded-full"
-                          style={{ backgroundColor: selectedPackage.badgeColor }}
+                          style={{
+                            backgroundColor: selectedPackage.unavailable
+                              ? "#6b7280"
+                              : selectedPackage.badgeColor,
+                          }}
                         />
                         <span className="text-xs text-gray-400">{feature}</span>
                       </div>
@@ -388,22 +434,32 @@ export default function SEOServicesContent() {
               </div>
 
               {/* Footer CTA */}
-              <div className="p-6 border-t border-white/6 bg-white/[0.02]">
-                <a
-                  href={`${siteData.contactInfo.whatsapp}?text=${encodeURIComponent(
-                    `Hi! I am interested in the ${selectedPackage.title} (${selectedPackage.price} ${selectedPackage.pricePeriod}). Please share more details.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 text-sm font-semibold text-white rounded-xl transition-all duration-300 hover:shadow-xl"
-                  style={{
-                    background: `linear-gradient(to right, ${selectedPackage.badgeColor}, ${selectedPackage.badgeColor}cc)`,
-                  }}
-                >
-                  <MessageCircle size={16} />
-                  Get This Package
-                  <ArrowRight size={16} />
-                </a>
+              <div className="p-6 border-t border-white/6 bg-white/2">
+                {selectedPackage.unavailable ? (
+                  <button
+                    disabled
+                    className="flex items-center justify-center gap-2 w-full px-6 py-3.5 text-sm font-semibold text-gray-400 rounded-xl bg-gray-700/30 border border-gray-600/30 cursor-not-allowed"
+                  >
+                    <Lock size={16} />
+                    Currently Unavailable
+                  </button>
+                ) : (
+                  <a
+                    href={`${siteData.contactInfo.whatsapp}?text=${encodeURIComponent(
+                      `Hi! I am interested in the ${selectedPackage.title} (${selectedPackage.price} ${selectedPackage.pricePeriod}). Please share more details.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full px-6 py-3.5 text-sm font-semibold text-white rounded-xl transition-all duration-300 hover:shadow-xl"
+                    style={{
+                      background: `linear-gradient(to right, ${selectedPackage.badgeColor}, ${selectedPackage.badgeColor}cc)`,
+                    }}
+                  >
+                    <MessageCircle size={16} />
+                    Get This Package
+                    <ArrowRight size={16} />
+                  </a>
+                )}
               </div>
             </motion.div>
           </motion.div>
