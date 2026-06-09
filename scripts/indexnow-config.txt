@@ -1,0 +1,7 @@
+# IndexNow Configuration
+# Generated on: 2026-06-09 10:58:06
+# Site: devnixstudios.tech
+
+IndexNowApiKey=78cb162354fad0e9
+SiteHost=devnixstudios.tech
+KeyFileUrl=https://devnixstudios.tech/78cb162354fad0e9.txt
